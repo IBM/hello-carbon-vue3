@@ -1,0 +1,10 @@
+$feature-flags: (
+  grid-columns-16: true,
+);
+@import "@carbon/themes/scss/themes";
+
+// Use the gray 90 theme
+$carbon--theme: $carbon--theme--g90;
+@include carbon--theme();
+
+@import "carbon-components/scss/globals/scss/styles";

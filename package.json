@@ -14,6 +14,8 @@
     "@carbon/themes": "^10.55.1",
     "@carbon/vue3": "file:../carbon-components-vue",
     "carbon-components": "^10.58.3",
+    "i18next-http-backend": "^2.1.1",
+    "i18next-vue": "^2.1.1",
     "lodash": "^4.17.21",
     "pinia": "^2.0.26",
     "sass": "^1.57.1",

@@ -1,24 +1,29 @@
 <template>
   <cv-header aria-label="Carbon header">
-    <cv-header-menu-button aria-label="Header menu" aria-controls="side-nav" />
-    <cv-skip-to-content href="#main-content"
-      >Skip to content</cv-skip-to-content
+    <cv-header-menu-button
+      :aria-label="t('header-menu')"
+      aria-controls="side-nav"
+    />
+    <cv-skip-to-content href="#main-content">{{
+      t("skip-content")
+    }}</cv-skip-to-content>
+    <cv-header-name href="/" prefix="Carbon"
+      >{{ t("hello") }} Vue3</cv-header-name
     >
-    <cv-header-name href="/" prefix="Carbon">Hello Vue3</cv-header-name>
     <template v-slot:header-global>
       <cv-header-global-action
-        aria-label="Choose language"
+        :aria-label="t('choose-language')"
+        :label="t('choose-language')"
         aria-controls="language-panel"
-        label="Language"
         tipPosition="bottom"
         tipAlignment="start"
       >
         <language-icon />
       </cv-header-global-action>
       <cv-header-global-action
-        aria-label="User avatar"
+        :aria-label="t('login')"
+        :label="t('login')"
         aria-controls="user-panel"
-        label="Log in"
         tipPosition="bottom"
         tipAlignment="center"
       >
@@ -26,9 +31,9 @@
         <login-icon v-else />
       </cv-header-global-action>
       <cv-header-global-action
-        aria-label="App switcher"
+        :aria-label="t('other-apps')"
+        :label="t('other-apps')"
         aria-controls="switcher-panel"
-        label="App switcher"
         tipPosition="bottom"
         tipAlignment="end"
       >
@@ -57,20 +62,20 @@
         <cv-side-nav-items>
           <cv-side-nav-link :to="{ name: 'home' }">
             <template v-slot:nav-icon><home-icon /></template>
-            Home
+            {{ t("home") }}
           </cv-side-nav-link>
           <cv-side-nav-menu-divider />
           <cv-side-nav-link :to="{ name: 'fish' }">
             <template v-slot:nav-icon><fish-icon /></template>
-            Fish
+            {{ t("fish") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'bugs' }">
             <template v-slot:nav-icon><bugs-icon /></template>
-            Bugs
+            {{ t("bugs") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'villagers' }">
             <template v-slot:nav-icon><villagers-icon /></template>
-            Villagers
+            {{ t("villagers") }}
           </cv-side-nav-link>
         </cv-side-nav-items>
       </cv-side-nav>
@@ -91,6 +96,8 @@ import {
 } from "@carbon/icons-vue";
 import { ref } from "vue";
 import { useLanguageStore } from "../stores/language";
+import { useTranslation } from "i18next-vue";
+const { t } = useTranslation();
 
 const loggedIn = ref(false);
 

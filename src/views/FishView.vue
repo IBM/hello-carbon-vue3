@@ -3,36 +3,60 @@
     <cv-row>
       <cv-column>
         <cv-data-table
-          @pagination="onPagination"
-          :pagination="pagination"
-          title="Fish"
-          helperText="Information about all the fish"
-          :zebra="true"
           v-model:rows-selected="selectedFish"
+          :pagination="i18nPagination"
+          :zebra="true"
+          :title="t('fish')"
+          :helperText="t('fish-info')"
+          :batchCancelLabel="t('cancel')"
+          :actionBarAriaLabel="t('actions')"
+          :collapseAllAriaLabel="t('collapse-all')"
+          :expandAllAriaLabel="t('expand-all')"
+          :selectAllAriaLabel="t('select-all')"
+          :searchLabel="t('search')"
+          :searchPlaceholder="t('search')"
+          :searchClearLabel="t('search-clear')"
+          @pagination="onPagination"
         >
+          <template v-slot:items-selected="{ scope }">
+            {{ t("selected-num", { count: scope.count }) }}
+          </template>
+          <template v-slot:of-n-pages="{ scope }">
+            {{ t("pages-num", { count: scope.pages }) }}
+          </template>
+          <template v-slot:range-text="{ scope }">
+            <!-- { "start": 1, "end": 7, "items": 80 } -->
+            {{ t("range-text", scope) }}
+          </template>
           <template v-slot:batch-actions>
-            <cv-button :icon="hideIcon" @click="onHideSelected">Hide</cv-button>
+            <cv-button :icon="hideIcon" @click="onHideSelected">{{
+              t("hide")
+            }}</cv-button>
           </template>
           <template v-slot:actions v-if="fishStore.someHidden">
             <cv-data-table-action
-              aria-label="show all"
-              alt="show all"
+              :aria-label="t('show')"
+              :alt="t('show')"
               @click="toggleShowAll"
             >
               <hide-icon v-if="showHidden" class="bx--toolbar-action__icon">
-                <title>Do not show hidden rows</title>
+                <title>{{ t("hide") }}</title>
               </hide-icon>
               <show-all-icon v-else class="bx--toolbar-action__icon">
-                <title>Show hidden rows</title>
+                <title>{{ t("show") }}</title>
               </show-all-icon>
             </cv-data-table-action>
           </template>
           <template v-slot:headings>
-            <cv-data-table-heading heading="Name" name="name" sortable />
-            <cv-data-table-heading heading="Price" name="price" sortable />
+            <cv-data-table-heading :heading="t('name')" name="name" sortable />
+            <cv-data-table-heading
+              :heading="t('price')"
+              name="price"
+              sortable
+            />
             <cv-data-table-heading heading="CJ" />
-            <cv-data-table-heading heading="Location" />
-            <cv-data-table-heading heading="Rarity" />
+            <cv-data-table-heading :heading="t('location')" />
+            <cv-data-table-heading :heading="t('rarity')" />
           </template>
           <template v-slot:data>
             <fish-row v-for="row in paginated" :fish="row" :key="row.key" />
@@ -51,11 +75,22 @@ import {
   View20 as ShowAllIcon,
   ViewOff20 as HideIcon,
 } from "@carbon/icons-vue";
+import { useTranslation } from "i18next-vue";
 
+const { t } = useTranslation();
 const hideIcon = HideIcon;
 const fishStore = useFishStore();
 const loading = ref(false);
 const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] });
+const i18nPagination = computed(() => {
+  return {
+    ...pagination.value,
+    pageSizesLabel: t("items"),
+    backwardText: t("previous-page"),
+    forwardText: t("next-page"),
+    pageNumberLabel: t("page-number"),
+  };
+});
 onMounted(async () => {
   loading.value = true;
   try {

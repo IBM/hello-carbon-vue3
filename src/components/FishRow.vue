@@ -1,5 +1,8 @@
 <template>
-  <cv-data-table-row :value="fish.key">
+  <cv-data-table-row
+    :value="fish.key"
+    :aria-label-for-batch-checkbox="t('select-row', { name: fishName })"
+  >
     <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>
     <cv-data-table-cell>{{ fishPrice }}</cv-data-table-cell>
     <cv-data-table-cell>{{ cjFishPrice }}</cv-data-table-cell>
@@ -29,6 +32,8 @@ import {
   StarFilled16 as RareIcon,
   CircleFilled16 as LocationIcon,
 } from "@carbon/icons-vue";
+import { useTranslation } from "i18next-vue";
+const { t } = useTranslation();
 
 const props = defineProps({
   fish: {

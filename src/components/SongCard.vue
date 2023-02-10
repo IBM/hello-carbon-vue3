@@ -1,38 +1,47 @@
 <template>
   <div>
-    <div class="songs__name">{{ songName(song) }}</div>
+    <div class="songs__name">{{ songName }}</div>
     <div style="width: 100%">
       <cv-aspect-ratio>
-        <img
-          :src="song.image_uri"
-          :alt="songName(song)"
-          class="songs__cover-art"
-        />
+        <img :src="song.image_uri" :alt="songName" class="songs__cover-art" />
       </cv-aspect-ratio>
     </div>
     <div class="songs__price">
-      <shopping-cart-plus32 />
-      <div>{{ currency(song["buy-price"]) }}</div>
-      <money32 />
-      <div>{{ currency(song["sell-price"]) }}</div>
+      <div>
+        <div>{{ buyPrice }}</div>
+        <buy-icon />
+      </div>
+      <div>
+        <div>{{ sellPrice }}</div>
+        <sell-icon />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { useLanguageStore } from "../stores/language";
-import { Money32, ShoppingCartPlus32 } from "@carbon/icons-vue";
+import {
+  Money20 as SellIcon,
+  ShoppingCartPlus20 as BuyIcon,
+} from "@carbon/icons-vue";
+import { computed } from "vue";
 
-defineProps({
+const props = defineProps({
   song: { type: Object, required: true },
 });
 const langStore = useLanguageStore();
-function songName(song) {
+const songName = computed(() => {
   const key = "name-" + langStore.languageObject.api;
-  let name = song?.name[key];
+  let name = props.song?.name[key];
   return name || "unknown";
-}
-const currency = (number) => langStore.currencyFormat.format(number);
+});
+const buyPrice = computed(() => {
+  return langStore.currencyFormat.format(props.song["buy-price"]);
+});
+const sellPrice = computed(() => {
+  return langStore.currencyFormat.format(props.song["sell-price"]);
+});
 </script>
 
 <style scoped lang="scss">
@@ -46,6 +55,10 @@ const currency = (number) => langStore.currencyFormat.format(number);
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    div {
+      display: flex;
+      margin-right: 0.5rem;
+    }
   }
   &__cover-art {
     width: 100%;

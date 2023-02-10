@@ -38,7 +38,7 @@ const FISH_URL = BASE_URL + "/v1/fish";
  * @property {string} shadow
  */
 
-export const useFishStore = defineStore("songs", () => {
+export const useFishStore = defineStore("fish", () => {
   /**
    * @type {Ref<UnwrapRef<Array<FishData>>>}
    */

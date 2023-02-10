@@ -1,7 +1,10 @@
 import { ref, computed, watch } from "vue";
 import { defineStore } from "pinia";
+import { useTranslation } from "i18next-vue";
 
 export const useLanguageStore = defineStore("language", () => {
+  const { i18next } = useTranslation();
+
   const localLang = localStorage.getItem("language") || "en";
   const language = ref(localLang);
   const languages = ref([
@@ -22,9 +25,10 @@ export const useLanguageStore = defineStore("language", () => {
    * Set a new user language
    * @param {string} lang
    */
-  function setLanguage(lang) {
+  async function setLanguage(lang) {
     language.value = lang;
     localStorage.setItem("language", language.value);
+    await i18next.changeLanguage(lang);
   }
 
   const languageObject = computed(() => {

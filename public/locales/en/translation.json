@@ -8,6 +8,10 @@
   "price": "Price",
   "location": "Location",
   "rarity": "Rarity",
+  "Common": "Common",
+  "Uncommon": "Uncommon",
+  "Rare": "Rare",
+  "Ultra-rare": "Ultra-rare",
   "select-row": "Select {{name}}",
   "selected-num": "{{count}} selected",
   "pages-num": "{{count}} pages",
@@ -30,5 +34,6 @@
   "hello": "Hello",
   "choose-language": "Choose language",
   "login": "Log in",
-  "other-apps": "Other apps"
+  "other-apps": "Other apps",
+  "flip": "Flip"
 }

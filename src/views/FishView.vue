@@ -2,7 +2,15 @@
   <cv-grid>
     <cv-row>
       <cv-column>
+        <cv-data-table-skeleton
+          v-if="loading"
+          :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
+          :rows="7"
+          :title="t('fish')"
+          :helperText="t('fish-info')"
+        ></cv-data-table-skeleton>
         <cv-data-table
+          v-else
           v-model:rows-selected="selectedFish"
           :pagination="i18nPagination"
           :zebra="true"
@@ -17,6 +25,7 @@
           :searchPlaceholder="t('search')"
           :searchClearLabel="t('search-clear')"
           @pagination="onPagination"
+          @search="onSearch"
         >
           <template v-slot:items-selected="{ scope }">
             {{ t("selected-num", { count: scope.count }) }}
@@ -70,7 +79,7 @@
 <script setup>
 import { useFishStore } from "../stores/fish";
 import FishRow from "../components/FishRow.vue";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref } from "vue";
 import {
   View20 as ShowAllIcon,
   ViewOff20 as HideIcon,
@@ -91,20 +100,34 @@ const i18nPagination = computed(() => {
     pageNumberLabel: t("page-number"),
   };
 });
-onMounted(async () => {
+onMounted(() => {
   loading.value = true;
   try {
-    await fishStore.loadFish();
+    fishStore.loadFish().finally(() => {
+      pagination.value.numberOfItems = fishStore.fish.length;
+      loading.value = false;
+    });
   } catch (e) {
     console.error("error loading fish from API");
   }
-  pagination.value.numberOfItems = fishStore.fish.length;
-  loading.value = false;
 });
-
+const searchFilter = ref("");
+/**
+ * Set search filter
+ * @param {string} val
+ */
+function onSearch(val) {
+  searchFilter.value = val?.trim();
+}
 const showHidden = ref(false);
 const filteredFish = computed(() => {
-  return fishStore.fish.filter((fish) => showHidden.value || !fish.hidden);
+  let show = showHidden.value
+    ? fishStore.fish
+    : fishStore.fish.filter((fish) => !fish.hidden);
+  if (searchFilter.value) {
+    show = show.filter((fish) => fish.key.includes(searchFilter.value));
+  }
+  return show;
 });
 function toggleShowAll() {
   showHidden.value = !showHidden.value;
@@ -121,10 +144,6 @@ const paginated = computed(() => {
 function onPagination(change) {
   currentPagination.value = change;
 }
-watch(filteredFish, () => {
-  console.log("changed filteredFish");
-});
-
 const selectedFish = ref([]);
 function onHideSelected() {
   console.log("hide selected");

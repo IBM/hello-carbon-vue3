@@ -8,6 +8,10 @@
   "price" : "Preis ",
   "location" : "Position ",
   "rarity" : "Seltenheit ",
+  "Common": "Gemeinsam",
+  "Uncommon": "Ungewöhnlich",
+  "Rare": "Selten",
+  "Ultra-rare": "Selten von selten",
   "select-row" : "{{name}} auswählen ",
   "selected-num" : "{{count}} ausgewählt ",
   "pages-num" : "{{count}} Seiten ",
@@ -30,5 +34,6 @@
   "hello" : "Hallo ",
   "choose-language" : "Sprache auswählen ",
   "login" : "Anmelden ",
-  "other-apps" : "Weitere Apps"
+  "other-apps" : "Weitere Apps",
+  "flip": "Umdrehen"
 }

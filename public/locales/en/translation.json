@@ -35,5 +35,12 @@
   "choose-language": "Choose language",
   "login": "Log in",
   "other-apps": "Other apps",
-  "flip": "Flip"
+  "flip": "Flip",
+  "hobby": "Hobby",
+  "Education": "Education",
+  "Fashion": "Fashion",
+  "Fitness": "Fitness",
+  "Music": "Music",
+  "Nature": "Nature",
+  "Play": "Play"
 }

@@ -35,5 +35,12 @@
   "choose-language" : "Sprache auswählen ",
   "login" : "Anmelden ",
   "other-apps" : "Weitere Apps",
-  "flip": "Umdrehen"
+  "flip": "Umdrehen",
+  "hobby": "Hobby",
+  "Education": "Ausbildung",
+  "Fashion": "Mode",
+  "Fitness": "Fitness",
+  "Music": "Musik",
+  "Nature": "Natur",
+  "Play": "Spielen"
 }

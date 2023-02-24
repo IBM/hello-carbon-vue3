@@ -50,7 +50,7 @@ export const useBugsStore = defineStore("bugs", () => {
       const bugsData = [];
       for (let i = 0; i < bugsKeys.length; i++) {
         const key = bugsKeys[i];
-        bugsData.push({ key, hidden: false, ...data.body[key] });
+        bugsData.push({ key, ...data.body[key] });
       }
       bugs.value = shuffle(bugsData);
     }

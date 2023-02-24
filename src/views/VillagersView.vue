@@ -7,7 +7,7 @@
     </cv-row>
     <cv-row>
       <cv-column>
-        <cv-content-switcher @selected="onSelected">
+        <cv-content-switcher ref="contentSwitcher" @selected="onSelected">
           <cv-content-switcher-button
             v-for="group in villagerHobbies"
             :key="`switcher-${group.hobby}`"
@@ -16,12 +16,17 @@
             :selected="`switcher-${group.hobby}` === selected"
             >{{ t(group.hobby) }}
             <icon-bouncing
-              class="special-icon special-icon--play"
               v-if="showBouncing(group.hobby)"
+              class="special-icon special-icon--play"
             />
             <icon-growing
-              class="special-icon special-icon--grow"
               v-if="showGrowing(group.hobby)"
+              class="special-icon special-icon--grow"
+            />
+            <icon-running
+              v-if="showRunning(group.hobby)"
+              :run-width="runWidth"
+              class="special-icon special-icon--run"
             />
           </cv-content-switcher-button>
         </cv-content-switcher>
@@ -41,7 +46,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { watch, onMounted, ref, onUpdated } from "vue";
 import { groupBy } from "lodash";
 import { useTranslation } from "i18next-vue";
 import {
@@ -56,6 +61,7 @@ import { useVillagersStore } from "@/stores/villagers";
 import VillagerHobby from "@/components/VillagerHobby.vue";
 import IconBouncing from "@/components/icons/IconBouncing.vue";
 import IconGrowing from "@/components/icons/IconGrowing.vue";
+import IconRunning from "@/components/icons/IconRunning.vue";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -134,6 +140,23 @@ function showBouncing(hobby) {
 function showGrowing(hobby) {
   return hobby === "Nature" && selected.value === "switcher-Nature";
 }
+function showRunning(hobby) {
+  return hobby === "Fitness" && selected.value === "switcher-Fitness";
+}
+const contentSwitcher = ref(null);
+const runWidth = ref(200);
+function calcRunWidth() {
+  const btn = contentSwitcher.value?.$el?.querySelector(
+    ".cv-content-switcher-button"
+  );
+  if (btn) {
+    const cssObj = window.getComputedStyle(btn, null);
+    const left = parseInt(cssObj?.getPropertyValue("padding-left"), 10) || 0;
+    const right = parseInt(cssObj?.getPropertyValue("padding-right"), 10) || 0;
+    runWidth.value = btn.clientWidth - left - right - 16;
+  } else setTimeout(calcRunWidth, 250); // try agan later
+}
+onMounted(() => calcRunWidth());
 </script>
 
 <style scoped lang="scss">
@@ -151,6 +174,10 @@ function showGrowing(hobby) {
   &--grow {
     left: 16px;
     bottom: 0px;
+  }
+  &--run {
+    left: 16px;
+    bottom: 9px;
   }
 }
 </style>

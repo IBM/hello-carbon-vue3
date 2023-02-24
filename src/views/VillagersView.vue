@@ -15,9 +15,13 @@
             :icon="hobbyIcon(group.hobby)"
             :selected="`switcher-${group.hobby}` === selected"
             >{{ t(group.hobby) }}
-            <bouncing-icon
+            <icon-bouncing
               class="special-icon special-icon--play"
               v-if="showBouncing(group.hobby)"
+            />
+            <icon-growing
+              class="special-icon special-icon--grow"
+              v-if="showGrowing(group.hobby)"
             />
           </cv-content-switcher-button>
         </cv-content-switcher>
@@ -50,7 +54,8 @@ import {
 } from "@carbon/icons-vue";
 import { useVillagersStore } from "@/stores/villagers";
 import VillagerHobby from "@/components/VillagerHobby.vue";
-import BouncingIcon from "@/components/BouncingIcon.vue";
+import IconBouncing from "@/components/icons/IconBouncing.vue";
+import IconGrowing from "@/components/icons/IconGrowing.vue";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -126,6 +131,9 @@ function onSelected(val) {
 function showBouncing(hobby) {
   return hobby === "Play" && selected.value === "switcher-Play";
 }
+function showGrowing(hobby) {
+  return hobby === "Nature" && selected.value === "switcher-Nature";
+}
 </script>
 
 <style scoped lang="scss">
@@ -139,6 +147,10 @@ function showBouncing(hobby) {
   &--play {
     left: 16px;
     bottom: -2px;
+  }
+  &--grow {
+    left: 16px;
+    bottom: 0px;
   }
 }
 </style>

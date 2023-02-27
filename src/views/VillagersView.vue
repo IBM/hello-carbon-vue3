@@ -28,6 +28,11 @@
               :run-width="runWidth"
               class="special-icon special-icon--run"
             />
+            <icon-flashing
+              v-if="showFlashing(group.hobby)"
+              :run-width="runWidth"
+              class="special-icon special-icon--flash"
+            />
           </cv-content-switcher-button>
         </cv-content-switcher>
 
@@ -46,7 +51,7 @@
 </template>
 
 <script setup>
-import { watch, onMounted, ref, onUpdated } from "vue";
+import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
 import { useTranslation } from "i18next-vue";
 import {
@@ -62,6 +67,7 @@ import VillagerHobby from "@/components/VillagerHobby.vue";
 import IconBouncing from "@/components/icons/IconBouncing.vue";
 import IconGrowing from "@/components/icons/IconGrowing.vue";
 import IconRunning from "@/components/icons/IconRunning.vue";
+import IconFlashing from "@/components/icons/IconFlashing.vue";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -143,6 +149,9 @@ function showGrowing(hobby) {
 function showRunning(hobby) {
   return hobby === "Fitness" && selected.value === "switcher-Fitness";
 }
+function showFlashing(hobby) {
+  return hobby === "Fashion" && selected.value === "switcher-Fashion";
+}
 const contentSwitcher = ref(null);
 const runWidth = ref(200);
 function calcRunWidth() {
@@ -173,9 +182,13 @@ onMounted(() => calcRunWidth());
   }
   &--grow {
     left: 16px;
-    bottom: 0px;
+    bottom: 0;
   }
   &--run {
+    left: 16px;
+    bottom: 9px;
+  }
+  &--flash {
     left: 16px;
     bottom: 9px;
   }

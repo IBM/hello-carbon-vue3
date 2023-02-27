@@ -11,7 +11,7 @@
 <script setup>
 import { Basketball20 as Basketball } from "@carbon/icons-vue";
 defineProps({
-  iconColor: { type: String, default: "#b54213" },
+  iconColor: { type: String, default: "#ba4e00" }, // orange 60
 });
 </script>
 

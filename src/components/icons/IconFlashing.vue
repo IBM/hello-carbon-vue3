@@ -14,7 +14,7 @@ defineProps({
 });
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../styles/_theme.scss";
 @keyframes flashing {
   from {

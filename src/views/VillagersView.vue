@@ -35,8 +35,11 @@
             />
             <icon-music
               v-if="showMusic(group.hobby)"
-              :run-width="runWidth"
               class="special-icon special-icon--music"
+            />
+            <icon-reading
+              v-if="showReading(group.hobby)"
+              class="special-icon special-icon--reading"
             />
           </cv-content-switcher-button>
         </cv-content-switcher>
@@ -74,6 +77,7 @@ import IconGrowing from "@/components/icons/IconGrowing.vue";
 import IconRunning from "@/components/icons/IconRunning.vue";
 import IconFlashing from "@/components/icons/IconFlashing.vue";
 import IconMusic from "@/components/icons/IconMusic.vue";
+import IconReading from "@/components/icons/IconReading.vue";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -161,6 +165,9 @@ function showFlashing(hobby) {
 function showMusic(hobby) {
   return hobby === "Music" && selected.value === "switcher-Music";
 }
+function showReading(hobby) {
+  return hobby === "Education" && selected.value === "switcher-Education";
+}
 const contentSwitcher = ref(null);
 const runWidth = ref(200);
 function calcRunWidth() {
@@ -198,6 +205,7 @@ onMounted(() => calcRunWidth());
     left: 16px;
     bottom: 9px;
   }
+  &--reading,
   &--music {
     left: 0;
     top: 0;

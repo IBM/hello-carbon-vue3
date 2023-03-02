@@ -3,7 +3,12 @@
     <div class="bug-card-inner" :class="{ 'bug-card-flip': flip }">
       <div class="bug-card-front">
         <div>
-          <img :src="bug.icon_uri" :alt="bug.key" />
+          <blur-image
+            :src="bug.icon_uri"
+            :alt="bug.key"
+            :src-placeholder="placeholderImage"
+            bug-card__image
+          />
         </div>
         <div>
           <cv-tag :label="t(bug.availability.rarity)" :kind="rarity" />
@@ -41,6 +46,8 @@ import { Redo32 as FlipIcon } from "@carbon/icons-vue";
 import { computed, ref } from "vue";
 import { useLanguageStore } from "@/stores/language";
 import { useTranslation } from "i18next-vue";
+import BlurImage from "@/components/BlurImage.vue";
+import placeholderImage from "@/assets/bug-placeholder.jpg";
 
 const props = defineProps({
   bug: {
@@ -83,7 +90,10 @@ const rarity = computed(() => {
   border: 1px solid $purple-60;
   padding: 0.5rem;
   perspective: 1000px;
-
+  &__image {
+    width: 100%;
+    max-width: 128px;
+  }
   &-inner {
     position: relative;
     width: 100%;

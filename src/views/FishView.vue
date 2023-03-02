@@ -58,6 +58,7 @@
           </template>
           <template v-slot:headings>
             <cv-data-table-heading :heading="t('name')" name="name" sortable />
+            <cv-data-table-heading heading="" />
             <cv-data-table-heading
               :heading="t('price')"
               name="price"

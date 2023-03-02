@@ -4,6 +4,14 @@
     :aria-label-for-batch-checkbox="t('select-row', { name: fishName })"
   >
     <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>
+    <cv-data-table-cell>
+      <blur-image
+        class="fish__icon"
+        :src="fish['icon_uri']"
+        :src-placeholder="placeholderImage"
+        :alt="fishName"
+      />
+    </cv-data-table-cell>
     <cv-data-table-cell>{{ fishPrice }}</cv-data-table-cell>
     <cv-data-table-cell>{{ cjFishPrice }}</cv-data-table-cell>
     <cv-data-table-cell
@@ -32,6 +40,7 @@ import {
   StarFilled16 as RareIcon,
   CircleFilled16 as LocationIcon,
 } from "@carbon/icons-vue";
+import placeholderImage from "../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
 const { t } = useTranslation();
 
@@ -75,6 +84,10 @@ const location = computed(() => {
 <style scoped lang="scss">
 @import "../styles/theme";
 .fish {
+  &__icon {
+    height: 32px;
+    width: 32px;
+  }
   &__location-pond {
     color: $blue-40;
   }

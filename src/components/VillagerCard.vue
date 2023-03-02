@@ -10,7 +10,11 @@
       />
     </div>
     <div class="villager__image">
-      <img :src="villager.icon_uri" :alt="name" />
+      <blur-image
+        :src="villager.icon_uri"
+        :alt="name"
+        :src-placeholder="placeholderImage"
+      />
     </div>
     <div class="villager__saying">
       <chat-bubble
@@ -26,6 +30,8 @@
 import { useLanguageStore } from "@/stores/language";
 import { computed } from "vue";
 import ChatBubble from "@/components/ChatBubble.vue";
+import BlurImage from "@/components/BlurImage.vue";
+import placeholderImage from "@/assets/bug-placeholder.jpg";
 
 const props = defineProps({
   villager: {

@@ -3,7 +3,12 @@
     <div class="songs__name">{{ songName }}</div>
     <div style="width: 100%">
       <cv-aspect-ratio>
-        <img :src="song.image_uri" :alt="songName" class="songs__cover-art" />
+        <blur-image
+          :src="song['image_uri']"
+          :src-placeholder="placeholderImage"
+          :alt="songName"
+          class="songs__cover-art"
+        />
       </cv-aspect-ratio>
     </div>
     <div class="songs__price">
@@ -25,7 +30,9 @@ import {
   Money20 as SellIcon,
   ShoppingCartPlus20 as BuyIcon,
 } from "@carbon/icons-vue";
+import placeholderImage from "@/assets/song-placeholder.jpg";
 import { computed } from "vue";
+import BlurImage from "@/components/BlurImage.vue";
 
 const props = defineProps({
   song: { type: Object, required: true },

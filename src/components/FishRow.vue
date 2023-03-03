@@ -40,6 +40,7 @@ import {
   StarFilled16 as RareIcon,
   CircleFilled16 as LocationIcon,
 } from "@carbon/icons-vue";
+import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
 const { t } = useTranslation();

@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.49.1",
@@ -25,15 +26,28 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@rushstack/eslint-patch": "^1.1.4",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/test-utils": "^2.2.4",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
+    "husky": "^8.0.3",
+    "imagemin-lint-staged": "^0.5.1",
     "jsdom": "^20.0.3",
+    "lint-staged": "^13.1.2",
     "prettier": "^2.7.1",
     "vite": "^3.2.4",
     "vitest": "^0.25.3"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint",
+      "prettier --write"
+    ],
+    "*.{md,html}": "prettier --write",
+    "*.{png,jpg}": "imagemin-lint-staged"
   }
 }

@@ -31,6 +31,7 @@ onMounted(() => {
   loading.value = false;
 });
 const filteredSongs = computed(() => {
-  return songStore.songs?.slice(0, 8);
+  // for now, there is no filtering
+  return songStore.songs;
 });
 </script>

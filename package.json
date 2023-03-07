@@ -12,7 +12,7 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.49.1",
     "@carbon/themes": "^10.55.1",
-    "@carbon/vue3": "^0.6.0",
+    "@carbon/vue3": "file:carbon-vue3-0.6.0.tgz",
     "carbon-components": "^10.58.3",
     "i18next-http-backend": "^2.1.1",
     "i18next-vue": "^2.1.1",

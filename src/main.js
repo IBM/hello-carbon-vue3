@@ -7,12 +7,13 @@ import I18NextVue from "i18next-vue";
 import App from "./App.vue";
 import router from "./router";
 
+console.log("base", `${import.meta.env.BASE_URL}`);
 const localLang = localStorage.getItem("language") || "en";
 const i18nInitialized = i18next.use(httpBackend).init({
   lng: localLang,
   fallbackLng: "en",
   backend: {
-    loadPath: "/locales/{{lng}}/{{ns}}.json",
+    loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
   },
 });
 i18nInitialized.then(() => {

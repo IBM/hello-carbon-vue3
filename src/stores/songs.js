@@ -3,7 +3,7 @@ import superagent from "superagent";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
-const BASE_URL = "http://acnhapi.com";
+const BASE_URL = "//acnhapi.com";
 const SONGS_URL = BASE_URL + "/v1/songs";
 /**
  * Name object data

@@ -1,9 +1,8 @@
 import { defineStore } from "pinia";
 import superagent from "superagent";
 import { ref } from "vue";
-import { shuffle } from "lodash";
 
-const BASE_URL = "http://acnhapi.com";
+const BASE_URL = "//acnhapi.com";
 const VILLAGERS_URL = BASE_URL + "/v1/villagers";
 /**
  * Bug data

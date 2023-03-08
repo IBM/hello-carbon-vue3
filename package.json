@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/hello-carbon-vue3/",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
@@ -43,11 +43,11 @@
     "vitest": "^0.25.3"
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "!(dist/**/*)*.{js,vue}": [
       "eslint",
       "prettier --write"
     ],
-    "*.{md,html}": "prettier --write",
-    "*.{png,jpg}": "imagemin-lint-staged"
+    "!(dist/**/*)*.{md,html}": "prettier --write",
+    "!(dist/**/*)*.{png,jpg}": "imagemin-lint-staged"
   }
 }

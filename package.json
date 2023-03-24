@@ -11,10 +11,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@carbon/icons-vue": "^10.49.1",
+    "@carbon/icons-vue": "^10.66.0",
     "@carbon/themes": "^10.55.1",
     "@carbon/vue3": "file:carbon-vue3-0.6.0.tgz",
-    "carbon-components": "^10.58.3",
+    "carbon-components": "^10.58.6",
     "i18next-http-backend": "^2.1.1",
     "i18next-vue": "^2.1.1",
     "lodash": "^4.17.21",

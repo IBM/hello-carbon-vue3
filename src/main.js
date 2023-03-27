@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import CarbonVue3 from "@carbon/vue3";
+import CarbonVue3 from "@carbon/vue";
 import i18next from "i18next";
 import httpBackend from "i18next-http-backend";
 import I18NextVue from "i18next-vue";

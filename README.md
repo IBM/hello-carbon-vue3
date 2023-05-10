@@ -1,6 +1,6 @@
 # Hello carbon vue3
 
-This repo should help you get started with using Carbon with Vue3. The idea is that this app uses the best practices for starting a new app with Ve3.
+This repo should help you get started with using Carbon with Vue3. The idea is that this app uses the best practices for starting a new app with Vue3 & Carbon.
 
 ## Packages used
 

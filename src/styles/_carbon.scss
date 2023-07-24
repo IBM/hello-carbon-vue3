@@ -8,3 +8,8 @@ $carbon--theme: $carbon--theme--g90;
 @include carbon--theme();
 
 @import "carbon-components/scss/globals/scss/styles";
+
+#app > .cv-grid {
+  margin-left: 3rem;
+  margin-top: 4rem;
+}

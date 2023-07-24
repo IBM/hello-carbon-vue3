@@ -15,7 +15,9 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 - [commit-lint](https://commitlint.js.org/#/) - Helps your team adhere to a commit convention
 
 ## Pages & Components
+
 [This repo demo site](https://ibm.github.io/hello-carbon-vue3/)
+
 - Header with Side nav ![header](docs/header-bar.jpg)
   - Side nav with divider
   - Language selection in the header bar, login and switcher buttons are also included
@@ -61,29 +63,31 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 ## Project Setup
 
 ```sh
-npm install
+nvm use 18
+npm add -g pnpm
+pnpm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+pnpm run test:unit
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+pnpm run lint
 ```

@@ -91,3 +91,9 @@ pnpm run test:unit
 ```sh
 pnpm run lint
 ```
+
+## Update dependencies
+
+```shell
+pnpm update --interactive
+```

@@ -2,8 +2,9 @@ import { defineStore } from "pinia";
 import superagent from "superagent";
 import { ref } from "vue";
 
-const BASE_URL = "//acnhapi.com";
-const VILLAGERS_URL = BASE_URL + "/v1/villagers";
+const BASE_URL =
+  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const VILLAGERS_URL = BASE_URL + "/villagers";
 /**
  * Bug data
  * @typedef {Object} VillagerData

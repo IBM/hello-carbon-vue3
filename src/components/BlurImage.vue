@@ -8,9 +8,9 @@
 <script setup>
 import VLazyImage from "v-lazy-image";
 defineProps({
-  src: String,
-  alt: String,
-  srcPlaceholder: String,
+  src: { type: String, required: true },
+  alt: { type: String, default: "" },
+  srcPlaceholder: { type: String, required: true },
 });
 </script>
 <style scoped>

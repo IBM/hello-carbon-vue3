@@ -7,7 +7,7 @@
           :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
           :rows="7"
           :title="t('fish')"
-          :helperText="t('fish-info')"
+          :helper-text="t('fish-info')"
         ></cv-data-table-skeleton>
         <cv-data-table
           v-else
@@ -15,34 +15,34 @@
           :pagination="i18nPagination"
           :zebra="true"
           :title="t('fish')"
-          :helperText="t('fish-info')"
-          :batchCancelLabel="t('cancel')"
-          :actionBarAriaLabel="t('actions')"
-          :collapseAllAriaLabel="t('collapse-all')"
-          :expandAllAriaLabel="t('expand-all')"
-          :selectAllAriaLabel="t('select-all')"
-          :searchLabel="t('search')"
-          :searchPlaceholder="t('search')"
-          :searchClearLabel="t('search-clear')"
+          :helper-text="t('fish-info')"
+          :batch-cancel-label="t('cancel')"
+          :action-bar-aria-label="t('actions')"
+          :collapse-all-aria-label="t('collapse-all')"
+          :expand-all-aria-label="t('expand-all')"
+          :select-all-aria-label="t('select-all')"
+          :search-label="t('search')"
+          :search-placeholder="t('search')"
+          :search-clear-label="t('search-clear')"
           @pagination="onPagination"
           @search="onSearch"
         >
-          <template v-slot:items-selected="{ scope }">
+          <template #items-selected="{ scope }">
             {{ t("selected-num", { count: scope.count }) }}
           </template>
-          <template v-slot:of-n-pages="{ scope }">
+          <template #of-n-pages="{ scope }">
             {{ t("pages-num", { count: scope.pages }) }}
           </template>
-          <template v-slot:range-text="{ scope }">
+          <template #range-text="{ scope }">
             <!-- { "start": 1, "end": 7, "items": 80 } -->
             {{ t("range-text", scope) }}
           </template>
-          <template v-slot:batch-actions>
+          <template #batch-actions>
             <cv-button :icon="hideIcon" @click="onHideSelected">{{
               t("hide")
             }}</cv-button>
           </template>
-          <template v-slot:actions v-if="fishStore.someHidden">
+          <template v-if="fishStore.someHidden" #actions>
             <cv-data-table-action
               :aria-label="t('show')"
               :alt="t('show')"
@@ -56,7 +56,7 @@
               </show-all-icon>
             </cv-data-table-action>
           </template>
-          <template v-slot:headings>
+          <template #headings>
             <cv-data-table-heading :heading="t('name')" name="name" sortable />
             <cv-data-table-heading heading="" />
             <cv-data-table-heading
@@ -68,8 +68,8 @@
             <cv-data-table-heading :heading="t('location')" />
             <cv-data-table-heading :heading="t('rarity')" />
           </template>
-          <template v-slot:data>
-            <fish-row v-for="row in paginated" :fish="row" :key="row.key" />
+          <template #data>
+            <fish-row v-for="row in paginated" :key="row.key" :fish="row" />
           </template>
         </cv-data-table>
       </cv-column>

@@ -1,3 +1,5 @@
+// Do not use this file directly. Create css with:
+// npx sass --load-path=node_modules src/styles/_carbon.scss src/styles/carbon-g90.css
 $feature-flags: (
   grid-columns-16: true,
 );

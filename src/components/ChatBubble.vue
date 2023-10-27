@@ -20,8 +20,8 @@
 defineProps({
   kind: { type: String, default: "bottom-left" },
   text: { type: String, required: true },
-  bubbleColor: { type: String },
-  textColor: { type: String },
+  bubbleColor: { type: String, default: "#8a3ffc" },
+  textColor: { type: String, default: "#d02670" },
 });
 </script>
 

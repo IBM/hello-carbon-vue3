@@ -10,13 +10,13 @@
     <cv-header-name href="/" prefix="Carbon"
       >{{ t("hello") }} Vue3</cv-header-name
     >
-    <template v-slot:header-global>
+    <template #header-global>
       <cv-header-global-action
         :aria-label="t('choose-language')"
         :label="t('choose-language')"
         aria-controls="language-panel"
-        tipPosition="bottom"
-        tipAlignment="start"
+        tip-position="bottom"
+        tip-alignment="start"
       >
         <language-icon />
       </cv-header-global-action>
@@ -24,8 +24,8 @@
         :aria-label="t('login')"
         :label="t('login')"
         aria-controls="user-panel"
-        tipPosition="bottom"
-        tipAlignment="center"
+        tip-position="bottom"
+        tip-alignment="center"
       >
         <avatar-icon v-if="loggedIn" />
         <login-icon v-else />
@@ -34,13 +34,13 @@
         :aria-label="t('other-apps')"
         :label="t('other-apps')"
         aria-controls="switcher-panel"
-        tipPosition="bottom"
-        tipAlignment="end"
+        tip-position="bottom"
+        tip-alignment="end"
       >
         <switcher-icon />
       </cv-header-global-action>
     </template>
-    <template v-slot:right-panels>
+    <template #right-panels>
       <cv-header-panel id="language-panel" v-model:expanded="languageExpanded">
         <cv-switcher>
           <cv-switcher-item
@@ -48,8 +48,8 @@
             :key="entry.title"
           >
             <cv-switcher-item-link
-              @click="changeLocale(entry.language)"
               :selected="entry.language === langStore.language"
+              @click="changeLocale(entry.language)"
             >
               {{ entry.title }}
             </cv-switcher-item-link>
@@ -57,24 +57,24 @@
         </cv-switcher>
       </cv-header-panel>
     </template>
-    <template v-slot:left-panels>
+    <template #left-panels>
       <cv-side-nav id="side-nav" :rail="true" :fixed="false" :expanded="false">
         <cv-side-nav-items>
           <cv-side-nav-link :to="{ name: 'home' }">
-            <template v-slot:nav-icon><home-icon /></template>
+            <template #nav-icon><home-icon /></template>
             {{ t("home") }}
           </cv-side-nav-link>
           <cv-side-nav-menu-divider />
           <cv-side-nav-link :to="{ name: 'fish' }">
-            <template v-slot:nav-icon><fish-icon /></template>
+            <template #nav-icon><fish-icon /></template>
             {{ t("fish") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'bugs' }">
-            <template v-slot:nav-icon><bugs-icon /></template>
+            <template #nav-icon><bugs-icon /></template>
             {{ t("bugs") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'villagers' }">
-            <template v-slot:nav-icon><villagers-icon /></template>
+            <template #nav-icon><villagers-icon /></template>
             {{ t("villagers") }}
           </cv-side-nav-link>
         </cv-side-nav-items>

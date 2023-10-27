@@ -14,13 +14,13 @@
             :key="`bug-group-${group.location}`"
             :open="index === 0"
           >
-            <template v-slot:title
+            <template #title
               >{{ group.location }} ({{ group.bugs.length }})
             </template>
-            <template v-slot:content>
+            <template #content>
               <cv-grid :full-width="true">
                 <cv-row>
-                  <cv-column :lg="4" v-for="bug in group.bugs" :key="bug.key">
+                  <cv-column v-for="bug in group.bugs" :key="bug.key" :lg="4">
                     <bug-card :bug="bug" />
                   </cv-column>
                 </cv-row>

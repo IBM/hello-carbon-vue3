@@ -5,9 +5,9 @@
       <cv-grid :full-width="true">
         <cv-row>
           <cv-column
-            :lg="4"
             v-for="villager in hobbyists.villagers"
             :key="villager.key"
+            :lg="4"
           >
             <villager-card :villager="villager" />
           </cv-column>

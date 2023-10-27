@@ -47,8 +47,8 @@
         <section>
           <cv-content-switcher-content
             v-for="group in villagerHobbies"
-            :owner-id="`switcher-${group.hobby}`"
             :key="`content-${group.hobby}`"
+            :owner-id="`switcher-${group.hobby}`"
           >
             <villager-hobby :hobbyists="group" />
           </cv-content-switcher-content>

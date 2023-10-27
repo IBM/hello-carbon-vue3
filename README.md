@@ -74,16 +74,10 @@ pnpm install
 pnpm run dev
 ```
 
-### Compile and Minify for Production
+### Build and test locally
 
 ```sh
-pnpm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-pnpm run test:unit
+pnpm run local-build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

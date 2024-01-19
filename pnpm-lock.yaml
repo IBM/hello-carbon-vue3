@@ -60,7 +60,7 @@ devDependencies:
     version: 1.5.1
   '@vitejs/plugin-vue':
     specifier: ^3.2.0
-    version: 3.2.0(vite@3.2.7)(vue@3.3.7)
+    version: 3.2.0(vite@3.2.8)(vue@3.3.7)
   '@vue/eslint-config-prettier':
     specifier: ^7.1.0
     version: 7.1.0(eslint@8.52.0)(prettier@2.8.8)
@@ -89,8 +89,8 @@ devDependencies:
     specifier: ^2.8.8
     version: 2.8.8
   vite:
-    specifier: ^3.2.7
-    version: 3.2.7(@types/node@20.5.1)(sass@1.69.5)
+    specifier: ^3.2.8
+    version: 3.2.8(@types/node@20.5.1)(sass@1.69.5)
   vitest:
     specifier: ^0.25.8
     version: 0.25.8(jsdom@20.0.3)(sass@1.69.5)
@@ -602,14 +602,14 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-vue@3.2.0(vite@3.2.7)(vue@3.3.7):
+  /@vitejs/plugin-vue@3.2.0(vite@3.2.8)(vue@3.3.7):
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.7(@types/node@20.5.1)(sass@1.69.5)
+      vite: 3.2.8(@types/node@20.5.1)(sass@1.69.5)
       vue: 3.3.7(typescript@5.2.2)
     dev: true
 
@@ -654,7 +654,7 @@ packages:
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
       magic-string: 0.30.1
-      postcss: 8.4.27
+      postcss: 8.4.31
       source-map-js: 1.0.2
     dev: false
 
@@ -3130,12 +3130,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /is-core-module@2.12.1:
-    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
-    dependencies:
-      has: 1.0.3
-    dev: true
-
   /is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
     dependencies:
@@ -4257,14 +4251,6 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss@8.4.27:
-    resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4490,7 +4476,7 @@ packages:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.1
+      is-core-module: 2.13.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -5282,8 +5268,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@3.2.7(@types/node@20.4.4)(sass@1.69.5):
-    resolution: {integrity: sha512-29pdXjk49xAP0QBr0xXqu2s5jiQIXNvE/xwd0vUizYT2Hzqe4BksNNoWllFVXJf4eLZ+UlVQmXfB4lWrc+t18g==}
+  /vite@3.2.8(@types/node@20.4.4)(sass@1.69.5):
+    resolution: {integrity: sha512-EtQU16PLIJpAZol2cTLttNP1mX6L0SyI0pgQB1VOoWeQnMSvtiwovV3D6NcjN8CZQWWyESD2v5NGnpz5RvgOZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -5309,7 +5295,7 @@ packages:
     dependencies:
       '@types/node': 20.4.4
       esbuild: 0.15.18
-      postcss: 8.4.27
+      postcss: 8.4.31
       resolve: 1.22.2
       rollup: 2.79.1
       sass: 1.69.5
@@ -5317,8 +5303,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@3.2.7(@types/node@20.5.1)(sass@1.69.5):
-    resolution: {integrity: sha512-29pdXjk49xAP0QBr0xXqu2s5jiQIXNvE/xwd0vUizYT2Hzqe4BksNNoWllFVXJf4eLZ+UlVQmXfB4lWrc+t18g==}
+  /vite@3.2.8(@types/node@20.5.1)(sass@1.69.5):
+    resolution: {integrity: sha512-EtQU16PLIJpAZol2cTLttNP1mX6L0SyI0pgQB1VOoWeQnMSvtiwovV3D6NcjN8CZQWWyESD2v5NGnpz5RvgOZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -5344,7 +5330,7 @@ packages:
     dependencies:
       '@types/node': 20.5.1
       esbuild: 0.15.18
-      postcss: 8.4.27
+      postcss: 8.4.31
       resolve: 1.22.2
       rollup: 2.79.1
       sass: 1.69.5
@@ -5388,7 +5374,7 @@ packages:
       tinybench: 2.5.0
       tinypool: 0.3.1
       tinyspy: 1.1.1
-      vite: 3.2.7(@types/node@20.4.4)(sass@1.69.5)
+      vite: 3.2.8(@types/node@20.4.4)(sass@1.69.5)
     transitivePeerDependencies:
       - less
       - sass

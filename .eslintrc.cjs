@@ -8,6 +8,14 @@ module.exports = {
     "plugin:vue/vue3-recommended",
     "plugin:prettier-vue/recommended",
   ],
+  rules: {
+    "no-console": [
+      "error",
+      {
+        allow: ["warn", "error"],
+      },
+    ],
+  },
   parserOptions: {
     ecmaVersion: "latest",
   },

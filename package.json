@@ -38,7 +38,6 @@
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.21.1",
     "husky": "^9.0.10",
-    "imagemin-lint-staged": "^0.5.1",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",

@@ -2,7 +2,13 @@
   <cv-grid>
     <cv-row>
       <cv-column
-        ><div>Build-a-Bug</div>
+        ><div class="text-3xl py-8">{{ t("build-a-bug") }}</div>
+        <cv-icon-button
+          label="reset"
+          :icon="Reset"
+          class="mb-5"
+          @click="clearAll"
+        />
         <cv-progress
           :vertical="false"
           :space-equally="true"
@@ -88,11 +94,19 @@
             :style="topUrl"
           ></div>
           <div
-            class="w-[422px] h-[125px] bg-carbon-blue-40 bg-center"
+            class="w-[422px] h-[125px] bg-center"
+            :class="{
+              'bg-carbon-blue-40': middleIndex === -1,
+              'bg-carbon-blue-20': middleIndex !== -1,
+            }"
             :style="middleUrl"
           ></div>
           <div
-            class="w-[422px] h-[125px] bg-carbon-blue-60 bg-bottom"
+            class="w-[422px] h-[125px] bg-bottom"
+            :class="{
+              'bg-carbon-blue-60': bottomIndex === -1,
+              'bg-carbon-blue-20': bottomIndex !== -1,
+            }"
             :style="bottomUrl"
           ></div>
         </div>
@@ -111,6 +125,7 @@ import {
   OpenPanelFilledTop32 as TopComplete,
   CircleDash32 as MiddleIncomplete,
   CircleSolid32 as MiddleComplete,
+  Reset32 as Reset,
 } from "@carbon/icons-vue";
 
 const { t } = useTranslation();
@@ -159,6 +174,12 @@ const bottomUrl = computed(() => {
     return { backgroundImage: `url(${bugParts[bottomIndex.value]})` };
   else return undefined;
 });
+
+function clearAll() {
+  topIndex.value = -1;
+  middleIndex.value = -1;
+  bottomIndex.value = -1;
+}
 </script>
 
 <style scoped></style>

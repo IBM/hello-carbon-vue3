@@ -33,7 +33,8 @@
   "skip-content" : "Zum Inhalt springen ",
   "hello" : "Hallo ",
   "choose-language" : "Sprache auswählen ",
-  "login" : "Anmelden ",
+  "login" : "Anmelden",
+  "logout" : "Ausloggen",
   "other-apps" : "Weitere Apps",
   "flip": "Umdrehen",
   "hobby": "Hobby",
@@ -42,5 +43,16 @@
   "Fitness": "Fitness",
   "Music": "Musik",
   "Nature": "Natur",
-  "Play": "Spielen"
+  "Play": "Spielen",
+  "yes": "Ja",
+  "no": "Nein",
+  "catch-phrases": "Schlagworte anzeigen",
+  "top": "Spitze",
+  "middle": "Mitte",
+  "bottom": "Unten",
+  "choose-top": "Wähle einen Käferkopf",
+  "choose-middle": "Wähle einen Käferkörper",
+  "choose-bottom": "Wähle einen Käferschwanz",
+  "build-a-bug": "Bauen Sie Ihren eigenen Käfer"
+
 }

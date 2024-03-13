@@ -34,6 +34,7 @@
   "hello": "Hello",
   "choose-language": "Choose language",
   "login": "Log in",
+  "logout": "Log out",
   "other-apps": "Other apps",
   "flip": "Flip",
   "hobby": "Hobby",
@@ -42,5 +43,15 @@
   "Fitness": "Fitness",
   "Music": "Music",
   "Nature": "Nature",
-  "Play": "Play"
+  "Play": "Play",
+  "yes": "Yes",
+  "no": "No",
+  "catch-phrases": "Show catch phrases",
+  "top": "Top",
+  "middle": "Middle",
+  "bottom": "Bottom",
+  "choose-top": "Choose bug head",
+  "choose-middle": "Choose bug body",
+  "choose-bottom": "Choose bug bottom",
+  "build-a-bug": "Build you own bug"
 }

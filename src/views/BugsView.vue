@@ -7,6 +7,13 @@
     </cv-row>
     <cv-row>
       <cv-column>
+        <cv-link to="/build-a-bug" class="text-2xl py-8">{{
+          t("build-a-bug")
+        }}</cv-link>
+      </cv-column>
+    </cv-row>
+    <cv-row>
+      <cv-column>
         <cv-accordion-skeleton v-if="loading"></cv-accordion-skeleton>
         <cv-accordion v-else>
           <cv-accordion-item

@@ -12,8 +12,8 @@ dependencies:
     specifier: ^10.55.3
     version: 10.55.3
   '@carbon/vue':
-    specifier: file:/Users/davidnixon/projects/carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz
-    version: file:../../carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz(vue@3.4.15)
+    specifier: ^3.0.13
+    version: 3.0.13(vue@3.4.15)
   carbon-components:
     specifier: ^10.58.12
     version: 10.58.12
@@ -208,6 +208,20 @@ packages:
     dependencies:
       '@carbon/grid': 10.43.2
       '@carbon/import-once': 10.7.0
+    dev: false
+
+  /@carbon/vue@3.0.13(vue@3.4.15):
+    resolution: {integrity: sha512-lvL5Xu0FfX3zDL4D+lJWlZpTdzdcHCkZSvGcaFEonrJcMh4svIQTMMAQbiaIHeH17i4qk/XQAYZfEaZQUklMKw==}
+    dependencies:
+      '@carbon/icons-vue': 10.83.1
+      '@vueuse/core': 4.11.2(vue@3.4.15)
+      carbon-components: 10.58.12
+      eslint-plugin-prettier-vue: 4.2.0
+      flatpickr: 4.6.13
+      mitt: 3.0.1
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@commitlint/cli@18.6.0(@types/node@20.11.16)(typescript@5.3.3):
@@ -637,12 +651,6 @@ packages:
   /@humanwhocodes/object-schema@2.0.2:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
-
-  /@ibm/telemetry-js@1.2.1:
-    resolution: {integrity: sha512-ZNuqoclscha2RC089RBPkiGzv8g+mQfBOnHDJZEGBFrvsXg0B9lfRGFBSLzCuTR5nFDqVFYb6XqMRu36EiHIDA==}
-    engines: {node: '>=16', npm: '>=8'}
-    hasBin: true
-    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -4260,21 +4268,3 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
-
-  file:../../carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz(vue@3.4.15):
-    resolution: {integrity: sha512-uNtBKBq2s7rI0gQQnn+lGp8agji5x9fxnl9O684MmQdKxyqRrloUl7DBBC1e2QHdddsDWp8QkhUz0GhXjkCpnw==, tarball: file:../../carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz}
-    id: file:../../carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz
-    name: '@carbon/vue'
-    version: 3.0.13-12
-    dependencies:
-      '@carbon/icons-vue': 10.83.1
-      '@ibm/telemetry-js': 1.2.1
-      '@vueuse/core': 4.11.2(vue@3.4.15)
-      carbon-components: 10.58.12
-      eslint-plugin-prettier-vue: 4.2.0
-      flatpickr: 4.6.13
-      mitt: 3.0.1
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: false

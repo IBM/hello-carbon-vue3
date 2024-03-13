@@ -15,7 +15,7 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
     "@carbon/themes": "^10.55.3",
-    "@carbon/vue": "file:/Users/davidnixon/projects/carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz",
+    "@carbon/vue": "^3.0.13",
     "carbon-components": "^10.58.12",
     "i18next": "^23.8.2",
     "i18next-http-backend": "^2.4.3",

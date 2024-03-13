@@ -2,6 +2,15 @@
   <cv-grid>
     <cv-row>
       <cv-column>
+        <cv-toggle-skeleton v-if="loading" />
+        <cv-toggle
+          v-model="showCatchPhrases"
+          :label="t('catch-phrases')"
+          class="mb-2"
+        >
+          <template #text-right>{{ t("yes") }}</template>
+          <template #text-left>{{ t("no") }}</template>
+        </cv-toggle>
         <cv-data-table-skeleton
           v-if="loading"
           :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
@@ -24,6 +33,7 @@
           :search-label="t('search')"
           :search-placeholder="t('search')"
           :search-clear-label="t('search-clear')"
+          :expandable="true"
           @pagination="onPagination"
           @search="onSearch"
         >
@@ -80,7 +90,7 @@
 <script setup>
 import { useFishStore } from "../stores/fish";
 import FishRow from "../components/FishRow.vue";
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, provide } from "vue";
 import {
   View20 as ShowAllIcon,
   ViewOff20 as HideIcon,
@@ -139,7 +149,7 @@ const paginated = computed(() => {
   const change = currentPagination.value;
   return filteredFish.value.slice(
     change.start - 1,
-    change.start + change.length - 1
+    change.start + change.length - 1,
   );
 });
 function onPagination(change) {
@@ -147,14 +157,15 @@ function onPagination(change) {
 }
 const selectedFish = ref([]);
 function onHideSelected() {
-  console.log("hide selected");
   for (let i = 0; i < selectedFish.value.length; i++) {
     const key = selectedFish.value[i];
-    console.log("hide", key);
     fishStore.hideFish(key);
   }
   selectedFish.value = [];
 }
+
+const showCatchPhrases = ref(false);
+provide("show-catch-phrases", showCatchPhrases);
 </script>
 
 <style scoped></style>

@@ -21,11 +21,12 @@
         <language-icon />
       </cv-header-global-action>
       <cv-header-global-action
-        :aria-label="t('login')"
-        :label="t('login')"
+        :aria-label="t(loggedIn ? 'logout' : 'login')"
+        :label="t(loggedIn ? 'logout' : 'login')"
         aria-controls="user-panel"
         tip-position="bottom"
         tip-alignment="center"
+        @click="onLogin"
       >
         <avatar-icon v-if="loggedIn" />
         <login-icon v-else />
@@ -107,6 +108,9 @@ function changeLocale(language) {
   langStore.setLanguage(language);
   languageExpanded.value = false;
   document?.activeElement?.blur();
+}
+function onLogin() {
+  loggedIn.value = !loggedIn.value;
 }
 </script>
 

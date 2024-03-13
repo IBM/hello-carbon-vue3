@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import("../views/FishView.vue"),
     },
     {
+      path: "/build-a-bug",
+      name: "build-a-bug",
+      component: () => import("../views/BuildABugView.vue"),
+    },
+    {
       path: "/bugs",
       name: "bugs",
       component: () => import("../views/BugsView.vue"),

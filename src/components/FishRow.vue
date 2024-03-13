@@ -30,12 +30,24 @@
       </div>
     </cv-data-table-cell>
     <!-- Add optional expanding data here -->
+    <template v-if="showCatchPhrases" #expandedContent>
+      <div class="flex justify-around gap-4">
+        <div
+          class="bg-[url(@/assets/fish-bowl.png)] bg-contain bg-no-repeat bg-carbon-blue-40 text-black text-2xl p-1"
+        >
+          {{ fish["catch-phrase"] }}
+        </div>
+        <div class="bg-[url(@/assets/museum-tile.png)] text-black text-2xl p-1">
+          {{ fish["museum-phrase"] }}
+        </div>
+      </div>
+    </template>
   </cv-data-table-row>
 </template>
 
 <script setup>
 import { useLanguageStore } from "../stores/language";
-import { computed } from "vue";
+import { computed, inject, ref } from "vue";
 import {
   StarFilled16 as RareIcon,
   CircleFilled16 as LocationIcon,
@@ -50,6 +62,7 @@ const props = defineProps({
     type: /** @type {FishData} **/ Object,
     required: true,
   },
+  expandable: { type: Boolean, default: false },
 });
 const langStore = useLanguageStore();
 const fishName = computed(() => {
@@ -80,6 +93,8 @@ const location = computed(() => {
   else if (location.startsWith("Pier")) return "pier";
   else return "";
 });
+
+const showCatchPhrases = inject("show-catch-phrases", ref(false));
 </script>
 
 <style scoped lang="scss">

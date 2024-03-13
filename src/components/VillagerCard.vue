@@ -1,7 +1,9 @@
 <template>
-  <div class="villager">
-    <div class="villager__name">{{ name }}</div>
-    <div class="villager__catch-phrase">
+  <div
+    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
+  >
+    <div class="font-semibold text-base">{{ name }}</div>
+    <div class="flex justify-end">
       <chat-bubble
         :text="catchPhrase"
         :bubble-color="villager['bubble-color']"
@@ -9,7 +11,7 @@
         kind="top-right"
       />
     </div>
-    <div class="villager__image">
+    <div class="flex justify-around my-4">
       <blur-image
         :src="villager.icon_uri"
         :alt="name"
@@ -55,24 +57,6 @@ const catchPhrase = computed(() => {
 <style scoped lang="scss">
 @import "../styles/_theme.scss";
 .villager {
-  background-color: $ui-04;
   height: calc(100% - 1rem);
-  padding: 0.5rem;
-  margin: 0.5rem 0.5rem 1rem;
-  border: 1px solid $purple-60;
-
-  &__name {
-    @include carbon--type-style("productive-heading-02");
-  }
-  &__image {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  &__catch-phrase {
-    display: flex;
-    justify-content: end;
-  }
 }
 </style>

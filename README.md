@@ -32,8 +32,9 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
   - cv-data-table-skeleton
   - cv-data-table
   - cv-data-table-action, cv-data-table-heading
-  - cv-data-table-row, cv-data-table-cell
+  - cv-data-table-row (expandable rows), cv-data-table-cell
   - cv-button
+  - cv-toggle
   - REST API examples integrated with Pinia store
 - Bugs page
   - cv-accordion-skeleton
@@ -43,11 +44,14 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
   - slotted title and content for accordion
   - REST API examples integrated with Pinia store
   - Fun 3D card flipper css
+- Build-a-bug
+  - cv-progress with custom icons
 - Villagers page
   - cv-content-switcher, cv-content-switcher-button
   - cv-content-switcher-content
   - REST API examples integrated with Pinia store
   - Fun animated icons & chat bubbles
+- Includes tailwind with basic Carbon colors theme
 
 ## Coding guide
 

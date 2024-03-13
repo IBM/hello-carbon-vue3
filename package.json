@@ -15,7 +15,7 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
     "@carbon/themes": "^10.55.3",
-    "@carbon/vue": "^3.0.12",
+    "@carbon/vue": "file:/Users/davidnixon/projects/carbon-design-system/carbon-components-vue/carbon-vue-3.0.13-7c8ee.tgz",
     "carbon-components": "^10.58.12",
     "i18next": "^23.8.2",
     "i18next-http-backend": "^2.4.3",
@@ -35,21 +35,23 @@
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/test-utils": "^2.4.4",
+    "autoprefixer": "^10.4.18",
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.21.1",
     "husky": "^9.0.10",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
+    "postcss": "^8.4.35",
     "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1",
     "vite": "^5.0.12",
     "vitest": "^1.2.2"
   },
   "lint-staged": {
     "!(dist/**/*)*.{js,vue}": [
-      "eslint",
+      "eslint --fix",
       "prettier --write"
     ],
-    "!(dist/**/*)*.{md,html}": "prettier --write",
-    "!(dist/**/*)*.{png,jpg}": "imagemin-lint-staged"
+    "!(dist/**/*)*.{md,html}": "prettier --write"
   }
 }

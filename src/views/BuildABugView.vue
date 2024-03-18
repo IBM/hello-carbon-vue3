@@ -33,10 +33,6 @@
             :additional-info="t('choose-middle')"
             @step-clicked="onStepClicked"
           >
-            <template #step-icon>
-              <middle-complete v-if="middleIndex > -1" />
-              <middle-incomplete v-else />
-            </template>
           </cv-progress-step>
           <cv-progress-step
             id="bug-bottom"
@@ -123,12 +119,10 @@ import {
   OpenPanelFilledBottom32 as BottomComplete,
   OpenPanelTop32 as TopIncomplete,
   OpenPanelFilledTop32 as TopComplete,
-  CircleDash32 as MiddleIncomplete,
-  CircleSolid32 as MiddleComplete,
   Reset32 as Reset,
 } from "@carbon/icons-vue";
 
-const { t } = useTranslation();
+const { /** @type function(string) */ t } = useTranslation();
 
 const bugParts = [
   new URL("@/assets/build-a-bug/fly.png", import.meta.url).href,

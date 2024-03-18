@@ -2,9 +2,10 @@
   <cv-grid>
     <cv-row>
       <cv-column>
-        <cv-toggle-skeleton v-if="loading" />
+        <CvToggle-Skeleton v-if="loading" />
         <cv-toggle
           v-model="showCatchPhrases"
+          value="catch-pharse"
           :label="t('catch-phrases')"
           class="mb-2"
         >

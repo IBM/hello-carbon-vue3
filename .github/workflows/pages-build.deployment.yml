@@ -33,7 +33,9 @@ jobs:
         with:
           node-version: '18.x'
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          npm instal -g pnpm
+          pnpm install
       - name: Build app
         run: pnpm run build
       - name: Setup Pages

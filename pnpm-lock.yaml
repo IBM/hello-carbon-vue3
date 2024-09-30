@@ -39,8 +39,8 @@ importers:
         specifier: ^1.77.8
         version: 1.77.8
       superagent:
-        specifier: ^10.0.2
-        version: 10.0.2
+        specifier: ^10.1.0
+        version: 10.1.0
       v-lazy-image:
         specifier: ^2.1.1
         version: 2.1.1
@@ -2235,8 +2235,8 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
 
-  superagent@10.0.2:
-    resolution: {integrity: sha512-rvcN5ciYmVRaZLyM/9thpmNSDGscx1FXNwT5LJjsl+2nhdE4ppd53L2c9iSQSM6FA1poBVwlw+0h2Ofxwr3DoQ==}
+  superagent@10.1.0:
+    resolution: {integrity: sha512-JMmik7PbnXGlq7g528Gi6apHbVbTz2vrE3du6fuG4kIPSb2PnLoSOPvfjKn8aQYuJcBWAKW6ZG90qPPsE5jZxQ==}
     engines: {node: '>=14.18.0'}
 
   supports-color@5.5.0:
@@ -4730,7 +4730,7 @@ snapshots:
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
 
-  superagent@10.0.2:
+  superagent@10.1.0:
     dependencies:
       component-emitter: 1.3.1
       cookiejar: 2.1.4

@@ -21,14 +21,14 @@ importers:
         specifier: ^10.58.15
         version: 10.58.15
       i18next:
-        specifier: ^23.14.0
-        version: 23.14.0
+        specifier: ^23.15.2
+        version: 23.15.2
       i18next-http-backend:
         specifier: ^2.6.1
         version: 2.6.1
       i18next-vue:
         specifier: ^4.0.0
-        version: 4.0.0(i18next@23.14.0)(vue@3.4.38(typescript@5.3.3))
+        version: 4.0.0(i18next@23.15.2)(vue@3.4.38(typescript@5.3.3))
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -161,9 +161,11 @@ packages:
 
   '@carbon/colors@10.37.4':
     resolution: {integrity: sha512-+YiULq3Wu9XSVQ8RxodTzamguBaO0B5mqvFAIt3Bl/RFlUXU0nDIyHFXuiLhIXPwua/9iuENSdAzAw79bK76Hw==}
+    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   '@carbon/grid@10.43.4':
     resolution: {integrity: sha512-xghg4aeanayxtrWC38L128jkI/l+iX7z0xnIofygiOLyQM7MGzhtvQrF8G3ZUIJ7/7tpQ3xgYCNhhY43qj4GMw==}
+    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   '@carbon/icon-helpers@10.50.0':
     resolution: {integrity: sha512-R+RnTIQCvrLuWBdiEyzr6zqluLpzMTawmYO97prAJ59OCoo3+mMgWjhKuggb1s0dW1zRVplrUkKusGKH+0pDnQ==}
@@ -176,6 +178,7 @@ packages:
 
   '@carbon/layout@10.37.4':
     resolution: {integrity: sha512-jHQYSsPjA1+TS4IXgW8C7DA7ZzFoX1N6IFiOl3muqeqX0fTxm9I6M3iJiwh3NaeFhjBcQAUhwI0bc1Z1W0/KYg==}
+    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   '@carbon/telemetry@0.1.0':
     resolution: {integrity: sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==}
@@ -183,9 +186,11 @@ packages:
 
   '@carbon/themes@10.55.5':
     resolution: {integrity: sha512-w+F0fLCNfH8ozwdbrtzzA7KgsS85KNTvdJM0dKRqBraL9XfQ5oeWgPH8U8Eq9S+Emy6YxkT6deN/Ho4Ks3GzIw==}
+    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   '@carbon/type@10.45.5':
     resolution: {integrity: sha512-MqCB5McSW30TZLLCOuHV2mg0AnyB7p+oORYmhm2/sDeqsftCY9rkgOoG7SQO7mDULMTSUznclaOynPpTPeKNuA==}
+    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   '@carbon/vue@3.0.20':
     resolution: {integrity: sha512-zaY5jgt4BUuu1h4ibDJBpF8aPzSr/fADHfgLeGUYgvbEb7Zqc6ulTpgL6/D2CZ38aFmeUUPTMYDjitwrASqQBw==}
@@ -809,6 +814,7 @@ packages:
 
   carbon-components@10.58.15:
     resolution: {integrity: sha512-w1ubGzeH+HdJotD+B2UgW8hUeTtp1CcXDcki20Il3er6BfLjEhQL5/XlXnJiDzRmB6NgozxOQEbjLPXbZSfiqA==}
+    deprecated: This package is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
   chai@5.1.1:
     resolution: {integrity: sha512-pT1ZgP8rPNqUgieVaEY+ryQr6Q4HXNg8Ei9UnLUrjN4IA7dvQC5JB+/kxVcPNDHyBcc/26CXPkbNzq3qwrOEKA==}
@@ -1110,6 +1116,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -1340,8 +1347,8 @@ packages:
       i18next: '>=23'
       vue: ^3.3.4
 
-  i18next@23.14.0:
-    resolution: {integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==}
+  i18next@23.15.2:
+    resolution: {integrity: sha512-zcPSWzCvw6uKnuYHIqs4W7hTuB9e3AFcSdZgvCWoPXIZsBjBd4djN2/2uOHIB+1DFFkQnMBXvhNg7J3WyCuywQ==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -3694,12 +3701,12 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  i18next-vue@4.0.0(i18next@23.14.0)(vue@3.4.38(typescript@5.3.3)):
+  i18next-vue@4.0.0(i18next@23.15.2)(vue@3.4.38(typescript@5.3.3)):
     dependencies:
-      i18next: 23.14.0
+      i18next: 23.15.2
       vue: 3.4.38(typescript@5.3.3)
 
-  i18next@23.14.0:
+  i18next@23.15.2:
     dependencies:
       '@babel/runtime': 7.23.9
 

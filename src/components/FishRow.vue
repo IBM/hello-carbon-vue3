@@ -6,23 +6,48 @@
     <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>
     <cv-data-table-cell>
       <blur-image
-        class="fish__icon"
+        class="w-4 h-4 md:w-12 md:h-12 object-contain max-w-none"
         :src="fish['icon_uri']"
         :src-placeholder="placeholderImage"
         :alt="fishName"
       />
     </cv-data-table-cell>
-    <cv-data-table-cell>{{ fishPrice }}</cv-data-table-cell>
-    <cv-data-table-cell>{{ cjFishPrice }}</cv-data-table-cell>
-    <cv-data-table-cell
-      ><location-icon
+    <cv-data-table-cell v-if="md">{{ fishPrice }}</cv-data-table-cell>
+    <cv-data-table-cell v-if="md">{{ cjFishPrice }}</cv-data-table-cell>
+    <cv-data-table-cell>
+      <pond-icon
+        v-if="location === 'pond'"
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
-        :class="`fish__location-${location}`"
+        class="fill-carbon-blue-40"
+      />
+      <river-icon
+        v-else-if="location === 'river'"
+        :alt="fish.availability?.location"
+        :title="fish.availability?.location"
+        class="fill-carbon-blue-60"
+      />
+      <sea-icon
+        v-else-if="location === 'sea'"
+        :alt="fish.availability?.location"
+        :title="fish.availability?.location"
+        class="fill-carbon-teal-30"
+      />
+      <pier-icon
+        v-else-if="location === 'pier'"
+        :alt="fish.availability?.location"
+        :title="fish.availability?.location"
+        class="fill-carbon-green-20"
+      />
+      <location-icon
+        v-else
+        :alt="fish.availability?.location"
+        :title="fish.availability?.location"
+        class="fill-carbon-yellow-40"
       />
     </cv-data-table-cell>
-    <cv-data-table-cell>
-      <div :class="`fish__rarity-${rarity}`">
+    <cv-data-table-cell v-if="md">
+      <div :class="`fish__rarity-${rarity} flex`">
         <rare-icon v-if="rarity >= 1" />
         <rare-icon v-if="rarity >= 2" />
         <rare-icon v-if="rarity >= 3" />
@@ -51,10 +76,15 @@ import { computed, inject, ref } from "vue";
 import {
   StarFilled16 as RareIcon,
   CircleFilled16 as LocationIcon,
+  EarthFilled16 as RiverIcon,
+  EarthAmericasFilled16 as SeaIcon,
+  EarthEuropeAfricaFilled16 as PondIcon,
+  EarthSoutheastAsiaFilled16 as PierIcon,
 } from "@carbon/icons-vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
+import { useBreakpoints } from "@/composables/useBreakpoints.js";
 const { t } = useTranslation();
 
 const props = defineProps({
@@ -95,27 +125,13 @@ const location = computed(() => {
 });
 
 const showCatchPhrases = inject("show-catch-phrases", ref(false));
+
+const { md } = useBreakpoints();
 </script>
 
 <style scoped lang="scss">
 @import "../styles/theme";
 .fish {
-  &__icon {
-    height: 32px;
-    width: 32px;
-  }
-  &__location-pond {
-    color: $blue-40;
-  }
-  &__location-river {
-    color: $blue-60;
-  }
-  &__location-sea {
-    color: $teal-30;
-  }
-  &__location-pier {
-    color: $green-20;
-  }
   &__rarity-1 {
     color: $purple-30;
   }

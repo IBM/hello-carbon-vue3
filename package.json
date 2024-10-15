@@ -10,12 +10,12 @@
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.96.1",
     "@carbon/themes": "^10.55.5",
-    "@carbon/vue": "^3.0.20",
+    "@carbon/vue": "^3.0.22",
     "carbon-components": "^10.58.15",
     "i18next": "^23.14.0",
     "i18next-http-backend": "^2.6.1",

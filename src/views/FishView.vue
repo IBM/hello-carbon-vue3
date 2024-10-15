@@ -72,19 +72,39 @@
             <cv-data-table-heading :heading="t('name')" name="name" sortable />
             <cv-data-table-heading heading="" />
             <cv-data-table-heading
+              v-if="md"
               :heading="t('price')"
               name="price"
               sortable
             />
-            <cv-data-table-heading heading="CJ" name="price-cj" sortable />
-            <cv-data-table-heading :heading="t('location')" />
-            <cv-data-table-heading :heading="t('rarity')" />
+            <cv-data-table-heading
+              v-if="md"
+              id="fish-heading-cj"
+              heading="CJ"
+              name="price-cj"
+              sortable
+            />
+            <cv-data-table-heading
+              id="fish-heading-location"
+              :heading="t('location')"
+            />
+            <cv-data-table-heading
+              v-if="md"
+              id="fish-heading-rarity"
+              :heading="t('rarity')"
+            />
           </template>
           <template #data>
             <fish-row v-for="row in paginated" :key="row.key" :fish="row" />
             <fish-row-empty v-if="filteredFish.length === 0" />
           </template>
         </cv-data-table>
+        <mobile-table-pagination
+          v-if="!carbonMd"
+          :number-of-items="pagination.numberOfItems"
+          :table-pagination="currentPagination"
+          @pagination="onPagination"
+        />
       </cv-column>
     </cv-row>
   </cv-grid>
@@ -101,6 +121,8 @@ import {
 import { useTranslation } from "i18next-vue";
 import FishRowEmpty from "@/components/FishRowEmpty.vue";
 import { useLanguageStore } from "@/stores/language.js";
+import { useBreakpoints } from "@/composables/useBreakpoints.js";
+import MobileTablePagination from "@/components/MobileTablePagination.vue";
 
 const { t, i18next } = useTranslation();
 const langStore = useLanguageStore();
@@ -209,6 +231,8 @@ function onHideSelected() {
 
 const showCatchPhrases = ref(false);
 provide("show-catch-phrases", showCatchPhrases);
+
+const { md, carbonMd } = useBreakpoints();
 </script>
 
 <style scoped></style>

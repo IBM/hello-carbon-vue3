@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Test PR
 
 on:
   pull_request:

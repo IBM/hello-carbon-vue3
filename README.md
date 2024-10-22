@@ -4,7 +4,7 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 
 ## Packages used
 
-- Carbon Vue3 - beta 0.0.6 (many components are still missing)
+- Carbon Vue3
 - [Vite](https://vitejs.dev/) - this seems to be the default for new Vue3 projects instead of WebPack
 - [Pinia](https://pinia.vuejs.org/) - this replaces Vuex store
 - [i18next](https://www.i18next.com/) - this repo demonstrates how to include translations using i18next. All UI elements are translated and most content is translated.

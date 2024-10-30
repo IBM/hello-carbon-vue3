@@ -32,7 +32,7 @@ export const useLanguageStore = defineStore("language", () => {
   }
 
   const languageObject = computed(() => {
-    return languages.value.find((o) => o.language === language.value);
+    return languages.value.find(o => o.language === language.value);
   });
 
   const currencyFormat = ref(
@@ -41,7 +41,7 @@ export const useLanguageStore = defineStore("language", () => {
       currency: languageObject?.value.currency || "JPY",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    })
+    }),
   );
   watch(languageObject, () => {
     currencyFormat.value = new Intl.NumberFormat(language.value, {

@@ -26,7 +26,7 @@ onMounted(() => {
   try {
     songStore.loadSongs();
   } catch (e) {
-    console.error("error loading songs from API");
+    console.error("error loading songs from API", e.message);
   }
   loading.value = false;
 });

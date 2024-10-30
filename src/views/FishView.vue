@@ -148,7 +148,7 @@ onMounted(() => {
       loading.value = false;
     });
   } catch (e) {
-    console.error("error loading fish from API");
+    console.error("error loading fish from API", e.message);
   }
 });
 const sortKeys = ref({ index: "0", order: "none", name: null });
@@ -171,11 +171,11 @@ const filteredFish = computed(() => {
   let show = fishStore.fish;
 
   // if we are not showing hidden fish, remove them
-  if (!showHidden.value) show = show.filter((fish) => !fish.hidden);
+  if (!showHidden.value) show = show.filter(fish => !fish.hidden);
 
   // if we have search term, filter based on that term
   if (searchFilter.value)
-    show = show.filter((fish) => fish.key.includes(searchFilter.value));
+    show = show.filter(fish => fish.key.includes(searchFilter.value));
 
   // If we are sorting the data, do that here
   if (sortKeys.value.order !== "none") {

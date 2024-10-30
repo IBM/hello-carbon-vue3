@@ -96,7 +96,7 @@ onMounted(() => {
     villagerStore.loadVillagers().finally(() => {
       const groups = groupBy(villagerStore.villagers, "hobby");
       const keys = Object.keys(groups);
-      villagerHobbies.value = keys.map((key) => {
+      villagerHobbies.value = keys.map(key => {
         return { hobby: key, villagers: groups[key] };
       });
 
@@ -114,7 +114,7 @@ onMounted(() => {
       loading.value = false;
     });
   } catch (e) {
-    console.error("error loading bugs from API");
+    console.error("error loading bugs from API", e.message);
   }
 });
 
@@ -172,7 +172,7 @@ const contentSwitcher = ref(null);
 const runWidth = ref(200);
 function calcRunWidth() {
   const btn = contentSwitcher.value?.$el?.querySelector(
-    ".cv-content-switcher-button"
+    ".cv-content-switcher-button",
   );
   if (btn) {
     const cssObj = window.getComputedStyle(btn, null);

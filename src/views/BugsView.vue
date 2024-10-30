@@ -57,13 +57,13 @@ onMounted(() => {
     bugStore.loadBugs().finally(() => {
       const groups = groupBy(bugStore.bugs, "availability.location");
       const keys = Object.keys(groups);
-      bugGroups.value = keys.map((key) => {
+      bugGroups.value = keys.map(key => {
         return { location: key, bugs: groups[key] };
       });
       loading.value = false;
     });
   } catch (e) {
-    console.error("error loading bugs from API");
+    console.error("error loading bugs from API", e.message);
   }
 });
 </script>

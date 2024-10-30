@@ -1,5 +1,5 @@
 <template>
-  <cv-header aria-label="Carbon header">
+  <cv-header aria-label="Carbon header" data-cy="header">
     <cv-header-menu-button
       :aria-label="t('header-menu')"
       aria-controls="side-nav"
@@ -18,7 +18,7 @@
         tip-position="bottom"
         tip-alignment="start"
       >
-        <language-icon />
+        <language-icon data-cy="language-icon" />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t(loggedIn ? 'logout' : 'login')"

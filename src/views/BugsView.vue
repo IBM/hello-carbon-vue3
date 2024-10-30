@@ -2,13 +2,13 @@
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="title">{{ t("bugs") }}</div>
+        <div class="title">{{ t('bugs') }}</div>
       </cv-column>
     </cv-row>
     <cv-row>
       <cv-column>
         <cv-link to="/build-a-bug" class="text-2xl py-8">{{
-          t("build-a-bug")
+          t('build-a-bug')
         }}</cv-link>
       </cv-column>
     </cv-row>
@@ -41,37 +41,37 @@
 </template>
 
 <script setup>
-import { useBugsStore } from "@/stores/bugs";
-import { onMounted, ref } from "vue";
-import { groupBy } from "lodash";
-import BugCard from "@/components/BugCard.vue";
-import { useTranslation } from "i18next-vue";
+import { useBugsStore } from '@/stores/bugs'
+import { onMounted, ref } from 'vue'
+import { groupBy } from 'lodash'
+import BugCard from '@/components/BugCard.vue'
+import { useTranslation } from 'i18next-vue'
 
-const { t } = useTranslation();
-const bugStore = useBugsStore();
-const loading = ref(false);
-const bugGroups = ref({});
+const { t } = useTranslation()
+const bugStore = useBugsStore()
+const loading = ref(false)
+const bugGroups = ref({})
 onMounted(() => {
-  loading.value = true;
+  loading.value = true
   try {
     bugStore.loadBugs().finally(() => {
-      const groups = groupBy(bugStore.bugs, "availability.location");
-      const keys = Object.keys(groups);
-      bugGroups.value = keys.map((key) => {
-        return { location: key, bugs: groups[key] };
-      });
-      loading.value = false;
-    });
+      const groups = groupBy(bugStore.bugs, 'availability.location')
+      const keys = Object.keys(groups)
+      bugGroups.value = keys.map(key => {
+        return { location: key, bugs: groups[key] }
+      })
+      loading.value = false
+    })
   } catch (e) {
-    console.error("error loading bugs from API");
+    console.error('error loading bugs from API', e.message)
   }
-});
+})
 </script>
 
 <style scoped lang="scss">
-@import "../styles/_theme.scss";
+@import '../styles/_theme.scss';
 .title {
-  @include carbon--type-style("productive-heading-03");
+  @include carbon--type-style('productive-heading-03');
   margin-bottom: 2rem;
 }
 </style>

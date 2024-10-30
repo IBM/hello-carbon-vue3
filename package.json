@@ -8,17 +8,18 @@
     "build": "vite build --base=/hello-carbon-vue3/",
     "local-build": "vite build && python -m http.server -d dist",
     "preview": "vite preview",
-    "test:unit": "vitest --environment jsdom --root src/",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "test:e2e": "cypress run --e2e",
+    "test:unit": "cypress run --component",
+    "lint": "eslint . --fix",
     "ci:lint": "eslint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",
     "@carbon/themes": "^10.55.5",
     "@carbon/vue": "^3.0.22",
     "carbon-components": "^10.58.15",
-    "cypress": "^13.15.1",
     "i18next": "^23.16.0",
     "i18next-http-backend": "^2.6.2",
     "i18next-vue": "^4.0.0",
@@ -32,13 +33,15 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
+    "@eslint/js": "^9.13.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@rushstack/eslint-patch": "^1.10.4",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/eslint-config-prettier": "^10.0.0",
-    "@vue/test-utils": "^2.4.6",
+    "cypress": "^13.15.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-cypress": "^4.0.0",
     "eslint-plugin-vue": "^9.30.0",
     "husky": "^9.1.6",
     "jsdom": "^25.0.1",
@@ -46,8 +49,7 @@
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.13",
-    "vite": "^5.4.10",
-    "vitest": "^2.1.3"
+    "vite": "^5.4.10"
   },
   "lint-staged": {
     "!(dist/**/*)*.{js,vue}": [

@@ -9,8 +9,8 @@
           :label="t('catch-phrases')"
           class="mb-2"
         >
-          <template #text-right>{{ t("yes") }}</template>
-          <template #text-left>{{ t("no") }}</template>
+          <template #text-right>{{ t('yes') }}</template>
+          <template #text-left>{{ t('no') }}</template>
         </cv-toggle>
         <cv-data-table-skeleton
           v-if="loading"
@@ -40,18 +40,18 @@
           @sort="onSort"
         >
           <template #items-selected="{ scope }">
-            {{ t("selected-num", { count: scope.count }) }}
+            {{ t('selected-num', { count: scope.count }) }}
           </template>
           <template #of-n-pages="{ scope }">
-            {{ t("pages-num", { count: scope.pages }) }}
+            {{ t('pages-num', { count: scope.pages }) }}
           </template>
           <template #range-text="{ scope }">
             <!-- { "start": 1, "end": 7, "items": 80 } -->
-            {{ t("range-text", scope) }}
+            {{ t('range-text', scope) }}
           </template>
           <template v-if="filteredFish.length > 0" #batch-actions>
             <cv-button :icon="hideIcon" @click="onHideSelected">{{
-              t("hide")
+              t('hide')
             }}</cv-button>
           </template>
           <template v-if="fishStore.someHidden" #actions>
@@ -61,10 +61,10 @@
               @click="toggleShowAll"
             >
               <hide-icon v-if="showHidden" class="bx--toolbar-action__icon">
-                <title>{{ t("hide") }}</title>
+                <title>{{ t('hide') }}</title>
               </hide-icon>
               <show-all-icon v-else class="bx--toolbar-action__icon">
-                <title>{{ t("show") }}</title>
+                <title>{{ t('show') }}</title>
               </show-all-icon>
             </cv-data-table-action>
           </template>
@@ -111,128 +111,125 @@
 </template>
 
 <script setup>
-import { useFishStore } from "../stores/fish";
-import FishRow from "../components/FishRow.vue";
-import { computed, onMounted, ref, provide, watch } from "vue";
-import {
-  View20 as ShowAllIcon,
-  ViewOff20 as HideIcon,
-} from "@carbon/icons-vue";
-import { useTranslation } from "i18next-vue";
-import FishRowEmpty from "@/components/FishRowEmpty.vue";
-import { useLanguageStore } from "@/stores/language.js";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
-import MobileTablePagination from "@/components/MobileTablePagination.vue";
+import { useFishStore } from '../stores/fish'
+import FishRow from '../components/FishRow.vue'
+import { computed, onMounted, ref, provide, watch } from 'vue'
+import { View20 as ShowAllIcon, ViewOff20 as HideIcon } from '@carbon/icons-vue'
+import { useTranslation } from 'i18next-vue'
+import FishRowEmpty from '@/components/FishRowEmpty.vue'
+import { useLanguageStore } from '@/stores/language.js'
+import { useBreakpoints } from '@/composables/useBreakpoints.js'
+import MobileTablePagination from '@/components/MobileTablePagination.vue'
 
-const { t, i18next } = useTranslation();
-const langStore = useLanguageStore();
+const { t, i18next } = useTranslation()
+const langStore = useLanguageStore()
 
-const hideIcon = HideIcon;
-const fishStore = useFishStore();
-const loading = ref(false);
-const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] });
+const hideIcon = HideIcon
+const fishStore = useFishStore()
+const loading = ref(false)
+const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] })
 const i18nPagination = computed(() => {
   return {
     ...pagination.value,
-    pageSizesLabel: t("items"),
-    backwardText: t("previous-page"),
-    forwardText: t("next-page"),
-    pageNumberLabel: t("page-number"),
-  };
-});
+    pageSizesLabel: t('items'),
+    backwardText: t('previous-page'),
+    forwardText: t('next-page'),
+    pageNumberLabel: t('page-number'),
+  }
+})
 onMounted(() => {
-  loading.value = true;
+  loading.value = true
   try {
     fishStore.loadFish().finally(() => {
-      pagination.value.numberOfItems = fishStore.fish.length;
-      loading.value = false;
-    });
+      pagination.value.numberOfItems = fishStore.fish.length
+      loading.value = false
+    })
   } catch (e) {
-    console.error("error loading fish from API");
+    console.error('error loading fish from API', e.message)
   }
-});
-const sortKeys = ref({ index: "0", order: "none", name: null });
+})
+const sortKeys = ref({ index: '0', order: 'none', name: null })
 function onSort(keys) {
-  sortKeys.value = keys;
+  sortKeys.value = keys
 }
 
-const searchFilter = ref("");
+const searchFilter = ref('')
 /**
  * Set search filter
  * @param {string} val
  */
 function onSearch(val) {
-  searchFilter.value = val?.trim();
+  searchFilter.value = val?.trim()
 }
-const showHidden = ref(false);
+const showHidden = ref(false)
 const filteredFish = computed(() => {
   // start with all the fish
   /** @type {Array<FishData>} */
-  let show = fishStore.fish;
+  let show = fishStore.fish
 
   // if we are not showing hidden fish, remove them
-  if (!showHidden.value) show = show.filter((fish) => !fish.hidden);
+  if (!showHidden.value) show = show.filter(fish => !fish.hidden)
 
   // if we have search term, filter based on that term
   if (searchFilter.value)
-    show = show.filter((fish) => fish.key.includes(searchFilter.value));
+    show = show.filter(fish => fish.key.includes(searchFilter.value))
 
   // If we are sorting the data, do that here
-  if (sortKeys.value.order !== "none") {
+  if (sortKeys.value.order !== 'none') {
     show.sort((a, b) => {
-      const _a = a[sortKeys.value.name]; // fish name or price
-      const _b = b[sortKeys.value.name]; // fish name or price
-      let cmp = 0;
+      const _a = a[sortKeys.value.name] // fish name or price
+      const _b = b[sortKeys.value.name] // fish name or price
+      let cmp = 0
       // sort by price (or some other number value that may get added later)
-      if (typeof _a === "number") {
-        cmp = _a - _b;
+      if (typeof _a === 'number') {
+        cmp = _a - _b
       }
       // or sort by name
-      else if (sortKeys.value.name === "name") {
-        const key = "name-" + langStore.languageObject.api;
-        const nameA = _a[key] || "";
-        const nameB = _b[key] || "";
-        cmp = nameA.localeCompare(nameB, i18next.language);
+      else if (sortKeys.value.name === 'name') {
+        const key = 'name-' + langStore.languageObject.api
+        const nameA = _a[key] || ''
+        const nameB = _b[key] || ''
+        cmp = nameA.localeCompare(nameB, i18next.language)
       }
       // reverse the sort
-      if (sortKeys.value.order === "descending") cmp = -cmp;
-      return cmp;
-    });
+      if (sortKeys.value.order === 'descending') cmp = -cmp
+      return cmp
+    })
   }
-  return show;
-});
+  return show
+})
 watch(filteredFish, () => {
-  pagination.value.numberOfItems = filteredFish.value.length;
-});
+  pagination.value.numberOfItems = filteredFish.value.length
+})
 
 function toggleShowAll() {
-  showHidden.value = !showHidden.value;
+  showHidden.value = !showHidden.value
 }
 
-const currentPagination = ref({ start: 1, length: 7 });
+const currentPagination = ref({ start: 1, length: 7 })
 const paginated = computed(() => {
-  const change = currentPagination.value;
+  const change = currentPagination.value
   return filteredFish.value.slice(
     change.start - 1,
     change.start + change.length - 1,
-  );
-});
+  )
+})
 function onPagination(change) {
-  currentPagination.value = change;
+  currentPagination.value = change
 }
-const selectedFish = ref([]);
+const selectedFish = ref([])
 function onHideSelected() {
   for (let i = 0; i < selectedFish.value.length; i++) {
-    const key = selectedFish.value[i];
-    fishStore.hideFish(key);
+    const key = selectedFish.value[i]
+    fishStore.hideFish(key)
   }
-  selectedFish.value = [];
+  selectedFish.value = []
 }
 
-const showCatchPhrases = ref(false);
-provide("show-catch-phrases", showCatchPhrases);
+const showCatchPhrases = ref(false)
+provide('show-catch-phrases', showCatchPhrases)
 
-const { md, carbonMd } = useBreakpoints();
+const { md, carbonMd } = useBreakpoints()
 </script>
 
 <style scoped></style>

@@ -1,5 +1,5 @@
-@import '@carbon/themes/scss/themes';
+@import "@carbon/themes/scss/themes";
 $carbon--theme: $carbon--theme--g90;
 @include carbon--theme();
-@import 'carbon-components/scss/globals/scss/typography.scss';
-@import 'carbon-components/scss/globals/scss/vars.scss';
+@import "carbon-components/scss/globals/scss/typography.scss";
+@import "carbon-components/scss/globals/scss/vars.scss";

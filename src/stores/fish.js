@@ -74,10 +74,10 @@ export const useFishStore = defineStore("fish", () => {
     /**
      * @type {FishData}
      */
-    const found = fish.value.find((fish) => fish.key === key);
+    const found = fish.value.find(fish => fish.key === key);
     if (found) found.hidden = hidden;
     if (hidden) someHidden.value = true;
-    else someHidden.value = fish.value.some((fish) => fish.hidden);
+    else someHidden.value = fish.value.some(fish => fish.hidden);
   }
 
   return { fish, someHidden, loadFish, hideFish };

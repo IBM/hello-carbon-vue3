@@ -15,23 +15,23 @@
 </template>
 
 <script setup>
-import { useSongStore } from '../stores/songs'
-import { computed, onMounted, ref } from 'vue'
-import SongCard from '../components/SongCard.vue'
+import { useSongStore } from "../stores/songs";
+import { computed, onMounted, ref } from "vue";
+import SongCard from "../components/SongCard.vue";
 
-const songStore = useSongStore()
-const loading = ref(false)
+const songStore = useSongStore();
+const loading = ref(false);
 onMounted(() => {
-  loading.value = true
+  loading.value = true;
   try {
-    songStore.loadSongs()
+    songStore.loadSongs();
   } catch (e) {
-    console.error('error loading songs from API', e.message)
+    console.error("error loading songs from API", e.message);
   }
-  loading.value = false
-})
+  loading.value = false;
+});
 const filteredSongs = computed(() => {
   // for now, there is no filtering
-  return songStore.songs
-})
+  return songStore.songs;
+});
 </script>

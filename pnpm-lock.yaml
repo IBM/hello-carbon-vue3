@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@carbon/icons-vue':
-        specifier: ^10.96.1
-        version: 10.96.1
+        specifier: ^10.99.1
+        version: 10.99.1
       '@carbon/themes':
         specifier: ^10.55.5
         version: 10.55.5
@@ -153,11 +153,11 @@ packages:
     resolution: {integrity: sha512-xghg4aeanayxtrWC38L128jkI/l+iX7z0xnIofygiOLyQM7MGzhtvQrF8G3ZUIJ7/7tpQ3xgYCNhhY43qj4GMw==}
     deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
-  '@carbon/icon-helpers@10.50.0':
-    resolution: {integrity: sha512-R+RnTIQCvrLuWBdiEyzr6zqluLpzMTawmYO97prAJ59OCoo3+mMgWjhKuggb1s0dW1zRVplrUkKusGKH+0pDnQ==}
+  '@carbon/icon-helpers@10.54.0':
+    resolution: {integrity: sha512-IJ6uzwRA/6yvSG6tTCQoKIcGehwZYYqjvLHylILmEwyfB8kWV9VmJu957hfrfbS2rmuCXwmN6kCAnb4WS8FnFw==}
 
-  '@carbon/icons-vue@10.96.1':
-    resolution: {integrity: sha512-vhw6mfREekQrKNO1X1DKj4Bq6Xs3Y68bP8JFIj70gZy3yy+LaGvg63/8FNgQlM8UztwyVF+6WcoMMkBVAdI9Qw==}
+  '@carbon/icons-vue@10.99.1':
+    resolution: {integrity: sha512-VC0mRjGri+Ghv8Zkk3iUoaVYUTHLstXj5sB+qYnqPi1sKlE8lUOokgO+r8ReipFUq3um8xze/BXzEjWJQtYC6A==}
 
   '@carbon/import-once@10.7.2':
     resolution: {integrity: sha512-ZlrsUo7wQxwwbBC8FUOQTimMEvgG7RyW741M4V8Ogmu8vTD8/O/Q27Y+rzRsbThwJcduHYRWDh/qVTuqayFycQ==}
@@ -2903,13 +2903,13 @@ snapshots:
       '@carbon/layout': 10.37.4
       '@ibm/telemetry-js': 1.6.1
 
-  '@carbon/icon-helpers@10.50.0':
+  '@carbon/icon-helpers@10.54.0':
     dependencies:
       '@ibm/telemetry-js': 1.6.1
 
-  '@carbon/icons-vue@10.96.1':
+  '@carbon/icons-vue@10.99.1':
     dependencies:
-      '@carbon/icon-helpers': 10.50.0
+      '@carbon/icon-helpers': 10.54.0
       '@ibm/telemetry-js': 1.6.1
 
   '@carbon/import-once@10.7.2':
@@ -2938,7 +2938,7 @@ snapshots:
 
   '@carbon/vue@3.0.22(vue@3.5.12(typescript@5.3.3))':
     dependencies:
-      '@carbon/icons-vue': 10.96.1
+      '@carbon/icons-vue': 10.99.1
       '@ibm/telemetry-js': 1.6.1
       '@vueuse/core': 4.11.2(vue@3.5.12(typescript@5.3.3))
       carbon-components: 10.58.15

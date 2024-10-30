@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "ci:lint": "eslint",
     "prepare": "husky"
   },
   "dependencies": {

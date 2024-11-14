@@ -27,8 +27,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       i18next-vue:
-        specifier: ^4.0.0
-        version: 4.0.0(i18next@23.16.5)(vue@3.5.12(typescript@5.3.3))
+        specifier: ^5.0.0
+        version: 5.0.0(i18next@23.16.5)(vue@3.5.12(typescript@5.3.3))
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1566,11 +1566,11 @@ packages:
   i18next-http-backend@2.6.2:
     resolution: {integrity: sha512-Hp/kd8/VuoxIHmxsknJXjkTYYHzivAyAF15pzliKzk2TiXC25rZCEerb1pUFoxz4IVrG3fCvQSY51/Lu4ECV4A==}
 
-  i18next-vue@4.0.0:
-    resolution: {integrity: sha512-yaKWMyFGweyA4EF7JXSGRAvZQ1CJTKjim0iPBsSjFQuuI6lK7cJf6dWK7uO9leB2EnB5JPd8UVtYLTjHXlCVPw==}
+  i18next-vue@5.0.0:
+    resolution: {integrity: sha512-8jlctdGSKws9fcFlGlFOQRKCQQdUTKSs4D9pbZ6iitpzHQzQSVTdeDPvrjxLomsTjLK65W+MUGW6cwavAMGo9w==}
     peerDependencies:
       i18next: '>=23'
-      vue: ^3.3.4
+      vue: ^3.4.38
 
   i18next@23.16.5:
     resolution: {integrity: sha512-KTlhE3EP9x6pPTAW7dy0WKIhoCpfOGhRQlO+jttQLgzVaoOjWwBWramu7Pp0i+8wDNduuzXfe3kkVbzrKyrbTA==}
@@ -4228,7 +4228,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  i18next-vue@4.0.0(i18next@23.16.5)(vue@3.5.12(typescript@5.3.3)):
+  i18next-vue@5.0.0(i18next@23.16.5)(vue@3.5.12(typescript@5.3.3)):
     dependencies:
       i18next: 23.16.5
       vue: 3.5.12(typescript@5.3.3)

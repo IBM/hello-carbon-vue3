@@ -51,6 +51,7 @@
             <cv-switcher-item-link
               :selected="entry.language === langStore.language"
               @click="changeLocale(entry.language)"
+              :data-cy="`language-${entry.language}`"
             >
               {{ entry.title }}
             </cv-switcher-item-link>

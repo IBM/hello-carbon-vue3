@@ -5,7 +5,7 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 ## Packages used
 
 - Carbon Vue3
-- [Vite](https://vitejs.dev/) - this seems to be the default for new Vue3 projects instead of WebPack
+- [Vite](https://vitejs.dev/) - this is the default for new Vue3 projects instead of WebPack
 - [Pinia](https://pinia.vuejs.org/) - this replaces Vuex store
 - [i18next](https://www.i18next.com/) - this repo demonstrates how to include translations using i18next. All UI elements are translated and most content is translated.
 - [superagent](https://www.npmjs.com/package/superagent) - I like this package better than axios and use it here to demo making REST calls
@@ -13,6 +13,7 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 - [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
 - [lint-staged](https://www.npmjs.com/package/lint-staged) - Run linters against staged git files
 - [commit-lint](https://commitlint.js.org/#/) - Helps your team adhere to a commit convention
+- [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
 
 ## Pages & Components
 

@@ -36,8 +36,8 @@ importers:
         specifier: ^2.2.2
         version: 2.2.2(typescript@5.3.3)(vue@3.5.12(typescript@5.3.3))
       sass:
-        specifier: ^1.80.6
-        version: 1.80.6
+        specifier: ^1.81.0
+        version: 1.81.0
       superagent:
         specifier: ^10.1.1
         version: 10.1.1
@@ -65,7 +65,7 @@ importers:
         version: 1.10.4
       '@vitejs/plugin-vue':
         specifier: ^5.1.4
-        version: 5.1.4(vite@5.4.10(@types/node@20.11.16)(sass@1.80.6))(vue@3.5.12(typescript@5.3.3))
+        version: 5.1.4(vite@5.4.10(@types/node@20.11.16)(sass@1.81.0))(vue@3.5.12(typescript@5.3.3))
       '@vue/eslint-config-prettier':
         specifier: ^10.1.0
         version: 10.1.0(eslint@9.14.0(jiti@1.21.6))(prettier@3.3.3)
@@ -104,7 +104,7 @@ importers:
         version: 3.4.14
       vite:
         specifier: ^5.4.10
-        version: 5.4.10(@types/node@20.11.16)(sass@1.80.6)
+        version: 5.4.10(@types/node@20.11.16)(sass@1.81.0)
 
 packages:
 
@@ -1586,8 +1586,8 @@ packages:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
 
-  immutable@4.3.5:
-    resolution: {integrity: sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==}
+  immutable@5.0.2:
+    resolution: {integrity: sha512-1NU7hWZDkV7hJ4PJ9dur9gTNQ4ePNPN4k9/0YhwjzykTi/+3Q5pF93YU5QoVj8BuOnhLgaY8gs0U2pj4kSYVcw==}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -2256,8 +2256,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.80.6:
-    resolution: {integrity: sha512-ccZgdHNiBF1NHBsWvacvT5rju3y1d/Eu+8Ex6c21nHp2lZGLBEtuwc415QfiI1PJa1TpCo3iXwwSRjRpn2Ckjg==}
+  sass@1.81.0:
+    resolution: {integrity: sha512-Q4fOxRfhmv3sqCLoGfvrC9pRV8btc0UtqL9mN6Yrv6Qi9ScL55CVH1vlPP863ISLEEMNLLuu9P+enCeGHlnzhA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3214,9 +3214,9 @@ snapshots:
       '@types/node': 20.11.16
     optional: true
 
-  '@vitejs/plugin-vue@5.1.4(vite@5.4.10(@types/node@20.11.16)(sass@1.80.6))(vue@3.5.12(typescript@5.3.3))':
+  '@vitejs/plugin-vue@5.1.4(vite@5.4.10(@types/node@20.11.16)(sass@1.81.0))(vue@3.5.12(typescript@5.3.3))':
     dependencies:
-      vite: 5.4.10(@types/node@20.11.16)(sass@1.80.6)
+      vite: 5.4.10(@types/node@20.11.16)(sass@1.81.0)
       vue: 3.5.12(typescript@5.3.3)
 
   '@vue/compiler-core@3.4.38':
@@ -4245,7 +4245,7 @@ snapshots:
 
   ignore@5.3.1: {}
 
-  immutable@4.3.5: {}
+  immutable@5.0.2: {}
 
   import-fresh@3.3.0:
     dependencies:
@@ -4841,10 +4841,10 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.80.6:
+  sass@1.81.0:
     dependencies:
       chokidar: 4.0.1
-      immutable: 4.3.5
+      immutable: 5.0.2
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.4.1
@@ -5123,7 +5123,7 @@ snapshots:
       core-util-is: 1.0.2
       extsprintf: 1.3.0
 
-  vite@5.4.10(@types/node@20.11.16)(sass@1.80.6):
+  vite@5.4.10(@types/node@20.11.16)(sass@1.81.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.49
@@ -5131,7 +5131,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.11.16
       fsevents: 2.3.3
-      sass: 1.80.6
+      sass: 1.81.0
 
   vue-demi@0.14.10(vue@3.5.12(typescript@5.3.3)):
     dependencies:

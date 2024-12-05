@@ -1,5 +1,5 @@
 // Do not use this file directly. Create css with:
-// npx sass --load-path=node_modules src/styles/_carbon.scss src/styles/carbon-g90.css
+// npx sass@1.77.6 --load-path=node_modules src/styles/_carbon-90.scss src/styles/carbon-g90.css
 $feature-flags: (
   grid-columns-16: true,
 );
@@ -15,3 +15,5 @@ $carbon--theme: $carbon--theme--g90;
   margin-left: 3rem;
   margin-top: 4rem;
 }
+
+@import "./common";

@@ -55,7 +55,6 @@ const catchPhrase = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../styles/_theme.scss";
 .villager {
   height: calc(100% - 1rem);
 }

@@ -15,6 +15,11 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 - [commit-lint](https://commitlint.js.org/#/) - Helps your team adhere to a commit convention
 - [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
 
+## Carbon styles
+
+The carbon styles are imported as a pre-compiled css file. The fie is created by using sass on the command line to generate the css.
+See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creating the css file.
+
 ## Pages & Components
 
 [This repo demo site](https://ibm.github.io/hello-carbon-vue3/)
@@ -56,7 +61,7 @@ This repo should help you get started with using Carbon with Vue3. The idea is t
 
 ## Coding guide
 
-- [Vue style guide](https://vuejs.org/style-guide/) The style guide is followed, but I do not know of a linter that finds style issues which means there are likely places I have missed to follow the guide. If you find something wrong, please fix it.
+- [Vue style guide](https://vuejs.org/style-guide/) The style guide is enforced with [eslint-plugin-vue - Recommended](https://eslint.vuejs.org/rules/#priority-c-recommended-potentially-dangerous-patterns).
 - Prettier and eslint rules are enforced as pre-commit hooks via husky.
 
 ## Recommended IDE Setup

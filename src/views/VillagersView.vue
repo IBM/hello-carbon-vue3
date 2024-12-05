@@ -2,7 +2,7 @@
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="title">{{ t("villagers") }}</div>
+        <div class="title productive-heading-03">{{ t("villagers") }}</div>
       </cv-column>
     </cv-row>
     <cv-row>
@@ -185,9 +185,7 @@ onMounted(() => calcRunWidth());
 </script>
 
 <style scoped lang="scss">
-@import "../styles/_theme.scss";
 .title {
-  @include carbon--type-style("productive-heading-03");
   margin-bottom: 2rem;
 }
 .special-icon {

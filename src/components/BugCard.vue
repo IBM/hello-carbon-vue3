@@ -1,7 +1,7 @@
 <template>
-  <div class="bug-card">
+  <div class="bug-card border border-solid border-carbon-purple-60 mb-2">
     <div class="bug-card-inner" :class="{ 'bug-card-flip': flip }">
-      <div class="bug-card-front">
+      <div class="bug-card-front bg-carbon-gray-50">
         <div>
           <blur-image
             :src="bug.icon_uri"
@@ -23,9 +23,13 @@
           @click="toggleFlip"
         />
       </div>
-      <div class="bug-card-back">
-        <div class="bug-card__name">{{ bugName }}</div>
-        <div class="bug-card__museum">{{ bug["museum-phrase"] }}</div>
+      <div class="bug-card-back bg-carbon-gray-70">
+        <div class="bug-card__name productive-heading-02 text-carbon-blue-60">
+          {{ bugName }}
+        </div>
+        <div class="bug-card__museum body-short-01">
+          {{ bug["museum-phrase"] }}
+        </div>
         <cv-icon-button
           kind="ghost"
           size="sm"
@@ -81,13 +85,10 @@ const rarity = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../styles/_theme.scss";
-
 .bug-card {
   background-color: transparent;
   width: 100%;
   height: 200px;
-  border: 1px solid $purple-60;
   padding: 0.5rem;
   perspective: 1000px;
   &__image {
@@ -109,11 +110,7 @@ const rarity = computed(() => {
     height: 100%;
     backface-visibility: hidden;
   }
-  &-front {
-    background-color: $ui-04;
-  }
   &-back {
-    background-color: $ui-03;
     transform: rotateY(180deg);
   }
   &-flip {
@@ -125,12 +122,7 @@ const rarity = computed(() => {
     bottom: 0.5rem;
     z-index: 99;
   }
-  &__name {
-    @include carbon--type-style("productive-heading-02");
-    color: $link-01;
-  }
   &__museum {
-    @include carbon--type-style("body-short-01");
     margin-top: 0.5rem;
     height: calc(100% - 5rem);
     overflow-y: scroll;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-cy="song-card">
     <div class="productive-heading-01">{{ songName }}</div>
     <div style="width: 100%">
       <cv-aspect-ratio>

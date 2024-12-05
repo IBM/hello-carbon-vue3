@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-cy="hobby">
     <div class="productive-heading-03">
       {{ t("hobby") }}:{{ t(hobbyists.hobby) }}
     </div>

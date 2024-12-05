@@ -4,7 +4,7 @@ describe("smoke test", () => {
     // are icons working?
     cy.get('[data-cy="language-icon"]');
     cy.get(".cv-side-nav-items");
-    cy.get(".songs__name").its("length").should("be.greaterThan", 20);
+    cy.get('[data-cy="song-card"]').its("length").should("be.greaterThan", 20);
     cy.get("#side-nav").find("li").eq(2).click();
     cy.location("pathname").should("eq", "/fish");
     cy.get(".cv-data-table");
@@ -20,7 +20,7 @@ describe("smoke test", () => {
     // villagers
     cy.get("#side-nav").find("li").eq(4).click();
     cy.location("pathname").should("eq", "/villagers");
-    cy.get(".hobby").should("have.length", 6);
+    cy.get('[data-cy="hobby"]').should("have.length", 6);
 
     // home
     cy.get("#side-nav").find("li").first().click();

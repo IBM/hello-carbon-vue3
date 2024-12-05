@@ -45,7 +45,7 @@ defineProps({
   top: -8px;
   bottom: auto;
   border: 32px solid;
-  border-color: var(--interactive-02) transparent transparent transparent;
+  border-color: var(--cds-interactive-02) transparent transparent transparent;
 }
 .tri-right.left-top:after {
   content: " ";
@@ -71,7 +71,7 @@ defineProps({
   top: 30px;
   bottom: auto;
   border: 20px solid;
-  border-color: var(--interactive-02) var(--interactive-02) transparent
+  border-color: var(--cds-interactive-02) var(--cds-interactive-02) transparent
     transparent;
 }
 .tri-right.left-in:after {
@@ -98,7 +98,7 @@ defineProps({
   top: auto;
   bottom: -40px;
   border: 32px solid;
-  border-color: transparent transparent transparent var(--interactive-02);
+  border-color: transparent transparent transparent var(--cds-interactive-02);
 }
 .tri-right.btm-left:after {
   content: " ";
@@ -124,8 +124,8 @@ defineProps({
   top: auto;
   bottom: -40px;
   border: 20px solid;
-  border-color: var(--interactive-02) transparent transparent
-    var(--interactive-02);
+  border-color: var(--cds-interactive-02) transparent transparent
+    var(--cds-interactive-02);
 }
 .tri-right.btm-left-in:after {
   content: " ";
@@ -149,7 +149,7 @@ defineProps({
   right: 30px;
   top: -40px;
   border: 20px solid;
-  border-color: transparent var(--interactive-02) var(--interactive-02)
+  border-color: transparent var(--cds-interactive-02) var(--cds-interactive-02)
     transparent;
 }
 .tri-right.top-right-in:after {
@@ -174,7 +174,7 @@ defineProps({
   right: 30px;
   bottom: -40px;
   border: 20px solid;
-  border-color: var(--interactive-02) var(--interactive-02) transparent
+  border-color: var(--cds-interactive-02) var(--cds-interactive-02) transparent
     transparent;
 }
 .tri-right.btm-right-in:after {
@@ -197,7 +197,7 @@ defineProps({
   right: -8px;
   bottom: -40px;
   border: 20px solid;
-  border-color: var(--interactive-02) var(--interactive-02) transparent
+  border-color: var(--cds-interactive-02) var(--cds-interactive-02) transparent
     transparent;
 }
 .tri-right.btm-right:after {
@@ -223,8 +223,8 @@ defineProps({
   top: 30px;
   bottom: auto;
   border: 20px solid;
-  border-color: var(--interactive-02) transparent transparent
-    var(--interactive-02);
+  border-color: var(--cds-interactive-02) transparent transparent
+    var(--cds-interactive-02);
 }
 .tri-right.right-in:after {
   content: " ";
@@ -250,7 +250,7 @@ defineProps({
   top: -8px;
   bottom: auto;
   border: 32px solid;
-  border-color: var(--interactive-02) transparent transparent transparent;
+  border-color: var(--cds-interactive-02) transparent transparent transparent;
 }
 .tri-right.right-top:after {
   content: " ";

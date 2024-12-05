@@ -46,7 +46,7 @@ defineProps({
     position: absolute;
     bottom: -1px;
     height: 36px;
-    color: var(--carbon-gray-50);
+    color: var(--cds-border-strong);
   }
   &__icon {
     color: v-bind(iconColor);
@@ -72,7 +72,7 @@ defineProps({
       height: 1px;
       border-bottom-width: 1px;
       border-style: solid;
-      border-color: var(--carbon-gray-50);
+      border-color: var(--cds-border-strong);
       margin-bottom: 6px;
       margin-top: 6px;
     }

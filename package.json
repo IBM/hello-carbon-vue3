@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test:e2e": "cypress run --e2e",
     "test:unit": "cypress run --component",
-    "lint": "eslint . --fix",
+    "lint": "eslint --fix .",
     "ci:lint": "eslint && prettier --check src/",
     "prepare": "husky",
     "format": "prettier --write src/"

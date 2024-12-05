@@ -23,7 +23,6 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@import "../../styles/_theme.scss";
 @keyframes music-scroll {
   from {
     left: -17px;
@@ -47,7 +46,7 @@ defineProps({
     position: absolute;
     bottom: -1px;
     height: 36px;
-    color: $gray-50;
+    color: var(--carbon-gray-50);
   }
   &__icon {
     color: v-bind(iconColor);
@@ -73,7 +72,7 @@ defineProps({
       height: 1px;
       border-bottom-width: 1px;
       border-style: solid;
-      border-color: $gray-50;
+      border-color: var(--carbon-gray-50);
       margin-bottom: 6px;
       margin-top: 6px;
     }

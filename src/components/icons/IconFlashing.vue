@@ -15,7 +15,6 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@import "../../styles/_theme.scss";
 @keyframes flashing {
   from {
     transform: scale(0);
@@ -41,7 +40,7 @@ defineProps({
   &__flasher {
     height: 7px;
     width: 7px;
-    background-color: $yellow-30;
+    background-color: var(--carbon-yellow-30);
     left: 10.5px;
     top: 3px;
     position: absolute;

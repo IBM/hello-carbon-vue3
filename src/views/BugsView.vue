@@ -2,7 +2,7 @@
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="title">{{ t("bugs") }}</div>
+        <div class="productive-heading-03 mb-8">{{ t("bugs") }}</div>
       </cv-column>
     </cv-row>
     <cv-row>
@@ -68,10 +68,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
-@import "../styles/_theme.scss";
-.title {
-  @include carbon--type-style("productive-heading-03");
-  margin-bottom: 2rem;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -6555,25 +6555,10 @@ fieldset[disabled] .bx--form__helper-text {
 .bx--snippet--multi .bx--snippet-container pre {
   padding-right: 2.5rem;
   padding-bottom: 1.5rem;
-  overflow-x: auto;
 }
 
 .bx--snippet--multi.bx--snippet--no-copy .bx--snippet-container pre {
   padding-right: 0;
-}
-
-.bx--snippet--multi.bx--snippet--expand .bx--snippet-container pre {
-  overflow-x: auto;
-}
-
-.bx--snippet--multi .bx--snippet-container pre::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1rem;
-  height: 100%;
-  background-image: linear-gradient(to right, rgba(57, 57, 57, 0), #393939);
-  content: "";
 }
 
 .bx--snippet--multi .bx--snippet-container pre code {
@@ -8601,6 +8586,16 @@ fieldset[disabled] .bx--form__helper-text {
 
 .bx--data-table-content {
   overflow-x: auto;
+}
+
+.bx--data-table-content:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+@media screen and (prefers-contrast) {
+  .bx--data-table-content:focus {
+    outline-style: dotted;
+  }
 }
 
 .bx--data-table-header {
@@ -22565,6 +22560,89 @@ a.bx--navigation-link:focus {
 #app > .cv-grid {
   margin-left: 3rem;
   margin-top: 4rem;
+}
+
+.productive-heading-01 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.28572;
+  letter-spacing: 0.16px;
+}
+
+.productive-heading-02 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.375;
+  letter-spacing: 0;
+}
+
+.productive-heading-03 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.productive-heading-04 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.28572;
+  letter-spacing: 0;
+}
+
+.productive-heading-05 {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.productive-heading-06 {
+  font-size: 2.625rem;
+  font-weight: 300;
+  line-height: 1.199;
+  letter-spacing: 0;
+}
+
+.productive-heading-07 {
+  font-size: 3.375rem;
+  font-weight: 300;
+  line-height: 1.199;
+  letter-spacing: 0;
+}
+
+.body-short-01 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.28572;
+  letter-spacing: 0.16px;
+}
+
+.body-short-02 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375;
+  letter-spacing: 0;
+}
+
+.body-long-01 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.42857;
+  letter-spacing: 0.16px;
+}
+
+.body-long-02 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+:root {
+  --carbon-yellow-30: #f1c21b;
+  --carbon-gray-50: #8d8d8d;
+  --interactive-02: #6f6f6f;
 }
 
 /*# sourceMappingURL=carbon-g90.css.map */

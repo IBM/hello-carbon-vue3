@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="songs__name">{{ songName }}</div>
+    <div class="productive-heading-01">{{ songName }}</div>
     <div style="width: 100%">
       <cv-aspect-ratio>
         <blur-image
@@ -11,7 +11,7 @@
         />
       </cv-aspect-ratio>
     </div>
-    <div class="songs__price">
+    <div class="songs__price body-short-02">
       <div>
         <div>{{ buyPrice }}</div>
         <buy-icon />
@@ -52,13 +52,8 @@ const sellPrice = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import "../styles/theme";
 .songs {
-  &__name {
-    @include carbon--type-style("productive-heading-01");
-  }
   &__price {
-    @include carbon--type-style("body-short-02");
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;

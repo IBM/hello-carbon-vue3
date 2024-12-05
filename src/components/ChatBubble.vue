@@ -1,6 +1,6 @@
 <template>
   <div
-    class="talk-bubble tri-right border round"
+    class="talk-bubble tri-right rounded-3xl border-carbon-gray-60 border-solid border-8"
     :class="[
       {
         ['top-right-in']: kind === 'bottom-left',
@@ -26,20 +26,12 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@import "../styles/_theme.scss";
-
 .talk-bubble {
   display: inline-block;
   position: relative;
   width: 200px;
   height: auto;
   background-color: v-bind(bubbleColor);
-}
-.border {
-  border: 8px solid $interactive-02;
-}
-.round {
-  border-radius: 30px;
 }
 
 /* Right triangle placed top left flush. */
@@ -53,7 +45,7 @@ defineProps({
   top: -8px;
   bottom: auto;
   border: 32px solid;
-  border-color: $interactive-02 transparent transparent transparent;
+  border-color: var(--interactive-02) transparent transparent transparent;
 }
 .tri-right.left-top:after {
   content: " ";
@@ -62,7 +54,7 @@ defineProps({
   height: 0;
   left: -20px;
   right: auto;
-  top: 0px;
+  top: 0;
   bottom: auto;
   border: 22px solid;
   border-color: v-bind(bubbleColor) transparent transparent transparent;
@@ -79,7 +71,8 @@ defineProps({
   top: 30px;
   bottom: auto;
   border: 20px solid;
-  border-color: $interactive-02 $interactive-02 transparent transparent;
+  border-color: var(--interactive-02) var(--interactive-02) transparent
+    transparent;
 }
 .tri-right.left-in:after {
   content: " ";
@@ -105,14 +98,14 @@ defineProps({
   top: auto;
   bottom: -40px;
   border: 32px solid;
-  border-color: transparent transparent transparent $interactive-02;
+  border-color: transparent transparent transparent var(--interactive-02);
 }
 .tri-right.btm-left:after {
   content: " ";
   position: absolute;
   width: 0;
   height: 0;
-  left: 0px;
+  left: 0;
   right: auto;
   top: auto;
   bottom: -20px;
@@ -131,7 +124,8 @@ defineProps({
   top: auto;
   bottom: -40px;
   border: 20px solid;
-  border-color: $interactive-02 transparent transparent $interactive-02;
+  border-color: var(--interactive-02) transparent transparent
+    var(--interactive-02);
 }
 .tri-right.btm-left-in:after {
   content: " ";
@@ -155,7 +149,8 @@ defineProps({
   right: 30px;
   top: -40px;
   border: 20px solid;
-  border-color: transparent $interactive-02 $interactive-02 transparent;
+  border-color: transparent var(--interactive-02) var(--interactive-02)
+    transparent;
 }
 .tri-right.top-right-in:after {
   content: " ";
@@ -179,7 +174,8 @@ defineProps({
   right: 30px;
   bottom: -40px;
   border: 20px solid;
-  border-color: $interactive-02 $interactive-02 transparent transparent;
+  border-color: var(--interactive-02) var(--interactive-02) transparent
+    transparent;
 }
 .tri-right.btm-right-in:after {
   content: " ";
@@ -201,7 +197,8 @@ defineProps({
   right: -8px;
   bottom: -40px;
   border: 20px solid;
-  border-color: $interactive-02 $interactive-02 transparent transparent;
+  border-color: var(--interactive-02) var(--interactive-02) transparent
+    transparent;
 }
 .tri-right.btm-right:after {
   content: " ";
@@ -209,7 +206,7 @@ defineProps({
   width: 0;
   height: 0;
   left: auto;
-  right: 0px;
+  right: 0;
   bottom: -20px;
   border: 12px solid;
   border-color: v-bind(bubbleColor) v-bind(bubbleColor) transparent transparent;
@@ -226,7 +223,8 @@ defineProps({
   top: 30px;
   bottom: auto;
   border: 20px solid;
-  border-color: $interactive-02 transparent transparent $interactive-02;
+  border-color: var(--interactive-02) transparent transparent
+    var(--interactive-02);
 }
 .tri-right.right-in:after {
   content: " ";
@@ -252,7 +250,7 @@ defineProps({
   top: -8px;
   bottom: auto;
   border: 32px solid;
-  border-color: $interactive-02 transparent transparent transparent;
+  border-color: var(--interactive-02) transparent transparent transparent;
 }
 .tri-right.right-top:after {
   content: " ";
@@ -261,7 +259,7 @@ defineProps({
   height: 0;
   left: auto;
   right: -20px;
-  top: 0px;
+  top: 0;
   bottom: auto;
   border: 20px solid;
   border-color: v-bind(bubbleColor) transparent transparent transparent;

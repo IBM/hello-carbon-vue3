@@ -47,7 +47,16 @@
       />
     </cv-data-table-cell>
     <cv-data-table-cell v-if="md">
-      <div :class="`fish__rarity-${rarity} flex`">
+      <div
+        class="flex"
+        :class="{
+          'text-carbon-purple-30': rarity === 1,
+          'text-carbon-purple-40': rarity === 2,
+          'text-carbon-purple-50': rarity === 3,
+          'text-carbon-purple-60': rarity === 4,
+          'text-carbon-magenta-30': rarity > 4 || rarity < 1,
+        }"
+      >
         <rare-icon v-if="rarity >= 1" />
         <rare-icon v-if="rarity >= 2" />
         <rare-icon v-if="rarity >= 3" />
@@ -129,20 +138,4 @@ const showCatchPhrases = inject("show-catch-phrases", ref(false));
 const { md } = useBreakpoints();
 </script>
 
-<style scoped lang="scss">
-@import "../styles/theme";
-.fish {
-  &__rarity-1 {
-    color: $purple-30;
-  }
-  &__rarity-2 {
-    color: $purple-40;
-  }
-  &__rarity-3 {
-    color: $purple-50;
-  }
-  &__rarity-4 {
-    color: $purple-60;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

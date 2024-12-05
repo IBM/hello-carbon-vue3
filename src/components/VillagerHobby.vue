@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="hobby">{{ t("hobby") }}:{{ t(hobbyists.hobby) }}</div>
+    <div class="productive-heading-03">
+      {{ t("hobby") }}:{{ t(hobbyists.hobby) }}
+    </div>
     <div>
       <cv-grid :full-width="true">
         <cv-row>
@@ -30,9 +32,4 @@ defineProps({
 const { t } = useTranslation();
 </script>
 
-<style scoped lang="scss">
-@import "../styles/_theme.scss";
-.hobby {
-  @include carbon--type-style("productive-heading-03");
-}
-</style>
+<style scoped lang="scss"></style>

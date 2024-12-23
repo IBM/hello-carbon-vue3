@@ -65,7 +65,7 @@ importers:
         version: 1.10.4
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
-        version: 5.2.1(vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.5.0))(vue@3.5.13(typescript@5.3.3))
+        version: 5.2.1(vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.3.3))
       '@vue/eslint-config-prettier':
         specifier: ^10.1.0
         version: 10.1.0(eslint@9.16.0(jiti@2.4.2))(prettier@3.4.1)
@@ -91,8 +91,8 @@ importers:
         specifier: ^25.0.1
         version: 25.0.1
       lint-staged:
-        specifier: ^15.2.10
-        version: 15.2.10
+        specifier: ^15.2.11
+        version: 15.2.11
       postcss:
         specifier: ^8.4.49
         version: 8.4.49
@@ -104,7 +104,7 @@ importers:
         version: 3.4.15
       vite:
         specifier: ^6.0.4
-        version: 6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.5.0)
+        version: 6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.6.1)
 
 packages:
 
@@ -1124,6 +1124,15 @@ packages:
       supports-color:
         optional: true
 
+  debug@4.4.0:
+    resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   decimal.js@10.4.3:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==}
 
@@ -1764,11 +1773,15 @@ packages:
     resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
     engines: {node: '>=14'}
 
+  lilconfig@3.1.3:
+    resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
+    engines: {node: '>=14'}
+
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lint-staged@15.2.10:
-    resolution: {integrity: sha512-5dY5t743e1byO19P9I4b3x8HJwalIznL5E1FWYnU6OWw33KxNBSLAc6Cy7F2PsFEO8FKnLwjwm5hx7aMF0jzZg==}
+  lint-staged@15.2.11:
+    resolution: {integrity: sha512-Ev6ivCTYRTGs9ychvpVw35m/bcNDuBN+mnTeObCL5h+boS5WzBEC6LHI4I9F/++sZm1m+J2LEiy0gxL/R9TBqQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -1781,8 +1794,8 @@ packages:
       enquirer:
         optional: true
 
-  listr2@8.2.4:
-    resolution: {integrity: sha512-opevsywziHd3zHCVQGAj8zu+Z3yHNkkoYhWIGnq54RrCVwLz0MozotJEDnKsIBLvkfLGN6BLOyAeRrYI0pKA4g==}
+  listr2@8.2.5:
+    resolution: {integrity: sha512-iyAZCeyD+c1gPyE9qpFu8af0Y+MRtmKOncdGoA2S5EY8iFq99dmmvkNnHiWo+pj0s7yH7l3KPIgee77tKpXPWQ==}
     engines: {node: '>=18.0.0'}
 
   locate-path@6.0.0:
@@ -1915,6 +1928,9 @@ packages:
 
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+
+  ms@2.1.3:
+    resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
@@ -2668,6 +2684,11 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
+  yaml@2.6.1:
+    resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
   yargs-parser@21.1.1:
     resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}
     engines: {node: '>=12'}
@@ -3219,9 +3240,9 @@ snapshots:
       '@types/node': 20.11.16
     optional: true
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.5.0))(vue@3.5.13(typescript@5.3.3))':
+  '@vitejs/plugin-vue@5.2.1(vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.3.3))':
     dependencies:
-      vite: 6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.5.0)
+      vite: 6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.6.1)
       vue: 3.5.13(typescript@5.3.3)
 
   '@vue/compiler-core@3.5.13':
@@ -3712,6 +3733,10 @@ snapshots:
       ms: 2.1.2
     optionalDependencies:
       supports-color: 8.1.1
+
+  debug@4.4.0:
+    dependencies:
+      ms: 2.1.3
 
   decimal.js@10.4.3: {}
 
@@ -4378,20 +4403,22 @@ snapshots:
 
   lilconfig@3.1.2: {}
 
+  lilconfig@3.1.3: {}
+
   lines-and-columns@1.2.4: {}
 
-  lint-staged@15.2.10:
+  lint-staged@15.2.11:
     dependencies:
       chalk: 5.3.0
       commander: 12.1.0
-      debug: 4.3.6(supports-color@8.1.1)
+      debug: 4.4.0
       execa: 8.0.1
-      lilconfig: 3.1.2
-      listr2: 8.2.4
+      lilconfig: 3.1.3
+      listr2: 8.2.5
       micromatch: 4.0.8
       pidtree: 0.6.0
       string-argv: 0.3.2
-      yaml: 2.5.0
+      yaml: 2.6.1
     transitivePeerDependencies:
       - supports-color
 
@@ -4408,7 +4435,7 @@ snapshots:
     optionalDependencies:
       enquirer: 2.4.1
 
-  listr2@8.2.4:
+  listr2@8.2.5:
     dependencies:
       cli-truncate: 4.0.0
       colorette: 2.0.20
@@ -4521,6 +4548,8 @@ snapshots:
   mitt@3.0.1: {}
 
   ms@2.1.2: {}
+
+  ms@2.1.3: {}
 
   mz@2.7.0:
     dependencies:
@@ -5099,7 +5128,7 @@ snapshots:
       core-util-is: 1.0.2
       extsprintf: 1.3.0
 
-  vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.5.0):
+  vite@6.0.4(@types/node@20.11.16)(jiti@2.4.2)(sass@1.81.0)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
@@ -5109,7 +5138,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.4.2
       sass: 1.81.0
-      yaml: 2.5.0
+      yaml: 2.6.1
 
   vue-demi@0.14.10(vue@3.5.13(typescript@5.3.3)):
     dependencies:
@@ -5212,6 +5241,8 @@ snapshots:
   y18n@5.0.8: {}
 
   yaml@2.5.0: {}
+
+  yaml@2.6.1: {}
 
   yargs-parser@21.1.1: {}
 

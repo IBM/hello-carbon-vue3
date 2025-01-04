@@ -1,0 +1,14 @@
+{
+  "hello": "Bienvenue",
+  "choose-language": "Choisir la langue",
+  "login": "Se connecter",
+  "logout": "Se déconnecter",
+  "profile": "Profil utilisateur",
+  "other-apps": "Autres applications",
+  "characters": "Personnages",
+  "comics": "Bandes dessinées",
+  "events": "Événements",
+  "home": "Page d'accueil",
+  "home-login-label": "Connectez-vous pour voir des informations intéressantes",
+  "home-login-button": "Connectez-vous avec w3 ID"
+}

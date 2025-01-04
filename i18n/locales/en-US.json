@@ -1,0 +1,15 @@
+{
+  "hello": "Hello",
+  "choose-language": "Choose language",
+  "login": "Log in",
+  "logout": "Log out",
+  "unauthenticated": "You are not logged in.",
+  "profile": "User profile",
+  "other-apps": "Other apps",
+  "characters": "Characters",
+  "comics": "Comics",
+  "events": "Events",
+  "home": "Home",
+  "home-login-label": "Log in in to see exciting information",
+  "home-login-button": "Log in with IBMid"
+}

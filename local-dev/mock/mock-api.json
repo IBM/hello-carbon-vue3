@@ -1,0 +1,329 @@
+{
+  "uuid": "b44755ae-ecc9-4c28-ae1d-72e60db3f0ed",
+  "lastMigration": 32,
+  "name": "Mock marvel api for use with hello carbon nuxt project.",
+  "endpointPrefix": "",
+  "latency": 1500,
+  "port": 4513,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d87398a1-0df0-4599-b6b9-c99688115d20",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/public/characters",
+      "responses": [
+        {
+          "uuid": "1442b074-4c4f-4615-97e7-9346302008a0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "FILE",
+          "filePath": "./characters.json",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "af0d7c6c-e8c3-47f5-8ad1-58a0417d59fc",
+          "body": "{\n    \"code\": \"MissingParameter\",\n    \"message\": \"You must provide a timestamp.\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "ts",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "612fd64b-e17a-4bf6-a7ea-d4972a54d32f",
+          "body": "{\n    \"code\": \"MissingParameter\",\n    \"message\": \"You must provide a user key.\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "apikey",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "337b5965-479c-4c02-88eb-943e7dfa599f",
+          "body": "{\n    \"code\": \"MissingParameter\",\n    \"message\": \"You must provide a hash.\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "hash",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "82b89352-38f8-47e2-a3c7-62fa7b7d560f",
+          "body": "{\n    \"code\": \"InvalidCredentials\",\n    \"message\": \"The passed API key is invalid.\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "apikey",
+              "value": "local-dev",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "941229f8-4f8e-432d-b861-b32069754fc3",
+          "body": "{\n    \"code\": \"InvalidCredentials\",\n    \"message\": \"That hash, timestamp and key combination is invalid.\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "hash",
+              "value": "[a-f0-9]{32}",
+              "invert": true,
+              "operator": "regex_i"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "817f4c01-e157-4b72-8510-fa96cd544af5",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/public/comics",
+      "responses": [
+        {
+          "uuid": "7feb16a5-f7ba-491a-9eb5-b5bbe1e1e432",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "FILE",
+          "filePath": "./comics.json",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "3e240a94-809e-45a6-84c1-4ab25a3389ef",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/public/events",
+      "responses": [
+        {
+          "uuid": "49f8a080-fa3e-4727-9bdc-5bfd3560c72e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "FILE",
+          "filePath": "./events.json",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "ca99d8a8-a4cf-460f-8954-6a67e67d1fb8",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "images/:filename",
+      "responses": [
+        {
+          "uuid": "5959d7bd-2d13-42ac-8860-88b16cb24e3a",
+          "body": "{ \"path\": \"{{urlParam 'filename'}}\" }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "FILE",
+          "filePath": "images/{{urlParam 'filename'}}",
+          "databucketID": "",
+          "sendFileAsBody": true,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d87398a1-0df0-4599-b6b9-c99688115d20"
+    },
+    {
+      "type": "route",
+      "uuid": "817f4c01-e157-4b72-8510-fa96cd544af5"
+    },
+    {
+      "type": "route",
+      "uuid": "3e240a94-809e-45a6-84c1-4ab25a3389ef"
+    },
+    {
+      "type": "route",
+      "uuid": "ca99d8a8-a4cf-460f-8954-6a67e67d1fb8"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

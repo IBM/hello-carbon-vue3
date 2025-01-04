@@ -1,0 +1,16 @@
+name: local-hello-nuxt
+services:
+  ibmid:
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev --import-realm
+    restart: always
+    volumes:
+      # https://github.com/vbhayden/keycloak-federation-examples/blob/master/keycloak/keycloak-config/realms/example-realm.json
+      - ./ibm-id:/opt/keycloak/data/import${z}
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=change_me
+      - KC_BOOTSTRAP_ADMIN_CLIENT_ID=123456
+      - KC_BOOTSTRAP_ADMIN_CLIENT_SECRET=789012
+    ports:
+      - "8080:8080"

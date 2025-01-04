@@ -1,6 +1,7 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Prereqs
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- Node v22 `nvm install 22`
+- [Mockoon](https://mockoon.com/download/) - run mocks for comics endpoints
 
 ## Setup
 
@@ -9,33 +10,22 @@ Make sure to install the dependencies:
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Getting Started
 
-Start the development server on `http://localhost:3000`:
+A mock version of the comics endpoints is in [mock-api.json](./local-dev/mock/mock-api.json).
+Load this in the Mockoon desktop app or start in the command line.
+```shell
+npm install -g @mockoon/cli
+mockoon-cli start --data ./local-dev/mock/mock-api.json
+```
+
+Start the development server on `http://localhost:4507`:
 
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -45,15 +35,6 @@ Build the application for production:
 ```bash
 # npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
@@ -61,15 +42,6 @@ Locally preview production build:
 ```bash
 # npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

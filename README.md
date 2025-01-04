@@ -1,6 +1,7 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Prereqs
+- [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+- Node v22 `nvm install 22`
+- [Mockoon](https://mockoon.com/download/) - run mocks for comics endpoints
 
 ## Setup
 
@@ -9,12 +10,19 @@ Make sure to install the dependencies:
 ```bash
 # npm
 npm install
+```
+
+## Getting Started
+
+A mock version of the comics endpoints is in [mock-api.json](./local-dev/mock/mock-api.json).
+Load this in the Mockoon desktop app or start in the command line.
+```shell
+npm install -g @mockoon/cli
+mockoon-cli start --data ./local-dev/mock/mock-api.json
 
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Start the development server on `http://localhost:4507`:
 
 ```bash
 # npm

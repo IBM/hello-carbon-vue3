@@ -3,6 +3,13 @@ import { NuxtAuthHandler } from '#auth'
 
 const runtimeConfig = useRuntimeConfig()
 
+// The callback enabled on IBMid (or other openid) is like:
+// host/api/auth/callback/{id}
+// For an oath with AUTH_ID=ibmid on Code Engine
+// https://YOUR_APP.us-east.codeengine.appdomain.cloud/api/auth/callback/ibmid
+// or locally
+// http://localhost:4507/api/auth/callback/ibmid
+
 console.log({
   secret: runtimeConfig.authSecret.slice(0, 3) + '...',
   type: 'oauth',

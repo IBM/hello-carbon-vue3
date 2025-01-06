@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",
-    "@carbon/themes": "^10.55.5",
+    "@carbon/themes": "^11.44.0",
     "@carbon/vue": "^3.0.23",
     "carbon-components": "^10.58.15",
     "i18next": "^24.2.0",

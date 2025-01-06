@@ -52,10 +52,6 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: 'sidebase-auth',
-})
-
 const comics = useComics()
 
 const comicsList = computed(() => {

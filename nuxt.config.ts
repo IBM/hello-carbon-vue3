@@ -16,22 +16,21 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-11-01',
   auth: {
+    baseURL: 'http://localhost:4507/api/auth',
     isEnabled: true,
     provider: {
       type: 'authjs',
-      trustHost: true,
       defaultProvider: 'ibmid',
     },
     sessionRefresh: {
       enablePeriodically: 1000 * 60 * 10, // 10 minutes
       enableOnWindowFocus: true,
     },
-    globalAppMiddleware: false, // enable to protect the entire app
+    globalAppMiddleware: true, // enable to protect the entire app
   },
   eslint: {
     config: {
       stylistic: true,
-
     },
   },
   i18n: {

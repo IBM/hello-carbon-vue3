@@ -1,7 +1,4 @@
 <script setup>
-definePageMeta({
-  middleware: 'sidebase-auth',
-})
 </script>
 
 <template>

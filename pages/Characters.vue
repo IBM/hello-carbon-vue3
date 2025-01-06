@@ -27,9 +27,6 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: 'sidebase-auth',
-})
 </script>
 
 <style scoped lang="scss"></style>

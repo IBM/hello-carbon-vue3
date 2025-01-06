@@ -2,7 +2,7 @@
   <div>
     <cv-grid
       :full-width="true"
-      class="h-[calc(100vh-3rem)] w-screen bg-[url('@/assets/images/comics.png')] bg-cover bg-right-top"
+      class="h-[calc(100vh-3rem)] w-screen bg-gradient-to-tl from-carbon-blue-60 to-carbon-magenta-60"
     >
       <cv-row>
         <cv-column>
@@ -34,6 +34,10 @@
 
 <script setup>
 import { Bee16 as IBMIDIcon } from '@carbon/icons-vue'
+
+definePageMeta({
+  auth: false,
+})
 
 const { signIn, status, data } = useAuth()
 </script>

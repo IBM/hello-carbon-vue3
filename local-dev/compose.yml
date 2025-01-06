@@ -10,7 +10,5 @@ services:
     environment:
       - KC_BOOTSTRAP_ADMIN_USERNAME=admin
       - KC_BOOTSTRAP_ADMIN_PASSWORD=change_me
-      - KC_BOOTSTRAP_ADMIN_CLIENT_ID=123456
-      - KC_BOOTSTRAP_ADMIN_CLIENT_SECRET=789012
     ports:
       - "8080:8080"

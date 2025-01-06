@@ -53,6 +53,7 @@
        "firstName":"Fallarnon",
        "lastName":"Mnementh",
        "email":"admin@ibm.example.com",
+       "emailVerified": true,
        "enabled":true,
        "credentials":[
           {
@@ -175,7 +176,7 @@
       }
     ],
     "client": {
-      "123456": [],
+      "a123456z": [],
       "realm-management": [
         {
           "id": "bd7b98e3-7ba8-4b76-93e1-ff895f8e5f9e",
@@ -925,7 +926,7 @@
   "clients": [
     {
       "id": "2f72539c-8314-466e-a577-589701cd871b",
-      "clientId": "123456",
+      "clientId": "a123456z",
       "name": "",
       "description": "",
       "rootUrl": "",

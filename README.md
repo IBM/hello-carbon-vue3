@@ -2,6 +2,7 @@
 - [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 - Node v22 `nvm install 22`
 - [Mockoon](https://mockoon.com/download/) - run mocks for comics endpoints
+- Docker or [podman](https://podman.io/) or [Rancher Desktop](https://rancherdesktop.io/)
 
 ## Setup
 

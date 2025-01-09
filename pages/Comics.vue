@@ -1,9 +1,16 @@
 <template>
-  <cv-grid style="margin-top: 4rem">
+  <cv-grid class="mt-16">
     <comic-info
       id="comic-info-modal"
       v-model:comic-id="currentComic"
     />
+    <cv-row>
+      <cv-column>
+        <div class="mb-4 text-3xl text-carbon-magenta-60">
+          Marvel comics
+        </div>
+      </cv-column>
+    </cv-row>
     <cv-row>
       <cv-column
         v-for="comic in comicsList"

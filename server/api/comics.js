@@ -1,8 +1,11 @@
 export default defineCachedEventHandler(
   (event) => {
-    console.log('calling marvel')
+    const logger = useWinstonLogger('comics')
+
+    const offset = Math.floor(Math.random() * 60000)
+    logger.log('info', `calling marvel for comics at offset ${offset}`)
     return $fetch(`${event.context.marvel.url}v1/public/comics`, {
-      query: { ...event.context.marvel.query },
+      query: { ...event.context.marvel.query, offset },
     })
   },
   { maxAge: 60 * 60 * 24,

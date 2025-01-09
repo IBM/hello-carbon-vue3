@@ -44,6 +44,9 @@ npm run dev
 ```
 Server should be running at http://localhost:4507
 
+
+Log in with admin/potato-history
+
 ## Production
 
 Build the application for production:

@@ -1,23 +1,35 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "hello-carbon-nuxt",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "nuxt": "^3.9.3",
-    "sass": "^1.70.0",
-    "vue": "^3.4.14",
-    "vue-router": "^4.2.5"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
     "@carbon/themes": "^10.55.3",
-    "@carbon/vue": "^3.0.12"
+    "@carbon/vue": "^3.0.23",
+    "@nuxt/eslint": "^0.7.2",
+    "@nuxtjs/i18n": "^9.0.0-rc.2",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@sidebase/nuxt-auth": "^0.10.0",
+    "next-auth": "~4.21.1",
+    "nuxt": "^3.14.1592",
+    "vue": "latest",
+    "vue-router": "latest",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "sass": "^1.70.0"
   }
 }

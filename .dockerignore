@@ -1,0 +1,12 @@
+.dockerignore
+.env*
+.gitignore
+.nvmrc
+comics.json
+Dockerfile
+LICENSE
+README.md
+.idea
+.output
+.nuxt
+node_modules

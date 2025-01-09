@@ -42,7 +42,7 @@
         :label="$t('login')"
         tip-position="bottom"
         tip-alignment="end"
-        @click="signIn('ibmid', { callbackUrl: '/', redirect: true })"
+        @click="signIn(defaultProviderId, { callbackUrl: '/', redirect: true })"
       >
         <login-icon />
       </cv-header-global-action>
@@ -191,7 +191,11 @@ import { Home16 as HomeIcon,
   Switcher16 as SwitcherIcon } from '@carbon/icons-vue'
 
 const { locale, locales, setLocale } = useI18n()
-const { signIn, status } = useAuth()
+const { signIn, status, getProviders } = useAuth()
+const providers = await getProviders()
+const defaultProviderId = computed(() => {
+  return Object.values(providers)[0].id
+})
 
 const languageExpanded = ref(false)
 function changeLocale(language) {

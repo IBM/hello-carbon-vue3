@@ -10,5 +10,5 @@
   "events": "Événements",
   "home": "Page d'accueil",
   "home-login-label": "Connectez-vous pour voir des informations intéressantes",
-  "home-login-button": "Connectez-vous avec w3 ID"
+  "home-login-button": "Connectez-vous avec {provider}"
 }

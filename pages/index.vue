@@ -10,7 +10,7 @@
             <cv-tile v-if="status==='authenticated'">
               <div class="my-2 text-2xl">
                 {{ $t("hello") }} <br>
-                {{ data.user.name }}
+                {{ data.user.name }} <br>
               </div>
             </cv-tile>
             <cv-tile v-if="status==='unauthenticated'">
@@ -20,9 +20,9 @@
               <cv-button
                 id="home-login-btn"
                 :icon="IBMIDIcon"
-                @click="signIn('ibmid', { callbackUrl: '/', redirect: false })"
+                @click="signIn(defaultProviderId, { callbackUrl: '/', redirect: false })"
               >
-                {{ $t("home-login-button") }}
+                {{ $t("home-login-button", { provider: defaultProvider }) }}
               </cv-button>
             </cv-tile>
           </div>
@@ -39,7 +39,14 @@ definePageMeta({
   auth: false,
 })
 
-const { signIn, status, data } = useAuth()
+const { signIn, status, data, getProviders } = useAuth()
+const providers = await getProviders()
+const defaultProvider = computed(() => {
+  return Object.values(providers)[0].name
+})
+const defaultProviderId = computed(() => {
+  return Object.values(providers)[0].id
+})
 </script>
 
 <style scoped lang="scss"></style>

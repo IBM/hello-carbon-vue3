@@ -11,5 +11,5 @@
   "events": "Events",
   "home": "Home",
   "home-login-label": "Log in in to see exciting information",
-  "home-login-button": "Log in with IBMid"
+  "home-login-button": "Log in with {provider}"
 }

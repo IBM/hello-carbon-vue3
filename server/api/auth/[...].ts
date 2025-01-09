@@ -1,5 +1,14 @@
 import merge from 'lodash.merge'
 import { NuxtAuthHandler } from '#auth'
+// You can find an overview of all the prebuilt providers here: https://next-auth.js.org/providers/
+// Use as show in the docs here: https://auth.sidebase.io/guide/authjs/nuxt-auth-handler#providers
+// For IBMid or w3Id (available only internally at IBM), use one or both of these
+import IBMidProvider from '@/server/utils/ibmid'
+// import W3idProvider from '@/server/utils/w3id'
+// Use this for local development
+import MockIdProvider from '@/server/utils/mockid'
+
+const DefaultProvider = process.env.AUTH_MOCK ? MockIdProvider : IBMidProvider
 
 const runtimeConfig = useRuntimeConfig()
 
@@ -11,36 +20,19 @@ const runtimeConfig = useRuntimeConfig()
 // http://localhost:4507/api/auth/callback/ibmid
 
 console.log({
+  name: DefaultProvider.name,
   secret: runtimeConfig.authSecret.slice(0, 3) + '...',
-  type: 'oauth',
-  id: process.env.AUTH_ID,
-  name: process.env.AUTH_NAME,
   clientId: process.env.AUTH_CLIENT_ID,
   clientSecret: process.env.AUTH_CLIENT_SECRET.slice(0, 3) + '...',
-  wellKnown: process.env.NUXT_AUTH_DISCOVERY,
 })
 export default NuxtAuthHandler({
   // A secret string you define, to ensure correct encryption - NUXT_AUTH_SECRET required in production
   secret: runtimeConfig.authSecret,
   providers: [
-    {
-      type: 'oauth',
-      id: process.env.AUTH_ID,
-      name: process.env.AUTH_NAME,
-      clientId: process.env.AUTH_CLIENT_ID,
-      clientSecret: process.env.AUTH_CLIENT_SECRET,
-      wellKnown: process.env.AUTH_DISCOVERY,
-      authorization: { params: { scope: 'openid email' } },
-      profile(profile) {
-        // enable these to debug
-        // console.log('profile callback', profile)
-        return {
-          id: profile.sub,
-          name: profile.name,
-          email: profile.email,
-        }
-      },
-    },
+    DefaultProvider({
+      clientId: process.env.AUTH_CLIENT_ID || '',
+      clientSecret: process.env.AUTH_CLIENT_SECRET || '',
+    }),
   ],
   callbacks: {
     jwt({ token, account, profile }) {

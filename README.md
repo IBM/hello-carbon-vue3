@@ -1,3 +1,56 @@
+# Hello carbon nuxt
+This repository is designed to help you get started with integrating Carbon into a Nuxt application.
+It showcases best practices for setting up a new Nuxt app with Carbon, providing a solid foundation
+for your project.
+
+If you are looking for a plain Vue 3 example, checkout [Hello carbon Vue3](https://github.com/IBM/hello-carbon-vue3)
+
+## Packages used
+- [Carbon for Vue 3](https://vue.carbondesignsystem.com/?path=/docs/welcome--vue-3-carbon-10) - Vue implementation of
+the Carbon Design System A collection of Carbon Components
+- [Nuxt](https://nuxt.com/) - The Intuitive Vue Framework
+- [@nuxtjs/i18n](https://i18n.nuxtjs.org/) - This repository demonstrates how to implement translations using
+`@nuxtjs/i18n`. All user interface (UI) elements and the majority of the content have been translated.
+- [@sidebase/nuxt-auth](https://auth.sidebase.io/) - User authentication and sessions via authjs
+- [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/) - Tailwind CSS with custom Carbon colors
+- [winston](https://github.com/IBM/hello-carbon-vue3?tab=readme-ov-file) - A logger for just about everything
+- [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
+- [lint-staged](https://www.npmjs.com/package/lint-staged) - Run linters against staged git files
+- [commit-lint](https://commitlint.js.org/#/)- Helps your team adhere to a commit convention
+- [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
+
+## Carbon styles
+The carbon styles are imported as a pre-compiled css file. The fie is created by using sass on the command line to
+generate the css. See [carbon-gray-90.scss](assets/scss/carbon-gray-90.scss) for instructions on creating the css file.
+
+## Pages & Components
+[Demo site for this repository](https://example.com)
+- Header with mobile navigation under "hamburger" menu
+
+  ![header](./docs/header.gif)
+  - Language selection in the header bar, login and switcher buttons are also included
+  - The login works with IBMid and other providers from next-auth
+- Home page
+  - cv-grid,cv-row,cv-column
+  - auth demo login with `useAuth()`, `getProviders`, and `status`
+- Characters page
+  - cv-accordion with auth close function
+  - tailwind custom color for title
+- Comics page
+  - cv-tile, cv-modal
+- Events page
+  - Fully translatable data table including controls and aria labels
+  - Slotted data & headings
+  - Searchable data
+  - cv-data-table, cv-data-table-action, cv-data-table-heading
+  - cv-data-table-row (expandable rows), cv-data-table-cell
+  - cv-button, cv-toggle
+  - REST API integrated with table paging
+- Page transitions
+  - cv-loading
+- Server side
+  - REST api calls with authentication check and caching of results
+  - middleware logging with `winston`
 ## Prereqs
 - [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 - Node v22 `nvm install 22`

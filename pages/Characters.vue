@@ -2,15 +2,30 @@
   <cv-grid class="mt-16">
     <cv-row>
       <cv-column>
-        <div class="mb-4 text-3xl text-carbon-magenta-60">
+        <div
+          :id="characterList.length"
+          class="mb-4 text-3xl text-vermilion"
+        >
           Marvel characters
         </div>
-        <cv-accordion @change="autoClose">
-          <cv-accordion-item
+        <div
+          v-if="!loading"
+          class="mb-6 text-xs"
+        >
+          {{ listDescription }}
+        </div>
+        <div v-if="loading">
+          loading ...
+        </div>
+        <cv-accordion
+          v-else
+          @change="autoClose"
+        >
+          <character-item
             v-for="character in characterList"
             :id="`acc-item-${character.id}`"
             :key="character.id"
-            v-model:open="openSection[character.id]"
+            :data="character"
           >
             <template #title>
               <div class="text-2xl">
@@ -23,7 +38,7 @@
                   character.description || $t("No description") }}
               </p>
             </template>
-          </cv-accordion-item>
+          </character-item>
         </cv-accordion>
       </cv-column>
     </cv-row>
@@ -31,18 +46,31 @@
 </template>
 
 <script setup>
-const characters = useCharacters()
+const characters = useMarvelCharacters()
+const loading = computed(() => {
+  return characters.value?.data?.results?.length <= 0
+})
 const characterList = computed(() => {
-  return characters.value?.data.results || []
+  const list = characters.value?.data.results || []
+  return list
+})
+const listDescription = computed(() => {
+  try {
+    const offset = characters.value.data.offset
+    const last = characters.value.data.offset + characters.value.data.limit
+    const total = characters.value.data.total
+    return `Characters ${offset} .. ${last} of ${total}`
+  }
+  catch {
+    return ''
+  }
 })
 
-const openSection = ref({})
+const openItem = ref('')
+provide('open-item', openItem)
 function autoClose(ev) {
   if (ev.change.open) {
-    const open = ev.change.id.split('-').slice(-1)[0]
-    for (const state in openSection.value) {
-      if (state !== open) openSection.value[state] = false
-    }
+    openItem.value = ev.change.id.split('-').slice(-1)[0]
   }
 }
 </script>

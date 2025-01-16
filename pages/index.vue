@@ -2,7 +2,7 @@
   <div>
     <cv-grid
       :full-width="true"
-      class="h-[calc(100vh-3rem)] w-screen bg-gradient-to-tl from-carbon-blue-60 to-carbon-magenta-60"
+      class="h-[calc(100vh-3rem)] w-screen bg-gradient-to-tl from-vermilion to-yellow-orange"
     >
       <cv-row>
         <cv-column>

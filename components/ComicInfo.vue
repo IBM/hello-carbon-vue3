@@ -4,7 +4,7 @@
     size="xs"
     :auto-hide-off="true"
     @after-modal-hidden="onAfterModalHidden"
-    @modal-hide-request="onAfterModalHidden"
+    @modal-hide-request="onRequestModalHidden"
   >
     <template #label>
       Comic info
@@ -26,8 +26,10 @@ const props = defineProps({
 watch(() => props.comicId, show)
 
 const visible = ref(false)
-function onAfterModalHidden() {
+function onRequestModalHidden() {
   visible.value = false
+}
+function onAfterModalHidden() {
   emit('update:comicId', 0)
 }
 function show() {
@@ -35,7 +37,7 @@ function show() {
 }
 const emit = defineEmits(['update:comicId'])
 
-const comics = useComics()
+const comics = useMarvelComics()
 const comicsList = computed(() => {
   return comics.value?.data?.results || []
 })

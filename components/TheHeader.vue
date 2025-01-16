@@ -10,7 +10,7 @@
     />
     <cv-skip-to-content href="#main-content" />
     <cv-header-name
-      href="/"
+      to="/"
       prefix=""
     >
       {{ $t("hello") }} Carbon Nuxt
@@ -18,19 +18,19 @@
     <cv-header-nav aria-label="Hello carbon nuxt navigation">
       <cv-header-menu-item
         v-if="status==='authenticated'"
-        href="/characters"
+        to="/characters"
       >
         {{ $t('characters') }}
       </cv-header-menu-item>
       <cv-header-menu-item
         v-if="status==='authenticated'"
-        href="/comics"
+        to="/comics"
       >
         {{ $t("comics") }}
       </cv-header-menu-item>
       <cv-header-menu-item
         v-if="status==='authenticated'"
-        href="/events"
+        to="/events"
       >
         {{ $t("events") }}
       </cv-header-menu-item>
@@ -139,7 +139,7 @@
         :expanded="false"
       >
         <cv-side-nav-items>
-          <cv-side-nav-link href="/">
+          <cv-side-nav-link to="/">
             <template #nav-icon>
               <home-icon />
             </template>

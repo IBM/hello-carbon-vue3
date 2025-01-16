@@ -30,7 +30,7 @@ const comicData = ref({
   },
 })
 
-export const useComics = () =>
+export const useMarvelComics = () =>
   useState('marvel-comics', () => {
     const nuxtApp = useNuxtApp()
     useLazyFetch('/api/comics', {

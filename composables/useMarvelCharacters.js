@@ -1,5 +1,5 @@
 const characterData = ref({})
-export const useCharacters = () =>
+export const useMarvelCharacters = () =>
   useState('marvel-characters', () => {
     const nuxtApp = useNuxtApp()
     useLazyFetch('/api/characters', {

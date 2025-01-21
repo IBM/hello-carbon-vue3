@@ -1,0 +1,64 @@
+# Deploy cloud - IBM Code Engine
+
+name: IBM Cloud Code Engine Deploy
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push for the main branch
+  push:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build & deploy
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install IBM Cloud CLI
+        run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+
+      - name: Install Code Engine plugin
+        run: |
+          ibmcloud plugin install code-engine
+          ibmcloud plugin install container-registry
+
+      - name: Show IBM CLI version
+        run: ibmcloud -v
+
+      - name: Login to IBM Cloud
+        env:
+          IBM_CLOUD_APIKEY: ${{ secrets.IBM_CLOUD_APIKEY }}
+          IBM_CLOUD_GROUP: ${{ vars.IBM_CLOUD_GROUP }}
+          IBM_REGION: ${{ vars.IBM_REGION }}
+          IBM_CR_REGION: ${{ vars.IBM_CR_REGION }}
+        run: |
+          ibmcloud login --apikey ${IBM_CLOUD_APIKEY} -g ${IBM_CLOUD_GROUP} -r ${IBM_REGION}
+          ibmcloud cr region-set ${IBM_CR_REGION}
+          ibmcloud cr login
+
+      - name: Build docker image
+        env:
+          CE_PROJECT: ${{ vars.CE_PROJECT }}
+          CE_APP_NAME: ${{ vars.CE_APP_NAME }}
+          CR_IMAGE: ${{ vars.CR_IMAGE }}
+        run: |
+          IMAGE_TAG=$(date '+%FT%H%M%S')
+          docker build -t ${CR_IMAGE}:$IMAGE_TAG . -f ce/Dockerfile
+          docker push ${CR_IMAGE}:$IMAGE_TAG
+          ibmcloud ce project select --name ${CE_PROJECT}
+          ibmcloud ce app logs --tail 5 --follow --name ${CE_APP_NAME} &
+          ibmcloud ce app update --image private.${CR_IMAGE}:$IMAGE_TAG --name ${CE_APP_NAME}
+

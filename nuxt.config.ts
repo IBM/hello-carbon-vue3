@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
   ],
   devtools: { enabled: true },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
   runtimeConfig: {
     authSecret: process.env.NUXT_AUTH_SECRET,
   },
@@ -56,6 +59,7 @@ export default defineNuxtConfig({
     lazy: true,
     defaultLocale: 'en',
   },
+
   // TODO: revisit this for Carbon 11
   // Do not add Carbon anything here - it will cause loops and fail
   // css: ['@/assets/scss/theme.scss'],

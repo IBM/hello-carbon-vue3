@@ -14,11 +14,12 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
     "@carbon/themes": "^10.55.3",
-    "@carbon/vue": "^3.0.23",
+    "@carbon/vue": "^3.0.24",
     "@nuxt/eslint": "^0.7.2",
     "@nuxtjs/i18n": "^9.0.0-rc.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@sidebase/nuxt-auth": "^0.10.0",
+    "luxon": "^3.5.0",
     "next-auth": "~4.21.1",
     "nuxt": "^3.14.1592",
     "vue": "latest",

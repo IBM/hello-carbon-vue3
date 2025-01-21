@@ -127,6 +127,14 @@ export default {
         'carbon-yellow-80': '#483700',
         'carbon-yellow-90': '#302400',
         'carbon-yellow-100': '#1c1500',
+
+        // app specific colors - Avengers Color Scheme
+        'temptress': '#361A29',
+        'vermilion': '#D93D27',
+        'yellow-orange': '#EFA53A',
+        'water': '#CCF4FE',
+        'slate-blue': '#626EDA',
+        'purpureus': '#924F9E',
       },
     },
   },

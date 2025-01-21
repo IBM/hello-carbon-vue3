@@ -10,3 +10,5 @@ README.md
 .output
 .nuxt
 node_modules
+local-dev
+docs

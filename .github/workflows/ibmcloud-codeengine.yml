@@ -56,7 +56,7 @@ jobs:
           CR_IMAGE: ${{ vars.CR_IMAGE }}
         run: |
           IMAGE_TAG=$(date '+%FT%H%M%S')
-          docker build -t ${CR_IMAGE}:$IMAGE_TAG . -f ce/Dockerfile
+          docker build -t ${CR_IMAGE}:$IMAGE_TAG .
           docker push ${CR_IMAGE}:$IMAGE_TAG
           ibmcloud ce project select --name ${CE_PROJECT}
           ibmcloud ce app logs --tail 5 --follow --name ${CE_APP_NAME} &

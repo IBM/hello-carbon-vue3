@@ -34,7 +34,7 @@
       <cv-header-global-action
         :aria-label="t('other-apps')"
         :label="t('other-apps')"
-        aria-controls="switcher-panel"
+        aria-controls="other-apps"
         tip-position="bottom"
         tip-alignment="end"
       >
@@ -54,6 +54,19 @@
               @click="changeLocale(entry.language)"
             >
               {{ entry.title }}
+            </cv-switcher-item-link>
+          </cv-switcher-item>
+        </cv-switcher>
+      </cv-header-panel>
+      <cv-header-panel id="other-apps" v-model:expanded="otherAppsExpanded">
+        <cv-switcher>
+          <cv-switcher-item v-for="app in otherApps" :key="app.id">
+            <cv-switcher-item-link
+              :data-cy="`language-${app.id}`"
+              :href="app.link"
+              target="_blank"
+            >
+              {{ app.name }}
             </cv-switcher-item-link>
           </cv-switcher-item>
         </cv-switcher>
@@ -113,6 +126,25 @@ function changeLocale(language) {
 function onLogin() {
   loggedIn.value = !loggedIn.value;
 }
+
+const otherAppsExpanded = ref(false);
+const otherApps = ref([
+  {
+    id: "hello-vue",
+    name: "Hello Carbon Vue",
+    link: "https://github.com/IBM/hello-carbon-vue3",
+  },
+  {
+    id: "hello-nuxt",
+    name: "Hello Carbon Nuxt",
+    link: "https://github.com/davidnixon/hello-carbon-nuxt",
+  },
+  {
+    id: "carbon-vue",
+    name: "Carbon Vue Storybook",
+    link: "https://vue.carbondesignsystem.com/",
+  },
+]);
 </script>
 
 <style scoped></style>

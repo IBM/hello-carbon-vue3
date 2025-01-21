@@ -34,7 +34,7 @@ const thumbnail = computed(() => {
     </template>
     <template #content>
       <div class="flex flex-row items-center gap-2 text-xl">
-        <div>
+        <div class="flex-shrink-0">
           <img
             v-if="thumbnail"
             :src="thumbnail"

@@ -51,6 +51,26 @@ generate the css. See [carbon-gray-90.scss](assets/scss/carbon-gray-90.scss) for
 - Server side
   - REST api calls with authentication check and caching of results
   - middleware logging with `winston`
+
+## 🎨 Calling All UX Designers!
+
+Hey there, creative geniuses! Are you a UX designer who loves to experiment, ideate, and bring 
+interfaces to life? Well, guess what? You're more than welcome to join the fun here!
+
+This project is a showcase for Carbon components with Nuxt, so the only guideline is to highlight 
+those amazing components in your designs. Whether you:
+
+- Want to revamp the UI/UX for a smoother user experience,
+- Have creative ideas for showcasing Carbon components in unique ways,
+- Think the layout could use a bit more flair,
+- Or simply want to experiment and have fun...
+
+You're in the right place!
+
+No suggestion is too wild, and no contribution is too small. Go open a pull request or just open an issue with a Figma
+link, let your imagination run wild with the Carbon components. We’re here for brainstorming, prototyping, and
+pixel-perfect designs (or not-so-perfect ones—we’re cool with that too).
+
 ## Prereqs
 - [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
 - Node v22 `nvm install 22`

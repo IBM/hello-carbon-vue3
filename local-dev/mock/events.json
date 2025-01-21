@@ -4,7 +4,7 @@
   "copyright": "© 2025 MARVEL",
   "attributionText": "Data provided by Marvel. © 2025 MARVEL",
   "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2025 MARVEL</a>",
-  "etag": "d9b785f0d96d3b06966c3a5f7b209109785685d2",
+  "etag": "bbf3942eeaec8d6839c429288fdbcc100e6a0692",
   "data": {
     "offset": 0,
     "limit": 100,
@@ -30,7 +30,7 @@
         "start": "1989-12-10 00:00:00",
         "end": "2008-01-04 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/51ca10d996b8b",
           "extension": "jpg"
         },
         "creators": {
@@ -536,7 +536,7 @@
         "start": "1995-03-01 00:00:00",
         "end": "1996-06-01 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/51ca0e08a6546",
           "extension": "jpg"
         },
         "creators": {
@@ -1042,7 +1042,7 @@
         "start": "2013-03-06 00:00:00",
         "end": "2013-06-19 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51ca0fc4c83c8",
           "extension": "jpg"
         },
         "creators": {
@@ -1484,7 +1484,7 @@
         "start": "2011-01-26 00:00:00",
         "end": "2011-05-01 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/51ca12a34615b",
           "extension": "jpg"
         },
         "creators": {
@@ -1886,7 +1886,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/55bfa91b34ac4",
           "extension": "jpg"
         },
         "creators": {
@@ -1941,7 +1941,7 @@
         "start": "2007-06-20 00:00:00",
         "end": "2008-06-01 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/51c9ec5e90de1",
           "extension": "jpg"
         },
         "creators": {
@@ -2419,7 +2419,7 @@
         "start": "2007-06-20 00:00:00",
         "end": "2009-01-14 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51c9ed1304bb7",
           "extension": "jpg"
         },
         "creators": {
@@ -2877,7 +2877,7 @@
         "start": "1987-12-10 00:00:00",
         "end": "2010-03-17 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/51ca13895b3ab",
           "extension": "jpg"
         },
         "creators": {
@@ -3192,7 +3192,7 @@
         "start": "1989-01-01 00:00:00",
         "end": "2011-02-16 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51c9d7f42a0c8",
           "extension": "jpg"
         },
         "creators": {
@@ -3650,7 +3650,7 @@
         "start": "2004-07-28 00:00:00",
         "end": "2005-01-01 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/52127e32d3671",
           "extension": "jpg"
         },
         "creators": {
@@ -3744,7 +3744,7 @@
             },
             {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/12581",
-              "name": "Chris Eliopoulos",
+              "name": "Vc Chris Eliopoulos",
               "role": "letterer"
             },
             {
@@ -4124,7 +4124,7 @@
         "start": "2037-01-01 01:00:00",
         "end": "2037-01-01 01:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/53fe0732c1f02",
           "extension": "jpg"
         },
         "creators": {
@@ -4178,7 +4178,7 @@
         "start": "2012-04-04 00:00:00",
         "end": "2012-09-19 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/5109a1f93b543",
           "extension": "jpg"
         },
         "creators": {
@@ -4640,7 +4640,7 @@
         "start": "2014-10-08 00:01:00",
         "end": "2014-12-17 11:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/53f77ba25db97",
           "extension": "jpg"
         },
         "creators": {
@@ -5134,7 +5134,7 @@
         "start": "1993-11-10 00:00:00",
         "end": "1994-02-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/51c9e9945b152",
           "extension": "jpg"
         },
         "creators": {
@@ -5486,7 +5486,7 @@
         "start": "2010-10-01 00:00:00",
         "end": "2011-03-06 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/5109a003a9112",
           "extension": "jpg"
         },
         "creators": {
@@ -5956,7 +5956,7 @@
         "start": "2006-07-01 00:00:00",
         "end": "2007-01-29 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51cb5356c2063",
           "extension": "jpg"
         },
         "creators": {
@@ -6458,7 +6458,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/56d082ff38722",
           "extension": "jpg"
         },
         "creators": {
@@ -6513,7 +6513,7 @@
         "start": "1995-09-10 00:00:00",
         "end": "1996-02-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51cb2d77a0410",
           "extension": "jpg"
         },
         "creators": {
@@ -6883,7 +6883,7 @@
         "start": "2008-12-01 00:00:00",
         "end": "2009-12-31 12:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/528cf4ac6c15f",
           "extension": "jpg"
         },
         "creators": {
@@ -7389,7 +7389,7 @@
         "start": "1990-01-01 00:00:00",
         "end": "1990-01-23 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/51cb2ea890038",
           "extension": "jpg"
         },
         "creators": {
@@ -7763,7 +7763,7 @@
         "start": "2016-10-12 01:00:00",
         "end": "2017-02-01 01:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/57e94a282c8de",
           "extension": "jpg"
         },
         "creators": {
@@ -8145,7 +8145,7 @@
         "start": "2004-10-06 00:00:00",
         "end": "2005-02-11 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51ca1befe36df",
           "extension": "jpg"
         },
         "creators": {
@@ -8154,7 +8154,7 @@
           "items": [
             {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/12581",
-              "name": "Chris Eliopoulos",
+              "name": "Vc Chris Eliopoulos",
               "role": "letterer"
             },
             {
@@ -8507,7 +8507,7 @@
         "start": "1988-01-01 00:00:00",
         "end": "1988-10-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/51cb2f6c91c24",
           "extension": "jpg"
         },
         "creators": {
@@ -8925,7 +8925,7 @@
         "start": "2009-12-03 00:00:00",
         "end": "2010-04-20 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/51ca19c3009a3",
           "extension": "jpg"
         },
         "creators": {
@@ -9359,7 +9359,7 @@
         "start": "1988-01-10 00:00:00",
         "end": "2007-01-17 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/51cb2f521ae35",
           "extension": "jpg"
         },
         "creators": {
@@ -9801,7 +9801,7 @@
         "start": "1993-07-10 00:00:00",
         "end": "1993-11-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51cb2e2ff3d6e",
           "extension": "jpg"
         },
         "creators": {
@@ -10170,7 +10170,7 @@
         "start": "2011-04-16 00:00:00",
         "end": "2011-10-18 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/51099f8823d43",
           "extension": "jpg"
         },
         "creators": {
@@ -10672,7 +10672,7 @@
         "start": "2010-04-25 00:00:00",
         "end": "2012-04-25 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51ca1926979f4",
           "extension": "jpg"
         },
         "creators": {
@@ -10900,7 +10900,7 @@
         "start": "2005-06-01 00:00:00",
         "end": "2005-11-28 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/51cb5330eabdf",
           "extension": "jpg"
         },
         "creators": {
@@ -11406,7 +11406,7 @@
         "start": "1988-12-10 00:00:00",
         "end": "2010-08-25 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/51cb2ed5d688f",
           "extension": "jpg"
         },
         "creators": {
@@ -11888,7 +11888,7 @@
         "start": "2013-08-14 00:00:00",
         "end": "2013-10-31 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/51c4aaa0b1f4f",
           "extension": "jpg"
         },
         "creators": {
@@ -12370,7 +12370,7 @@
         "start": "1991-07-10 00:00:00",
         "end": "2005-01-19 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/5b749e4888ba7",
           "extension": "jpg"
         },
         "creators": {
@@ -12431,7 +12431,7 @@
         "start": "1992-06-10 00:00:00",
         "end": "1992-11-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/51ca14b3dce00",
           "extension": "jpg"
         },
         "creators": {
@@ -12909,7 +12909,7 @@
         "start": "2013-12-04 00:01:00",
         "end": "2014-01-29 23:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/527d53d8e4754",
           "extension": "jpg"
         },
         "creators": {
@@ -13347,7 +13347,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/582b35637d930",
           "extension": "jpg"
         },
         "creators": {
@@ -13783,7 +13783,7 @@
         "start": "2007-04-15 00:00:00",
         "end": "2010-06-20 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51ca144e65666",
           "extension": "jpg"
         },
         "creators": {
@@ -14285,7 +14285,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/54ff02618b9e2",
           "extension": "jpg"
         },
         "creators": {
@@ -14453,7 +14453,7 @@
         "start": "1991-01-01 07:00:00",
         "end": "1992-05-11 07:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51c9e88b7fbd9",
           "extension": "jpg"
         },
         "creators": {
@@ -14826,7 +14826,7 @@
         "start": "1987-10-10 00:00:00",
         "end": "2012-03-21 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/51ca1d97b2390",
           "extension": "jpg"
         },
         "creators": {
@@ -15099,7 +15099,7 @@
         "start": "2012-10-10 00:01:00",
         "end": "2037-12-31 01:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/52dff73b794a9",
           "extension": "jpg"
         },
         "creators": {
@@ -15605,7 +15605,7 @@
         "start": "1993-05-01 00:00:00",
         "end": "1993-08-22 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/51ca1e3d6b2f9",
           "extension": "jpg"
         },
         "creators": {
@@ -16019,7 +16019,7 @@
         "start": "2000-12-01 00:00:00",
         "end": "2001-01-03 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51c9d921d6910",
           "extension": "jpg"
         },
         "creators": {
@@ -16517,7 +16517,7 @@
         "start": "2007-10-31 00:00:00",
         "end": "2008-01-30 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/51c9ee4003880",
           "extension": "jpg"
         },
         "creators": {
@@ -16971,7 +16971,7 @@
         "start": "2009-05-01 00:00:00",
         "end": "2009-07-23 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/51ca1a80a0d99",
           "extension": "jpg"
         },
         "creators": {
@@ -17306,7 +17306,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/5b081f820536f",
           "extension": "jpg"
         },
         "creators": {
@@ -17580,7 +17580,7 @@
         "start": "1986-10-10 00:00:00",
         "end": "2010-01-06 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51ca1ca2dc75b",
           "extension": "jpg"
         },
         "creators": {
@@ -18006,7 +18006,7 @@
         "start": "1996-07-01 07:00:00",
         "end": "1996-10-24 07:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/51cb2cc1a49b6",
           "extension": "jpg"
         },
         "creators": {
@@ -18512,7 +18512,7 @@
         "start": "2014-05-01 00:00:00",
         "end": "2014-08-31 23:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/5334854135807",
           "extension": "jpg"
         },
         "creators": {
@@ -18616,7 +18616,7 @@
             },
             {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/12581",
-              "name": "Chris Eliopoulos",
+              "name": "Vc Chris Eliopoulos",
               "role": "letterer"
             }
           ],
@@ -18994,7 +18994,7 @@
         "start": "2005-12-12 07:00:00",
         "end": "2006-03-21 07:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/51cb2d3ee5cbb",
           "extension": "jpg"
         },
         "creators": {
@@ -19352,7 +19352,7 @@
         "start": "2006-04-01 00:00:00",
         "end": "2007-06-02 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/51ca1b3671a48",
           "extension": "jpg"
         },
         "creators": {
@@ -19726,7 +19726,7 @@
         "start": "2011-08-03 00:00:00",
         "end": "2037-01-01 01:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/5109a2d41d1dd",
           "extension": "jpg"
         },
         "creators": {
@@ -19783,7 +19783,7 @@
         "start": "2010-01-11 00:00:00",
         "end": "2010-05-21 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51ca16391facf",
           "extension": "jpg"
         },
         "creators": {
@@ -20241,7 +20241,7 @@
         "start": "2017-04-19 01:00:00",
         "end": "2017-08-09 01:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/58e692d6f351b",
           "extension": "jpg"
         },
         "creators": {
@@ -20747,7 +20747,7 @@
         "start": "2008-06-02 00:00:00",
         "end": "2009-01-25 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/51ca1749980ae",
           "extension": "jpg"
         },
         "creators": {
@@ -21253,7 +21253,7 @@
         "start": "1984-05-10 00:00:00",
         "end": "2008-12-17 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/51cdeb7048dac",
           "extension": "jpg"
         },
         "creators": {
@@ -21743,7 +21743,7 @@
         "start": "2015-05-01 07:01:00",
         "end": "2015-12-31 07:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/545be45c5d6cc",
           "extension": "jpg"
         },
         "creators": {
@@ -22209,7 +22209,7 @@
         "start": "1985-07-10 00:00:00",
         "end": "2009-05-13 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/51cdec7c4d64d",
           "extension": "jpg"
         },
         "creators": {
@@ -22715,7 +22715,7 @@
         "start": "2010-09-08 00:00:00",
         "end": "2010-12-02 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51ca11b869805",
           "extension": "jpg"
         },
         "creators": {
@@ -23185,7 +23185,7 @@
         "start": "2011-10-19 00:00:00",
         "end": "2012-04-22 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/511e8000770cd",
           "extension": "jpg"
         },
         "creators": {
@@ -23651,7 +23651,7 @@
         "start": "2009-12-06 00:00:00",
         "end": "2010-05-19 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/5109a26a41b77",
           "extension": "jpg"
         },
         "creators": {
@@ -24157,11 +24157,11 @@
         "start": "1993-12-10 00:00:00",
         "end": "1993-12-20 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/51cb2ddc7fd29",
           "extension": "jpg"
         },
         "creators": {
-          "available": 29,
+          "available": 31,
           "collectionURI": "http://gateway.marvel.com/v1/public/events/219/creators",
           "items": [
             {
@@ -24210,11 +24210,6 @@
               "role": "colorist"
             },
             {
-              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2323",
-              "name": "Marianne Lightle",
-              "role": "colorist"
-            },
-            {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/2379",
               "name": "Darren Auck",
               "role": "penciler"
@@ -24222,6 +24217,11 @@
             {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/2263",
               "name": "James Fry",
+              "role": "penciler"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/120",
+              "name": "Ron Garney",
               "role": "penciler"
             },
             {
@@ -24507,7 +24507,7 @@
         "start": "2011-08-29 00:00:00",
         "end": "2011-11-11 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51e827657c1d0",
           "extension": "jpg"
         },
         "creators": {
@@ -24977,7 +24977,7 @@
         "start": "2014-11-01 00:01:00",
         "end": "2015-03-31 23:59:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/53fe06b552b27",
           "extension": "jpg"
         },
         "creators": {
@@ -25367,7 +25367,7 @@
         "start": null,
         "end": null,
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-2",
+          "path": "http://localhost:4513/event/images/54b83921efd20",
           "extension": "jpg"
         },
         "creators": {
@@ -25718,7 +25718,7 @@
         "start": "2010-08-26 00:00:00",
         "end": "2011-01-05 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/wizard-3",
+          "path": "http://localhost:4513/event/images/51099f1f3d12d",
           "extension": "jpg"
         },
         "creators": {
@@ -26117,7 +26117,7 @@
         "start": "2009-03-07 00:00:00",
         "end": "2009-08-12 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rex-1",
+          "path": "http://localhost:4513/event/images/51c9ef1d87ded",
           "extension": "jpg"
         },
         "creators": {
@@ -26611,7 +26611,7 @@
         "start": "2007-07-01 00:00:00",
         "end": "2008-01-01 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/rick-1",
+          "path": "http://localhost:4513/event/images/51cb536ed3054",
           "extension": "jpg"
         },
         "creators": {
@@ -26680,7 +26680,7 @@
             },
             {
               "resourceURI": "http://gateway.marvel.com/v1/public/creators/12581",
-              "name": "Chris Eliopoulos",
+              "name": "Vc Chris Eliopoulos",
               "role": "letterer"
             },
             {
@@ -27117,7 +27117,7 @@
         "start": "2007-07-07 00:00:00",
         "end": "2008-01-27 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/hawk-1",
+          "path": "http://localhost:4513/event/images/51c9d9d98751c",
           "extension": "jpg"
         },
         "creators": {
@@ -27555,7 +27555,7 @@
         "start": "2013-09-04 00:00:00",
         "end": "2013-10-31 00:01:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/amazing-1",
+          "path": "http://localhost:4513/event/images/51f926c5de8e9",
           "extension": "jpg"
         },
         "creators": {
@@ -27952,7 +27952,7 @@
         "start": "2011-10-12 00:00:00",
         "end": "2012-04-25 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/baker-0",
+          "path": "http://localhost:4513/event/images/52127d4ca297c",
           "extension": "jpg"
         },
         "creators": {
@@ -28406,7 +28406,7 @@
         "start": "2011-07-04 00:00:00",
         "end": "2011-10-05 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/beam",
+          "path": "http://localhost:4513/event/images/5109a0811486f",
           "extension": "jpg"
         },
         "creators": {
@@ -28804,7 +28804,7 @@
         "start": "2010-03-31 00:00:00",
         "end": "2010-07-23 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-18",
+          "path": "http://localhost:4513/event/images/51ca15c4782bc",
           "extension": "jpg"
         },
         "creators": {
@@ -29282,7 +29282,7 @@
         "start": "1990-11-10 00:00:00",
         "end": "1991-01-10 00:00:00",
         "thumbnail": {
-          "path": "http://localhost:4513/images/havoc-4",
+          "path": "http://localhost:4513/event/images/51cb2e6e772b6",
           "extension": "jpg"
         },
         "creators": {

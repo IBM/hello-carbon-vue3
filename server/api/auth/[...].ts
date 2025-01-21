@@ -1,14 +1,26 @@
 import merge from 'lodash.merge'
-import { NuxtAuthHandler } from '#auth'
 // You can find an overview of all the prebuilt providers here: https://next-auth.js.org/providers/
 // Use as show in the docs here: https://auth.sidebase.io/guide/authjs/nuxt-auth-handler#providers
+// Used in sample deployment
+import GithubProvider from 'next-auth/providers/github'
 // For IBMid or w3Id (available only internally at IBM), use one or both of these
 import IBMidProvider from '@/server/utils/ibmid'
-// import W3idProvider from '@/server/utils/w3id'
+import W3idProvider from '@/server/utils/w3id'
 // Use this for local development
 import MockIdProvider from '@/server/utils/mockid'
+import { NuxtAuthHandler } from '#auth'
 
-const DefaultProvider = process.env.AUTH_MOCK ? MockIdProvider : IBMidProvider
+let DefaultProvider
+if (process.env.AUTH_PROVIDER == 'ibmid')
+  DefaultProvider = IBMidProvider
+else if (process.env.AUTH_PROVIDER == 'w3id')
+  DefaultProvider = W3idProvider
+else if (process.env.AUTH_PROVIDER == 'github')
+  DefaultProvider = GithubProvider.default
+else if (process.env.AUTH_PROVIDER == 'mock')
+  DefaultProvider = MockIdProvider
+else
+  throw new Error('No auth provider specified')
 
 const runtimeConfig = useRuntimeConfig()
 

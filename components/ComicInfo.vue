@@ -41,7 +41,6 @@ const comics = useMarvelComics()
 const comicsList = computed(() => {
   return comics.value?.data?.results || []
 })
-// http://localhost:4513/images/4bc69f11baf75.jpg
 const comicsData = computed(() => {
   return comicsList.value.find(comic => comic.id === props.comicId)
 })

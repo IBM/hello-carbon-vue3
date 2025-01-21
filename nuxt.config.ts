@@ -19,11 +19,13 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-11-01',
   auth: {
+    // Override with AUTH_ORIGIN environment variable in production
+    // https://auth.sidebase.io/guide/application-side/configuration#originenvkey
     baseURL: 'http://localhost:4507/api/auth',
     isEnabled: true,
     provider: {
       type: 'authjs',
-      defaultProvider: 'ibmid',
+      defaultProvider: process.env.AUTH_PROVIDER || 'ibmid',
     },
     sessionRefresh: {
       enablePeriodically: 1000 * 60 * 10, // 10 minutes

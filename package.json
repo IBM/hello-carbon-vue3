@@ -11,7 +11,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev:e2e": "npx cypress open --e2e",
-    "test:e2e": "npx cypress run --e2e"
+    "test:e2e": "npx cypress run --e2e --browser chrome",
+    "test:e2e:ff": "npx cypress run --e2e --browser firefox",
+    "test:e2e:edge": "npx cypress run --e2e --browser edge",
+    "test:e2e:safari": "npx cypress run --e2e --browser safari",
+    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
@@ -35,5 +39,8 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "sass": "^1.70.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue}": "eslint --fix"
   }
 }

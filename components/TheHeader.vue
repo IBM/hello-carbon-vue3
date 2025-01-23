@@ -179,7 +179,10 @@ const otherApps = ref([
         :expanded="false"
       >
         <cv-side-nav-items>
-          <cv-side-nav-link to="/" id="header-side-nav-home">
+          <cv-side-nav-link
+            id="header-side-nav-home"
+            to="/"
+          >
             <template #nav-icon>
               <home-icon />
             </template>
@@ -187,8 +190,8 @@ const otherApps = ref([
           </cv-side-nav-link>
 
           <cv-side-nav-link
-              id="header-side-nav-characters"
             v-if="status==='authenticated'"
+            id="header-side-nav-characters"
             to="/characters"
           >
             <template #nav-icon>
@@ -197,8 +200,8 @@ const otherApps = ref([
             {{ $t("characters") }}
           </cv-side-nav-link>
           <cv-side-nav-link
-              id="header-side-nav-comics"
             v-if="status==='authenticated'"
+            id="header-side-nav-comics"
             to="/comics"
           >
             <template #nav-icon>
@@ -207,8 +210,8 @@ const otherApps = ref([
             {{ $t("comics") }}
           </cv-side-nav-link>
           <cv-side-nav-link
-              id="header-side-nav-events"
             v-if="status==='authenticated'"
+            id="header-side-nav-events"
             to="/events"
           >
             <template #nav-icon>

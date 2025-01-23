@@ -19,45 +19,6 @@ describe('smoke test', () => {
       cy.get('#kc-login').click()
     })
 
-    // http://localhost:8080/realms/ibmid/protocol/openid-connect/auth
-    // client_id=a123456z
-    // scope=openid email
-    // response_type=code
-    // redirect_uri=http://localhost:4507/api/auth/callback/ibmid
-    // state=something
-
-    // cy.request({
-    //   url: 'http://localhost:8080/realms/ibmid/protocol/openid-connect/auth',
-    //   qs: {
-    //     client_id: 'a123456z',
-    //     redirect_uri: 'http://localhost:4507/api/auth/callback/ibmid',
-    //     scope: 'openid email',
-    //     state: '1',
-    //     nonce: '1',
-    //     response_type: 'code',
-    //     response_mode: 'fragment',
-    //   },
-    // })
-    //   .then((response) => {
-    //     const html = document.createElement('html')
-    //     html.innerHTML = response.body
-    //
-    //     const form = html.getElementsByTagName('form')
-    //     return cy.request({
-    //       form: true,
-    //       method: 'POST',
-    //       url: form[0].action,
-    //       followRedirect: false,
-    //       body: {
-    //         username: 'admin',
-    //         password: 'potato-history',
-    //       },
-    //     })
-    //   })
-
-    // cy.wait(1000)
-    // cy.get('#home-login-btn').click()
-    //
     // User is logged in
     cy.get('#header-menu-button-logout').should('be.visible')
     cy.get('#header-menu-item-characters').should('not.be.visible')

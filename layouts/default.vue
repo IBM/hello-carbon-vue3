@@ -1,3 +1,9 @@
+<script setup>
+defineOptions({
+  name: 'DefaultLayout',
+})
+</script>
+
 <template>
   <div>
     <the-header />
@@ -9,12 +15,6 @@
     </main>
   </div>
 </template>
-
-<script setup>
-defineOptions({
-  name: 'DefaultLayout',
-})
-</script>
 
 <style lang="scss">
 </style>

@@ -14,6 +14,12 @@ watch(openItem, () => {
 })
 const isOpen = ref(props.data.id === openItem.value)
 
+// Do not load the accordion item contents until it is opened for the first time
+const lazyContent = ref(isOpen.value)
+watch(isOpen, () => {
+  if (isOpen.value) lazyContent.value = true
+})
+
 const thumbnail = computed(() => {
   try {
     return props.data.thumbnail.path + '.' + props.data.thumbnail.extension
@@ -33,14 +39,17 @@ const thumbnail = computed(() => {
       </div>
     </template>
     <template #content>
-      <div class="flex flex-row items-center gap-2 text-xl">
-        <div class="flex-shrink-0">
-          <img
+      <div
+        v-if="lazyContent"
+        class="flex flex-row items-center gap-2 text-xl"
+      >
+        <div class="shrink-0">
+          <external-image
             v-if="thumbnail"
             :src="thumbnail"
             :alt="data?.name"
-            class="w-36"
-          >
+            class="h-36 w-24"
+          />
         </div>
         <p class="text-xl">
           {{
@@ -52,5 +61,4 @@ const thumbnail = computed(() => {
 </template>
 
 <style scoped lang="scss">
-
 </style>

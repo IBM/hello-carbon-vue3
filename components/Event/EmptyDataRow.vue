@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <cv-data-table-row
     id="no-data-table-row"
@@ -12,6 +15,3 @@
     <cv-data-table-cell id="no-data-comics" />
   </cv-data-table-row>
 </template>
-
-<script setup lang="ts">
-</script>

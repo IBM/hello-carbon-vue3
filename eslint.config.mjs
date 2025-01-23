@@ -12,6 +12,16 @@ export default withNuxt([
     rules: {
       'vue/multi-word-component-names': 'off',
       'tailwindcss/no-custom-classname': 'off',
+      'vue/component-tags-order': [
+        'warn',
+        {
+          order: [
+            'script',
+            'template',
+            'style',
+          ],
+        },
+      ],
     },
   },
 ],

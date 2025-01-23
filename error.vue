@@ -1,3 +1,10 @@
+<script setup>
+const error = useError()
+function home() {
+  clearError({ redirect: '/' })
+}
+</script>
+
 <template>
   <div class="flex h-screen flex-col items-center justify-center">
     <h1 class="text-9xl">
@@ -11,10 +18,3 @@
     </cv-button>
   </div>
 </template>
-
-<script setup>
-const error = useError()
-function home() {
-  clearError({ redirect: '/' })
-}
-</script>

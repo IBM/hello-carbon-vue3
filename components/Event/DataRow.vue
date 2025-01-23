@@ -1,35 +1,3 @@
-<template>
-  <cv-data-table-row
-    :id="`me-${data.id}`"
-    :value="`me-${data.id}`"
-    :aria-label-for-batch-checkbox="t('select-row', { name: data.title })"
-  >
-    <cv-data-table-cell>{{ data.title }}</cv-data-table-cell>
-    <cv-data-table-cell>{{ startTime }}</cv-data-table-cell>
-    <cv-data-table-cell>{{ duration }}</cv-data-table-cell>
-    <cv-data-table-cell>{{ characterCount }}</cv-data-table-cell>
-    <cv-data-table-cell>
-      {{ comicCount }}
-    </cv-data-table-cell>
-    <template
-      v-if="showDescription"
-      #expandedContent
-    >
-      <div class="flex flex-row items-center gap-2 text-xl">
-        <div class="w-36 shrink-0">
-          <img
-            v-if="thumbnail"
-            :src="thumbnail"
-            :alt="data?.title"
-            class="w-full"
-          >
-        </div>
-        <div>{{ data?.description }}</div>
-      </div>
-    </template>
-  </cv-data-table-row>
-</template>
-
 <script setup>
 import { DateTime } from 'luxon'
 
@@ -75,5 +43,37 @@ const thumbnail = computed(() => {
 })
 const showDescription = inject('show-description', ref(false))
 </script>
+
+<template>
+  <cv-data-table-row
+    :id="`me-${data.id}`"
+    :value="`me-${data.id}`"
+    :aria-label-for-batch-checkbox="t('select-row', { name: data.title })"
+  >
+    <cv-data-table-cell>{{ data.title }}</cv-data-table-cell>
+    <cv-data-table-cell>{{ startTime }}</cv-data-table-cell>
+    <cv-data-table-cell>{{ duration }}</cv-data-table-cell>
+    <cv-data-table-cell>{{ characterCount }}</cv-data-table-cell>
+    <cv-data-table-cell>
+      {{ comicCount }}
+    </cv-data-table-cell>
+    <template
+      v-if="showDescription"
+      #expandedContent
+    >
+      <div class="flex flex-row items-center gap-2 text-xl">
+        <div class="w-36 shrink-0">
+          <external-image
+            v-if="thumbnail"
+            :src="thumbnail"
+            :alt="data?.title"
+            class="size-36"
+          />
+        </div>
+        <div>{{ data?.description }}</div>
+      </div>
+    </template>
+  </cv-data-table-row>
+</template>
 
 <style scoped lang="scss"></style>

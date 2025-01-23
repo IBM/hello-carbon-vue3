@@ -1,3 +1,20 @@
+<script setup>
+import { Bee16 as IBMIDIcon } from '@carbon/icons-vue'
+
+definePageMeta({
+  auth: false,
+})
+
+const { signIn, status, data, getProviders } = useAuth()
+const providers = await getProviders()
+const defaultProvider = computed(() => {
+  return Object.values(providers)[0].name
+})
+const defaultProviderId = computed(() => {
+  return Object.values(providers)[0].id
+})
+</script>
+
 <template>
   <div>
     <cv-grid
@@ -31,22 +48,5 @@
     </cv-grid>
   </div>
 </template>
-
-<script setup>
-import { Bee16 as IBMIDIcon } from '@carbon/icons-vue'
-
-definePageMeta({
-  auth: false,
-})
-
-const { signIn, status, data, getProviders } = useAuth()
-const providers = await getProviders()
-const defaultProvider = computed(() => {
-  return Object.values(providers)[0].name
-})
-const defaultProviderId = computed(() => {
-  return Object.values(providers)[0].id
-})
-</script>
 
 <style scoped lang="scss"></style>

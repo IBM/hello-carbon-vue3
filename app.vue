@@ -1,13 +1,3 @@
-<template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <CarbonLoading />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
-</template>
-
 <script setup>
 // import "@/assets/css/carbon-gray-10.css";
 import '@/assets/css/carbon-gray-90.css'
@@ -28,6 +18,16 @@ useSeoMeta({
   twitterTitle: title,
 })
 </script>
+
+<template>
+  <div>
+    <NuxtRouteAnnouncer />
+    <CarbonLoading />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
+</template>
 
 <style>
 .page-enter-active,

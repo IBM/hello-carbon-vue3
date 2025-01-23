@@ -1,3 +1,36 @@
+<script setup>
+import { debug } from 'winston'
+
+const characters = useMarvelCharacters()
+const loading = computed(() => {
+  return characters.value?.data?.results?.length <= 0
+})
+const characterList = computed(() => {
+  const list = characters.value?.data.results || []
+  return list
+})
+const listDescription = computed(() => {
+  try {
+    const offset = characters.value.data?.offset
+    const last = characters.value.data?.offset + characters.value.data?.limit
+    const total = characters.value.data?.total
+    return `Characters ${offset} .. ${last} of ${total}`
+  }
+  catch (err) {
+    console.debug(err?.message)
+    return ''
+  }
+})
+
+const openItem = ref('')
+provide('open-item', openItem)
+function autoClose(ev) {
+  if (ev.change.open) {
+    openItem.value = ev.change.id.split('-').slice(-1)[0]
+  }
+}
+</script>
+
 <template>
   <cv-grid class="mt-16">
     <cv-row>
@@ -44,35 +77,5 @@
     </cv-row>
   </cv-grid>
 </template>
-
-<script setup>
-const characters = useMarvelCharacters()
-const loading = computed(() => {
-  return characters.value?.data?.results?.length <= 0
-})
-const characterList = computed(() => {
-  const list = characters.value?.data.results || []
-  return list
-})
-const listDescription = computed(() => {
-  try {
-    const offset = characters.value.data.offset
-    const last = characters.value.data.offset + characters.value.data.limit
-    const total = characters.value.data.total
-    return `Characters ${offset} .. ${last} of ${total}`
-  }
-  catch {
-    return ''
-  }
-})
-
-const openItem = ref('')
-provide('open-item', openItem)
-function autoClose(ev) {
-  if (ev.change.open) {
-    openItem.value = ev.change.id.split('-').slice(-1)[0]
-  }
-}
-</script>
 
 <style scoped lang="scss"></style>

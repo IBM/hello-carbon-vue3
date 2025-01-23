@@ -1,3 +1,36 @@
+<script setup>
+import { Home16 as HomeIcon,
+  Group16 as CharactersIcon,
+  Book16 as ComicsIcon,
+  Event16 as EventsIcon,
+  Translate16 as LanguageIcon,
+  Login16 as LoginIcon,
+  UserAvatar20 as AvatarIcon,
+  ProgressBarRound16 as LoginLoadingIcon,
+  Switcher16 as SwitcherIcon } from '@carbon/icons-vue'
+
+const { locale, locales, setLocale } = useI18n()
+const { signIn, status, getProviders } = useAuth()
+const providers = await getProviders()
+const defaultProviderId = computed(() => {
+  return Object.values(providers)[0].id
+})
+
+const languageExpanded = ref(false)
+function changeLocale(language) {
+  setLocale(language)
+  languageExpanded.value = false
+  document?.activeElement?.blur()
+}
+
+const otherAppsExpanded = ref(false)
+const otherApps = ref([
+  { id: 'github', name: 'Hello Carbon Nuxt', link: 'https://github.com/davidnixon/hello-carbon-nuxt' },
+  { id: 'hello-vue', name: 'Hello Carbon Vue', link: 'https://github.com/IBM/hello-carbon-vue3' },
+  { id: 'carbon-vue', name: 'Carbon Vue Storybook', link: 'https://vue.carbondesignsystem.com/' },
+])
+</script>
+
 <template>
   <cv-header
     id="app-header"
@@ -178,38 +211,5 @@
     </template>
   </cv-header>
 </template>
-
-<script setup>
-import { Home16 as HomeIcon,
-  Group16 as CharactersIcon,
-  Book16 as ComicsIcon,
-  Event16 as EventsIcon,
-  Translate16 as LanguageIcon,
-  Login16 as LoginIcon,
-  UserAvatar20 as AvatarIcon,
-  ProgressBarRound16 as LoginLoadingIcon,
-  Switcher16 as SwitcherIcon } from '@carbon/icons-vue'
-
-const { locale, locales, setLocale } = useI18n()
-const { signIn, status, getProviders } = useAuth()
-const providers = await getProviders()
-const defaultProviderId = computed(() => {
-  return Object.values(providers)[0].id
-})
-
-const languageExpanded = ref(false)
-function changeLocale(language) {
-  setLocale(language)
-  languageExpanded.value = false
-  document?.activeElement?.blur()
-}
-
-const otherAppsExpanded = ref(false)
-const otherApps = ref([
-  { id: 'github', name: 'Hello Carbon Nuxt', link: 'https://github.com/davidnixon/hello-carbon-nuxt' },
-  { id: 'hello-vue', name: 'Hello Carbon Vue', link: 'https://github.com/IBM/hello-carbon-vue3' },
-  { id: 'carbon-vue', name: 'Carbon Vue Storybook', link: 'https://vue.carbondesignsystem.com/' },
-])
-</script>
 
 <style lang="scss"></style>

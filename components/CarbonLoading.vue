@@ -1,12 +1,3 @@
-<template>
-  <cv-loading
-    id="page-loading"
-    :active="isActive"
-    :overlay="true"
-    @loading-end="onLoadingEnd"
-  />
-</template>
-
 <script setup>
 const nuxtApp = useNuxtApp()
 const loading = ref(false)
@@ -23,3 +14,12 @@ function onLoadingEnd() {
   loading.value = false
 }
 </script>
+
+<template>
+  <cv-loading
+    id="page-loading"
+    :active="isActive"
+    :overlay="true"
+    @loading-end="onLoadingEnd"
+  />
+</template>

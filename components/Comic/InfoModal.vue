@@ -1,24 +1,3 @@
-<template>
-  <cv-modal
-    v-model:visible="visible"
-    size="xs"
-    :auto-hide-off="true"
-    @after-modal-hidden="onAfterModalHidden"
-    @modal-hide-request="onRequestModalHidden"
-  >
-    <template #label>
-      Comic info
-    </template>
-    <template #title>
-      {{ title }}
-    </template>
-    <template #content>
-      <div>Modified: {{ modified }}</div>
-      <div>Pages: {{ pages }}</div>
-    </template>
-  </cv-modal>
-</template>
-
 <script setup>
 const props = defineProps({
   comicId: { type: Number, default: 0 },
@@ -50,5 +29,26 @@ const modified = computed(
 )
 const pages = computed(() => comicsData.value?.pageCount || 0)
 </script>
+
+<template>
+  <cv-modal
+    v-model:visible="visible"
+    size="xs"
+    :auto-hide-off="true"
+    @after-modal-hidden="onAfterModalHidden"
+    @modal-hide-request="onRequestModalHidden"
+  >
+    <template #label>
+      Comic info
+    </template>
+    <template #title>
+      {{ title }}
+    </template>
+    <template #content>
+      <div>Modified: {{ modified }}</div>
+      <div>Pages: {{ pages }}</div>
+    </template>
+  </cv-modal>
+</template>
 
 <style scoped lang="scss"></style>

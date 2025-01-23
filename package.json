@@ -37,7 +37,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@rushstack/eslint-patch": "^1.10.5",
     "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/eslint-config-prettier": "^10.1.0",
+    "@vue/eslint-config-prettier": "^10.2.0",
     "cypress": "^14.0.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.18.0",

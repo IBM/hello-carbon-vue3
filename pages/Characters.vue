@@ -1,6 +1,4 @@
 <script setup>
-import { debug } from 'winston'
-
 const characters = useMarvelCharacters()
 const loading = computed(() => {
   return characters.value?.data?.results?.length <= 0

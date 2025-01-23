@@ -36,6 +36,7 @@ const defaultProviderId = computed(() => {
               </div>
               <cv-button
                 id="home-login-btn"
+                :disabled="!defaultProvider"
                 :icon="IBMIDIcon"
                 @click="signIn(defaultProviderId, { callbackUrl: '/', redirect: false })"
               >

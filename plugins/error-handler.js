@@ -1,5 +1,5 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.config.errorHandler = (mesaage, instance) => {
-    console.error('ERROR', mesaage, instance)
+  nuxtApp.vueApp.config.errorHandler = (message, instance) => {
+    console.error('OUR ERROR HANDLER', message, instance)
   }
 })

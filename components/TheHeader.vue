@@ -51,18 +51,21 @@ const otherApps = ref([
     <cv-header-nav aria-label="Hello carbon nuxt navigation">
       <cv-header-menu-item
         v-if="status==='authenticated'"
+        id="header-menu-item-characters"
         to="/characters"
       >
         {{ $t('characters') }}
       </cv-header-menu-item>
       <cv-header-menu-item
         v-if="status==='authenticated'"
+        id="header-menu-item-comics"
         to="/comics"
       >
         {{ $t("comics") }}
       </cv-header-menu-item>
       <cv-header-menu-item
         v-if="status==='authenticated'"
+        id="header-menu-item-events"
         to="/events"
       >
         {{ $t("events") }}
@@ -71,6 +74,7 @@ const otherApps = ref([
     <template #header-global>
       <cv-header-global-action
         v-if="status==='unauthenticated'"
+        id="header-menu-button-login"
         :aria-label="$t('login')"
         :label="$t('login')"
         tip-position="bottom"
@@ -81,6 +85,7 @@ const otherApps = ref([
       </cv-header-global-action>
       <cv-header-global-action
         v-else-if="status==='authenticated'"
+        id="header-menu-button-logout"
         :aria-label="$t('profile')"
         :label="$t('profile')"
         aria-controls="user-panel"
@@ -100,6 +105,7 @@ const otherApps = ref([
         <login-loading-icon />
       </cv-header-global-action>
       <cv-header-global-action
+        id="header-menu-button-language"
         :aria-label="$t('choose-language')"
         :label="$t('choose-language')"
         aria-controls="language-panel"
@@ -109,6 +115,7 @@ const otherApps = ref([
         <language-icon />
       </cv-header-global-action>
       <cv-header-global-action
+        id="header-menu-button-apps"
         :aria-label="$t('other-apps')"
         :label="$t('other-apps')"
         aria-controls="other-apps"
@@ -172,7 +179,10 @@ const otherApps = ref([
         :expanded="false"
       >
         <cv-side-nav-items>
-          <cv-side-nav-link to="/">
+          <cv-side-nav-link
+            id="header-side-nav-home"
+            to="/"
+          >
             <template #nav-icon>
               <home-icon />
             </template>
@@ -181,6 +191,7 @@ const otherApps = ref([
 
           <cv-side-nav-link
             v-if="status==='authenticated'"
+            id="header-side-nav-characters"
             to="/characters"
           >
             <template #nav-icon>
@@ -190,6 +201,7 @@ const otherApps = ref([
           </cv-side-nav-link>
           <cv-side-nav-link
             v-if="status==='authenticated'"
+            id="header-side-nav-comics"
             to="/comics"
           >
             <template #nav-icon>
@@ -199,6 +211,7 @@ const otherApps = ref([
           </cv-side-nav-link>
           <cv-side-nav-link
             v-if="status==='authenticated'"
+            id="header-side-nav-events"
             to="/events"
           >
             <template #nav-icon>

@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     authSecret: process.env.NUXT_AUTH_SECRET,
   },
+  sourcemap: true,
   devServer: {
     port: 4507,
   },

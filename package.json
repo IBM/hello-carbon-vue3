@@ -6,10 +6,16 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "PORT=4507 nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "dev:e2e": "npx cypress open --e2e",
+    "test:e2e": "npx cypress run --e2e --browser chrome",
+    "test:e2e:ff": "npx cypress run --e2e --browser firefox",
+    "test:e2e:edge": "npx cypress run --e2e --browser edge",
+    "test:e2e:safari": "npx cypress run --e2e --browser safari",
+    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.83.1",
@@ -27,10 +33,14 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
+    "cypress": "^14.0.0",
     "eslint": "^9.16.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "sass": "^1.70.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue}": "eslint --fix"
   }
 }

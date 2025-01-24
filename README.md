@@ -1,6 +1,8 @@
 # Hello carbon vue3
 
-This repo should help you get started with using Carbon with Vue3. The idea is that this app uses the best practices for starting a new app with Vue3 & Carbon.
+This repository is designed to help you get started with integrating Carbon into a Vue 3 application. It showcases best practices for setting up a new Vue 3 app with Carbon, providing a solid foundation for your project.
+
+If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://github.com/davidnixon/hello-carbon-nuxt)
 
 ## Packages used
 

@@ -29,6 +29,11 @@ const otherApps = ref([
   { id: 'hello-vue', name: 'Hello Carbon Vue', link: 'https://github.com/IBM/hello-carbon-vue3' },
   { id: 'carbon-vue', name: 'Carbon Vue Storybook', link: 'https://vue.carbondesignsystem.com/' },
 ])
+
+// close the sideNav if somethihg is clicked there.
+function sideNav() {
+  document?.activeElement?.blur()
+}
 </script>
 
 <template>
@@ -178,7 +183,7 @@ const otherApps = ref([
         :fixed="true"
         :expanded="false"
       >
-        <cv-side-nav-items>
+        <cv-side-nav-items @click="sideNav">
           <cv-side-nav-link
             id="header-side-nav-home"
             to="/"

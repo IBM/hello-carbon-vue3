@@ -22,12 +22,12 @@ defineProps({
   <cv-tile
     v-if="comic"
     kind="clickable"
-    class="m-4 h-96"
+    class="m-4"
   >
     <external-image
       :src="`${comic?.thumbnail?.path}.${comic?.thumbnail?.extension}`"
       :alt="comic?.name"
-      class="size-full object-left"
+      class="aspect-4/6 min-h-80 w-full object-cover object-left"
     />
     <div v-if="comic?.error">
       Error loading data

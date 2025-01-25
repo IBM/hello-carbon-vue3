@@ -1,9 +1,25 @@
 <script setup>
 import { DateTime } from 'luxon'
 
+/**
+ * @typedef MarvelEventAvailable
+ * @propery {number} available
+ */
+
+/**
+ * @typedef MarvelEvent
+ * @property {string} start
+ * @property {string} end
+ * @property {string} title
+ * @property {string} description
+ * @property {ComicImage} thumbnail
+ * @property {MarvelEventAvailable} characters
+ * @property {MarvelEventAvailable} comics
+ */
+
 const props = defineProps({
   data: {
-    type: Object,
+    type: /** @type MarvelEvent */ Object,
     required: true,
   },
   expandable: { type: Boolean, default: false },

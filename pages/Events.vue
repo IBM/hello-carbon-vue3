@@ -2,11 +2,12 @@
 import { View20 as ShowAllIcon, ViewOff20 as HideIcon } from '@carbon/icons-vue'
 
 const marvelEvents = useMarvelEvents()
-const loading = computed(() => {
-  return marvelEvents.value?.data?.results?.length <= 0
-})
+
 const marveEventsList = computed(() => {
   return marvelEvents.value?.data.results || []
+})
+const loading = computed(() => {
+  return marveEventsList.value.length <= 0
 })
 
 const { t, locale } = useI18n()

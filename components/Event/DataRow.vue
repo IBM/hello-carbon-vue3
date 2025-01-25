@@ -83,7 +83,7 @@ const showDescription = inject('show-description', ref(false))
             v-if="thumbnail"
             :src="thumbnail"
             :alt="data?.title"
-            class="size-36"
+            class="size-36 object-cover"
           />
         </div>
         <div>{{ data?.description }}</div>

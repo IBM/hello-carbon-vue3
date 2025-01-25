@@ -12,18 +12,19 @@ function onImageLoaded() {
 </script>
 
 <template>
-  <img
-    :src="src"
-    :alt="alt"
-    class="opacity-0 blur-lg transition-all duration-500"
-    :class="[{ 'opacity-100 blur-none ': imgLoaded }, $attrs['class']]"
-    @load="onImageLoaded"
-  >
-  <!-- Show a placeholder while loading -->
-  <cv-skeleton-text
-    v-if="!imgLoaded"
-    width="100%"
-  />
+  <div>
+    <img
+      :src="src"
+      :alt="alt"
+      class="opacity-0 blur-lg transition-all duration-500"
+      :class="[{ 'opacity-100 blur-none ': imgLoaded }, $attrs['class']]"
+      @load="onImageLoaded"
+    >
+    <!-- Show a placeholder while loading -->
+    <cv-skeleton-text
+      v-if="!imgLoaded"
+    />
+  </div>
 </template>
 
 <style scoped lang="scss">

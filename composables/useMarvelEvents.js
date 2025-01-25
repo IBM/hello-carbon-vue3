@@ -6,12 +6,7 @@ const marvelEventData = ref({
     limit: 0,
     total: 0,
     count: 0,
-    results: [
-      { loading: true },
-      { loading: true },
-      { loading: true },
-      { loading: true },
-    ],
+    results: [],
   },
 })
 

@@ -48,7 +48,7 @@ const thumbnail = computed(() => {
             v-if="thumbnail"
             :src="thumbnail"
             :alt="data?.name"
-            class="h-36 w-24"
+            class="aspect-4/6 min-h-36 w-24"
           />
         </div>
         <p class="text-xl">

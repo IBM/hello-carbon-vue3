@@ -15,8 +15,8 @@ importers:
         specifier: ^10.55.5
         version: 10.55.5
       '@carbon/vue':
-        specifier: ^3.0.23
-        version: 3.0.23(vue@3.5.13(typescript@5.3.3))
+        specifier: ^3.0.24
+        version: 3.0.24(vue@3.5.13(typescript@5.3.3))
       carbon-components:
         specifier: ^10.58.15
         version: 10.58.15
@@ -159,6 +159,9 @@ packages:
   '@carbon/icon-helpers@10.54.0':
     resolution: {integrity: sha512-IJ6uzwRA/6yvSG6tTCQoKIcGehwZYYqjvLHylILmEwyfB8kWV9VmJu957hfrfbS2rmuCXwmN6kCAnb4WS8FnFw==}
 
+  '@carbon/icons-vue@10.102.0':
+    resolution: {integrity: sha512-e2+sBA+dubrepb+OfpnIQPrDhzC/BrQUU8dqd4SnUvnkrbS5kBiybGGboyBAwfeElOwUlk1Srs+qPdwdQJCULw==}
+
   '@carbon/icons-vue@10.99.1':
     resolution: {integrity: sha512-VC0mRjGri+Ghv8Zkk3iUoaVYUTHLstXj5sB+qYnqPi1sKlE8lUOokgO+r8ReipFUq3um8xze/BXzEjWJQtYC6A==}
 
@@ -181,8 +184,8 @@ packages:
     resolution: {integrity: sha512-MqCB5McSW30TZLLCOuHV2mg0AnyB7p+oORYmhm2/sDeqsftCY9rkgOoG7SQO7mDULMTSUznclaOynPpTPeKNuA==}
     deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
 
-  '@carbon/vue@3.0.23':
-    resolution: {integrity: sha512-nn10leSfBwuiVMfBnIsa8Gvwm85QKbbvkPGhSZDKyJzoZgUuyoRA+JMXFFP5opAr5WAr8jBbBG865QjD7oOf5Q==}
+  '@carbon/vue@3.0.24':
+    resolution: {integrity: sha512-cfV5UTQM1ixxY1/wbSiRa9Wri2KjyAl2XNEUZIVRdP5GLrxIgAYDIq0WPZDvEUKrUS3yvqb01ohMG55Sy17SJQ==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -498,6 +501,10 @@ packages:
 
   '@ibm/telemetry-js@1.6.1':
     resolution: {integrity: sha512-ds45f2bz4qVvJPK84VcSMJTvTZI+qXu6wVlBcy9/hAlmzOcxeX6rh8W0De4H133HPONsZWvs0lV/H2aUcznCxw==}
+    hasBin: true
+
+  '@ibm/telemetry-js@1.9.0':
+    resolution: {integrity: sha512-dTOnqZs03csS6/oLXWUXKYTVJiy9jwfpj4gIhSfPUeTXsfwlOjtGEae+Am3bzbFhsOpf74f5LXGBPjz7T+Nv0g==}
     hasBin: true
 
   '@isaacs/cliui@8.0.2':
@@ -2898,11 +2905,16 @@ snapshots:
     dependencies:
       '@carbon/import-once': 10.7.2
       '@carbon/layout': 10.37.4
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.0
 
   '@carbon/icon-helpers@10.54.0':
     dependencies:
       '@ibm/telemetry-js': 1.6.1
+
+  '@carbon/icons-vue@10.102.0':
+    dependencies:
+      '@carbon/icon-helpers': 10.54.0
+      '@ibm/telemetry-js': 1.9.0
 
   '@carbon/icons-vue@10.99.1':
     dependencies:
@@ -2911,7 +2923,7 @@ snapshots:
 
   '@carbon/import-once@10.7.2':
     dependencies:
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.0
 
   '@carbon/layout@10.37.4':
     dependencies:
@@ -2933,10 +2945,10 @@ snapshots:
       '@carbon/import-once': 10.7.2
       '@ibm/telemetry-js': 1.6.1
 
-  '@carbon/vue@3.0.23(vue@3.5.13(typescript@5.3.3))':
+  '@carbon/vue@3.0.24(vue@3.5.13(typescript@5.3.3))':
     dependencies:
-      '@carbon/icons-vue': 10.99.1
-      '@ibm/telemetry-js': 1.6.1
+      '@carbon/icons-vue': 10.102.0
+      '@ibm/telemetry-js': 1.9.0
       '@vueuse/core': 4.11.2(vue@3.5.13(typescript@5.3.3))
       carbon-components: 10.58.15
       eslint-plugin-prettier-vue: 4.2.0
@@ -3238,6 +3250,8 @@ snapshots:
   '@humanwhocodes/retry@0.4.1': {}
 
   '@ibm/telemetry-js@1.6.1': {}
+
+  '@ibm/telemetry-js@1.9.0': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:

@@ -23,11 +23,6 @@ const i18nPagination = computed(() => {
   }
 })
 
-const sortKeys = ref({ index: '0', order: 'none', name: null })
-function onSort(keys) {
-  sortKeys.value = keys
-}
-
 const searchFilter = ref('')
 /**
  * Set search filter
@@ -36,8 +31,11 @@ const searchFilter = ref('')
 function onSearch(val) {
   searchFilter.value = val?.trim()
 }
+
+const { _get } = useObject()
 const showHidden = ref(false)
 const hiddenItems = ref(new Set())
+const sortKeys = ref({ index: '0', order: 'none', name: null })
 const filteredData = computed(() => {
   // start with all the data
   let show = marveEventsList.value || []
@@ -54,19 +52,31 @@ const filteredData = computed(() => {
   // If we are sorting the data, do that here
   if (sortKeys.value.order !== 'none') {
     show.sort((a, b) => {
-      const _a = a[sortKeys.value.name] // title or characters
-      const _b = b[sortKeys.value.name] // title or characters
+      // This code depends on the name value in cv-data-table-heading matching the path value of the
+      // data to sort. So, `<cv-data-table-heading name="something" .../>` would mean that we expect to find a key
+      // "something" in the data. A path is ok too like "hello.world".
+      // {
+      //    "something": 1,
+      //    "hello": { "world": 5 },
+      //    ...
+      // }
+      let _a = _get(a, sortKeys.value.name, 0) // value of sort key
+      let _b = _get(b, sortKeys.value.name, 0)
       let cmp = 0
-      // sort by number of characters (or some other number value that may get added later)
+      if (typeof _a !== typeof _b) {
+        if (typeof _a === 'string') _b = ''
+        else if (typeof _b === 'string') _a = ''
+        else console.warn('sort values have different types')
+      }
+      // sort by a number value
       if (typeof _a === 'number') {
         cmp = _a - _b
       }
-      // or sort by name
-      else if (sortKeys.value.name === 'title') {
-        const nameA = _a.title || ''
-        const nameB = _b.title || ''
-        cmp = nameA.localeCompare(nameB, locale)
+      // or sort by a string
+      else if (typeof _a === 'string') {
+        cmp = _a.localeCompare(_b, locale)
       }
+
       // reverse the sort
       if (sortKeys.value.order === 'descending') cmp = -cmp
       return cmp
@@ -79,7 +89,7 @@ function toggleShowAll() {
   showHidden.value = !showHidden.value
 }
 
-const currentPagination = ref({ start: 1, length: 7 })
+const currentPagination = ref({ start: 1, page: 1, length: 7 })
 const paginated = computed(() => {
   const change = currentPagination.value
   return filteredData.value.slice(
@@ -90,6 +100,11 @@ const paginated = computed(() => {
 function onPagination(change) {
   currentPagination.value = change
 }
+function onSort(keys) {
+  sortKeys.value = keys
+  onPagination({ ...currentPagination.value, start: 1, page: 1 })
+}
+
 const selectedItems = ref([])
 function onHideSelected() {
   for (let i = 0; i < selectedItems.value.length; i++) {
@@ -222,15 +237,18 @@ provide('show-description', showDescription)
               id="heading-duration"
               :heading="$t('Duration')"
               name="duration"
-              sortable
             />
             <cv-data-table-heading
               id="heading-characters"
               :heading="$t('characters')"
+              name="characters.available"
+              sortable
             />
             <cv-data-table-heading
               id="heading-comics"
               :heading="$t('comics')"
+              name="comics.available"
+              sortable
             />
           </template>
           <template #data>

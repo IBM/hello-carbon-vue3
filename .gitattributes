@@ -1,0 +1,3 @@
+assets/css/carbon* linguist-generated
+docs/** linguist-documentation 
+cypress/** -linguist-detectable

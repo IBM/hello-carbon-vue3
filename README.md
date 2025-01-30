@@ -24,7 +24,7 @@ The carbon styles are imported as a pre-compiled css file. The fie is created by
 generate the css. See [carbon-gray-90.scss](assets/scss/carbon-gray-90.scss) for instructions on creating the css file.
 
 ## Pages & Components
-[Demo site for this repository](https://example.com)
+[demo site for this repository](https://hello-carbon-nuxt.1qxat1gxkarf.us-east.codeengine.appdomain.cloud/)
 - Header with mobile navigation under "hamburger" menu
 
   ![header](./docs/header.gif)

@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "cypress": "^14.0.0",
-    "eslint": "^9.16.0",
+    "eslint": "^9.19.0",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",

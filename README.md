@@ -11,7 +11,7 @@ the Carbon Design System A collection of Carbon Components
 - [Nuxt](https://nuxt.com/) - The Intuitive Vue Framework
 - [@nuxtjs/i18n](https://i18n.nuxtjs.org/) - This repository demonstrates how to implement translations using
 `@nuxtjs/i18n`. All user interface (UI) elements and the majority of the content have been translated.
-- [@sidebase/nuxt-auth](https://auth.sidebase.io/) - User authentication and sessions via authjs
+- [@sidebase/nuxt-auth](https://auth.sidebase.io/) - User authentication and sessions via authjs. Tested and working with IBM Id & w3 Id.
 - [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/) - Tailwind CSS with custom Carbon colors
 - [winston](https://github.com/IBM/hello-carbon-vue3?tab=readme-ov-file) - A logger for just about everything
 - [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks

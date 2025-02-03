@@ -12,8 +12,8 @@ importers:
         specifier: ^10.99.1
         version: 10.99.1
       '@carbon/themes':
-        specifier: ^10.55.5
-        version: 10.55.5
+        specifier: ^11.46.0
+        version: 11.46.0
       '@carbon/vue':
         specifier: ^3.0.24
         version: 3.0.24(vue@3.5.13(typescript@5.3.3))
@@ -24,8 +24,8 @@ importers:
         specifier: ^24.2.2
         version: 24.2.2(typescript@5.3.3)
       i18next-http-backend:
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: ^3.0.2
+        version: 3.0.2
       i18next-vue:
         specifier: ^5.0.0
         version: 5.0.0(i18next@24.2.2(typescript@5.3.3))(vue@3.5.13(typescript@5.3.3))
@@ -144,13 +144,11 @@ packages:
     resolution: {integrity: sha512-zQ1ijeeCXVEh+aNL0RlmkPkG8HUiDcU2pzQQFjtbntgAczRASFzj4H+6+bV+dy1ntKR14I/DypeuRG1uma98iQ==}
     engines: {node: '>=6.9.0'}
 
-  '@carbon/colors@10.37.4':
-    resolution: {integrity: sha512-+YiULq3Wu9XSVQ8RxodTzamguBaO0B5mqvFAIt3Bl/RFlUXU0nDIyHFXuiLhIXPwua/9iuENSdAzAw79bK76Hw==}
-    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  '@carbon/colors@11.29.0':
+    resolution: {integrity: sha512-3lUSH1YB7Umi32KP5enZ2pCf5wcScisGlEGh11b4GDf2d5pAGuk/BucjQq92NINon+/GFg08Zc28aQfJOT7cGg==}
 
-  '@carbon/grid@10.43.4':
-    resolution: {integrity: sha512-xghg4aeanayxtrWC38L128jkI/l+iX7z0xnIofygiOLyQM7MGzhtvQrF8G3ZUIJ7/7tpQ3xgYCNhhY43qj4GMw==}
-    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  '@carbon/grid@11.31.0':
+    resolution: {integrity: sha512-6Tk5b0IA21rPLgOu49XZVnVPdpvGg6cgjztG4AM2ADeAh44hsixptshJNmdpcSmZL69GC7nkTnLXhnxJicg9NQ==}
 
   '@carbon/icon-helpers@10.54.0':
     resolution: {integrity: sha512-IJ6uzwRA/6yvSG6tTCQoKIcGehwZYYqjvLHylILmEwyfB8kWV9VmJu957hfrfbS2rmuCXwmN6kCAnb4WS8FnFw==}
@@ -161,24 +159,18 @@ packages:
   '@carbon/icons-vue@10.99.1':
     resolution: {integrity: sha512-VC0mRjGri+Ghv8Zkk3iUoaVYUTHLstXj5sB+qYnqPi1sKlE8lUOokgO+r8ReipFUq3um8xze/BXzEjWJQtYC6A==}
 
-  '@carbon/import-once@10.7.2':
-    resolution: {integrity: sha512-ZlrsUo7wQxwwbBC8FUOQTimMEvgG7RyW741M4V8Ogmu8vTD8/O/Q27Y+rzRsbThwJcduHYRWDh/qVTuqayFycQ==}
-
-  '@carbon/layout@10.37.4':
-    resolution: {integrity: sha512-jHQYSsPjA1+TS4IXgW8C7DA7ZzFoX1N6IFiOl3muqeqX0fTxm9I6M3iJiwh3NaeFhjBcQAUhwI0bc1Z1W0/KYg==}
-    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  '@carbon/layout@11.29.0':
+    resolution: {integrity: sha512-u6QTLmotAodw+bcr1p3gc1hIXveWQ8/INbOhR53nfRsRgAg85TcCUwg6ZoVzQGStXc/TaTn/3mk1iSBLi59bkw==}
 
   '@carbon/telemetry@0.1.0':
     resolution: {integrity: sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==}
     hasBin: true
 
-  '@carbon/themes@10.55.5':
-    resolution: {integrity: sha512-w+F0fLCNfH8ozwdbrtzzA7KgsS85KNTvdJM0dKRqBraL9XfQ5oeWgPH8U8Eq9S+Emy6YxkT6deN/Ho4Ks3GzIw==}
-    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  '@carbon/themes@11.46.0':
+    resolution: {integrity: sha512-QozDO0nFdwvt4qrIxyHPAKCqEbfKEnROUyVDzmrg2RNU51u2Rq58W9YGIIcRY0/Xyu/QugqxoTo9tDxZ4xwQlA==}
 
-  '@carbon/type@10.45.5':
-    resolution: {integrity: sha512-MqCB5McSW30TZLLCOuHV2mg0AnyB7p+oORYmhm2/sDeqsftCY9rkgOoG7SQO7mDULMTSUznclaOynPpTPeKNuA==}
-    deprecated: v10 is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  '@carbon/type@11.35.0':
+    resolution: {integrity: sha512-Ok9XoEqBGztlv2QzQY1IwzSwVFsCs9pUaoc/XcOAvbFm6rDeJaRtjKrZKcjhdz++dGbiQthr/lWZDXZc+3dhQg==}
 
   '@carbon/vue@3.0.24':
     resolution: {integrity: sha512-cfV5UTQM1ixxY1/wbSiRa9Wri2KjyAl2XNEUZIVRdP5GLrxIgAYDIq0WPZDvEUKrUS3yvqb01ohMG55Sy17SJQ==}
@@ -507,6 +499,10 @@ packages:
 
   '@ibm/telemetry-js@1.9.0':
     resolution: {integrity: sha512-dTOnqZs03csS6/oLXWUXKYTVJiy9jwfpj4gIhSfPUeTXsfwlOjtGEae+Am3bzbFhsOpf74f5LXGBPjz7T+Nv0g==}
+    hasBin: true
+
+  '@ibm/telemetry-js@1.9.1':
+    resolution: {integrity: sha512-qq8RPafUJHUQieXVCte1kbJEx6JctWzbA/YkXzopbfzIDRT2+hbR9QmgH+KH7bDDNRcDbdHWvHfwJKzThlMtPg==}
     hasBin: true
 
   '@isaacs/cliui@8.0.2':
@@ -1075,8 +1071,9 @@ packages:
   color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
 
-  color@3.2.1:
-    resolution: {integrity: sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==}
+  color@4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
+    engines: {node: '>=12.5.0'}
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -1674,8 +1671,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  i18next-http-backend@3.0.1:
-    resolution: {integrity: sha512-XT2lYSkbAtDE55c6m7CtKxxrsfuRQO3rUfHzj8ZyRtY9CkIX3aRGwXGTkUhpGWce+J8n7sfu3J0f2wTzo7Lw0A==}
+  i18next-http-backend@3.0.2:
+    resolution: {integrity: sha512-PdlvPnvIp4E1sYi46Ik4tBYh/v/NbYfFFgTjkwFl0is8A18s7/bx9aXqsrOax9WUbeNS6mD2oix7Z0yGGf6m5g==}
 
   i18next-vue@5.0.0:
     resolution: {integrity: sha512-8jlctdGSKws9fcFlGlFOQRKCQQdUTKSs4D9pbZ6iitpzHQzQSVTdeDPvrjxLomsTjLK65W+MUGW6cwavAMGo9w==}
@@ -2907,15 +2904,14 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
-  '@carbon/colors@10.37.4':
+  '@carbon/colors@11.29.0':
     dependencies:
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.1
 
-  '@carbon/grid@10.43.4':
+  '@carbon/grid@11.31.0':
     dependencies:
-      '@carbon/import-once': 10.7.2
-      '@carbon/layout': 10.37.4
-      '@ibm/telemetry-js': 1.9.0
+      '@carbon/layout': 11.29.0
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/icon-helpers@10.54.0':
     dependencies:
@@ -2931,29 +2927,25 @@ snapshots:
       '@carbon/icon-helpers': 10.54.0
       '@ibm/telemetry-js': 1.6.1
 
-  '@carbon/import-once@10.7.2':
+  '@carbon/layout@11.29.0':
     dependencies:
-      '@ibm/telemetry-js': 1.9.0
-
-  '@carbon/layout@10.37.4':
-    dependencies:
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/telemetry@0.1.0': {}
 
-  '@carbon/themes@10.55.5':
+  '@carbon/themes@11.46.0':
     dependencies:
-      '@carbon/colors': 10.37.4
-      '@carbon/layout': 10.37.4
-      '@carbon/type': 10.45.5
-      '@ibm/telemetry-js': 1.6.1
-      color: 3.2.1
+      '@carbon/colors': 11.29.0
+      '@carbon/layout': 11.29.0
+      '@carbon/type': 11.35.0
+      '@ibm/telemetry-js': 1.9.1
+      color: 4.2.3
 
-  '@carbon/type@10.45.5':
+  '@carbon/type@11.35.0':
     dependencies:
-      '@carbon/grid': 10.43.4
-      '@carbon/import-once': 10.7.2
-      '@ibm/telemetry-js': 1.6.1
+      '@carbon/grid': 11.31.0
+      '@carbon/layout': 11.29.0
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/vue@3.0.24(vue@3.5.13(typescript@5.3.3))':
     dependencies:
@@ -3267,6 +3259,8 @@ snapshots:
   '@ibm/telemetry-js@1.6.1': {}
 
   '@ibm/telemetry-js@1.9.0': {}
+
+  '@ibm/telemetry-js@1.9.1': {}
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -3808,9 +3802,9 @@ snapshots:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
 
-  color@3.2.1:
+  color@4.2.3:
     dependencies:
-      color-convert: 1.9.3
+      color-convert: 2.0.1
       color-string: 1.9.1
 
   colorette@2.0.20: {}
@@ -4488,7 +4482,7 @@ snapshots:
 
   husky@9.1.7: {}
 
-  i18next-http-backend@3.0.1:
+  i18next-http-backend@3.0.2:
     dependencies:
       cross-fetch: 4.0.0
     transitivePeerDependencies:

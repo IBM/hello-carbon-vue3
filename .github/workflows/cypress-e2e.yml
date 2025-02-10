@@ -3,6 +3,9 @@ on: pull_request
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:22.12.0
+      options: --user 1001    
     strategy:
       matrix:
         browser: [ chrome, firefox ]
@@ -12,14 +15,8 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
     
-      - name: Install dependencies
-        uses: cypress-io/github-action@v6
-        with:
-          runTests: false
-          
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          install: false
           start: pnpm run dev
           browser: ${{ matrix.browser }}

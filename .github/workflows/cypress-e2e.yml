@@ -11,15 +11,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Install pnpm
         run: npm install -g pnpm
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+    
+      - name: Install dependencies
+        uses: cypress-io/github-action@v6
         with:
-          node-version: 22
-          cache: 'pnpm'
+          runTests: false
+          
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        env:
-          CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
         with:
+          install: false
           start: pnpm run dev
           browser: ${{ matrix.browser }}

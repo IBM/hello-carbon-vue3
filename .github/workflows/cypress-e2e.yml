@@ -16,10 +16,8 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-          cache-dependency-path: /home/runner/.local/share/pnpm/store/v10        
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          working-directory: /home/runner/.local/share/pnpm/store/v10
           start: pnpm run dev
           browser: ${{ matrix.browser }}

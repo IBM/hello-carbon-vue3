@@ -3,17 +3,23 @@ on: pull_request
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:22.12.0
-      options: --user 1001    
     strategy:
       matrix:
         browser: [ chrome, firefox ]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install pnpm
+        run: npm i -g pnpm@10
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+          cache-dependency-path: ./pnpm-lock.yaml
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          working-directory: ./
           start: pnpm run dev
           browser: ${{ matrix.browser }}

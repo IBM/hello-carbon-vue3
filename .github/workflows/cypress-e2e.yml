@@ -15,8 +15,7 @@ jobs:
         env:
           DEBUG: "cypress:cli*"
           CYPRESS_CACHE_FOLDER: '~/.cache/Cypress'      
-        run: |
-          pnpm install --frozen-lockfile=false
+        run: pnpm install --frozen-lockfile=false --shamefully-hoist
       - name: Cypress run
         uses: cypress-io/github-action@v6
         env:

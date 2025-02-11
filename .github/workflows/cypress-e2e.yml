@@ -9,16 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          npm install -g pnpm
-          pnpm install
-
-      - name: run app
-        run: pnpm run dev &
-
+      - name: Install pnpm
+        run: npm i -g pnpm@9
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          start: pnpm run dev
           browser: ${{ matrix.browser }}

@@ -16,8 +16,7 @@ jobs:
           DEBUG: "cypress:cli*"
           CYPRESS_CACHE_FOLDER: '~/.cache/Cypress'      
         run: |
-          echo "node-linker=hoisted" > .npmrc
-          pnpm install
+          pnpm install --frozen-lockfile=false
       - name: Cypress run
         uses: cypress-io/github-action@v6
         env:

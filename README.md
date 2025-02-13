@@ -143,6 +143,9 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 MARVEL_APIKEY=Your Marvel api key from https://developer.marvel.com/
 MARVEL_PRIVATE_KEY=Your Marvel secret key from https://developer.marvel.com/
 MARVEL_URL=https://gateway.marvel.com/
+
+AUTH_PROVIDER=ibmid or w3id or github or someother prrovider
+AUTH_ORIGIN=the auth url for your deployed site i.e. https://example.com/api/auth
 NUXT_AUTH_SECRET=set to a long string
 AUTH_CLIENT_ID=Login provider client id
 AUTH_CLIENT_SECRET=Login provider client secret

@@ -5,12 +5,12 @@ export default {
 </script>
 <script setup>
 import { useStorage } from "@vueuse/core";
-import { ref } from "vue";
-const theme = useStorage("theme", "g90");
+import { computed } from "vue";
 import { useTranslation } from "i18next-vue";
 const { t } = useTranslation();
+const theme = useStorage("theme", "g90");
 
-const themes = ref([
+const themes = computed(() => [
   { id: "white", name: t("theme-white") },
   { id: "g10", name: t("theme-g10") },
   { id: "g90", name: t("theme-g90") },

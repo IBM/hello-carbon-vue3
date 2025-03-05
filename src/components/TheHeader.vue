@@ -12,6 +12,15 @@
     >
     <template #header-global>
       <cv-header-global-action
+        :aria-label="t('choose-theme')"
+        :label="t('choose-theme')"
+        aria-controls="choose-theme"
+        tip-position="bottom"
+        tip-alignment="end"
+      >
+        <theme-icon />
+      </cv-header-global-action>
+      <cv-header-global-action
         :aria-label="t('choose-language')"
         :label="t('choose-language')"
         aria-controls="language-panel"
@@ -71,6 +80,9 @@
           </cv-switcher-item>
         </cv-switcher>
       </cv-header-panel>
+      <cv-header-panel id="choose-theme" v-model:expanded="themeExpanded">
+        <theme-selector />
+      </cv-header-panel>
     </template>
     <template #left-panels>
       <cv-side-nav id="side-nav" :rail="true" :fixed="false" :expanded="false">
@@ -108,7 +120,9 @@ import {
   Login20 as LoginIcon,
   UserAvatar20 as AvatarIcon,
   Switcher20 as SwitcherIcon,
+  ColorPalette20 as ThemeIcon,
 } from "@carbon/icons-vue";
+import ThemeSelector from "@/components/Theme/Selector.vue";
 import { ref } from "vue";
 import { useLanguageStore } from "../stores/language";
 import { useTranslation } from "i18next-vue";
@@ -145,6 +159,8 @@ const otherApps = ref([
     link: "https://vue.carbondesignsystem.com/",
   },
 ]);
+
+const themeExpanded = ref(false);
 </script>
 
 <style scoped></style>

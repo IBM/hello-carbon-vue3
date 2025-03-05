@@ -54,6 +54,9 @@
   "choose-top": "Wähle einen Käferkopf",
   "choose-middle": "Wähle einen Käferkörper",
   "choose-bottom": "Wähle einen Käferschwanz",
-  "build-a-bug": "Bauen Sie Ihren eigenen Käfer"
-
+  "build-a-bug": "Bauen Sie Ihren eigenen Käfer",
+  "theme-white": "Weiß",
+  "theme-g10": "Grau 10",
+  "theme-g90": "Grau 90",
+  "theme-g100": "Grau 100"
 }

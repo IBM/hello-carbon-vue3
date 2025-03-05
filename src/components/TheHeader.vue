@@ -67,7 +67,7 @@
           </cv-switcher-item>
         </cv-switcher>
       </cv-header-panel>
-      <cv-header-panel id="other-apps" v-model:expanded="otherAppsExpanded">
+      <cv-header-panel id="other-apps">
         <cv-switcher>
           <cv-switcher-item v-for="app in otherApps" :key="app.id">
             <cv-switcher-item-link
@@ -80,7 +80,7 @@
           </cv-switcher-item>
         </cv-switcher>
       </cv-header-panel>
-      <cv-header-panel id="choose-theme" v-model:expanded="themeExpanded">
+      <cv-header-panel id="choose-theme">
         <theme-selector />
       </cv-header-panel>
     </template>
@@ -141,7 +141,6 @@ function onLogin() {
   loggedIn.value = !loggedIn.value;
 }
 
-const otherAppsExpanded = ref(false);
 const otherApps = ref([
   {
     id: "hello-vue",
@@ -159,8 +158,4 @@ const otherApps = ref([
     link: "https://vue.carbondesignsystem.com/",
   },
 ]);
-
-const themeExpanded = ref(false);
 </script>
-
-<style scoped></style>

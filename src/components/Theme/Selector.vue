@@ -18,6 +18,7 @@ const themes = computed(() => [
 ]);
 function changeTheme(id) {
   theme.value = id;
+  document.activeElement.blur();
 }
 </script>
 

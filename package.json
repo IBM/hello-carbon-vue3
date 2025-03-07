@@ -21,7 +21,7 @@
     "@carbon/icons-vue": "^10.105.0",
     "@carbon/themes": "^10.55.3",
     "@carbon/vue": "^3.0.24",
-    "@nuxt/eslint": "^1.0.1",
+    "@nuxt/eslint": "^1.1.0",
     "@nuxtjs/i18n": "^9.2.1",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@sidebase/nuxt-auth": "^0.10.0",

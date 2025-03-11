@@ -12,6 +12,15 @@
     >
     <template #header-global>
       <cv-header-global-action
+        :aria-label="t('choose-theme')"
+        :label="t('choose-theme')"
+        aria-controls="choose-theme"
+        tip-position="bottom"
+        tip-alignment="end"
+      >
+        <theme-icon />
+      </cv-header-global-action>
+      <cv-header-global-action
         :aria-label="t('choose-language')"
         :label="t('choose-language')"
         aria-controls="language-panel"
@@ -58,7 +67,7 @@
           </cv-switcher-item>
         </cv-switcher>
       </cv-header-panel>
-      <cv-header-panel id="other-apps" v-model:expanded="otherAppsExpanded">
+      <cv-header-panel id="other-apps">
         <cv-switcher>
           <cv-switcher-item v-for="app in otherApps" :key="app.id">
             <cv-switcher-item-link
@@ -70,6 +79,9 @@
             </cv-switcher-item-link>
           </cv-switcher-item>
         </cv-switcher>
+      </cv-header-panel>
+      <cv-header-panel id="choose-theme">
+        <theme-selector />
       </cv-header-panel>
     </template>
     <template #left-panels>
@@ -108,7 +120,9 @@ import {
   Login20 as LoginIcon,
   UserAvatar20 as AvatarIcon,
   Switcher20 as SwitcherIcon,
+  ColorPalette20 as ThemeIcon,
 } from "@carbon/icons-vue";
+import ThemeSelector from "@/components/Theme/Selector.vue";
 import { ref } from "vue";
 import { useLanguageStore } from "../stores/language";
 import { useTranslation } from "i18next-vue";
@@ -127,7 +141,6 @@ function onLogin() {
   loggedIn.value = !loggedIn.value;
 }
 
-const otherAppsExpanded = ref(false);
 const otherApps = ref([
   {
     id: "hello-vue",
@@ -146,5 +159,3 @@ const otherApps = ref([
   },
 ]);
 </script>
-
-<style scoped></style>

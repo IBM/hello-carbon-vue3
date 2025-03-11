@@ -34,24 +34,24 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "@eslint/js": "^9.21.0",
-    "@rushstack/eslint-patch": "^1.10.5",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.22.0",
+    "@rushstack/eslint-patch": "^1.11.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",
-    "autoprefixer": "^10.4.20",
-    "cypress": "^14.0.3",
-    "eslint": "^9.21.0",
-    "eslint-plugin-cypress": "^4.1.0",
-    "eslint-plugin-vue": "^9.32.0",
+    "autoprefixer": "^10.4.21",
+    "cypress": "^14.1.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-cypress": "^4.2.0",
+    "eslint-plugin-vue": "^10.0.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "lint-staged": "^15.4.3",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.1.1"
+    "vite": "^6.2.1"
   },
   "lint-staged": {
     "!(dist/**/*)*.{js,vue}": [

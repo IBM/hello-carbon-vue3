@@ -1,7 +1,6 @@
 import js from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
 import pluginCypress from "eslint-plugin-cypress/flat";
-import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";
 
 export default [
   {
@@ -25,5 +24,9 @@ export default [
       "cypress/support/**/*.{js,ts,jsx,tsx}",
     ],
   },
-  skipFormatting,
+  {
+    rules: {
+    "vue/no-deprecated-slot-attribute": "off",
+}
+  }
 ];

@@ -1,23 +1,25 @@
 <template>
   <div data-cy="song-card">
-    <div class="productive-heading-01">{{ songName }}</div>
+    <h6>{{ songName }}</h6>
     <div style="width: 100%">
-      <cv-aspect-ratio>
+      <div class="aspect-square">
         <blur-image
           :src="song['image_uri']"
           :src-placeholder="placeholderImage"
           :alt="songName"
-          class="songs__cover-art"
+          class="object-cover w-full max-w-lg"
         />
-      </cv-aspect-ratio>
+      </div>
     </div>
-    <div class="songs__price body-short-02">
+    <div class="text-sm flex flex-row justify-between mb-4">
       <div>
         <div>{{ buyPrice }}</div>
         <buy-icon />
       </div>
       <div>
-        <div>{{ sellPrice }}</div>
+        <div class="mr-2">
+          {{ sellPrice }}
+        </div>
         <sell-icon />
       </div>
     </div>
@@ -50,21 +52,3 @@ const sellPrice = computed(() => {
   return langStore.currencyFormat.format(props.song["sell-price"]);
 });
 </script>
-
-<style scoped lang="scss">
-.songs {
-  &__price {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    div {
-      display: flex;
-      margin-right: 0.5rem;
-    }
-  }
-  &__cover-art {
-    width: 100%;
-    max-width: 512px;
-  }
-}
-</style>

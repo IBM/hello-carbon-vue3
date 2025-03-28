@@ -1,113 +1,108 @@
 <template>
-  <cv-header aria-label="Carbon header" data-cy="header">
-    <cv-header-menu-button
-      :aria-label="t('header-menu')"
-      aria-controls="side-nav"
+  <cds-header aria-label="IBM Platform Name">
+    <cds-header-menu-button
+      button-label-active="Close menu"
+      button-label-inactive="Open menu"
     />
-    <cv-skip-to-content href="#main-content">{{
-      t("skip-content")
-    }}</cv-skip-to-content>
-    <cv-header-name href="/" prefix="Carbon"
-      >{{ t("hello") }} Vue3</cv-header-name
+    <cds-header-name
+      href="/"
+      prefix="Carbon 11"
     >
-    <template #header-global>
-      <cv-header-global-action
+      {{ t("hello") }} Vue 3
+    </cds-header-name>
+    <div class="cds--header__global mr-1">
+      <cds-header-global-action
         :aria-label="t('choose-theme')"
-        :label="t('choose-theme')"
+        :tooltip-text="t('choose-theme')"
         aria-controls="choose-theme"
-        tip-position="bottom"
-        tip-alignment="end"
+        panel-id="choose-theme"
+        tooltip-position="bottom"
+        tooltip-alignment="end"
       >
-        <theme-icon />
-      </cv-header-global-action>
-      <cv-header-global-action
+        <theme-icon slot="icon" />
+      </cds-header-global-action>
+      <cds-header-global-action
         :aria-label="t('choose-language')"
-        :label="t('choose-language')"
+        :tooltip-text="t('choose-language')"
         aria-controls="language-panel"
-        tip-position="bottom"
-        tip-alignment="start"
+        panel-id="language-panel"
+        tooltip-position="bottom"
+        tooltip-alignment="end"
       >
-        <language-icon data-cy="language-icon" />
-      </cv-header-global-action>
-      <cv-header-global-action
+        <language-icon
+          slot="icon"
+          data-cy="language-icon"
+        />
+      </cds-header-global-action>
+      <cds-header-global-action
         :aria-label="t(loggedIn ? 'logout' : 'login')"
-        :label="t(loggedIn ? 'logout' : 'login')"
+        :tooltip-text="t(loggedIn ? 'logout' : 'login')"
         aria-controls="user-panel"
-        tip-position="bottom"
-        tip-alignment="center"
+        tooltip-position="bottom"
+        tooltip-alignment="end"
         @click="onLogin"
       >
-        <avatar-icon v-if="loggedIn" />
-        <login-icon v-else />
-      </cv-header-global-action>
-      <cv-header-global-action
+        <Transition
+          name="fade"
+          mode="out-in"
+        >
+          <avatar-icon
+            v-if="loggedIn"
+            slot="icon"
+          />
+          <login-icon
+            v-else
+            slot="icon"
+          />
+        </Transition>
+      </cds-header-global-action>
+      <cds-header-global-action
         :aria-label="t('other-apps')"
-        :label="t('other-apps')"
+        :tooltip-text="t('other-apps')"
         aria-controls="other-apps"
-        tip-position="bottom"
-        tip-alignment="end"
+        panel-id="other-apps"
+        tooltip-position="bottom"
+        tooltip-alignment="end"
       >
-        <switcher-icon />
-      </cv-header-global-action>
-    </template>
-    <template #right-panels>
-      <cv-header-panel id="language-panel" v-model:expanded="languageExpanded">
-        <cv-switcher>
-          <cv-switcher-item
-            v-for="entry in langStore.languages"
-            :key="entry.title"
-          >
-            <cv-switcher-item-link
-              :selected="entry.language === langStore.language"
-              :data-cy="`language-${entry.language}`"
-              @click="changeLocale(entry.language)"
-            >
-              {{ entry.title }}
-            </cv-switcher-item-link>
-          </cv-switcher-item>
-        </cv-switcher>
-      </cv-header-panel>
-      <cv-header-panel id="other-apps">
-        <cv-switcher>
-          <cv-switcher-item v-for="app in otherApps" :key="app.id">
-            <cv-switcher-item-link
-              :data-cy="`language-${app.id}`"
-              :href="app.link"
-              target="_blank"
-            >
-              {{ app.name }}
-            </cv-switcher-item-link>
-          </cv-switcher-item>
-        </cv-switcher>
-      </cv-header-panel>
-      <cv-header-panel id="choose-theme">
-        <theme-selector />
-      </cv-header-panel>
-    </template>
-    <template #left-panels>
-      <cv-side-nav id="side-nav" :rail="true" :fixed="false" :expanded="false">
-        <cv-side-nav-items>
-          <cv-side-nav-link :to="{ name: 'home' }">
-            <template #nav-icon><home-icon /></template>
-            {{ t("home") }}
-          </cv-side-nav-link>
-          <cv-side-nav-menu-divider />
-          <cv-side-nav-link :to="{ name: 'fish' }">
-            <template #nav-icon><fish-icon /></template>
-            {{ t("fish") }}
-          </cv-side-nav-link>
-          <cv-side-nav-link :to="{ name: 'bugs' }">
-            <template #nav-icon><bugs-icon /></template>
-            {{ t("bugs") }}
-          </cv-side-nav-link>
-          <cv-side-nav-link :to="{ name: 'villagers' }">
-            <template #nav-icon><villagers-icon /></template>
-            {{ t("villagers") }}
-          </cv-side-nav-link>
-        </cv-side-nav-items>
-      </cv-side-nav>
-    </template>
-  </cv-header>
+        <switcher-icon slot="icon" />
+      </cds-header-global-action>
+    </div>
+    <HeaderPanelThemeSelector id="choose-theme" />
+    <HeaderPanelLanguageSwitcher id="language-panel" />
+    <HeadPanelOtherApps id="other-apps" />
+  </cds-header>
+  <cds-side-nav
+    aria-label="Side navigation"
+    collapse-mode="rail"
+  >
+    <cds-side-nav-items>
+      <CvSideNavLink :to="{name: 'home'}">
+        <template #title-icon>
+          <HomeIcon />
+        </template>
+        {{ t('home') }}
+      </CvSideNavLink>
+      <cds-side-nav-divider />
+      <CvSideNavLink :to="{name: 'fish'}">
+        <template #title-icon>
+          <FishIcon />
+        </template>
+        {{ t('fish') }}
+      </CvSideNavLink>
+      <CvSideNavLink :to="{name: 'bugs'}">
+        <template #title-icon>
+          <BugsIcon />
+        </template>
+        {{ t('bugs') }}
+      </CvSideNavLink>
+      <CvSideNavLink :to="{name: 'villagers'}">
+        <template #title-icon>
+          <VillagersIcon />
+        </template>
+        {{ t('villagers') }}
+      </CvSideNavLink>
+    </cds-side-nav-items>
+  </cds-side-nav>
 </template>
 
 <script setup>
@@ -122,40 +117,30 @@ import {
   Switcher20 as SwitcherIcon,
   ColorPalette20 as ThemeIcon,
 } from "@carbon/icons-vue";
-import ThemeSelector from "@/components/Theme/Selector.vue";
+import '@carbon/web-components/es/components/ui-shell/index.js';
+import HeaderPanelThemeSelector from "@/components/HeaderPanels/ThemeSelector.vue";
+import CvSideNavLink from "@/components/cv/SideNavLink.vue"
+import HeadPanelOtherApps from "@/components/HeaderPanels/OtherApps.vue"
+import HeaderPanelLanguageSwitcher from "@/components/HeaderPanels/LanguageSwitcher.vue"
 import { ref } from "vue";
-import { useLanguageStore } from "../stores/language";
 import { useTranslation } from "i18next-vue";
 const { t } = useTranslation();
 
 const loggedIn = ref(false);
 
-const langStore = useLanguageStore();
-const languageExpanded = ref(false);
-function changeLocale(language) {
-  langStore.setLanguage(language);
-  languageExpanded.value = false;
-  document?.activeElement?.blur();
-}
 function onLogin() {
   loggedIn.value = !loggedIn.value;
 }
 
-const otherApps = ref([
-  {
-    id: "hello-vue",
-    name: "Hello Carbon Vue",
-    link: "https://github.com/IBM/hello-carbon-vue3",
-  },
-  {
-    id: "hello-nuxt",
-    name: "Hello Carbon Nuxt",
-    link: "https://github.com/davidnixon/hello-carbon-nuxt",
-  },
-  {
-    id: "carbon-vue",
-    name: "Carbon Vue Storybook",
-    link: "https://vue.carbondesignsystem.com/",
-  },
-]);
 </script>
+<style scoped lang="css">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

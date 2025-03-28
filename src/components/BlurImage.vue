@@ -1,10 +1,3 @@
-<template>
-  <v-lazy-image
-    :src="src"
-    :src-placeholder="srcPlaceholder"
-    :alt="alt"
-  ></v-lazy-image>
-</template>
 <script setup>
 import VLazyImage from "v-lazy-image";
 defineProps({
@@ -13,6 +6,13 @@ defineProps({
   srcPlaceholder: { type: String, required: true },
 });
 </script>
+<template>
+  <v-lazy-image
+    :src="src"
+    :src-placeholder="srcPlaceholder"
+    :alt="alt"
+  />
+</template>
 <style scoped>
 .v-lazy-image {
   filter: blur(5px);

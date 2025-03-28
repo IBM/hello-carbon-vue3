@@ -1,16 +1,3 @@
-<template>
-  <div class="container">
-    <div class="container__reading">
-      <div class="container__education">
-        <slot name="education"><education-icon /></slot>
-      </div>
-      <div class="container__book">
-        <slot name="book"><book /></slot>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import {
   Book20 as Book,
@@ -20,6 +7,23 @@ defineProps({
   iconColor: { type: String, default: "#0072c3" }, // cyan 60
 });
 </script>
+
+<template>
+  <div class="container">
+    <div class="container__reading">
+      <div class="container__education">
+        <slot name="education">
+          <education-icon />
+        </slot>
+      </div>
+      <div class="container__book">
+        <slot name="book">
+          <book />
+        </slot>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 @keyframes reading {

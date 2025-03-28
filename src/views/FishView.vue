@@ -1,115 +1,3 @@
-<template>
-  <cv-grid>
-    <cv-row>
-      <cv-column>
-        <CvToggle-Skeleton v-if="loading" />
-        <cv-toggle
-          v-model="showCatchPhrases"
-          value="catch-pharse"
-          :label="t('catch-phrases')"
-          class="mb-2"
-        >
-          <template #text-right>{{ t("yes") }}</template>
-          <template #text-left>{{ t("no") }}</template>
-        </cv-toggle>
-        <cv-data-table-skeleton
-          v-if="loading"
-          :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
-          :rows="7"
-          :title="t('fish')"
-          :helper-text="t('fish-info')"
-        ></cv-data-table-skeleton>
-        <cv-data-table
-          v-else
-          v-model:rows-selected="selectedFish"
-          :pagination="i18nPagination"
-          :zebra="true"
-          :title="t('fish')"
-          :helper-text="t('fish-info')"
-          :batch-cancel-label="t('cancel')"
-          :action-bar-aria-label="t('actions')"
-          :collapse-all-aria-label="t('collapse-all')"
-          :expand-all-aria-label="t('expand-all')"
-          :select-all-aria-label="t('select-all')"
-          :search-label="t('search')"
-          :search-placeholder="t('search')"
-          :search-clear-label="t('search-clear')"
-          :expandable="true"
-          @pagination="onPagination"
-          @search="onSearch"
-          @sort="onSort"
-        >
-          <template #items-selected="{ scope }">
-            {{ t("selected-num", { count: scope.count }) }}
-          </template>
-          <template #of-n-pages="{ scope }">
-            {{ t("pages-num", { count: scope.pages }) }}
-          </template>
-          <template #range-text="{ scope }">
-            <!-- { "start": 1, "end": 7, "items": 80 } -->
-            {{ t("range-text", scope) }}
-          </template>
-          <template v-if="filteredFish.length > 0" #batch-actions>
-            <cv-button :icon="hideIcon" @click="onHideSelected">{{
-              t("hide")
-            }}</cv-button>
-          </template>
-          <template v-if="fishStore.someHidden" #actions>
-            <cv-data-table-action
-              :aria-label="t('show')"
-              :alt="t('show')"
-              @click="toggleShowAll"
-            >
-              <hide-icon v-if="showHidden" class="bx--toolbar-action__icon">
-                <title>{{ t("hide") }}</title>
-              </hide-icon>
-              <show-all-icon v-else class="bx--toolbar-action__icon">
-                <title>{{ t("show") }}</title>
-              </show-all-icon>
-            </cv-data-table-action>
-          </template>
-          <template #headings>
-            <cv-data-table-heading :heading="t('name')" name="name" sortable />
-            <cv-data-table-heading heading="" />
-            <cv-data-table-heading
-              v-if="md"
-              :heading="t('price')"
-              name="price"
-              sortable
-            />
-            <cv-data-table-heading
-              v-if="md"
-              id="fish-heading-cj"
-              heading="CJ"
-              name="price-cj"
-              sortable
-            />
-            <cv-data-table-heading
-              id="fish-heading-location"
-              :heading="t('location')"
-            />
-            <cv-data-table-heading
-              v-if="md"
-              id="fish-heading-rarity"
-              :heading="t('rarity')"
-            />
-          </template>
-          <template #data>
-            <fish-row v-for="row in paginated" :key="row.key" :fish="row" />
-            <fish-row-empty v-if="filteredFish.length === 0" />
-          </template>
-        </cv-data-table>
-        <mobile-table-pagination
-          v-if="!carbonMd"
-          :number-of-items="pagination.numberOfItems"
-          :table-pagination="currentPagination"
-          @pagination="onPagination"
-        />
-      </cv-column>
-    </cv-row>
-  </cv-grid>
-</template>
-
 <script setup>
 import { useFishStore } from "../stores/fish";
 import FishRow from "../components/FishRow.vue";
@@ -147,7 +35,8 @@ onMounted(() => {
       pagination.value.numberOfItems = fishStore.fish.length;
       loading.value = false;
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.error("error loading fish from API", e.message);
   }
 });
@@ -234,5 +123,146 @@ provide("show-catch-phrases", showCatchPhrases);
 
 const { md, carbonMd } = useBreakpoints();
 </script>
+
+<template>
+  <cv-grid>
+    <cv-row>
+      <cv-column>
+        <CvToggle-Skeleton v-if="loading" />
+        <cv-toggle
+          v-model="showCatchPhrases"
+          value="catch-pharse"
+          :label="t('catch-phrases')"
+          class="mb-2"
+        >
+          <template #text-right>
+            {{ t("yes") }}
+          </template>
+          <template #text-left>
+            {{ t("no") }}
+          </template>
+        </cv-toggle>
+        <cv-data-table-skeleton
+          v-if="loading"
+          :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
+          :rows="7"
+          :title="t('fish')"
+          :helper-text="t('fish-info')"
+        />
+        <cv-data-table
+          v-else
+          v-model:rows-selected="selectedFish"
+          :pagination="i18nPagination"
+          :zebra="true"
+          :title="t('fish')"
+          :helper-text="t('fish-info')"
+          :batch-cancel-label="t('cancel')"
+          :action-bar-aria-label="t('actions')"
+          :collapse-all-aria-label="t('collapse-all')"
+          :expand-all-aria-label="t('expand-all')"
+          :select-all-aria-label="t('select-all')"
+          :search-label="t('search')"
+          :search-placeholder="t('search')"
+          :search-clear-label="t('search-clear')"
+          :expandable="true"
+          @pagination="onPagination"
+          @search="onSearch"
+          @sort="onSort"
+        >
+          <template #items-selected="{ scope }">
+            {{ t("selected-num", { count: scope.count }) }}
+          </template>
+          <template #of-n-pages="{ scope }">
+            {{ t("pages-num", { count: scope.pages }) }}
+          </template>
+          <template #range-text="{ scope }">
+            <!-- { "start": 1, "end": 7, "items": 80 } -->
+            {{ t("range-text", scope) }}
+          </template>
+          <template
+            v-if="filteredFish.length > 0"
+            #batch-actions
+          >
+            <cv-button
+              :icon="hideIcon"
+              @click="onHideSelected"
+            >
+              {{
+                t("hide")
+              }}
+            </cv-button>
+          </template>
+          <template
+            v-if="fishStore.someHidden"
+            #actions
+          >
+            <cv-data-table-action
+              :aria-label="t('show')"
+              :alt="t('show')"
+              @click="toggleShowAll"
+            >
+              <hide-icon
+                v-if="showHidden"
+                class="bx--toolbar-action__icon"
+              >
+                <title>{{ t("hide") }}</title>
+              </hide-icon>
+              <show-all-icon
+                v-else
+                class="bx--toolbar-action__icon"
+              >
+                <title>{{ t("show") }}</title>
+              </show-all-icon>
+            </cv-data-table-action>
+          </template>
+          <template #headings>
+            <cv-data-table-heading
+              :heading="t('name')"
+              name="name"
+              sortable
+            />
+            <cv-data-table-heading heading="" />
+            <cv-data-table-heading
+              v-if="md"
+              :heading="t('price')"
+              name="price"
+              sortable
+            />
+            <cv-data-table-heading
+              v-if="md"
+              id="fish-heading-cj"
+              heading="CJ"
+              name="price-cj"
+              sortable
+            />
+            <cv-data-table-heading
+              id="fish-heading-location"
+              :heading="t('location')"
+            />
+            <cv-data-table-heading
+              v-if="md"
+              id="fish-heading-rarity"
+              :heading="t('rarity')"
+            />
+          </template>
+          <template #data>
+            <fish-row
+              v-for="row in paginated"
+              :key="row.key"
+              :fish="row"
+            />
+            <fish-row-empty v-if="filteredFish.length === 0" />
+          </template>
+        </cv-data-table>
+        <mobile-table-pagination
+          v-if="!carbonMd"
+          :number-of-items="pagination.numberOfItems"
+          :table-pagination="currentPagination"
+          @pagination="onPagination"
+        />
+      </cv-column>
+    </cv-row>
+  </cv-grid>
+</template>
 
 <style scoped></style>

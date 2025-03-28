@@ -1,3 +1,32 @@
+<script setup>
+import {
+  Home16 as HomeIcon,
+  Fish16 as FishIcon,
+  Debug16 as BugsIcon,
+  Events16 as VillagersIcon,
+  Translate20 as LanguageIcon,
+  Login20 as LoginIcon,
+  UserAvatar20 as AvatarIcon,
+  Switcher20 as SwitcherIcon,
+  ColorPalette20 as ThemeIcon,
+} from "@carbon/icons-vue";
+import "@carbon/web-components/es/components/ui-shell/index.js";
+import HeaderPanelThemeSelector from "@/components/HeaderPanels/ThemeSelector.vue";
+import CvSideNavLink from "@/components/cv/SideNavLink.vue";
+import HeadPanelOtherApps from "@/components/HeaderPanels/OtherApps.vue";
+import HeaderPanelLanguageSwitcher from "@/components/HeaderPanels/LanguageSwitcher.vue";
+import { ref } from "vue";
+import { useTranslation } from "i18next-vue";
+const { t } = useTranslation();
+
+const loggedIn = ref(false);
+
+function onLogin() {
+  loggedIn.value = !loggedIn.value;
+}
+
+</script>
+
 <template>
   <cds-header aria-label="IBM Platform Name">
     <cds-header-menu-button
@@ -104,35 +133,6 @@
     </cds-side-nav-items>
   </cds-side-nav>
 </template>
-
-<script setup>
-import {
-  Home16 as HomeIcon,
-  Fish16 as FishIcon,
-  Debug16 as BugsIcon,
-  Events16 as VillagersIcon,
-  Translate20 as LanguageIcon,
-  Login20 as LoginIcon,
-  UserAvatar20 as AvatarIcon,
-  Switcher20 as SwitcherIcon,
-  ColorPalette20 as ThemeIcon,
-} from "@carbon/icons-vue";
-import '@carbon/web-components/es/components/ui-shell/index.js';
-import HeaderPanelThemeSelector from "@/components/HeaderPanels/ThemeSelector.vue";
-import CvSideNavLink from "@/components/cv/SideNavLink.vue"
-import HeadPanelOtherApps from "@/components/HeaderPanels/OtherApps.vue"
-import HeaderPanelLanguageSwitcher from "@/components/HeaderPanels/LanguageSwitcher.vue"
-import { ref } from "vue";
-import { useTranslation } from "i18next-vue";
-const { t } = useTranslation();
-
-const loggedIn = ref(false);
-
-function onLogin() {
-  loggedIn.value = !loggedIn.value;
-}
-
-</script>
 <style scoped lang="css">
 .fade-enter-active,
 .fade-leave-active {

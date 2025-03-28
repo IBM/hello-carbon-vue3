@@ -11,7 +11,7 @@ const theme = useStorage("theme", "g90-theme");
 watch(theme, () => {
   console.log("switcher theme");
   // document.querySelector("#app").classList.add(`world-${theme.value}`);
-})
+});
 </script>
 
 <template>

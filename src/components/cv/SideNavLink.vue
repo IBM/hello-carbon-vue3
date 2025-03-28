@@ -1,17 +1,17 @@
 <script setup>
-import { computed } from 'vue'
-import { RouterLink } from 'vue-router'
-import { prefix } from '@carbon/web-components/lib/globals/settings';
+import { computed } from "vue";
+import { RouterLink } from "vue-router";
+import { prefix } from "@carbon/web-components/lib/globals/settings";
 defineOptions({
   inheritAttrs: false,
-})
+});
 
 const props = defineProps({
   ...RouterLink.props,
-})
+});
 const isExternalLink = computed(() => {
-  return typeof props.to === 'string' && props.to.startsWith('http')
-})
+  return typeof props.to === "string" && props.to.startsWith("http");
+});
 </script>
 
 <template>

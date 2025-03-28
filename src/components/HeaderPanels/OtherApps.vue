@@ -36,4 +36,3 @@ const otherApps = ref([
     </cds-switcher>
   </cds-header-panel>
 </template>
-

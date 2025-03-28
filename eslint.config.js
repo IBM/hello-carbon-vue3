@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
 import pluginCypress from "eslint-plugin-cypress/flat";
+import stylistic from "@stylistic/eslint-plugin";
 
 export default [
   {
@@ -12,7 +13,11 @@ export default [
     name: "app/files-to-ignore",
     ignores: ["**/dist/**", "**/dist-ssr/**", "**/coverage/**"],
   },
-
+  stylistic.configs["recommended-flat"],
+  stylistic.configs.customize({
+    quotes: "double",
+    semi: true,
+  }),
   js.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
 
@@ -26,7 +31,17 @@ export default [
   },
   {
     rules: {
-    "vue/no-deprecated-slot-attribute": "off",
-}
-  }
+      "vue/no-deprecated-slot-attribute": "off",
+      "vue/component-tags-order": [
+        "warn",
+        {
+          order: [
+            "script",
+            "template",
+            "style",
+          ],
+        },
+      ],
+    },
+  },
 ];

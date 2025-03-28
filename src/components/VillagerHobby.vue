@@ -1,3 +1,16 @@
+<script setup>
+import VillagerCard from "@/components/VillagerCard.vue";
+import { useTranslation } from "i18next-vue";
+
+defineProps({
+  hobbyists: {
+    type: /** @type {HobbyistData} **/ Object,
+    required: true,
+  },
+});
+const { t } = useTranslation();
+</script>
+
 <template>
   <div data-cy="hobby">
     <div class="productive-heading-03">
@@ -18,18 +31,5 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import VillagerCard from "@/components/VillagerCard.vue";
-import { useTranslation } from "i18next-vue";
-
-defineProps({
-  hobbyists: {
-    type: /** @type {HobbyistData} **/ Object,
-    required: true,
-  },
-});
-const { t } = useTranslation();
-</script>
 
 <style scoped lang="scss"></style>

@@ -1,116 +1,3 @@
-<template>
-  <cv-grid>
-    <cv-row>
-      <cv-column
-        ><div class="text-3xl py-8">{{ t("build-a-bug") }}</div>
-        <cv-icon-button
-          label="reset"
-          :icon="Reset"
-          class="mb-5"
-          @click="clearAll"
-        />
-        <cv-progress
-          :vertical="false"
-          :space-equally="true"
-          :initial-step="step"
-        >
-          <cv-progress-step
-            id="bug-head"
-            :label="t('top')"
-            :complete="topIndex > -1"
-            :additional-info="t('choose-top')"
-            @step-clicked="onStepClicked"
-          >
-            <template #step-icon>
-              <top-complete v-if="topIndex > -1" />
-              <top-incomplete v-else />
-            </template>
-          </cv-progress-step>
-          <cv-progress-step
-            id="bug-body"
-            :label="t('middle')"
-            :complete="middleIndex > -1"
-            :additional-info="t('choose-middle')"
-            @step-clicked="onStepClicked"
-          >
-          </cv-progress-step>
-          <cv-progress-step
-            id="bug-bottom"
-            :label="t('bottom')"
-            :complete="bottomIndex > -1"
-            :additional-info="t('choose-bottom')"
-            @step-clicked="onStepClicked"
-          >
-            <template #step-icon>
-              <bottom-complete v-if="bottomIndex > -1" />
-              <bottom-incomplete v-else />
-            </template>
-          </cv-progress-step>
-        </cv-progress>
-      </cv-column>
-    </cv-row>
-    <cv-row>
-      <cv-column>
-        <div class="mt-9">
-          <section v-if="step === 0" class="flex justify-between">
-            <div
-              v-for="(url, index) in bugParts"
-              :key="`url-top-${index}`"
-              class="h-[31px] w-[105px] bg-top bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
-              :style="{ backgroundImage: `url(${url})` }"
-              @click="top(index)"
-            ></div>
-          </section>
-          <section v-if="step === 1" class="flex justify-between">
-            <div
-              v-for="(url, index) in bugParts"
-              :key="`url-middle-${index}`"
-              class="h-[31px] w-[105px] bg-center bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
-              :style="{ backgroundImage: `url(${url})` }"
-              @click="middle(index)"
-            ></div>
-          </section>
-          <section v-if="step === 2" class="flex justify-between">
-            <div
-              v-for="(url, index) in bugParts"
-              :key="`url-middle-${index}`"
-              class="h-[31px] w-[105px] bg-bottom bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
-              :style="{ backgroundImage: `url(${url})` }"
-              @click="bottom(index)"
-            ></div>
-          </section>
-        </div>
-      </cv-column>
-    </cv-row>
-    <cv-row>
-      <cv-column>
-        <div class="mt-9">
-          <div
-            class="w-[422px] h-[125px] bg-carbon-blue-20 bg-top"
-            :style="topUrl"
-          ></div>
-          <div
-            class="w-[422px] h-[125px] bg-center"
-            :class="{
-              'bg-carbon-blue-40': middleIndex === -1,
-              'bg-carbon-blue-20': middleIndex !== -1,
-            }"
-            :style="middleUrl"
-          ></div>
-          <div
-            class="w-[422px] h-[125px] bg-bottom"
-            :class="{
-              'bg-carbon-blue-60': bottomIndex === -1,
-              'bg-carbon-blue-20': bottomIndex !== -1,
-            }"
-            :style="bottomUrl"
-          ></div>
-        </div>
-      </cv-column>
-    </cv-row>
-  </cv-grid>
-</template>
-
 <script setup>
 import { computed, ref } from "vue";
 import { useTranslation } from "i18next-vue";
@@ -175,5 +62,128 @@ function clearAll() {
   bottomIndex.value = -1;
 }
 </script>
+
+<template>
+  <cv-grid>
+    <cv-row>
+      <cv-column>
+        <div class="text-3xl py-8">
+          {{ t("build-a-bug") }}
+        </div>
+        <cv-icon-button
+          label="reset"
+          :icon="Reset"
+          class="mb-5"
+          @click="clearAll"
+        />
+        <cv-progress
+          :vertical="false"
+          :space-equally="true"
+          :initial-step="step"
+        >
+          <cv-progress-step
+            id="bug-head"
+            :label="t('top')"
+            :complete="topIndex > -1"
+            :additional-info="t('choose-top')"
+            @step-clicked="onStepClicked"
+          >
+            <template #step-icon>
+              <top-complete v-if="topIndex > -1" />
+              <top-incomplete v-else />
+            </template>
+          </cv-progress-step>
+          <cv-progress-step
+            id="bug-body"
+            :label="t('middle')"
+            :complete="middleIndex > -1"
+            :additional-info="t('choose-middle')"
+            @step-clicked="onStepClicked"
+          />
+          <cv-progress-step
+            id="bug-bottom"
+            :label="t('bottom')"
+            :complete="bottomIndex > -1"
+            :additional-info="t('choose-bottom')"
+            @step-clicked="onStepClicked"
+          >
+            <template #step-icon>
+              <bottom-complete v-if="bottomIndex > -1" />
+              <bottom-incomplete v-else />
+            </template>
+          </cv-progress-step>
+        </cv-progress>
+      </cv-column>
+    </cv-row>
+    <cv-row>
+      <cv-column>
+        <div class="mt-9">
+          <section
+            v-if="step === 0"
+            class="flex justify-between"
+          >
+            <div
+              v-for="(url, index) in bugParts"
+              :key="`url-top-${index}`"
+              class="h-[31px] w-[105px] bg-top bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
+              :style="{ backgroundImage: `url(${url})` }"
+              @click="top(index)"
+            />
+          </section>
+          <section
+            v-if="step === 1"
+            class="flex justify-between"
+          >
+            <div
+              v-for="(url, index) in bugParts"
+              :key="`url-middle-${index}`"
+              class="h-[31px] w-[105px] bg-center bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
+              :style="{ backgroundImage: `url(${url})` }"
+              @click="middle(index)"
+            />
+          </section>
+          <section
+            v-if="step === 2"
+            class="flex justify-between"
+          >
+            <div
+              v-for="(url, index) in bugParts"
+              :key="`url-middle-${index}`"
+              class="h-[31px] w-[105px] bg-bottom bg-carbon-blue-20 mt-3 cursor-pointer bg-cover"
+              :style="{ backgroundImage: `url(${url})` }"
+              @click="bottom(index)"
+            />
+          </section>
+        </div>
+      </cv-column>
+    </cv-row>
+    <cv-row>
+      <cv-column>
+        <div class="mt-9">
+          <div
+            class="w-[422px] h-[125px] bg-carbon-blue-20 bg-top"
+            :style="topUrl"
+          />
+          <div
+            class="w-[422px] h-[125px] bg-center"
+            :class="{
+              'bg-carbon-blue-40': middleIndex === -1,
+              'bg-carbon-blue-20': middleIndex !== -1,
+            }"
+            :style="middleUrl"
+          />
+          <div
+            class="w-[422px] h-[125px] bg-bottom"
+            :class="{
+              'bg-carbon-blue-60': bottomIndex === -1,
+              'bg-carbon-blue-20': bottomIndex !== -1,
+            }"
+            :style="bottomUrl"
+          />
+        </div>
+      </cv-column>
+    </cv-row>
+  </cv-grid>
+</template>
 
 <style scoped></style>

@@ -9,7 +9,7 @@ export default defineConfig({
     template: {
       compilerOptions: {
         // treat all tags starting with cds- as custom elements
-        isCustomElement: tag => tag.startsWith('cds-'),
+        isCustomElement: tag => tag.startsWith("cds-"),
       },
     },
   })],

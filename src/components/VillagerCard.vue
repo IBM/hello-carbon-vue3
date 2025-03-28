@@ -1,33 +1,3 @@
-<template>
-  <div
-    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
-  >
-    <div class="font-semibold text-base">{{ name }}</div>
-    <div class="flex justify-end">
-      <chat-bubble
-        :text="catchPhrase"
-        :bubble-color="villager['bubble-color']"
-        :text-color="villager['text-color']"
-        kind="top-right"
-      />
-    </div>
-    <div class="flex justify-around my-4">
-      <blur-image
-        :src="villager.icon_uri"
-        :alt="name"
-        :src-placeholder="placeholderImage"
-      />
-    </div>
-    <div class="villager__saying">
-      <chat-bubble
-        :text="villager.saying"
-        :bubble-color="villager['bubble-color']"
-        :text-color="villager['text-color']"
-      />
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useLanguageStore } from "@/stores/language";
 import { computed } from "vue";
@@ -53,6 +23,38 @@ const catchPhrase = computed(() => {
   return phrase || props.villager["catch-phrase"];
 });
 </script>
+
+<template>
+  <div
+    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
+  >
+    <div class="font-semibold text-base">
+      {{ name }}
+    </div>
+    <div class="flex justify-end">
+      <chat-bubble
+        :text="catchPhrase"
+        :bubble-color="villager['bubble-color']"
+        :text-color="villager['text-color']"
+        kind="top-right"
+      />
+    </div>
+    <div class="flex justify-around my-4">
+      <blur-image
+        :src="villager.icon_uri"
+        :alt="name"
+        :src-placeholder="placeholderImage"
+      />
+    </div>
+    <div class="villager__saying">
+      <chat-bubble
+        :text="villager.saying"
+        :bubble-color="villager['bubble-color']"
+        :text-color="villager['text-color']"
+      />
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .villager {

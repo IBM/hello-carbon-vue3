@@ -1,18 +1,18 @@
-<template>
-  <div class="container">
-    <div class="container__icon">
-      <slot><camera-action class="container__svg" /></slot>
-      <div class="container__flasher"></div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { CameraAction20 as CameraAction } from "@carbon/icons-vue";
 defineProps({
   iconColor: { type: String, default: "#0f62fe" }, // blue 60
 });
 </script>
+
+<template>
+  <div class="container">
+    <div class="container__icon">
+      <slot><camera-action class="container__svg" /></slot>
+      <div class="container__flasher" />
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 @keyframes flashing {

@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import superagent from "superagent";
 import { ref } from "vue";
 
-const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 const VILLAGERS_URL = BASE_URL + "/villagers";
 /**
  * Bug data

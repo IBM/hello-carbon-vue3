@@ -1,3 +1,13 @@
+<script setup>
+// https://codepen.io/Founts/pen/AJyVOr
+defineProps({
+  kind: { type: String, default: "bottom-left" },
+  text: { type: String, required: true },
+  bubbleColor: { type: String, default: "#8a3ffc" },
+  textColor: { type: String, default: "#d02670" },
+});
+</script>
+
 <template>
   <div
     class="talk-bubble tri-right rounded-3xl border-carbon-gray-60 border-solid border-8"
@@ -10,20 +20,12 @@
     :style="{ 'background-color': bubbleColor }"
   >
     <div class="talk-text">
-      <p :style="{ color: textColor }">{{ text }}</p>
+      <p :style="{ color: textColor }">
+        {{ text }}
+      </p>
     </div>
   </div>
 </template>
-
-<script setup>
-// https://codepen.io/Founts/pen/AJyVOr
-defineProps({
-  kind: { type: String, default: "bottom-left" },
-  text: { type: String, required: true },
-  bubbleColor: { type: String, default: "#8a3ffc" },
-  textColor: { type: String, default: "#d02670" },
-});
-</script>
 
 <style scoped lang="scss">
 .talk-bubble {

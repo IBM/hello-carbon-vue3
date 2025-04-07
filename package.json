@@ -18,7 +18,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@carbon/icons-vue": "^10.105.0",
+    "@carbon/icons-vue": "^10.106.0",
     "@carbon/themes": "^10.55.3",
     "@carbon/vue": "^3.0.24",
     "@nuxt/eslint": "^1.1.0",

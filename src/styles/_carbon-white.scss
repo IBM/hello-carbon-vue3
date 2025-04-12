@@ -4,19 +4,7 @@
 @use '@carbon/themes/scss/theme';
 @use '@carbon/styles/css/styles.css';
 
-// Uses the default white theme here
-
-.g10-theme {
-  @include theme.theme(themes.$g10);
-}.g90-theme {
-   @include theme.theme(themes.$g90);
- }
-
-.g100-theme {
-  @include theme.theme(themes.$g100);
-}
-
-@use './common'
+@use './common';
 
 .cv-grid {
   margin-left: 4rem;

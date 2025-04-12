@@ -2,26 +2,29 @@
 </script>
 <script setup>
 import { useStorage } from "@vueuse/core";
-import { computed } from "vue";
+import { computed, ref, nextTick } from "vue";
 import { useTranslation } from "i18next-vue";
+
 const { t } = useTranslation();
 const theme = useStorage("theme", "g90-theme");
 
 const themes = computed(() => [
-  { id: "white-theme", name: t("theme-white") },
-  { id: "g10-theme", name: t("theme-g10") },
-  { id: "g90-theme", name: t("theme-g90") },
-  { id: "g100-theme", name: t("theme-g100") },
+  { id: "cds--white", name: t("theme-white") },
+  { id: "cds--g10", name: t("theme-g10") },
+  { id: "cds--g90", name: t("theme-g90") },
+  { id: "cds--g100", name: t("theme-g100") },
 ]);
+const expanded = ref(false);
 function changeTheme(id) {
   theme.value = id;
-  document.activeElement.blur();
+  expanded.value = true;
+  nextTick(() => expanded.value = false);
 }
 </script>
 
 <template>
-  <cds-header-panel>
-    <cds-switcher>
+  <cds-header-panel :expanded="expanded">
+    <cds-switcher class="mt-10">
       <cds-switcher-item
         v-for="entry in themes"
         :key="entry.id"

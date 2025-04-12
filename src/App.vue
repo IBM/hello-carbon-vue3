@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 import TheHeader from "./components/TheHeader.vue";
 import { useStorage } from "@vueuse/core";
 
-const theme = useStorage("theme", "g90-theme");
+const theme = useStorage("theme", "cds--g90");
 </script>
 
 <template>

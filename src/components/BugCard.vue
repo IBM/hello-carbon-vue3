@@ -1,10 +1,12 @@
 <script setup>
-import { Redo32 as FlipIcon } from "@carbon/icons-vue";
+import { Redo16 as FlipIcon } from "@carbon/icons-vue";
+import "@carbon/web-components/es/components/tag/index.js";
 import { computed, ref } from "vue";
 import { useLanguageStore } from "@/stores/language";
 import { useTranslation } from "i18next-vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "@/assets/bug-placeholder.jpg";
+import "@carbon/web-components/es/components/icon-button/index.js";
 
 const props = defineProps({
   bug: {
@@ -53,37 +55,43 @@ const rarity = computed(() => {
           />
         </div>
         <div>
-          <cv-tag
-            :label="t(bug.availability.rarity)"
-            :kind="rarity"
-          />
+          <cds-tag
+            :title="t(bug.availability.rarity)"
+            :type="rarity"
+          >
+            <span class="p-2">{{ $t(bug.availability.rarity) }}</span>
+          </cds-tag>
         </div>
-        <cv-icon-button
+        <cds-icon-button
+          v-if="!flip"
           kind="ghost"
           size="sm"
-          :icon="FlipIcon"
-          :label="t('flip')"
-          tip-position="left"
+          align="left"
           class="bug-card__button"
           @click="toggleFlip"
-        />
+        >
+          <FlipIcon slot="icon" />
+          <span slot="tooltip-content">{{ $t('flip') }}</span>
+        </cds-icon-button>
       </div>
       <div class="bug-card-back bg-carbon-gray-70">
-        <div class="bug-card__name productive-heading-02 text-carbon-blue-60">
+        <div class="bug-card__name text-lg! text-carbon-blue-20">
           {{ bugName }}
         </div>
-        <div class="bug-card__museum body-short-01">
+        <div class="bug-card__museum text-sm!">
           {{ bug["museum-phrase"] }}
         </div>
-        <cv-icon-button
+        <cds-icon-button
+          v-if="flip"
           kind="ghost"
           size="sm"
-          :icon="FlipIcon"
-          :label="t('flip')"
-          tip-position="left"
+          align="left"
           class="bug-card__button"
           @click="toggleFlip"
-        />
+        >
+          <FlipIcon slot="icon" />
+          <span slot="tooltip-content">{{ $t('flip') }}</span>
+        </cds-icon-button>
       </div>
     </div>
   </div>

@@ -32,6 +32,7 @@ export default [
   {
     rules: {
       "vue/no-deprecated-slot-attribute": "off",
+      "vue/multi-word-component-names": "off",
       "vue/component-tags-order": [
         "warn",
         {

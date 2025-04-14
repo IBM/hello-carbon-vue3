@@ -13,21 +13,18 @@ const { t } = useTranslation();
 
 <template>
   <div data-cy="hobby">
-    <div class="productive-heading-03">
+    <div class="text-xl! py-2">
       {{ t("hobby") }}:{{ t(hobbyists.hobby) }}
     </div>
     <div>
-      <cv-grid :full-width="true">
-        <cv-row>
-          <cv-column
-            v-for="villager in hobbyists.villagers"
-            :key="villager.key"
-            :lg="4"
-          >
-            <villager-card :villager="villager" />
-          </cv-column>
-        </cv-row>
-      </cv-grid>
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div
+          v-for="villager in hobbyists.villagers"
+          :key="villager.key"
+        >
+          <villager-card :villager="villager" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

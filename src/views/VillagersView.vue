@@ -3,21 +3,16 @@ import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
 import { useTranslation } from "i18next-vue";
 import {
-  Sprout32 as NatureIcon,
-  Music32 as MusicIcon,
-  Education32 as EducationIcon,
-  CameraAction32 as FashionIcon,
-  Soccer32 as FitnessIcon,
-  Basketball32 as PlayIcon,
+  Sprout20 as NatureIcon,
+  Music20 as MusicIcon,
+  Education20 as EducationIcon,
+  CameraAction20 as FashionIcon,
+  Soccer20 as FitnessIcon,
+  Basketball20 as PlayIcon,
 } from "@carbon/icons-vue";
 import { useVillagersStore } from "@/stores/villagers";
 import VillagerHobby from "@/components/VillagerHobby.vue";
-import IconBouncing from "@/components/icons/IconBouncing.vue";
-import IconGrowing from "@/components/icons/IconGrowing.vue";
-import IconRunning from "@/components/icons/IconRunning.vue";
-import IconFlashing from "@/components/icons/IconFlashing.vue";
-import IconMusic from "@/components/icons/IconMusic.vue";
-import IconReading from "@/components/icons/IconReading.vue";
+import "@carbon/web-components/es/components/content-switcher/index.js";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -85,125 +80,59 @@ function hobbyIcon(hobby) {
 
 /**
  * Keep track of what is selected
- * @param {string} val
+ * @param {UIEvent} evt
  */
-function onSelected(val) {
-  selected.value = val;
+function onSelected(evt) {
+  selected.value = evt.target?.value;
 }
-
-function showBouncing(hobby) {
-  return hobby === "Play" && selected.value === "switcher-Play";
-}
-function showGrowing(hobby) {
-  return hobby === "Nature" && selected.value === "switcher-Nature";
-}
-function showRunning(hobby) {
-  return hobby === "Fitness" && selected.value === "switcher-Fitness";
-}
-function showFlashing(hobby) {
-  return hobby === "Fashion" && selected.value === "switcher-Fashion";
-}
-function showMusic(hobby) {
-  return hobby === "Music" && selected.value === "switcher-Music";
-}
-function showReading(hobby) {
-  return hobby === "Education" && selected.value === "switcher-Education";
-}
-const contentSwitcher = ref(null);
-const runWidth = ref(200);
-function calcRunWidth() {
-  const btn = contentSwitcher.value?.$el?.querySelector(
-    ".cv-content-switcher-button",
-  );
-  if (btn) {
-    const cssObj = window.getComputedStyle(btn, null);
-    const left = parseInt(cssObj?.getPropertyValue("padding-left"), 10) || 0;
-    const right = parseInt(cssObj?.getPropertyValue("padding-right"), 10) || 0;
-    runWidth.value = btn.clientWidth - left - right - 16;
-  }
-  else setTimeout(calcRunWidth, 250); // try agan later
-}
-onMounted(() => calcRunWidth());
 </script>
 
 <template>
-  <cv-grid>
-    <cv-row>
-      <cv-column>
-        <div class="title productive-heading-03">
-          {{ t("villagers") }}
-        </div>
-      </cv-column>
-    </cv-row>
-    <cv-row>
-      <cv-column>
-        <cv-content-switcher
-          ref="contentSwitcher"
-          @selected="onSelected"
+  <div class="w-full pl-14 mt-12">
+    <div class="text-xl! text-center mb-8">
+      {{ t("villagers") }}
+    </div>
+    <div>
+      <cds-content-switcher
+        @cds-content-switcher-selected="onSelected"
+      >
+        <cds-content-switcher-item
+          v-for="group in villagerHobbies"
+          :key="`switcher-${group.hobby}`"
+          :target="`switcher-${group.hobby}`"
+          :selected="`switcher-${group.hobby}` === selected"
+          :value="`switcher-${group.hobby}`"
+          class="w-full relative"
         >
-          <cv-content-switcher-button
-            v-for="group in villagerHobbies"
-            :key="`switcher-${group.hobby}`"
-            :owner-id="`switcher-${group.hobby}`"
-            :icon="hobbyIcon(group.hobby)"
-            :selected="`switcher-${group.hobby}` === selected"
-          >
-            {{ t(group.hobby) }}
-            <icon-bouncing
-              v-if="showBouncing(group.hobby)"
-              class="special-icon special-icon--play"
-            />
-            <icon-growing
-              v-if="showGrowing(group.hobby)"
-              class="special-icon special-icon--grow"
-            />
-            <icon-running
-              v-if="showRunning(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--run"
-            />
-            <icon-flashing
-              v-if="showFlashing(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--flash"
-            />
-            <icon-music
-              v-if="showMusic(group.hobby)"
-              class="special-icon special-icon--music"
-            />
-            <icon-reading
-              v-if="showReading(group.hobby)"
-              class="special-icon special-icon--reading"
-            />
-          </cv-content-switcher-button>
-        </cv-content-switcher>
+          <span slot="tooltip-content"> {{ group.hobby }}</span>
+          <div class="flex flex-row gap-4">
+            <component :is="hobbyIcon(group.hobby)" />
+            <div>{{ t(group.hobby) }}</div>
+          </div>
+        </cds-content-switcher-item>
+      </cds-content-switcher>
 
-        <section>
-          <cv-content-switcher-content
-            v-for="group in villagerHobbies"
-            :key="`content-${group.hobby}`"
-            :owner-id="`switcher-${group.hobby}`"
-          >
-            <villager-hobby :hobbyists="group" />
-          </cv-content-switcher-content>
-        </section>
-      </cv-column>
-    </cv-row>
-  </cv-grid>
+      <section>
+        <div
+          v-for="group in villagerHobbies"
+          :id="`switcher-${group.hobby}`"
+          :key="`content-${group.hobby}`"
+        >
+          <villager-hobby :hobbyists="group" />
+        </div>
+      </section>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.title {
-  margin-bottom: 2rem;
-}
 .special-icon {
-  position: absolute;
+  position: relative;
   &--play {
     left: 16px;
     bottom: -2px;
   }
   &--grow {
-    left: 16px;
     bottom: 0;
   }
   &--run,

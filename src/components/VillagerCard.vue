@@ -26,7 +26,7 @@ const catchPhrase = computed(() => {
 
 <template>
   <div
-    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
+    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60 size-72"
   >
     <div class="font-semibold text-base">
       {{ name }}

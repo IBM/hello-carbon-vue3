@@ -31,6 +31,7 @@ export default [
   },
   {
     rules: {
+      "no-console": ["error", { allow: ["warn", "error"] }],
       "vue/no-deprecated-slot-attribute": "off",
       "vue/multi-word-component-names": "off",
       "vue/component-tags-order": [

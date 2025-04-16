@@ -58,26 +58,29 @@ const { md } = useBreakpoints();
 </script>
 
 <template>
-  <cv-data-table-row
-    :value="fish.key"
+  <cds-table-row
+    :selection-value="fish.key"
+    :selection-name="fish.key"
     :aria-label-for-batch-checkbox="t('select-row', { name: fishName })"
   >
-    <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>
-    <cv-data-table-cell>
+    <cds-table-cell class="pl-2">
+      {{ fishName }}
+    </cds-table-cell>
+    <cds-table-cell>
       <blur-image
         class="w-4 h-4 md:w-12 md:h-12 object-contain max-w-none"
         :src="fish['icon_uri']"
         :src-placeholder="placeholderImage"
         :alt="fishName"
       />
-    </cv-data-table-cell>
-    <cv-data-table-cell v-if="md">
+    </cds-table-cell>
+    <cds-table-cell v-if="md">
       {{ fishPrice }}
-    </cv-data-table-cell>
-    <cv-data-table-cell v-if="md">
+    </cds-table-cell>
+    <cds-table-cell v-if="md">
       {{ cjFishPrice }}
-    </cv-data-table-cell>
-    <cv-data-table-cell>
+    </cds-table-cell>
+    <cds-table-cell>
       <pond-icon
         v-if="location === 'pond'"
         :alt="fish.availability?.location"
@@ -108,8 +111,8 @@ const { md } = useBreakpoints();
         :title="fish.availability?.location"
         class="fill-carbon-yellow-40"
       />
-    </cv-data-table-cell>
-    <cv-data-table-cell v-if="md">
+    </cds-table-cell>
+    <cds-table-cell v-if="md">
       <div
         class="flex"
         :class="{
@@ -125,24 +128,21 @@ const { md } = useBreakpoints();
         <rare-icon v-if="rarity >= 3" />
         <rare-icon v-if="rarity >= 4" />
       </div>
-    </cv-data-table-cell>
+    </cds-table-cell>
     <!-- Add optional expanding data here -->
-    <template
-      v-if="showCatchPhrases"
-      #expandedContent
-    >
-      <div class="flex justify-around gap-4">
-        <div
-          class="bg-[url(@/assets/fish-bowl.png)] bg-contain bg-no-repeat bg-carbon-blue-40 text-black text-2xl p-1"
-        >
-          {{ fish["catch-phrase"] }}
-        </div>
-        <div class="bg-[url(@/assets/museum-tile.png)] text-black text-2xl p-1">
-          {{ fish["museum-phrase"] }}
-        </div>
+  </cds-table-row>
+  <cds-table-expanded-row v-if="showCatchPhrases">
+    <div class="flex justify-around gap-4">
+      <div
+        class="bg-[url(@/assets/fish-bowl.png)] bg-contain bg-no-repeat bg-carbon-blue-40 text-black text-2xl p-1"
+      >
+        {{ fish["catch-phrase"] }}
       </div>
-    </template>
-  </cv-data-table-row>
+      <div class="bg-[url(@/assets/museum-tile.png)] text-black text-2xl p-1">
+        {{ fish["museum-phrase"] }}
+      </div>
+    </div>
+  </cds-table-expanded-row>
 </template>
 
 <style scoped lang="scss"></style>

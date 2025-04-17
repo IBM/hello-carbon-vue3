@@ -1,8 +1,10 @@
-# Hello carbon 11 web components with vue3
+# Hello carbon 11 web components with Vue 3
 
-This repository is designed to help you get started with integrating Carbon into a Vue 3 application. It showcases best practices for setting up a new Vue 3 app with Carbon, providing a solid foundation for your project.
+This repository is designed to help you get started with integrating Carbon Web Components into a Vue 3 application. It showcases best practices for setting up a new Vue 3, providing a solid foundation for your project.
 
 If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://github.com/davidnixon/hello-carbon-nuxt)
+
+If you are looking for a Vue 3 example with Carbon Vue components, checkout [Hello carbon Vue 3](https://github.com/IBM/hello-carbon-vue3)
 
 ## Packages used
 

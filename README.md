@@ -5,6 +5,9 @@ for your project.
 
 If you are looking for a plain Vue 3 example, checkout [Hello carbon Vue3](https://github.com/IBM/hello-carbon-vue3)
 
+If you are looking for a Carbon 11 with Vue, checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnixon/hello-carbon11-vue3/tree/main?tab=readme-ov-file)
+
+
 ## Packages used
 - [Carbon for Vue 3](https://vue.carbondesignsystem.com/?path=/docs/welcome--vue-3-carbon-10) - Vue implementation of
 the Carbon Design System A collection of Carbon Components

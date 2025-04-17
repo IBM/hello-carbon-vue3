@@ -31,13 +31,11 @@ jobs:
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version-file: .nvmrc
       - name: Install dependencies
-        run: |
-          npm instal -g pnpm
-          pnpm install
+        run: npm install
       - name: Build app
-        run: pnpm run build
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

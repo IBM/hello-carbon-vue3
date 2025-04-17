@@ -1,5 +1,5 @@
 <script setup>
-import { useLanguageStore } from "../stores/language";
+import { useLanguageStore } from "../../stores/language.js";
 import { computed, inject, ref } from "vue";
 import {
   StarFilled16 as RareIcon,
@@ -10,7 +10,7 @@ import {
   EarthSoutheastAsiaFilled16 as PierIcon,
 } from "@carbon/icons-vue";
 import BlurImage from "@/components/BlurImage.vue";
-import placeholderImage from "../assets/fish.svg";
+import placeholderImage from "../../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
 import { useBreakpoints } from "@/composables/useBreakpoints.js";
 const { t } = useTranslation();
@@ -68,7 +68,7 @@ const { md } = useBreakpoints();
     </cds-table-cell>
     <cds-table-cell>
       <blur-image
-        class="w-4 h-4 md:w-12 md:h-12 object-contain max-w-none"
+        class="size-12 object-contain max-w-none"
         :src="fish['icon_uri']"
         :src-placeholder="placeholderImage"
         :alt="fishName"

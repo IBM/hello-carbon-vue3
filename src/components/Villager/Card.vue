@@ -1,7 +1,7 @@
 <script setup>
-import { useLanguageStore } from "@/stores/language";
+import { useLanguageStore } from "@/stores/language.js";
 import { computed } from "vue";
-import ChatBubble from "@/components/ChatBubble.vue";
+import ChatBubble from "@/components/Villager/ChatBubble.vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "@/assets/bug-placeholder.jpg";
 

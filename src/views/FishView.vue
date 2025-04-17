@@ -1,19 +1,22 @@
 <script setup>
 import { useFishStore } from "../stores/fish";
-import FishRow from "../components/FishRow.vue";
+import FishRow from "@/components/Fish/Row.vue";
+import FishRowEmpty from "@/components/Fish/RowEmpty.vue";
 import { computed, onMounted, ref, provide, watch, nextTick, reactive } from "vue";
 import {
   View16 as ShowAllIcon,
   ViewOff16 as HideIcon,
 } from "@carbon/icons-vue";
 import { useTranslation } from "i18next-vue";
-import FishRowEmpty from "@/components/FishRowEmpty.vue";
 import { useLanguageStore } from "@/stores/language.js";
+import { useBreakpoints } from "@/composables/useBreakpoints.js";
 import "@carbon/web-components/es/components/toggle/index.js";
 import "@carbon/web-components/es/components/text-input/index.js";
 import "@carbon/web-components/es/components/data-table/index.js";
 import "@carbon/web-components/es/components/icon-button/index.js";
 import "@carbon/web-components/es/components/pagination/index.js";
+
+const { md } = useBreakpoints();
 
 const { t, i18next } = useTranslation();
 const langStore = useLanguageStore();
@@ -240,6 +243,7 @@ function handleToggleChanged(evt) {
             </cds-table-header-cell>
             <cds-table-header-cell />
             <cds-table-header-cell
+              v-if="md"
               data-name="price"
               is-sortable
               @cds-table-header-cell-sort="onSort"
@@ -247,6 +251,7 @@ function handleToggleChanged(evt) {
               {{ t('price') }}
             </cds-table-header-cell>
             <cds-table-header-cell
+              v-if="md"
               is-sortable
               data-name="price-cj"
               @cds-table-header-cell-sort="onSort"
@@ -254,16 +259,20 @@ function handleToggleChanged(evt) {
               CJ
             </cds-table-header-cell>
             <cds-table-header-cell>{{ t('location') }}</cds-table-header-cell>
-            <cds-table-header-cell>{{ t('rarity') }}</cds-table-header-cell>
+            <cds-table-header-cell
+              v-if="md"
+            >
+              {{ t('rarity') }}
+            </cds-table-header-cell>
           </cds-table-header-row>
         </cds-table-head>
         <cds-table-body v-if="!sorting">
-          <fish-row
+          <FishRow
             v-for="row in paginated"
             :key="row.key"
             :fish="row"
           />
-          <fish-row-empty v-if="filteredFish.length === 0" />
+          <FishRowEmpty v-if="filteredFish.length === 0" />
         </cds-table-body>
         <cds-table-body v-else>
           <cds-table-row

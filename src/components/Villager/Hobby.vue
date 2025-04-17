@@ -1,5 +1,5 @@
 <script setup>
-import VillagerCard from "@/components/VillagerCard.vue";
+import VillagerCard from "@/components/Villager/Card.vue";
 import { useTranslation } from "i18next-vue";
 
 defineProps({
@@ -22,7 +22,7 @@ const { t } = useTranslation();
           v-for="villager in hobbyists.villagers"
           :key="villager.key"
         >
-          <villager-card :villager="villager" />
+          <VillagerCard :villager="villager" />
         </div>
       </div>
     </div>

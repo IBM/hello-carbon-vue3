@@ -2,7 +2,7 @@
 import { useBugsStore } from "@/stores/bugs";
 import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
-import BugCard from "@/components/BugCard.vue";
+import BugCard from "@/components/Bug/Card.vue";
 import { useTranslation } from "i18next-vue";
 import CvLink from "@/components/cv/Link.vue";
 import "@carbon/web-components/es/components/accordion/index.js";
@@ -62,7 +62,7 @@ onMounted(() => {
               v-for="bug in group.bugs"
               :key="bug.key"
             >
-              <bug-card :bug="bug" />
+              <BugCard :bug="bug" />
             </div>
           </div>
         </cds-accordion-item>

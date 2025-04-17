@@ -4,16 +4,15 @@
 import { useStorage } from "@vueuse/core";
 import { computed, ref, nextTick } from "vue";
 import { useTranslation } from "i18next-vue";
+import { availableThemes } from "@/composables/useTheme.js";
 
 const { t } = useTranslation();
 const theme = useStorage("theme", "g90-theme");
 
-const themes = computed(() => [
-  { id: "cds--white", name: t("theme-white") },
-  { id: "cds--g10", name: t("theme-g10") },
-  { id: "cds--g90", name: t("theme-g90") },
-  { id: "cds--g100", name: t("theme-g100") },
-]);
+const themes = computed(() => availableThemes.map((item) => {
+  return { ...item, name: t(item.name) };
+}));
+
 const expanded = ref(false);
 function changeTheme(id) {
   theme.value = id;

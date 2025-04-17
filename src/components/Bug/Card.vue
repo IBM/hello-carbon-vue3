@@ -2,7 +2,7 @@
 import { Redo16 as FlipIcon } from "@carbon/icons-vue";
 import "@carbon/web-components/es/components/tag/index.js";
 import { computed, ref } from "vue";
-import { useLanguageStore } from "@/stores/language";
+import { useLanguageStore } from "@/stores/language.js";
 import { useTranslation } from "i18next-vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "@/assets/bug-placeholder.jpg";

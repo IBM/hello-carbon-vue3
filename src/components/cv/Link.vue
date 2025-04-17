@@ -9,7 +9,7 @@ defineOptions({
 
 const props = defineProps({
   ...RouterLink.props,
-  size: { type: String, default: "md", validator: val => !["sm", "md", "lg"].includes(val) },
+  size: { type: String, default: "md", validator: val => ["sm", "md", "lg"].includes(val) },
 });
 const isExternalLink = computed(() => {
   return typeof props.to === "string" && props.to.startsWith("http");

@@ -1,7 +1,7 @@
 <script setup>
 import { useSongStore } from "../stores/songs";
 import { computed, onMounted, ref } from "vue";
-import SongCard from "../components/SongCard.vue";
+import SongCard from "../components/Song/Card.vue";
 
 const songStore = useSongStore();
 const loading = ref(false);
@@ -27,7 +27,7 @@ const filteredSongs = computed(() => {
       v-for="song in filteredSongs"
       :key="song.id"
     >
-      <song-card :song="song" />
+      <SongCard :song="song" />
     </div>
   </div>
 </template>

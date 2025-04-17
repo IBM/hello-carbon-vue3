@@ -11,7 +11,7 @@ import {
   Basketball20 as PlayIcon,
 } from "@carbon/icons-vue";
 import { useVillagersStore } from "@/stores/villagers";
-import VillagerHobby from "@/components/VillagerHobby.vue";
+import VillagerHobby from "@/components/Villager/Hobby.vue";
 import "@carbon/web-components/es/components/content-switcher/index.js";
 
 const { t } = useTranslation();
@@ -118,7 +118,7 @@ function onSelected(evt) {
           :id="`switcher-${group.hobby}`"
           :key="`content-${group.hobby}`"
         >
-          <villager-hobby :hobbyists="group" />
+          <VillagerHobby :hobbyists="group" />
         </div>
       </section>
     </div>

@@ -1,4 +1,4 @@
-# Hello carbon vue3
+# Hello carbon 11 web components with vue3
 
 This repository is designed to help you get started with integrating Carbon into a Vue 3 application. It showcases best practices for setting up a new Vue 3 app with Carbon, providing a solid foundation for your project.
 
@@ -6,7 +6,7 @@ If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://gith
 
 ## Packages used
 
-- Carbon Vue3
+- [Carbon 11 Web components](https://web-components.carbondesignsystem.com/)
 - [Vite](https://vitejs.dev/) - this is the default for new Vue3 projects instead of WebPack
 - [Pinia](https://pinia.vuejs.org/) - this replaces Vuex store
 - [i18next](https://www.i18next.com/) - this repo demonstrates how to include translations using i18next. All UI elements are translated and most content is translated.
@@ -20,51 +20,46 @@ If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://gith
 ## Carbon styles
 
 The carbon styles are imported as a pre-compiled css file. The fie is created by using sass on the command line to generate the css.
-See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creating the css file.
+See [carbon-white.scss](./src/styles/_carbon-white.scss) for instructions on creating the css file.
 
 ## Pages & Components
 
-[This repo demo site](https://ibm.github.io/hello-carbon-vue3/)
+[This repo demo site](https://davidnixon.github.io/hello-carbon11-vue3/)
 
-- Header with Side nav ![header](docs/header-bar.jpg)
+- Header with Side nav
   - Side nav with divider
   - Language selection in the header bar, login and switcher buttons are also included
+  - Theme switcher for white, g10, g90, and g100 themese
 - Home page
-  - cv-grid,cv-row,cv-column
-  - cv-aspect-ratio
   - REST API examples integrated with Pinia store
 - Fish page
   - Fully translatable data table including controls and aria labels
-  - Slotted data & headings
-  - Searchable data
-  - cv-data-table-skeleton
-  - cv-data-table
-  - cv-data-table-action, cv-data-table-heading
-  - cv-data-table-row (expandable rows), cv-data-table-cell
-  - cv-button
-  - cv-toggle
+  - cds-data-table-skeleton
+  - cds-data-table
+  - cds-table-row
+  - cds-button
+  - cds-toggle
   - REST API examples integrated with Pinia store
 - Bugs page
-  - cv-accordion-skeleton
-  - cv-accordion, cv-accordion-item
-  - cv-tag
-  - cv-icon-button
-  - slotted title and content for accordion
+  - cds-accordion-skeleton
+  - cv-accordion, cds-accordion-item
+  - cds-tag
+  - cds-icon-button
   - REST API examples integrated with Pinia store
   - Fun 3D card flipper css
 - Build-a-bug
-  - cv-progress with custom icons
+  - cds-progress-indicator
+  - cds-icon-button
 - Villagers page
-  - cv-content-switcher, cv-content-switcher-button
-  - cv-content-switcher-content
+  - cds-content-switcher
   - REST API examples integrated with Pinia store
-  - Fun animated icons & chat bubbles
+  - Fun chat bubbles
 - Includes tailwind with basic Carbon colors theme
 
 ## Coding guide
 
-- [Vue style guide](https://vuejs.org/style-guide/) The style guide is enforced with [eslint-plugin-vue - Recommended](https://eslint.vuejs.org/rules/#priority-c-recommended-potentially-dangerous-patterns).
-- Prettier and eslint rules are enforced as pre-commit hooks via husky.
+- [Vue style guide](https://vuejs.org/style-guide/) The style guide is enforced with eslint.
+- The eslint rules are enforced as pre-commit hooks via husky.
 
 ## Recommended IDE Setup
 
@@ -75,31 +70,24 @@ See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creatin
 ## Project Setup
 
 ```sh
-nvm use 18
-npm add -g pnpm
-pnpm install
+nvm use 22
+npm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-pnpm run dev
+npm run dev
 ```
 
 ### Build and test locally
 
 ```sh
-pnpm run local-build
+npm run local-build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-pnpm run lint
-```
-
-## Update dependencies
-
-```shell
-pnpm update --interactive
+npm run lint
 ```

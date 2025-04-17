@@ -4,6 +4,8 @@ This repository is designed to help you get started with integrating Carbon into
 
 If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://github.com/davidnixon/hello-carbon-nuxt)
 
+If you are looking for a Carbon 11 with Vue, checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnixon/hello-carbon11-vue3/tree/main?tab=readme-ov-file)
+
 ## Packages used
 
 - Carbon Vue3

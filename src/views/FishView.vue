@@ -38,7 +38,7 @@ onMounted(() => {
   try {
     fishStore.loadFish().finally(() => {
       pagination.numberOfItems = fishStore.fish.length;
-      loading.value = false;
+      nextTick(() => loading.value = false);
     });
   }
   catch (e) {

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, nextTick } from "vue";
 import { groupBy } from "lodash";
 import { useTranslation } from "i18next-vue";
 import {
@@ -13,6 +13,7 @@ import {
 import { useVillagersStore } from "@/stores/villagers";
 import VillagerHobby from "@/components/Villager/Hobby.vue";
 import "@carbon/web-components/es/components/content-switcher/index.js";
+import "@carbon/web-components/es/components/inline-loading/index.js";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
@@ -45,8 +46,11 @@ onMounted(() => {
       if (minute > 29) which = 3;
       if (minute > 39) which = 4;
       if (minute > 49) which = 5;
-      selected.value = `switcher-${villagerHobbies.value[which].hobby}`;
-      loading.value = false;
+
+      nextTick(() => {
+        loading.value = false;
+        nextTick(() => selected.value = `switcher-${villagerHobbies.value[which].hobby}`);
+      });
     });
   }
   catch (e) {
@@ -93,26 +97,32 @@ function onSelected(evt) {
       {{ t("villagers") }}
     </div>
     <div>
-      <cds-content-switcher
-        @cds-content-switcher-selected="onSelected"
-      >
-        <cds-content-switcher-item
-          v-for="group in villagerHobbies"
-          :key="`switcher-${group.hobby}`"
-          :target="`switcher-${group.hobby}`"
-          :selected="`switcher-${group.hobby}` === selected"
-          :value="`switcher-${group.hobby}`"
-          class="w-full relative"
+      <cds-inline-loading
+        v-if="loading"
+        status="active"
+      />
+      <div v-if="!loading">
+        <cds-content-switcher
+          @cds-content-switcher-selected="onSelected"
         >
-          <span slot="tooltip-content"> {{ group.hobby }}</span>
-          <div class="flex flex-row gap-4">
-            <component :is="hobbyIcon(group.hobby)" />
-            <div>{{ t(group.hobby) }}</div>
-          </div>
-        </cds-content-switcher-item>
-      </cds-content-switcher>
+          <cds-content-switcher-item
+            v-for="group in villagerHobbies"
+            :key="`switcher-${group.hobby}`"
+            :target="`switcher-${group.hobby}`"
+            :value="`switcher-${group.hobby}`"
+            :selected="selected === `switcher-${group.hobby}`"
+            class="w-full relative"
+          >
+            <span slot="tooltip-content"> {{ group.hobby }}</span>
+            <div class="flex flex-row gap-4">
+              <component :is="hobbyIcon(group.hobby)" />
+              <div>{{ t(group.hobby) }}</div>
+            </div>
+          </cds-content-switcher-item>
+        </cds-content-switcher>
+      </div>
 
-      <section>
+      <section v-if="!loading">
         <div
           v-for="group in villagerHobbies"
           :id="`switcher-${group.hobby}`"

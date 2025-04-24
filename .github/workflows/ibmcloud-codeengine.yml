@@ -1,8 +1,7 @@
 # Deploy cloud - IBM Code Engine
-
 name: IBM Cloud Code Engine Deploy
-
-# Controls when the action will run.
+permissions:
+  contents: read
 on:
   # Triggers the workflow on push for the main branch
   push:
@@ -21,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -62,4 +60,3 @@ jobs:
           ibmcloud ce project select --name ${CE_PROJECT}
           ibmcloud ce app logs --tail 5 --follow --name ${CE_APP_NAME} &
           ibmcloud ce app update --image private.${CR_IMAGE}:$IMAGE_TAG --scale-down-delay ${CE_SCALE_DOWN_DELAY} --name ${CE_APP_NAME}
-

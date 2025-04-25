@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "local-preview": "python -m http.server -d dist 5173",
+    "build": "vite build --base=/hello-carbon-vue3/",
     "preview": "vite preview",
     "dev:e2e": "cypress open --e2e",
     "test:e2e": "cypress run --e2e",

@@ -23,7 +23,7 @@
     "@carbon/vue": "^3.0.25",
     "@vueuse/core": "^13.1.0",
     "carbon-components": "^10.58.15",
-    "i18next": "^24.2.3",
+    "i18next": "^25.0.1",
     "i18next-http-backend": "^3.0.2",
     "i18next-vue": "^5.2.0",
     "lodash": "^4.17.21",

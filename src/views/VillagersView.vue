@@ -47,9 +47,17 @@ onMounted(() => {
       if (minute > 39) which = 4;
       if (minute > 49) which = 5;
 
+      // todo: I think this is a bug in content switcher
+      // workaround:
+      // 1. after loading of the data in complete, add the sections to the DOM that content switcher will control
+      // 2. after the sections are available, add the content switcher to the DOM
+      // 3. after the content switcher is available set the selected content
       nextTick(() => {
         loading.value = false;
-        nextTick(() => selected.value = `switcher-${villagerHobbies.value[which].hobby}`);
+        nextTick(() => {
+          contentSwitcherReady.value = true;
+          nextTick(() => selected.value = `switcher-${villagerHobbies.value[which].hobby}`);
+        });
       });
     });
   }
@@ -89,6 +97,8 @@ function hobbyIcon(hobby) {
 function onSelected(evt) {
   selected.value = evt.target?.value;
 }
+
+const contentSwitcherReady = ref(false);
 </script>
 
 <template>
@@ -101,7 +111,7 @@ function onSelected(evt) {
         v-if="loading"
         status="active"
       />
-      <div v-if="!loading">
+      <div v-if="contentSwitcherReady">
         <cds-content-switcher
           @cds-content-switcher-selected="onSelected"
         >

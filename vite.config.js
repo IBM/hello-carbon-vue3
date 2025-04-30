@@ -13,6 +13,11 @@ export default defineConfig({
       },
     },
   })],
+  server: {
+    watch: {
+      ignored: "**/cypress/**",
+    },
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -20,5 +25,7 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 975,
+    // Exclude the Cypress folder from being processed by Vite
+    exclude: ["cypress/**"],
   },
 });

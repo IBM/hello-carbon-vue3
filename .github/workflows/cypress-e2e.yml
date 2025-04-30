@@ -1,4 +1,7 @@
 name: End-to-end tests
+permissions:
+  contents: read
+  pull-requests: write
 on: pull_request
 jobs:
   cypress-run:
@@ -9,10 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install pnpm
-        run: npm i -g pnpm@9
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          start: pnpm run dev
+          build: npm run local:build
+          start: npm run preview
           browser: ${{ matrix.browser }}

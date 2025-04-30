@@ -38,6 +38,7 @@ onMounted(() => {
     </div>
     <div>
       <CvLink
+        id="build-a-bug"
         to="/build-a-bug"
         class="text-2xl! py-8!"
       >

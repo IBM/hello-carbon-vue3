@@ -17,36 +17,36 @@
   "dependencies": {
     "@carbon/grid": "^11.34.0",
     "@carbon/icons-vue": "^10.99.1",
-    "@carbon/themes": "^11.50.0",
-    "@carbon/web-components": "^2.27.2",
+    "@carbon/themes": "^11.51.0",
+    "@carbon/web-components": "^2.28.0",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@vueuse/core": "^13.1.0",
-    "i18next": "^25.0.0",
+    "i18next": "^25.0.2",
     "i18next-http-backend": "^3.0.2",
     "i18next-vue": "^5.2.0",
     "lodash": "^4.17.21",
     "pinia": "^3.0.2",
-    "sass": "^1.86.3",
+    "sass": "^1.87.0",
     "superagent": "^10.1.1",
     "v-lazy-image": "^2.1.1",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
-    "@eslint/js": "^9.24.0",
-    "@tailwindcss/postcss": "^4.1.4",
+    "@eslint/js": "^9.25.1",
+    "@tailwindcss/postcss": "^4.1.5",
     "@vitejs/plugin-vue": "^5.2.1",
-    "cypress": "^14.3.0",
-    "eslint": "^9.24.0",
-    "eslint-plugin-cypress": "^4.2.1",
+    "cypress": "^14.3.2",
+    "eslint": "^9.25.1",
+    "eslint-plugin-cypress": "^4.3.0",
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
-    "vite": "6.3.1"
+    "tailwindcss": "^4.1.5",
+    "vite": "6.3.4"
   },
   "web-types": [
     "./carbon-web-components-web-types.json"

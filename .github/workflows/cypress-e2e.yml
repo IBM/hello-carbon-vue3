@@ -1,4 +1,7 @@
 name: End-to-end tests
+permissions:
+  contents: read
+  pull-requests: write
 on: pull_request
 jobs:
   cypress-run:

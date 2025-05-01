@@ -7,14 +7,14 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@sidebase/nuxt-auth',
   ],
-  devtools: { enabled: true },
+  devtools: { enabled: import.meta.env.DEV },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
   runtimeConfig: {
     authSecret: process.env.NUXT_AUTH_SECRET,
   },
-  sourcemap: true,
+  sourcemap: import.meta.env.DEV,
   devServer: {
     port: 4507,
   },

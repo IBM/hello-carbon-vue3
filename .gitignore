@@ -17,6 +17,7 @@ logs
 .DS_Store
 .fleet
 .idea
+cypress/screenshots
 
 # Local env files
 .env

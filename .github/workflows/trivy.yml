@@ -2,9 +2,9 @@ name: Scan deployed images with Trivy
 
 # Controls when the action will run.
 on:
-  #schedule:
-    # At 12:29 on day-of-month 8
-    # - cron: '29 12 8 * *'
+  schedule:
+    # At 12:03 on Wednesday.
+    - cron: '3 12 * * 3'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

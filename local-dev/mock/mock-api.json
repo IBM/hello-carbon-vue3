@@ -1,6 +1,6 @@
 {
   "uuid": "b44755ae-ecc9-4c28-ae1d-72e60db3f0ed",
-  "lastMigration": 32,
+  "lastMigration": 33,
   "name": "Mock marvel api for use with hello carbon nuxt project.",
   "endpointPrefix": "",
   "latency": 2000,
@@ -175,7 +175,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": null
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
       "uuid": "817f4c01-e157-4b72-8510-fa96cd544af5",
@@ -209,7 +211,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": null
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
       "uuid": "3e240a94-809e-45a6-84c1-4ab25a3389ef",
@@ -243,7 +247,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": null
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
       "uuid": "fe30c0a7-ccff-49a4-a07f-11ff6a73a245",
@@ -448,7 +454,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": "RANDOM"
+      "responseMode": "RANDOM",
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
       "uuid": "f3ab3915-89ad-4ee5-bc21-9d5daf66fe8d",
@@ -653,7 +661,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": "RANDOM"
+      "responseMode": "RANDOM",
+      "streamingMode": null,
+      "streamingInterval": 0
     },
     {
       "uuid": "3244c7de-319e-417a-94fc-4479254f0e3b",
@@ -858,7 +868,9 @@
           "callbacks": []
         }
       ],
-      "responseMode": "RANDOM"
+      "responseMode": "RANDOM",
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [

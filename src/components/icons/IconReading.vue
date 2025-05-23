@@ -1,3 +1,13 @@
+<script setup>
+import {
+  Book20 as Book,
+  Education20 as EducationIcon,
+} from "@carbon/icons-vue";
+defineProps({
+  iconColor: { type: String, default: "#0072c3" }, // cyan 60
+});
+</script>
+
 <template>
   <div class="container">
     <div class="container__reading">
@@ -10,16 +20,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import {
-  Book20 as Book,
-  Education20 as EducationIcon,
-} from "@carbon/icons-vue";
-defineProps({
-  iconColor: { type: String, default: "#0072c3" }, // cyan 60
-});
-</script>
 
 <style scoped lang="scss">
 @keyframes reading {

@@ -1,3 +1,68 @@
+<script setup>
+import { computed, ref } from "vue";
+import { useTranslation } from "i18next-vue";
+import {
+  OpenPanelBottom32 as BottomIncomplete,
+  OpenPanelFilledBottom32 as BottomComplete,
+  OpenPanelTop32 as TopIncomplete,
+  OpenPanelFilledTop32 as TopComplete,
+  Reset32 as Reset,
+} from "@carbon/icons-vue";
+
+const { /** @type function(string) */ t } = useTranslation();
+
+const bugParts = [
+  new URL("@/assets/build-a-bug/fly.png", import.meta.url).href,
+  new URL("@/assets/build-a-bug/giant-stag.png", import.meta.url).href,
+  new URL("@/assets/build-a-bug/monarch-butterfly.png", import.meta.url).href,
+  new URL("@/assets/build-a-bug/orchid-mantis.png", import.meta.url).href,
+  new URL("@/assets/build-a-bug/saw-stag.png", import.meta.url).href,
+  new URL("@/assets/build-a-bug/tiger-beetle.png", import.meta.url).href,
+];
+const step = ref(0);
+function onStepClicked(val) {
+  if (val.uid === "bug-head") step.value = 0;
+  else if (val.uid === "bug-body") step.value = 1;
+  else if (val.uid === "bug-bottom") step.value = 2;
+}
+
+const topIndex = ref(-1);
+function top(val) {
+  topIndex.value = val;
+}
+const topUrl = computed(() => {
+  if (topIndex.value > -1)
+    return { backgroundImage: `url(${bugParts[topIndex.value]})` };
+  else return undefined;
+});
+
+const middleIndex = ref(-1);
+function middle(val) {
+  middleIndex.value = val;
+}
+const middleUrl = computed(() => {
+  if (middleIndex.value > -1)
+    return { backgroundImage: `url(${bugParts[middleIndex.value]})` };
+  else return undefined;
+});
+
+const bottomIndex = ref(-1);
+function bottom(val) {
+  bottomIndex.value = val;
+}
+const bottomUrl = computed(() => {
+  if (bottomIndex.value > -1)
+    return { backgroundImage: `url(${bugParts[bottomIndex.value]})` };
+  else return undefined;
+});
+
+function clearAll() {
+  topIndex.value = -1;
+  middleIndex.value = -1;
+  bottomIndex.value = -1;
+}
+</script>
+
 <template>
   <cv-grid>
     <cv-row>
@@ -110,70 +175,5 @@
     </cv-row>
   </cv-grid>
 </template>
-
-<script setup>
-import { computed, ref } from "vue";
-import { useTranslation } from "i18next-vue";
-import {
-  OpenPanelBottom32 as BottomIncomplete,
-  OpenPanelFilledBottom32 as BottomComplete,
-  OpenPanelTop32 as TopIncomplete,
-  OpenPanelFilledTop32 as TopComplete,
-  Reset32 as Reset,
-} from "@carbon/icons-vue";
-
-const { /** @type function(string) */ t } = useTranslation();
-
-const bugParts = [
-  new URL("@/assets/build-a-bug/fly.png", import.meta.url).href,
-  new URL("@/assets/build-a-bug/giant-stag.png", import.meta.url).href,
-  new URL("@/assets/build-a-bug/monarch-butterfly.png", import.meta.url).href,
-  new URL("@/assets/build-a-bug/orchid-mantis.png", import.meta.url).href,
-  new URL("@/assets/build-a-bug/saw-stag.png", import.meta.url).href,
-  new URL("@/assets/build-a-bug/tiger-beetle.png", import.meta.url).href,
-];
-const step = ref(0);
-function onStepClicked(val) {
-  if (val.uid === "bug-head") step.value = 0;
-  else if (val.uid === "bug-body") step.value = 1;
-  else if (val.uid === "bug-bottom") step.value = 2;
-}
-
-const topIndex = ref(-1);
-function top(val) {
-  topIndex.value = val;
-}
-const topUrl = computed(() => {
-  if (topIndex.value > -1)
-    return { backgroundImage: `url(${bugParts[topIndex.value]})` };
-  else return undefined;
-});
-
-const middleIndex = ref(-1);
-function middle(val) {
-  middleIndex.value = val;
-}
-const middleUrl = computed(() => {
-  if (middleIndex.value > -1)
-    return { backgroundImage: `url(${bugParts[middleIndex.value]})` };
-  else return undefined;
-});
-
-const bottomIndex = ref(-1);
-function bottom(val) {
-  bottomIndex.value = val;
-}
-const bottomUrl = computed(() => {
-  if (bottomIndex.value > -1)
-    return { backgroundImage: `url(${bugParts[bottomIndex.value]})` };
-  else return undefined;
-});
-
-function clearAll() {
-  topIndex.value = -1;
-  middleIndex.value = -1;
-  bottomIndex.value = -1;
-}
-</script>
 
 <style scoped></style>

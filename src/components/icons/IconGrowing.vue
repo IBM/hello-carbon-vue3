@@ -1,3 +1,10 @@
+<script setup>
+import { Sprout20 as NatureIcon } from "@carbon/icons-vue";
+defineProps({
+  iconColor: { type: String, default: "#198038" }, // green 60
+});
+</script>
+
 <template>
   <div class="container">
     <div class="container__grower">
@@ -7,13 +14,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { Sprout20 as NatureIcon } from "@carbon/icons-vue";
-defineProps({
-  iconColor: { type: String, default: "#198038" }, // green 60
-});
-</script>
 
 <style scoped lang="scss">
 @keyframes growing {

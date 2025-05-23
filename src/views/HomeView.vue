@@ -1,19 +1,3 @@
-<template>
-  <cv-grid>
-    <cv-row>
-      <cv-column
-        v-for="song in filteredSongs"
-        :key="song.id"
-        :sm="4"
-        :md="4"
-        :lg="4"
-      >
-        <song-card :song="song" />
-      </cv-column>
-    </cv-row>
-  </cv-grid>
-</template>
-
 <script setup>
 import { useSongStore } from "../stores/songs";
 import { computed, onMounted, ref } from "vue";
@@ -35,3 +19,19 @@ const filteredSongs = computed(() => {
   return songStore.songs;
 });
 </script>
+
+<template>
+  <cv-grid>
+    <cv-row>
+      <cv-column
+        v-for="song in filteredSongs"
+        :key="song.id"
+        :sm="4"
+        :md="4"
+        :lg="4"
+      >
+        <song-card :song="song" />
+      </cv-column>
+    </cv-row>
+  </cv-grid>
+</template>

@@ -1,3 +1,11 @@
+<script setup>
+import { Music20 as EighthNote } from "@carbon/icons-vue";
+import IconTrebleClef from "@/components/icons/IconTrebleClef.vue";
+defineProps({
+  iconColor: { type: String, default: "#8a3ffc" }, // purple 60
+});
+</script>
+
 <template>
   <div class="container">
     <div class="container__staff">
@@ -13,14 +21,6 @@
     <icon-treble-clef class="container__treble" />
   </div>
 </template>
-
-<script setup>
-import { Music20 as EighthNote } from "@carbon/icons-vue";
-import IconTrebleClef from "@/components/icons/IconTrebleClef.vue";
-defineProps({
-  iconColor: { type: String, default: "#8a3ffc" }, // purple 60
-});
-</script>
 
 <style scoped lang="scss">
 @keyframes music-scroll {

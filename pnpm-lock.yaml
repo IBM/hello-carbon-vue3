@@ -21,8 +21,8 @@ importers:
         specifier: ^13.2.0
         version: 13.2.0(vue@3.5.14(typescript@5.3.3))
       carbon-components:
-        specifier: ^10.58.15
-        version: 10.58.15
+        specifier: ^10.59.1
+        version: 10.59.1
       i18next:
         specifier: ^25.2.0
         version: 25.2.0(typescript@5.3.3)
@@ -39,8 +39,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(typescript@5.3.3)(vue@3.5.14(typescript@5.3.3))
       sass:
-        specifier: ^1.86.3
-        version: 1.86.3
+        specifier: ^1.89.0
+        version: 1.89.0
       superagent:
         specifier: ^10.2.1
         version: 10.2.1
@@ -65,7 +65,7 @@ importers:
         version: 9.27.0
       '@vitejs/plugin-vue':
         specifier: ^5.2.4
-        version: 5.2.4(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))(vue@3.5.14(typescript@5.3.3))
+        version: 5.2.4(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.89.0)(yaml@2.7.1))(vue@3.5.14(typescript@5.3.3))
       '@vue/eslint-config-prettier':
         specifier: ^10.2.0
         version: 10.2.0(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3)
@@ -104,7 +104,7 @@ importers:
         version: 3.4.17
       vite:
         specifier: ^6.3.5
-        version: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1)
+        version: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.89.0)(yaml@2.7.1)
 
 packages:
 
@@ -1047,9 +1047,8 @@ packages:
   caniuse-lite@1.0.30001702:
     resolution: {integrity: sha512-LoPe/D7zioC0REI5W73PeR1e1MLCipRGq/VkovJnd6Df+QVqT+vT33OXCp8QUd7kA7RZrHWxb1B36OQKI/0gOA==}
 
-  carbon-components@10.58.15:
-    resolution: {integrity: sha512-w1ubGzeH+HdJotD+B2UgW8hUeTtp1CcXDcki20Il3er6BfLjEhQL5/XlXnJiDzRmB6NgozxOQEbjLPXbZSfiqA==}
-    deprecated: This package is no longer supported. More info at https://carbondesignsystem.com/deprecations/
+  carbon-components@10.59.1:
+    resolution: {integrity: sha512-fsKITgoQ9HaJHy+215DRa9QK3kAlV5W/Q3dNHBl5C8puM8PpqBn2oz8j5WJkkOtjcwGZf6DhcLQJyOmT1yWUUg==}
 
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -1730,8 +1729,8 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
-  immutable@5.1.1:
-    resolution: {integrity: sha512-3jatXi9ObIsPGr3N5hGw/vWWcTkq6hUYhpQz4k0wLC+owqWi/LiugIw9x0EdNZ2yGedKN/HzePiBvaJRXa0Ujg==}
+  immutable@5.1.2:
+    resolution: {integrity: sha512-qHKXW1q6liAk1Oys6umoaZbDRqjcjgSrbnrifHsfsttza7zcvRAsL7mMV6xWcyhwQy7Xj5v4hhbr6b+iDYwlmQ==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -2405,8 +2404,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sass@1.86.3:
-    resolution: {integrity: sha512-iGtg8kus4GrsGLRDLRBRHY9dNVA78ZaS7xr01cWnS7PEMQyFtTqBiyCrfpTYTZXRWM94akzckYjh8oADfFNTzw==}
+  sass@1.89.0:
+    resolution: {integrity: sha512-ld+kQU8YTdGNjOLfRWBzewJpU5cwEv/h5yyqlSeJcj6Yh8U4TDA9UA5FPicqDz/xgRPWRSYIQNiFks21TbA9KQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -2971,7 +2970,7 @@ snapshots:
       '@carbon/icons-vue': 10.106.0
       '@ibm/telemetry-js': 1.9.1
       '@vueuse/core': 4.11.2(vue@3.5.14(typescript@5.3.3))
-      carbon-components: 10.58.15
+      carbon-components: 10.59.1
       eslint-plugin-prettier-vue: 4.2.0
       flatpickr: 4.6.13
       mitt: 3.0.1
@@ -3476,9 +3475,9 @@ snapshots:
       '@types/node': 22.14.1
     optional: true
 
-  '@vitejs/plugin-vue@5.2.4(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))(vue@3.5.14(typescript@5.3.3))':
+  '@vitejs/plugin-vue@5.2.4(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.89.0)(yaml@2.7.1))(vue@3.5.14(typescript@5.3.3))':
     dependencies:
-      vite: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.89.0)(yaml@2.7.1)
       vue: 3.5.14(typescript@5.3.3)
 
   '@vue/compiler-core@3.5.13':
@@ -3784,7 +3783,7 @@ snapshots:
 
   caniuse-lite@1.0.30001702: {}
 
-  carbon-components@10.58.15:
+  carbon-components@10.59.1:
     dependencies:
       '@carbon/telemetry': 0.1.0
       flatpickr: 4.6.1
@@ -4556,7 +4555,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  immutable@5.1.1: {}
+  immutable@5.1.2: {}
 
   import-fresh@3.3.1:
     dependencies:
@@ -5160,10 +5159,10 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass@1.86.3:
+  sass@1.89.0:
     dependencies:
       chokidar: 4.0.3
-      immutable: 5.1.1
+      immutable: 5.1.2
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
@@ -5461,7 +5460,7 @@ snapshots:
       core-util-is: 1.0.2
       extsprintf: 1.3.0
 
-  vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1):
+  vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(sass@1.89.0)(yaml@2.7.1):
     dependencies:
       esbuild: 0.25.2
       fdir: 6.4.4(picomatch@4.0.2)
@@ -5473,7 +5472,7 @@ snapshots:
       '@types/node': 22.15.21
       fsevents: 2.3.3
       jiti: 2.4.2
-      sass: 1.86.3
+      sass: 1.89.0
       yaml: 2.7.1
 
   vue-demi@0.14.10(vue@3.5.14(typescript@5.3.3)):

@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",
-    "@carbon/themes": "^10.55.6",
+    "@carbon/themes": "^11.0.0",
     "@carbon/vue": "^3.0.26",
     "@vueuse/core": "^13.2.0",
     "carbon-components": "^10.59.1",

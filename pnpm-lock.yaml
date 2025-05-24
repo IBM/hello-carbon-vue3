@@ -12,8 +12,8 @@ importers:
         specifier: ^10.99.1
         version: 10.99.1
       '@carbon/themes':
-        specifier: ^10.55.6
-        version: 10.55.6
+        specifier: ^11.0.0
+        version: 11.53.0
       '@carbon/vue':
         specifier: ^3.0.26
         version: 3.0.26(vue@3.5.14(typescript@5.3.3))
@@ -157,11 +157,11 @@ packages:
     resolution: {integrity: sha512-+EzkxvLNfiUeKMgy/3luqfsCWFRXLb7U6wNQTk60tovuckwB15B191tJWvpp4HjiQWdJkCxO3Wbvc6jlk3Xb2Q==}
     engines: {node: '>=6.9.0'}
 
-  '@carbon/colors@10.37.5':
-    resolution: {integrity: sha512-41z2ndh4OhOrYb2kxyrJ1CTZj2XcBIRd+WyA6W3PRrIAzN4ZWq/VXPPj2t1CAHZWNsgXxP7f1ywA5gwj8mwcEQ==}
+  '@carbon/colors@11.33.0':
+    resolution: {integrity: sha512-TiD4LYADMaVWqYBLmxWSya1SZaLn7KM1NnWiF7V18xI3YDc0zLhodk8JPvh8OERYcG1zc4+GeI/FHeNtankLLA==}
 
-  '@carbon/grid@10.43.5':
-    resolution: {integrity: sha512-0sSnDxTs4pJsOmT9cORZnp1KwJahr3QmDBlCUN/3+c7b9u1/04L6wA1mrNBPI2rGrR/ok5M+J15tCOUG5E4WJw==}
+  '@carbon/grid@11.36.0':
+    resolution: {integrity: sha512-wYSHLnTw0rCjumBm/OB8H8H/rJR0MJpvBCnBtK6BCPh/vBTnpFX05MgzskZISkoAUomLbExbI6PtxfT5ZmgDMg==}
 
   '@carbon/icon-helpers@10.54.0':
     resolution: {integrity: sha512-IJ6uzwRA/6yvSG6tTCQoKIcGehwZYYqjvLHylILmEwyfB8kWV9VmJu957hfrfbS2rmuCXwmN6kCAnb4WS8FnFw==}
@@ -175,21 +175,18 @@ packages:
   '@carbon/icons-vue@10.99.1':
     resolution: {integrity: sha512-VC0mRjGri+Ghv8Zkk3iUoaVYUTHLstXj5sB+qYnqPi1sKlE8lUOokgO+r8ReipFUq3um8xze/BXzEjWJQtYC6A==}
 
-  '@carbon/import-once@10.7.3':
-    resolution: {integrity: sha512-6yrOc/bdq24xR9TlbJmiscFWf+OQiDty2WiGBry2JnO96uU3hpVWnRz+pMBUF5PaWtEnnfNzom4Dv7u7ad4+Sg==}
-
-  '@carbon/layout@10.37.5':
-    resolution: {integrity: sha512-iY+YUOywY+FA+Cu9ZKCtwrCL9FtzPKg64ukSmeMvCNVjX2H6xwYCcA9w4aD/oRqZr5te+aJoFcoi0fP2q79g6g==}
+  '@carbon/layout@11.34.0':
+    resolution: {integrity: sha512-6PMofb/Ul/CZkP1XivszK2teh0odPV/bUG/PPQlVX1xnFdc+4O9o08JnFG9N2Ie6syncOXRCf8z1CegpV28x9A==}
 
   '@carbon/telemetry@0.1.0':
     resolution: {integrity: sha512-kNWt0bkgPwGW0i5h7HFuljbKRXPvIhsKbB+1tEURAYLXoJg9iJLF1eGvWN5iVoFCS2zje4GR3OGOsvvKVe7Hlg==}
     hasBin: true
 
-  '@carbon/themes@10.55.6':
-    resolution: {integrity: sha512-nqikwv1y91fWn4tEwSdSv/Tmw9dufnMwPHGZFp0XFkU58wR1mFEhsWduS7OJYRlvPDBZliIYLlWbZusxHxwVig==}
+  '@carbon/themes@11.53.0':
+    resolution: {integrity: sha512-b3gH7NvTA5+cP+9GQPFLOaw58QTz8bCjCKJ18WmiMn3oSNKlcj9dlC/9Ey6QYmUA1gSJQR3VlsYfZmlCrZseFQ==}
 
-  '@carbon/type@10.45.6':
-    resolution: {integrity: sha512-0k265RauOJeueugrZRMxFQzrg03ZglZCTZAUyYp9w/QMQONU/esY3KMypzttCITVYeKwWh31iaSY0rigPaTf5g==}
+  '@carbon/type@11.40.0':
+    resolution: {integrity: sha512-0mGg6wO+Ev5uQULFIDVny8ODZ47XPQuf0x0U67XNMo4GblpiufD+q8IyODrsdFKP/EermeJegCHGzwNLCilvIg==}
 
   '@carbon/vue@3.0.26':
     resolution: {integrity: sha512-xWVeKDUBPF1RQrPhJTFBvy0IPBsE+as6/qWs2O8vLXSD9lefXXiVAA8wTMQxQ1bpxaps2kt20YlQsJBCm1TpvA==}
@@ -1105,15 +1102,9 @@ packages:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
 
-  color-convert@1.9.3:
-    resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
-
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
-
-  color-name@1.1.3:
-    resolution: {integrity: sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==}
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
@@ -1121,8 +1112,9 @@ packages:
   color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
 
-  color@3.2.1:
-    resolution: {integrity: sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==}
+  color@4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
+    engines: {node: '>=12.5.0'}
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -2890,15 +2882,14 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@carbon/colors@10.37.5':
+  '@carbon/colors@11.33.0':
     dependencies:
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.1
 
-  '@carbon/grid@10.43.5':
+  '@carbon/grid@11.36.0':
     dependencies:
-      '@carbon/import-once': 10.7.3
-      '@carbon/layout': 10.37.5
-      '@ibm/telemetry-js': 1.6.1
+      '@carbon/layout': 11.34.0
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/icon-helpers@10.54.0':
     dependencies:
@@ -2918,29 +2909,25 @@ snapshots:
       '@carbon/icon-helpers': 10.54.0
       '@ibm/telemetry-js': 1.6.1
 
-  '@carbon/import-once@10.7.3':
+  '@carbon/layout@11.34.0':
     dependencies:
-      '@ibm/telemetry-js': 1.6.1
-
-  '@carbon/layout@10.37.5':
-    dependencies:
-      '@ibm/telemetry-js': 1.6.1
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/telemetry@0.1.0': {}
 
-  '@carbon/themes@10.55.6':
+  '@carbon/themes@11.53.0':
     dependencies:
-      '@carbon/colors': 10.37.5
-      '@carbon/layout': 10.37.5
-      '@carbon/type': 10.45.6
-      '@ibm/telemetry-js': 1.6.1
-      color: 3.2.1
+      '@carbon/colors': 11.33.0
+      '@carbon/layout': 11.34.0
+      '@carbon/type': 11.40.0
+      '@ibm/telemetry-js': 1.9.1
+      color: 4.2.3
 
-  '@carbon/type@10.45.6':
+  '@carbon/type@11.40.0':
     dependencies:
-      '@carbon/grid': 10.43.5
-      '@carbon/import-once': 10.7.3
-      '@ibm/telemetry-js': 1.6.1
+      '@carbon/grid': 11.36.0
+      '@carbon/layout': 11.34.0
+      '@ibm/telemetry-js': 1.9.1
 
   '@carbon/vue@3.0.26(vue@3.5.14(typescript@5.3.3))':
     dependencies:
@@ -3828,15 +3815,9 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
-  color-convert@1.9.3:
-    dependencies:
-      color-name: 1.1.3
-
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
-
-  color-name@1.1.3: {}
 
   color-name@1.1.4: {}
 
@@ -3845,9 +3826,9 @@ snapshots:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
 
-  color@3.2.1:
+  color@4.2.3:
     dependencies:
-      color-convert: 1.9.3
+      color-convert: 2.0.1
       color-string: 1.9.1
 
   colorette@2.0.20: {}

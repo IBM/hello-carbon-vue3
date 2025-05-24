@@ -17,6 +17,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm run build
-          start: pnpm run preview --port 5173
+          build: pnpm run dev:build
+          start: pnpm run dev:preview --port 5173
           browser: ${{ matrix.browser }}

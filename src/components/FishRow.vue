@@ -1,3 +1,62 @@
+<script setup>
+import { useLanguageStore } from "../stores/language";
+import { computed, inject, ref } from "vue";
+import {
+  StarFilled16 as RareIcon,
+  CircleFilled16 as LocationIcon,
+  EarthFilled16 as RiverIcon,
+  EarthAmericasFilled16 as SeaIcon,
+  EarthEuropeAfricaFilled16 as PondIcon,
+  EarthSoutheastAsiaFilled16 as PierIcon,
+} from "@carbon/icons-vue";
+import BlurImage from "@/components/BlurImage.vue";
+import placeholderImage from "../assets/fish.svg";
+import { useTranslation } from "i18next-vue";
+import { useBreakpoints } from "@/composables/useBreakpoints.js";
+const { t } = useTranslation();
+
+const props = defineProps({
+  fish: {
+    type: /** @type {FishData} **/ Object,
+    required: true,
+  },
+  expandable: { type: Boolean, default: false },
+});
+const langStore = useLanguageStore();
+const fishName = computed(() => {
+  const key = "name-" + langStore.languageObject.api;
+  let name = props.fish.name[key];
+  return name || props.fish.key;
+});
+const fishPrice = computed(() => {
+  return langStore.currencyFormat.format(props.fish.price);
+});
+const cjFishPrice = computed(() => {
+  return langStore.currencyFormat.format(props.fish["price-cj"]);
+});
+const rarityMap = {
+  Common: 1,
+  Uncommon: 2,
+  Rare: 3,
+  "Ultra-rare": 4,
+};
+const rarity = computed(() => {
+  return rarityMap[props.fish.availability?.rarity] || -1;
+});
+const location = computed(() => {
+  const location = props.fish.availability?.location || "Pond";
+  if (location.startsWith("Pond")) return "pond";
+  else if (location.startsWith("River")) return "river";
+  else if (location.startsWith("Sea")) return "sea";
+  else if (location.startsWith("Pier")) return "pier";
+  else return "";
+});
+
+const showCatchPhrases = inject("show-catch-phrases", ref(false));
+
+const { md } = useBreakpoints();
+</script>
+
 <template>
   <cv-data-table-row
     :value="fish.key"
@@ -78,64 +137,5 @@
     </template>
   </cv-data-table-row>
 </template>
-
-<script setup>
-import { useLanguageStore } from "../stores/language";
-import { computed, inject, ref } from "vue";
-import {
-  StarFilled16 as RareIcon,
-  CircleFilled16 as LocationIcon,
-  EarthFilled16 as RiverIcon,
-  EarthAmericasFilled16 as SeaIcon,
-  EarthEuropeAfricaFilled16 as PondIcon,
-  EarthSoutheastAsiaFilled16 as PierIcon,
-} from "@carbon/icons-vue";
-import BlurImage from "@/components/BlurImage.vue";
-import placeholderImage from "../assets/fish.svg";
-import { useTranslation } from "i18next-vue";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
-const { t } = useTranslation();
-
-const props = defineProps({
-  fish: {
-    type: /** @type {FishData} **/ Object,
-    required: true,
-  },
-  expandable: { type: Boolean, default: false },
-});
-const langStore = useLanguageStore();
-const fishName = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.fish.name[key];
-  return name || props.fish.key;
-});
-const fishPrice = computed(() => {
-  return langStore.currencyFormat.format(props.fish.price);
-});
-const cjFishPrice = computed(() => {
-  return langStore.currencyFormat.format(props.fish["price-cj"]);
-});
-const rarityMap = {
-  Common: 1,
-  Uncommon: 2,
-  Rare: 3,
-  "Ultra-rare": 4,
-};
-const rarity = computed(() => {
-  return rarityMap[props.fish.availability?.rarity] || -1;
-});
-const location = computed(() => {
-  const location = props.fish.availability?.location || "Pond";
-  if (location.startsWith("Pond")) return "pond";
-  else if (location.startsWith("River")) return "river";
-  else if (location.startsWith("Sea")) return "sea";
-  else if (location.startsWith("Pier")) return "pier";
-  else return "";
-});
-
-const showCatchPhrases = inject("show-catch-phrases", ref(false));
-
-const { md } = useBreakpoints();
-</script>
 
 <style scoped lang="scss"></style>

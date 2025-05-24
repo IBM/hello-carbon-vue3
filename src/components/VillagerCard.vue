@@ -1,3 +1,29 @@
+<script setup>
+import { useLanguageStore } from "@/stores/language";
+import { computed } from "vue";
+import ChatBubble from "@/components/ChatBubble.vue";
+import BlurImage from "@/components/BlurImage.vue";
+import placeholderImage from "@/assets/bug-placeholder.jpg";
+
+const props = defineProps({
+  villager: {
+    type: /** @type {VillagerData} **/ Object,
+    required: true,
+  },
+});
+const langStore = useLanguageStore();
+const name = computed(() => {
+  const key = "name-" + langStore.languageObject.api;
+  let name = props.villager.name[key];
+  return name || props.villager.key;
+});
+const catchPhrase = computed(() => {
+  const key = "catch-" + langStore.languageObject.api;
+  let phrase = props.villager["catch-translations"][key];
+  return phrase || props.villager["catch-phrase"];
+});
+</script>
+
 <template>
   <div
     class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
@@ -27,32 +53,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { useLanguageStore } from "@/stores/language";
-import { computed } from "vue";
-import ChatBubble from "@/components/ChatBubble.vue";
-import BlurImage from "@/components/BlurImage.vue";
-import placeholderImage from "@/assets/bug-placeholder.jpg";
-
-const props = defineProps({
-  villager: {
-    type: /** @type {VillagerData} **/ Object,
-    required: true,
-  },
-});
-const langStore = useLanguageStore();
-const name = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.villager.name[key];
-  return name || props.villager.key;
-});
-const catchPhrase = computed(() => {
-  const key = "catch-" + langStore.languageObject.api;
-  let phrase = props.villager["catch-translations"][key];
-  return phrase || props.villager["catch-phrase"];
-});
-</script>
 
 <style scoped lang="scss">
 .villager {

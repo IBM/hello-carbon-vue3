@@ -26,4 +26,15 @@ export default [
     ],
   },
   skipFormatting,
+  {
+    rules: {
+      "no-console": ["error", { allow: ["warn", "error"] }],
+      "vue/component-tags-order": [
+        "warn",
+        {
+          order: ["script", "template", "style"],
+        },
+      ],
+    },
+  },
 ];

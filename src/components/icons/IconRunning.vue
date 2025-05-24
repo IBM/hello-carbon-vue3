@@ -1,17 +1,3 @@
-<template>
-  <div class="container">
-    <div
-      ref="runner"
-      class="container__runner"
-      @transitionend.capture="onAnimationEnd"
-    >
-      <div ref="turner" class="container__turner">
-        <slot><soccer /></slot>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { Soccer20 as Soccer } from "@carbon/icons-vue";
 import { computed, onMounted, ref } from "vue";
@@ -31,6 +17,20 @@ function onAnimationEnd() {
 }
 onMounted(() => setTimeout(() => toggleRunDirection(true), 250));
 </script>
+
+<template>
+  <div class="container">
+    <div
+      ref="runner"
+      class="container__runner"
+      @transitionend.capture="onAnimationEnd"
+    >
+      <div ref="turner" class="container__turner">
+        <slot><soccer /></slot>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .container {

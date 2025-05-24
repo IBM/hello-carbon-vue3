@@ -1,3 +1,10 @@
+<script setup>
+import { CameraAction20 as CameraAction } from "@carbon/icons-vue";
+defineProps({
+  iconColor: { type: String, default: "#0f62fe" }, // blue 60
+});
+</script>
+
 <template>
   <div class="container">
     <div class="container__icon">
@@ -6,13 +13,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { CameraAction20 as CameraAction } from "@carbon/icons-vue";
-defineProps({
-  iconColor: { type: String, default: "#0f62fe" }, // blue 60
-});
-</script>
 
 <style scoped lang="scss">
 @keyframes flashing {

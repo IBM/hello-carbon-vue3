@@ -1,3 +1,53 @@
+<script setup>
+import {
+  Home16 as HomeIcon,
+  Fish16 as FishIcon,
+  Debug16 as BugsIcon,
+  Events16 as VillagersIcon,
+  Translate20 as LanguageIcon,
+  Login20 as LoginIcon,
+  UserAvatar20 as AvatarIcon,
+  Switcher20 as SwitcherIcon,
+  ColorPalette20 as ThemeIcon,
+} from "@carbon/icons-vue";
+import ThemeSelector from "@/components/Theme/Selector.vue";
+import { ref } from "vue";
+import { useLanguageStore } from "../stores/language";
+import { useTranslation } from "i18next-vue";
+const { t } = useTranslation();
+
+const loggedIn = ref(false);
+
+const langStore = useLanguageStore();
+const languageExpanded = ref(false);
+function changeLocale(language) {
+  langStore.setLanguage(language);
+  languageExpanded.value = false;
+  document?.activeElement?.blur();
+}
+function onLogin() {
+  loggedIn.value = !loggedIn.value;
+}
+
+const otherApps = ref([
+  {
+    id: "hello-vue",
+    name: "Hello Carbon Vue",
+    link: "https://github.com/IBM/hello-carbon-vue3",
+  },
+  {
+    id: "hello-nuxt",
+    name: "Hello Carbon Nuxt",
+    link: "https://github.com/davidnixon/hello-carbon-nuxt",
+  },
+  {
+    id: "carbon-vue",
+    name: "Carbon Vue Storybook",
+    link: "https://vue.carbondesignsystem.com/",
+  },
+]);
+</script>
+
 <template>
   <cv-header aria-label="Carbon header" data-cy="header">
     <cv-header-menu-button
@@ -109,53 +159,3 @@
     </template>
   </cv-header>
 </template>
-
-<script setup>
-import {
-  Home16 as HomeIcon,
-  Fish16 as FishIcon,
-  Debug16 as BugsIcon,
-  Events16 as VillagersIcon,
-  Translate20 as LanguageIcon,
-  Login20 as LoginIcon,
-  UserAvatar20 as AvatarIcon,
-  Switcher20 as SwitcherIcon,
-  ColorPalette20 as ThemeIcon,
-} from "@carbon/icons-vue";
-import ThemeSelector from "@/components/Theme/Selector.vue";
-import { ref } from "vue";
-import { useLanguageStore } from "../stores/language";
-import { useTranslation } from "i18next-vue";
-const { t } = useTranslation();
-
-const loggedIn = ref(false);
-
-const langStore = useLanguageStore();
-const languageExpanded = ref(false);
-function changeLocale(language) {
-  langStore.setLanguage(language);
-  languageExpanded.value = false;
-  document?.activeElement?.blur();
-}
-function onLogin() {
-  loggedIn.value = !loggedIn.value;
-}
-
-const otherApps = ref([
-  {
-    id: "hello-vue",
-    name: "Hello Carbon Vue",
-    link: "https://github.com/IBM/hello-carbon-vue3",
-  },
-  {
-    id: "hello-nuxt",
-    name: "Hello Carbon Nuxt",
-    link: "https://github.com/davidnixon/hello-carbon-nuxt",
-  },
-  {
-    id: "carbon-vue",
-    name: "Carbon Vue Storybook",
-    link: "https://vue.carbondesignsystem.com/",
-  },
-]);
-</script>

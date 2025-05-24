@@ -1,63 +1,3 @@
-<template>
-  <cv-grid>
-    <cv-row>
-      <cv-column>
-        <div class="title productive-heading-03">{{ t("villagers") }}</div>
-      </cv-column>
-    </cv-row>
-    <cv-row>
-      <cv-column>
-        <cv-content-switcher ref="contentSwitcher" @selected="onSelected">
-          <cv-content-switcher-button
-            v-for="group in villagerHobbies"
-            :key="`switcher-${group.hobby}`"
-            :owner-id="`switcher-${group.hobby}`"
-            :icon="hobbyIcon(group.hobby)"
-            :selected="`switcher-${group.hobby}` === selected"
-            >{{ t(group.hobby) }}
-            <icon-bouncing
-              v-if="showBouncing(group.hobby)"
-              class="special-icon special-icon--play"
-            />
-            <icon-growing
-              v-if="showGrowing(group.hobby)"
-              class="special-icon special-icon--grow"
-            />
-            <icon-running
-              v-if="showRunning(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--run"
-            />
-            <icon-flashing
-              v-if="showFlashing(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--flash"
-            />
-            <icon-music
-              v-if="showMusic(group.hobby)"
-              class="special-icon special-icon--music"
-            />
-            <icon-reading
-              v-if="showReading(group.hobby)"
-              class="special-icon special-icon--reading"
-            />
-          </cv-content-switcher-button>
-        </cv-content-switcher>
-
-        <section>
-          <cv-content-switcher-content
-            v-for="group in villagerHobbies"
-            :key="`content-${group.hobby}`"
-            :owner-id="`switcher-${group.hobby}`"
-          >
-            <villager-hobby :hobbyists="group" />
-          </cv-content-switcher-content>
-        </section>
-      </cv-column>
-    </cv-row>
-  </cv-grid>
-</template>
-
 <script setup>
 import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
@@ -183,6 +123,66 @@ function calcRunWidth() {
 }
 onMounted(() => calcRunWidth());
 </script>
+
+<template>
+  <cv-grid>
+    <cv-row>
+      <cv-column>
+        <div class="title productive-heading-03">{{ t("villagers") }}</div>
+      </cv-column>
+    </cv-row>
+    <cv-row>
+      <cv-column>
+        <cv-content-switcher ref="contentSwitcher" @selected="onSelected">
+          <cv-content-switcher-button
+            v-for="group in villagerHobbies"
+            :key="`switcher-${group.hobby}`"
+            :owner-id="`switcher-${group.hobby}`"
+            :icon="hobbyIcon(group.hobby)"
+            :selected="`switcher-${group.hobby}` === selected"
+            >{{ t(group.hobby) }}
+            <icon-bouncing
+              v-if="showBouncing(group.hobby)"
+              class="special-icon special-icon--play"
+            />
+            <icon-growing
+              v-if="showGrowing(group.hobby)"
+              class="special-icon special-icon--grow"
+            />
+            <icon-running
+              v-if="showRunning(group.hobby)"
+              :run-width="runWidth"
+              class="special-icon special-icon--run"
+            />
+            <icon-flashing
+              v-if="showFlashing(group.hobby)"
+              :run-width="runWidth"
+              class="special-icon special-icon--flash"
+            />
+            <icon-music
+              v-if="showMusic(group.hobby)"
+              class="special-icon special-icon--music"
+            />
+            <icon-reading
+              v-if="showReading(group.hobby)"
+              class="special-icon special-icon--reading"
+            />
+          </cv-content-switcher-button>
+        </cv-content-switcher>
+
+        <section>
+          <cv-content-switcher-content
+            v-for="group in villagerHobbies"
+            :key="`content-${group.hobby}`"
+            :owner-id="`switcher-${group.hobby}`"
+          >
+            <villager-hobby :hobbyists="group" />
+          </cv-content-switcher-content>
+        </section>
+      </cv-column>
+    </cv-row>
+  </cv-grid>
+</template>
 
 <style scoped lang="scss">
 .title {

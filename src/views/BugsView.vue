@@ -1,3 +1,31 @@
+<script setup>
+import { useBugsStore } from "@/stores/bugs";
+import { onMounted, ref } from "vue";
+import { groupBy } from "lodash";
+import BugCard from "@/components/BugCard.vue";
+import { useTranslation } from "i18next-vue";
+
+const { t } = useTranslation();
+const bugStore = useBugsStore();
+const loading = ref(false);
+const bugGroups = ref({});
+onMounted(() => {
+  loading.value = true;
+  try {
+    bugStore.loadBugs().finally(() => {
+      const groups = groupBy(bugStore.bugs, "availability.location");
+      const keys = Object.keys(groups);
+      bugGroups.value = keys.map(key => {
+        return { location: key, bugs: groups[key] };
+      });
+      loading.value = false;
+    });
+  } catch (e) {
+    console.error("error loading bugs from API", e.message);
+  }
+});
+</script>
+
 <template>
   <cv-grid>
     <cv-row>
@@ -39,33 +67,5 @@
     </cv-row>
   </cv-grid>
 </template>
-
-<script setup>
-import { useBugsStore } from "@/stores/bugs";
-import { onMounted, ref } from "vue";
-import { groupBy } from "lodash";
-import BugCard from "@/components/BugCard.vue";
-import { useTranslation } from "i18next-vue";
-
-const { t } = useTranslation();
-const bugStore = useBugsStore();
-const loading = ref(false);
-const bugGroups = ref({});
-onMounted(() => {
-  loading.value = true;
-  try {
-    bugStore.loadBugs().finally(() => {
-      const groups = groupBy(bugStore.bugs, "availability.location");
-      const keys = Object.keys(groups);
-      bugGroups.value = keys.map(key => {
-        return { location: key, bugs: groups[key] };
-      });
-      loading.value = false;
-    });
-  } catch (e) {
-    console.error("error loading bugs from API", e.message);
-  }
-});
-</script>
 
 <style scoped lang="scss"></style>

@@ -1,29 +1,3 @@
-<template>
-  <div data-cy="song-card">
-    <div class="productive-heading-01">{{ songName }}</div>
-    <div style="width: 100%">
-      <cv-aspect-ratio>
-        <blur-image
-          :src="song['image_uri']"
-          :src-placeholder="placeholderImage"
-          :alt="songName"
-          class="songs__cover-art"
-        />
-      </cv-aspect-ratio>
-    </div>
-    <div class="songs__price body-short-02">
-      <div>
-        <div>{{ buyPrice }}</div>
-        <buy-icon />
-      </div>
-      <div>
-        <div>{{ sellPrice }}</div>
-        <sell-icon />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useLanguageStore } from "../stores/language";
 import {
@@ -50,6 +24,32 @@ const sellPrice = computed(() => {
   return langStore.currencyFormat.format(props.song["sell-price"]);
 });
 </script>
+
+<template>
+  <div data-cy="song-card">
+    <div class="productive-heading-01">{{ songName }}</div>
+    <div style="width: 100%">
+      <cv-aspect-ratio>
+        <blur-image
+          :src="song['image_uri']"
+          :src-placeholder="placeholderImage"
+          :alt="songName"
+          class="songs__cover-art"
+        />
+      </cv-aspect-ratio>
+    </div>
+    <div class="songs__price body-short-02">
+      <div>
+        <div>{{ buyPrice }}</div>
+        <buy-icon />
+      </div>
+      <div>
+        <div>{{ sellPrice }}</div>
+        <sell-icon />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .songs {

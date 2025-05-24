@@ -1,3 +1,42 @@
+<script setup>
+import { Redo32 as FlipIcon } from "@carbon/icons-vue";
+import { computed, ref } from "vue";
+import { useLanguageStore } from "@/stores/language";
+import { useTranslation } from "i18next-vue";
+import BlurImage from "@/components/BlurImage.vue";
+import placeholderImage from "@/assets/bug-placeholder.jpg";
+
+const props = defineProps({
+  bug: {
+    type: /** @type {BugData} **/ Object,
+    required: true,
+  },
+});
+const { t } = useTranslation();
+
+const flip = ref(false);
+function toggleFlip() {
+  flip.value = !flip.value;
+}
+
+const langStore = useLanguageStore();
+const bugName = computed(() => {
+  const key = "name-" + langStore.languageObject.api;
+  let name = props.bug.name[key];
+  return name || props.bug.key;
+});
+
+const rarityMap = {
+  Common: "gray",
+  Uncommon: "green",
+  Rare: "purple",
+  "Ultra-rare": "magenta",
+};
+const rarity = computed(() => {
+  return rarityMap[props.bug.availability?.rarity] || "gray";
+});
+</script>
+
 <template>
   <div class="bug-card border border-solid border-carbon-purple-60 mb-2">
     <div class="bug-card-inner" :class="{ 'bug-card-flip': flip }">
@@ -44,45 +83,6 @@
   </div>
   <div></div>
 </template>
-
-<script setup>
-import { Redo32 as FlipIcon } from "@carbon/icons-vue";
-import { computed, ref } from "vue";
-import { useLanguageStore } from "@/stores/language";
-import { useTranslation } from "i18next-vue";
-import BlurImage from "@/components/BlurImage.vue";
-import placeholderImage from "@/assets/bug-placeholder.jpg";
-
-const props = defineProps({
-  bug: {
-    type: /** @type {BugData} **/ Object,
-    required: true,
-  },
-});
-const { t } = useTranslation();
-
-const flip = ref(false);
-function toggleFlip() {
-  flip.value = !flip.value;
-}
-
-const langStore = useLanguageStore();
-const bugName = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.bug.name[key];
-  return name || props.bug.key;
-});
-
-const rarityMap = {
-  Common: "gray",
-  Uncommon: "green",
-  Rare: "purple",
-  "Ultra-rare": "magenta",
-};
-const rarity = computed(() => {
-  return rarityMap[props.bug.availability?.rarity] || "gray";
-});
-</script>
 
 <style scoped lang="scss">
 .bug-card {

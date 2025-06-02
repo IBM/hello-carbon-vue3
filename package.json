@@ -21,7 +21,7 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",
     "@carbon/themes": "^10.55.6",
-    "@carbon/vue": "^3.0.26",
+    "@carbon/vue": "^3.0.27",
     "@vueuse/core": "^13.2.0",
     "carbon-components": "^10.59.1",
     "i18next": "^25.2.0",

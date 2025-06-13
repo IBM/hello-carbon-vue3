@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import superagent from "superagent";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
@@ -46,12 +45,12 @@ export const useBugsStore = defineStore("bugs", () => {
    */
   async function loadBugs(force = false) {
     if (force || bugs.value.length === 0) {
-      const data = await superagent.get(BUGS_URL);
-      const bugsKeys = Object.keys(data.body);
+      const data = await fetch(BUGS_URL).then(response => response.json());
+      const bugsKeys = Object.keys(data);
       const bugsData = [];
       for (let i = 0; i < bugsKeys.length; i++) {
         const key = bugsKeys[i];
-        bugsData.push({ key, ...data.body[key] });
+        bugsData.push({ key, ...data[key] });
       }
       bugs.value = shuffle(bugsData);
     }

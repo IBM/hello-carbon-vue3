@@ -1,5 +1,6 @@
 <script setup>
-import VLazyImage from "v-lazy-image";
+import { UseElementVisibility } from "@vueuse/components";
+
 defineProps({
   src: { type: String, required: true },
   alt: { type: String, default: "" },
@@ -7,19 +8,12 @@ defineProps({
 });
 </script>
 <template>
-  <v-lazy-image
-    :src="src"
-    :src-placeholder="srcPlaceholder"
-    :alt="alt"
-  ></v-lazy-image>
+  <UseElementVisibility v-slot="{ isVisible }">
+    <img
+      :src="isVisible ? src : srcPlaceholder"
+      :alt="alt"
+      class="size-full transition duration-1000"
+      :class="{ 'blur-0': isVisible, blur: !isVisible }"
+    />
+  </UseElementVisibility>
 </template>
-<style scoped>
-.v-lazy-image {
-  filter: blur(5px);
-  transition: filter 1.6s;
-  will-change: filter;
-}
-.v-lazy-image-loaded {
-  filter: blur(0);
-}
-</style>

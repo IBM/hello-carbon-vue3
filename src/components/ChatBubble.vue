@@ -20,7 +20,9 @@ defineProps({
     :style="{ 'background-color': bubbleColor }"
   >
     <div class="talk-text">
-      <p :style="{ color: textColor }">{{ text }}</p>
+      <p :style="{ color: textColor }">
+        {{ text }}
+      </p>
     </div>
   </div>
 </template>

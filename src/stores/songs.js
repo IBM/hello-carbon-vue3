@@ -1,10 +1,9 @@
 import { defineStore } from "pinia";
-import superagent from "superagent";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
-const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 const SONGS_URL = BASE_URL + "/songs";
 /**
  * Name object data
@@ -48,8 +47,8 @@ export const useSongStore = defineStore("songs", () => {
    */
   async function loadSongs(force = false) {
     if (force || songs.value.length === 0) {
-      const data = await superagent.get(SONGS_URL);
-      songs.value = shuffle(data.body);
+      const data = await fetch(SONGS_URL).then(response => response.json());
+      songs.value = shuffle(data);
     }
   }
 

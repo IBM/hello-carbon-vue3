@@ -12,10 +12,14 @@ defineProps({
   <div class="container">
     <div class="container__reading">
       <div class="container__education">
-        <slot name="education"><education-icon /></slot>
+        <slot name="education">
+          <education-icon />
+        </slot>
       </div>
       <div class="container__book">
-        <slot name="book"><book /></slot>
+        <slot name="book">
+          <book />
+        </slot>
       </div>
     </div>
   </div>

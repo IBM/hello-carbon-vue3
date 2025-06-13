@@ -22,6 +22,10 @@ const cssLink = computed(() => {
 
 <template>
   <Teleport to="head">
-    <link rel="stylesheet" type="text/css" :href="cssLink" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      :href="cssLink"
+    >
   </Teleport>
 </template>

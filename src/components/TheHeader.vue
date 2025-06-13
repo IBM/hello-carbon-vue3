@@ -49,17 +49,25 @@ const otherApps = ref([
 </script>
 
 <template>
-  <cv-header aria-label="Carbon header" data-cy="header">
+  <cv-header
+    aria-label="Carbon header"
+    data-cy="header"
+  >
     <cv-header-menu-button
       :aria-label="t('header-menu')"
       aria-controls="side-nav"
     />
-    <cv-skip-to-content href="#main-content">{{
-      t("skip-content")
-    }}</cv-skip-to-content>
-    <cv-header-name href="/" prefix="Carbon"
-      >{{ t("hello") }} Vue3</cv-header-name
+    <cv-skip-to-content href="#main-content">
+      {{
+        t("skip-content")
+      }}
+    </cv-skip-to-content>
+    <cv-header-name
+      href="/"
+      prefix="Carbon"
     >
+      {{ t("hello") }} Vue3
+    </cv-header-name>
     <template #header-global>
       <cv-header-global-action
         :aria-label="t('choose-theme')"
@@ -101,7 +109,10 @@ const otherApps = ref([
       </cv-header-global-action>
     </template>
     <template #right-panels>
-      <cv-header-panel id="language-panel" v-model:expanded="languageExpanded">
+      <cv-header-panel
+        id="language-panel"
+        v-model:expanded="languageExpanded"
+      >
         <cv-switcher>
           <cv-switcher-item
             v-for="entry in langStore.languages"
@@ -119,7 +130,10 @@ const otherApps = ref([
       </cv-header-panel>
       <cv-header-panel id="other-apps">
         <cv-switcher>
-          <cv-switcher-item v-for="app in otherApps" :key="app.id">
+          <cv-switcher-item
+            v-for="app in otherApps"
+            :key="app.id"
+          >
             <cv-switcher-item-link
               :data-cy="`language-${app.id}`"
               :href="app.link"
@@ -135,23 +149,36 @@ const otherApps = ref([
       </cv-header-panel>
     </template>
     <template #left-panels>
-      <cv-side-nav id="side-nav" :rail="true" :fixed="false" :expanded="false">
+      <cv-side-nav
+        id="side-nav"
+        :rail="true"
+        :fixed="false"
+        :expanded="false"
+      >
         <cv-side-nav-items>
           <cv-side-nav-link :to="{ name: 'home' }">
-            <template #nav-icon><home-icon /></template>
+            <template #nav-icon>
+              <home-icon />
+            </template>
             {{ t("home") }}
           </cv-side-nav-link>
           <cv-side-nav-menu-divider />
           <cv-side-nav-link :to="{ name: 'fish' }">
-            <template #nav-icon><fish-icon /></template>
+            <template #nav-icon>
+              <fish-icon />
+            </template>
             {{ t("fish") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'bugs' }">
-            <template #nav-icon><bugs-icon /></template>
+            <template #nav-icon>
+              <bugs-icon />
+            </template>
             {{ t("bugs") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'villagers' }">
-            <template #nav-icon><villagers-icon /></template>
+            <template #nav-icon>
+              <villagers-icon />
+            </template>
             {{ t("villagers") }}
           </cv-side-nav-link>
         </cv-side-nav-items>

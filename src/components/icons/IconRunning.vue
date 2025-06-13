@@ -25,7 +25,10 @@ onMounted(() => setTimeout(() => toggleRunDirection(true), 250));
       class="container__runner"
       @transitionend.capture="onAnimationEnd"
     >
-      <div ref="turner" class="container__turner">
+      <div
+        ref="turner"
+        class="container__turner"
+      >
         <slot><soccer /></slot>
       </div>
     </div>

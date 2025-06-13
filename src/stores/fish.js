@@ -1,10 +1,9 @@
 import { defineStore } from "pinia";
-import superagent from "superagent";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
-const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 const FISH_URL = BASE_URL + "/fish";
 
 /**
@@ -54,12 +53,12 @@ export const useFishStore = defineStore("fish", () => {
    */
   async function loadFish(force = false) {
     if (force || fish.value.length === 0) {
-      const data = await superagent.get(FISH_URL);
-      const fishKeys = Object.keys(data.body);
+      const data = await fetch(FISH_URL).then(response => response.json());
+      const fishKeys = Object.keys(data);
       const fishData = [];
       for (let i = 0; i < fishKeys.length; i++) {
         const key = fishKeys[i];
-        fishData.push({ key, hidden: false, ...data.body[key] });
+        fishData.push({ key, hidden: false, ...data[key] });
       }
       fish.value = shuffle(fishData);
     }

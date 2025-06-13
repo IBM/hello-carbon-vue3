@@ -35,9 +35,9 @@ const cjFishPrice = computed(() => {
   return langStore.currencyFormat.format(props.fish["price-cj"]);
 });
 const rarityMap = {
-  Common: 1,
-  Uncommon: 2,
-  Rare: 3,
+  "Common": 1,
+  "Uncommon": 2,
+  "Rare": 3,
   "Ultra-rare": 4,
 };
 const rarity = computed(() => {
@@ -71,8 +71,12 @@ const { md } = useBreakpoints();
         :alt="fishName"
       />
     </cv-data-table-cell>
-    <cv-data-table-cell v-if="md">{{ fishPrice }}</cv-data-table-cell>
-    <cv-data-table-cell v-if="md">{{ cjFishPrice }}</cv-data-table-cell>
+    <cv-data-table-cell v-if="md">
+      {{ fishPrice }}
+    </cv-data-table-cell>
+    <cv-data-table-cell v-if="md">
+      {{ cjFishPrice }}
+    </cv-data-table-cell>
     <cv-data-table-cell>
       <pond-icon
         v-if="location === 'pond'"
@@ -123,7 +127,10 @@ const { md } = useBreakpoints();
       </div>
     </cv-data-table-cell>
     <!-- Add optional expanding data here -->
-    <template v-if="showCatchPhrases" #expandedContent>
+    <template
+      v-if="showCatchPhrases"
+      #expandedContent
+    >
       <div class="flex justify-around gap-4">
         <div
           class="bg-[url(@/assets/fish-bowl.png)] bg-contain bg-no-repeat bg-carbon-blue-40 text-black text-2xl p-1"

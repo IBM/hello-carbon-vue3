@@ -1,9 +1,8 @@
 import { defineStore } from "pinia";
-import superagent from "superagent";
 import { ref } from "vue";
 
-const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 const VILLAGERS_URL = BASE_URL + "/villagers";
 /**
  * Bug data
@@ -37,11 +36,11 @@ export const useVillagersStore = defineStore("villagers", () => {
    */
   async function loadVillagers(force = false) {
     if (force || villagers.value.length === 0) {
-      const data = await superagent.get(VILLAGERS_URL);
-      const villagersKeys = Object.keys(data.body);
+      const data = await fetch(VILLAGERS_URL).then(response => response.json());
+      const villagersKeys = Object.keys(data);
       for (let i = 0; i < villagersKeys.length; i++) {
         const key = villagersKeys[i];
-        villagers.value.push({ key, ...data.body[key] });
+        villagers.value.push({ key, ...data[key] });
       }
     }
   }

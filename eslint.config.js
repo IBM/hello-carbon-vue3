@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
 import pluginCypress from "eslint-plugin-cypress/flat";
-import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";
+import stylistic from "@stylistic/eslint-plugin";
 
 export default [
   {
@@ -25,7 +25,11 @@ export default [
       "cypress/support/**/*.{js,ts,jsx,tsx}",
     ],
   },
-  skipFormatting,
+  stylistic.configs.customize({
+    "quotes": "double",
+    "semi": true,
+    "arrow-parens": "as-needed",
+  }),
   {
     rules: {
       "no-console": ["error", { allow: ["warn", "error"] }],

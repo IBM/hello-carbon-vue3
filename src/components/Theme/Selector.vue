@@ -24,7 +24,10 @@ function changeTheme(id) {
 
 <template>
   <cv-switcher>
-    <cv-switcher-item v-for="entry in themes" :key="entry.id">
+    <cv-switcher-item
+      v-for="entry in themes"
+      :key="entry.id"
+    >
       <cv-switcher-item-link
         :selected="entry.id === theme"
         :data-cy="`theme-${entry.id}`"

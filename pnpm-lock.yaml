@@ -25,13 +25,13 @@ importers:
         version: 10.59.1
       i18next:
         specifier: ^25.2.0
-        version: 25.2.0(typescript@5.3.3)
+        version: 25.2.1(typescript@5.3.3)
       i18next-http-backend:
         specifier: ^3.0.2
         version: 3.0.2
       i18next-vue:
         specifier: ^5.3.0
-        version: 5.3.0(i18next@25.2.0(typescript@5.3.3))(vue@3.5.14(typescript@5.3.3))
+        version: 5.3.0(i18next@25.2.1(typescript@5.3.3))(vue@3.5.14(typescript@5.3.3))
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -137,8 +137,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/runtime@7.27.1':
-    resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
+  '@babel/runtime@7.27.6':
+    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.27.1':
@@ -1699,8 +1699,8 @@ packages:
       i18next: '>=23'
       vue: ^3.4.38
 
-  i18next@25.2.0:
-    resolution: {integrity: sha512-ERhJICsxkw1vE7G0lhCUYv4ZxdBEs03qblt1myJs94rYRK9loJF3xDj8mgQz3LmCyp0yYrNjbN/1/GWZTZDGCA==}
+  i18next@25.2.1:
+    resolution: {integrity: sha512-+UoXK5wh+VlE1Zy5p6MjcvctHXAhRwQKCxiJD8noKZzIXmnAX8gdHX5fLPA3MEVxEN4vbZkQFy8N0LyD9tUqPw==}
     peerDependencies:
       typescript: ^5
     peerDependenciesMeta:
@@ -2858,7 +2858,7 @@ snapshots:
     dependencies:
       '@babel/types': 7.27.6
 
-  '@babel/runtime@7.27.1': {}
+  '@babel/runtime@7.27.6': {}
 
   '@babel/types@7.27.1':
     dependencies:
@@ -4481,14 +4481,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  i18next-vue@5.3.0(i18next@25.2.0(typescript@5.3.3))(vue@3.5.14(typescript@5.3.3)):
+  i18next-vue@5.3.0(i18next@25.2.1(typescript@5.3.3))(vue@3.5.14(typescript@5.3.3)):
     dependencies:
-      i18next: 25.2.0(typescript@5.3.3)
+      i18next: 25.2.1(typescript@5.3.3)
       vue: 3.5.14(typescript@5.3.3)
 
-  i18next@25.2.0(typescript@5.3.3):
+  i18next@25.2.1(typescript@5.3.3):
     dependencies:
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.6
     optionalDependencies:
       typescript: 5.3.3
 

@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
-const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 const SONGS_URL = BASE_URL + "/songs";
 /**
  * Name object data

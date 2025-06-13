@@ -27,7 +27,9 @@ const sellPrice = computed(() => {
 
 <template>
   <div data-cy="song-card">
-    <div class="productive-heading-01">{{ songName }}</div>
+    <div class="productive-heading-01">
+      {{ songName }}
+    </div>
     <div style="width: 100%">
       <cv-aspect-ratio>
         <blur-image

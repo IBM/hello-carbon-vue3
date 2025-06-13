@@ -15,8 +15,7 @@ checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnix
 - [Pinia](https://pinia.vuejs.org/) — this replaces Vuex store
 - [i18next](https://www.i18next.com/) — this repo demonstrates how to include translations using i18next. All UI
   elements are translated and most content is translated.
-- [superagent](https://www.npmjs.com/package/superagent) - I like this package better than axios and use it here to demo
-  making REST calls
+- [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — REST calls via fetch
 - [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, and many other useful utilities
 - [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
 - [lint-staged](https://www.npmjs.com/package/lint-staged) — Run linters against staged git files

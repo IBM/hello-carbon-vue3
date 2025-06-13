@@ -15,12 +15,13 @@ onMounted(() => {
     bugStore.loadBugs().finally(() => {
       const groups = groupBy(bugStore.bugs, "availability.location");
       const keys = Object.keys(groups);
-      bugGroups.value = keys.map(key => {
+      bugGroups.value = keys.map((key) => {
         return { location: key, bugs: groups[key] };
       });
       loading.value = false;
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.error("error loading bugs from API", e.message);
   }
 });
@@ -30,32 +31,43 @@ onMounted(() => {
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="productive-heading-03 mb-8">{{ t("bugs") }}</div>
+        <div class="productive-heading-03 mb-8">
+          {{ t("bugs") }}
+        </div>
       </cv-column>
     </cv-row>
     <cv-row>
       <cv-column>
-        <cv-link to="/build-a-bug" class="text-2xl py-8">{{
-          t("build-a-bug")
-        }}</cv-link>
+        <cv-link
+          to="/build-a-bug"
+          class="text-2xl py-8"
+        >
+          {{
+            t("build-a-bug")
+          }}
+        </cv-link>
       </cv-column>
     </cv-row>
     <cv-row>
       <cv-column>
-        <cv-accordion-skeleton v-if="loading"></cv-accordion-skeleton>
+        <cv-accordion-skeleton v-if="loading" />
         <cv-accordion v-else>
           <cv-accordion-item
             v-for="(group, index) in bugGroups"
             :key="`bug-group-${group.location}`"
             :open="index === 0"
           >
-            <template #title
-              >{{ group.location }} ({{ group.bugs.length }})
+            <template #title>
+              {{ group.location }} ({{ group.bugs.length }})
             </template>
             <template #content>
               <cv-grid :full-width="true">
                 <cv-row>
-                  <cv-column v-for="bug in group.bugs" :key="bug.key" :lg="4">
+                  <cv-column
+                    v-for="bug in group.bugs"
+                    :key="bug.key"
+                    :lg="4"
+                  >
                     <bug-card :bug="bug" />
                   </cv-column>
                 </cv-row>

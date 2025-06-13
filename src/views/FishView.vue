@@ -35,7 +35,8 @@ onMounted(() => {
       pagination.value.numberOfItems = fishStore.fish.length;
       loading.value = false;
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.error("error loading fish from API", e.message);
   }
 });
@@ -46,7 +47,7 @@ function onSort(keys) {
 
 const searchFilter = ref("");
 /**
- * Set search filter
+ * Set a search filter
  * @param {string} val
  */
 function onSearch(val) {
@@ -134,8 +135,12 @@ const { md, carbonMd } = useBreakpoints();
           :label="t('catch-phrases')"
           class="mb-2"
         >
-          <template #text-right>{{ t("yes") }}</template>
-          <template #text-left>{{ t("no") }}</template>
+          <template #text-right>
+            {{ t("yes") }}
+          </template>
+          <template #text-left>
+            {{ t("no") }}
+          </template>
         </cv-toggle>
         <cv-data-table-skeleton
           v-if="loading"
@@ -143,7 +148,7 @@ const { md, carbonMd } = useBreakpoints();
           :rows="7"
           :title="t('fish')"
           :helper-text="t('fish-info')"
-        ></cv-data-table-skeleton>
+        />
         <cv-data-table
           v-else
           v-model:rows-selected="selectedFish"
@@ -174,27 +179,48 @@ const { md, carbonMd } = useBreakpoints();
             <!-- { "start": 1, "end": 7, "items": 80 } -->
             {{ t("range-text", scope) }}
           </template>
-          <template v-if="filteredFish.length > 0" #batch-actions>
-            <cv-button :icon="hideIcon" @click="onHideSelected">{{
-              t("hide")
-            }}</cv-button>
+          <template
+            v-if="filteredFish.length > 0"
+            #batch-actions
+          >
+            <cv-button
+              :icon="hideIcon"
+              @click="onHideSelected"
+            >
+              {{
+                t("hide")
+              }}
+            </cv-button>
           </template>
-          <template v-if="fishStore.someHidden" #actions>
+          <template
+            v-if="fishStore.someHidden"
+            #actions
+          >
             <cv-data-table-action
               :aria-label="t('show')"
               :alt="t('show')"
               @click="toggleShowAll"
             >
-              <hide-icon v-if="showHidden" class="bx--toolbar-action__icon">
+              <hide-icon
+                v-if="showHidden"
+                class="bx--toolbar-action__icon"
+              >
                 <title>{{ t("hide") }}</title>
               </hide-icon>
-              <show-all-icon v-else class="bx--toolbar-action__icon">
+              <show-all-icon
+                v-else
+                class="bx--toolbar-action__icon"
+              >
                 <title>{{ t("show") }}</title>
               </show-all-icon>
             </cv-data-table-action>
           </template>
           <template #headings>
-            <cv-data-table-heading :heading="t('name')" name="name" sortable />
+            <cv-data-table-heading
+              :heading="t('name')"
+              name="name"
+              sortable
+            />
             <cv-data-table-heading heading="" />
             <cv-data-table-heading
               v-if="md"
@@ -220,7 +246,11 @@ const { md, carbonMd } = useBreakpoints();
             />
           </template>
           <template #data>
-            <fish-row v-for="row in paginated" :key="row.key" :fish="row" />
+            <fish-row
+              v-for="row in paginated"
+              :key="row.key"
+              :fish="row"
+            />
             <fish-row-empty v-if="filteredFish.length === 0" />
           </template>
         </cv-data-table>

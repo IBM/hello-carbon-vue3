@@ -13,10 +13,8 @@
     "test:e2e": "cypress run --e2e",
     "test:unit": "cypress run --component",
     "lint": "eslint --fix .",
-    "dev:lint": "eslint .",
-    "ci:lint": "eslint && prettier --check src/",
-    "prepare": "husky",
-    "format": "prettier --write src/"
+    "ci:lint": "eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",
@@ -38,8 +36,8 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.27.0",
+    "@stylistic/eslint-plugin": "^4.4.1",
     "@vitejs/plugin-vue": "^5.2.4",
-    "@vue/eslint-config-prettier": "^10.2.0",
     "autoprefixer": "^10.4.21",
     "cypress": "^14.4.0",
     "eslint": "^9.27.0",
@@ -49,15 +47,12 @@
     "jsdom": "^26.1.0",
     "lint-staged": "^16.0.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.3.5"
   },
   "lint-staged": {
     "!(dist/**/*)*.{js,vue}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "!(dist/**/*)*.{md,html}": "prettier --write"
+      "eslint --fix"
+    ]
   }
 }

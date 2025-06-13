@@ -36,7 +36,7 @@ onMounted(() => {
     villagerStore.loadVillagers().finally(() => {
       const groups = groupBy(villagerStore.villagers, "hobby");
       const keys = Object.keys(groups);
-      villagerHobbies.value = keys.map(key => {
+      villagerHobbies.value = keys.map((key) => {
         return { hobby: key, villagers: groups[key] };
       });
 
@@ -53,7 +53,8 @@ onMounted(() => {
       selected.value = `switcher-${villagerHobbies.value[which].hobby}`;
       loading.value = false;
     });
-  } catch (e) {
+  }
+  catch (e) {
     console.error("error loading bugs from API", e.message);
   }
 });
@@ -119,7 +120,8 @@ function calcRunWidth() {
     const left = parseInt(cssObj?.getPropertyValue("padding-left"), 10) || 0;
     const right = parseInt(cssObj?.getPropertyValue("padding-right"), 10) || 0;
     runWidth.value = btn.clientWidth - left - right - 16;
-  } else setTimeout(calcRunWidth, 250); // try agan later
+  }
+  else setTimeout(calcRunWidth, 250); // try agan later
 }
 onMounted(() => calcRunWidth());
 </script>
@@ -128,19 +130,25 @@ onMounted(() => calcRunWidth());
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="title productive-heading-03">{{ t("villagers") }}</div>
+        <div class="title productive-heading-03">
+          {{ t("villagers") }}
+        </div>
       </cv-column>
     </cv-row>
     <cv-row>
       <cv-column>
-        <cv-content-switcher ref="contentSwitcher" @selected="onSelected">
+        <cv-content-switcher
+          ref="contentSwitcher"
+          @selected="onSelected"
+        >
           <cv-content-switcher-button
             v-for="group in villagerHobbies"
             :key="`switcher-${group.hobby}`"
             :owner-id="`switcher-${group.hobby}`"
             :icon="hobbyIcon(group.hobby)"
             :selected="`switcher-${group.hobby}` === selected"
-            >{{ t(group.hobby) }}
+          >
+            {{ t(group.hobby) }}
             <icon-bouncing
               v-if="showBouncing(group.hobby)"
               class="special-icon special-icon--play"

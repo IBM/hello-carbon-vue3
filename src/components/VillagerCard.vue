@@ -28,7 +28,9 @@ const catchPhrase = computed(() => {
   <div
     class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
   >
-    <div class="font-semibold text-base">{{ name }}</div>
+    <div class="font-semibold text-base">
+      {{ name }}
+    </div>
     <div class="flex justify-end">
       <chat-bubble
         :text="catchPhrase"

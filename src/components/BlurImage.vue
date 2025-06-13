@@ -14,6 +14,6 @@ defineProps({
       :alt="alt"
       class="size-full transition duration-1000"
       :class="{ 'blur-0': isVisible, blur: !isVisible }"
-    />
+    >
   </UseElementVisibility>
 </template>

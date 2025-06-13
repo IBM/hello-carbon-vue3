@@ -27,9 +27,9 @@ const bugName = computed(() => {
 });
 
 const rarityMap = {
-  Common: "gray",
-  Uncommon: "green",
-  Rare: "purple",
+  "Common": "gray",
+  "Uncommon": "green",
+  "Rare": "purple",
   "Ultra-rare": "magenta",
 };
 const rarity = computed(() => {
@@ -39,20 +39,27 @@ const rarity = computed(() => {
 
 <template>
   <div class="bug-card border border-solid border-carbon-purple-60 mb-2">
-    <div class="bug-card-inner" :class="{ 'bug-card-flip': flip }">
+    <div
+      class="bug-card-inner"
+      :class="{ 'bug-card-flip': flip }"
+    >
       <div class="bug-card-front bg-carbon-gray-50">
         <div>
           <blur-image
             :src="bug.icon_uri"
             :alt="bug.key"
             :src-placeholder="placeholderImage"
-            bug-card__image
+            class="bug-card__image"
           />
         </div>
         <div>
-          <cv-tag :label="t(bug.availability.rarity)" :kind="rarity" />
+          <cv-tag
+            :label="t(bug.availability.rarity)"
+            :kind="rarity"
+          />
         </div>
         <cv-icon-button
+          v-if="!flip"
           kind="ghost"
           size="sm"
           :icon="FlipIcon"
@@ -70,6 +77,7 @@ const rarity = computed(() => {
           {{ bug["museum-phrase"] }}
         </div>
         <cv-icon-button
+          v-if="flip"
           kind="ghost"
           size="sm"
           :icon="FlipIcon"
@@ -81,7 +89,7 @@ const rarity = computed(() => {
       </div>
     </div>
   </div>
-  <div></div>
+  <div />
 </template>
 
 <style scoped lang="scss">

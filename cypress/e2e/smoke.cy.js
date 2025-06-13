@@ -2,9 +2,9 @@ describe("smoke test", () => {
   it("should have basic home page content", () => {
     cy.visit("/");
     // are icons working?
-    cy.get('[data-cy="language-icon"]');
+    cy.get("[data-cy=\"language-icon\"]");
     cy.get(".cv-side-nav-items");
-    cy.get('[data-cy="song-card"]').its("length").should("be.greaterThan", 20);
+    cy.get("[data-cy=\"song-card\"]").its("length").should("be.greaterThan", 20);
     cy.get("#side-nav").find("li").eq(2).click();
     cy.location("pathname").should("eq", "/fish");
     cy.get(".cv-data-table");
@@ -20,7 +20,7 @@ describe("smoke test", () => {
     // villagers
     cy.get("#side-nav").find("li").eq(4).click();
     cy.location("pathname").should("eq", "/villagers");
-    cy.get('[data-cy="hobby"]').should("have.length", 6);
+    cy.get("[data-cy=\"hobby\"]").should("have.length", 6);
 
     // home
     cy.get("#side-nav").find("li").first().click();
@@ -29,15 +29,15 @@ describe("smoke test", () => {
   it("should have basic i18n content", () => {
     // Deutsch
     cy.visit("/fish");
-    cy.get('[data-cy="language-icon"]').click();
-    cy.get('[data-cy="language-de"]').click();
+    cy.get("[data-cy=\"language-icon\"]").click();
+    cy.get("[data-cy=\"language-de\"]").click();
     cy.contains("Fisch");
     cy.contains("Informationen über alle Fische");
     cy.contains("Nein");
 
     // English
-    cy.get('[data-cy="language-icon"]').click();
-    cy.get('[data-cy="language-en"]').click();
+    cy.get("[data-cy=\"language-icon\"]").click();
+    cy.get("[data-cy=\"language-en\"]").click();
     cy.contains("Fish");
     cy.contains("Information about all the fish");
     cy.contains("No");

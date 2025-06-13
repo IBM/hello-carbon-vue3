@@ -16,5 +16,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: npm run dev:build
-          start: npm run dev:preview --port 5173
+          start: npm run dev:preview
           browser: ${{ matrix.browser }}

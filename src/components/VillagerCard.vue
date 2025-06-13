@@ -26,7 +26,7 @@ const catchPhrase = computed(() => {
 
 <template>
   <div
-    class="villager p-2 bg-carbon-gray-50 mt-2 mr-2 mb-4 border border-solid border-carbon-purple-60"
+    class="p-2! bg-carbon-gray-50 border border-solid border-carbon-purple-60"
   >
     <div class="font-semibold text-base">
       {{ name }}
@@ -37,13 +37,15 @@ const catchPhrase = computed(() => {
         :bubble-color="villager['bubble-color']"
         :text-color="villager['text-color']"
         kind="top-right"
+        class="text-center"
       />
     </div>
-    <div class="flex justify-around my-4">
+    <div class="flex justify-around my-4!">
       <blur-image
         :src="villager.icon_uri"
         :alt="name"
         :src-placeholder="placeholderImage"
+        class="size-32"
       />
     </div>
     <div class="villager__saying">
@@ -57,7 +59,7 @@ const catchPhrase = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.villager {
+.xxvillager {
   height: calc(100% - 1rem);
 }
 </style>

@@ -19,7 +19,7 @@ defineProps({
     ]"
     :style="{ 'background-color': bubbleColor }"
   >
-    <div class="talk-text">
+    <div class="p-2! text-xs!">
       <p :style="{ color: textColor }">
         {{ text }}
       </p>
@@ -269,7 +269,7 @@ defineProps({
 
 /* talk bubble contents */
 .talk-text {
-  padding: 1em;
+  padding: 0.5em;
   text-align: left;
   line-height: 1.5em;
 }

@@ -16,18 +16,12 @@ const { t } = useTranslation();
     <div class="productive-heading-03">
       {{ t("hobby") }}:{{ t(hobbyists.hobby) }}
     </div>
-    <div>
-      <cv-grid :full-width="true">
-        <cv-row>
-          <cv-column
-            v-for="villager in hobbyists.villagers"
-            :key="villager.key"
-            :lg="4"
-          >
-            <villager-card :villager="villager" />
-          </cv-column>
-        </cv-row>
-      </cv-grid>
+    <div class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
+      <villager-card
+        v-for="villager in hobbyists.villagers"
+        :key="villager.key"
+        :villager="villager"
+      />
     </div>
   </div>
 </template>

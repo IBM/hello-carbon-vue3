@@ -13,7 +13,7 @@ defineProps({
       :src="isVisible ? src : srcPlaceholder"
       :alt="alt"
       class="size-full transition duration-1000"
-      :class="{ 'blur-0': isVisible, blur: !isVisible }"
+      :class="{ 'blur-0': isVisible, 'blur-sm': !isVisible }"
     >
   </UseElementVisibility>
 </template>

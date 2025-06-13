@@ -37,8 +37,8 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.27.0",
     "@stylistic/eslint-plugin": "^4.4.1",
+    "@tailwindcss/postcss": "^4.1.10",
     "@vitejs/plugin-vue": "^5.2.4",
-    "autoprefixer": "^10.4.21",
     "cypress": "^14.4.0",
     "eslint": "^9.27.0",
     "eslint-plugin-cypress": "^4.3.0",
@@ -47,7 +47,7 @@
     "jsdom": "^26.1.0",
     "lint-staged": "^16.0.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.10",
     "vite": "^6.3.5"
   },
   "lint-staged": {

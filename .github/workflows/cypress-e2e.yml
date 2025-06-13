@@ -12,11 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install pnpm
-        run: npm i -g pnpm@9
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm run dev:build
-          start: pnpm run dev:preview --port 5173
+          build: npm run dev:build
+          start: npm run dev:preview --port 5173
           browser: ${{ matrix.browser }}

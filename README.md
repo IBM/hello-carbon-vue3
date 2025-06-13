@@ -77,31 +77,31 @@ See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creatin
 ## Project Setup
 
 ```sh
-nvm use 18
-npm add -g pnpm
-pnpm install
+nvm use
+npm add -g npm
+npm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-pnpm run dev
+npm run dev
 ```
 
 ### Build and test locally
 
 ```sh
-pnpm run local-build
+npm run local-build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-pnpm run lint
+npm run lint
 ```
 
 ## Update dependencies
 
 ```shell
-pnpm update --interactive
+npm update --interactive
 ```

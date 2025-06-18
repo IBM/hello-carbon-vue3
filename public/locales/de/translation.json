@@ -59,5 +59,13 @@
   "theme-white": "Weiß",
   "theme-g10": "Grau 10",
   "theme-g90": "Grau 90",
-  "theme-g100": "Grau 100"
+  "theme-g100": "Grau 100",
+  "error404header": "Hmm, wir können das scheinbar nicht finden.",
+  "error404description": "Die Seite, die Sie suchen, wurde nicht gefunden.",
+  "error500header": "Hmm, Sie haben uns wohl in einem ungünstigen Moment erwischt.",
+  "error500description": "Der Server ist derzeit nicht verfügbar, um diese Anfrage zu bearbeiten.",
+  "errorDemo": "Fehler-Demo",
+  "errorDemoDescription": "Verwenden Sie die folgenden Optionen, um Fehlerseiten zu simulieren.",
+  "errorDemoTrigger404": "404 Nicht gefunden auslösen",
+  "errorDemoTrigger500": "500 Serverfehler auslösen"
 }

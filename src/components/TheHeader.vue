@@ -9,6 +9,7 @@ import {
   UserAvatar20 as AvatarIcon,
   Switcher20 as SwitcherIcon,
   ColorPalette20 as ThemeIcon,
+  Error20 as ErrorIcon,
 } from "@carbon/icons-vue";
 import "@carbon/web-components/es/components/ui-shell/index.js";
 import HeaderPanelThemeSelector from "@/components/HeaderPanels/ThemeSelector.vue";
@@ -129,6 +130,12 @@ function onLogin() {
           <VillagersIcon />
         </template>
         {{ t('villagers') }}
+      </CvSideNavLink>
+      <CvSideNavLink :to="{name: 'error-demo'}">
+        <template #title-icon>
+          <ErrorIcon />
+        </template>
+        {{ t('errorDemo') }}
       </CvSideNavLink>
     </cds-side-nav-items>
   </cds-side-nav>

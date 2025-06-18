@@ -59,5 +59,13 @@
   "theme-white": "White",
   "theme-g10": "Gray 10",
   "theme-g90": "Gray 90",
-  "theme-g100": "Gray 100"
+  "theme-g100": "Gray 100",
+  "errorDemo": "Error Demo",
+  "errorDemoDescription": "Use the options below to simulate error pages.",
+  "errorDemoTrigger404": "Trigger 404 Not Found",
+  "errorDemoTrigger500": "Trigger 500 Server Error",
+  "error404header":  "Hmm, we can't seem to find that.",
+  "error404description": "The page you are looking for was not found.",
+  "error500header": "Hmm, it appears you’ve caught us at a bad time.",
+  "error500description": "The server is unavailable to handle this request right now."
 }

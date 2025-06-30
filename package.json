@@ -17,19 +17,19 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@carbon/icons-vue": "^10.99.1",
+    "@carbon/icons-vue": "^10.111.0",
     "@carbon/themes": "^10.55.6",
     "@carbon/vue": "^3.0.26",
-    "@vueuse/components": "^13.3.0",
+    "@vueuse/components": "^13.4.0",
     "@vueuse/core": "^13.2.0",
-    "carbon-components": "^10.59.1",
+    "carbon-components": "^10.59.2",
     "i18next": "^25.2.0",
     "i18next-http-backend": "^3.0.2",
     "i18next-vue": "^5.3.0",
     "lodash": "^4.17.21",
     "pinia": "^3.0.2",
     "sass": "^1.89.0",
-    "vue": "^3.5.14",
+    "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {

@@ -20,7 +20,7 @@
   "dependencies": {
     "@carbon/icons-vue": "^10.109.0",
     "@carbon/themes": "^10.55.6",
-    "@carbon/vue": "^3.0.26",
+    "@carbon/vue": "^3.0.27",
     "@nuxt/eslint": "^1.4.1",
     "@nuxtjs/i18n": "^9.5.4",
     "@nuxtjs/tailwindcss": "^6.14.0",

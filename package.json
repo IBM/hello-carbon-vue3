@@ -27,7 +27,7 @@
     "@sidebase/nuxt-auth": "^0.10.1",
     "luxon": "^3.6.1",
     "next-auth": "~4.21.1",
-    "nuxt": "^3.17.4",
+    "nuxt": "^4.0.1",
     "vue": "latest",
     "vue-router": "latest",
     "winston": "^3.17.0"

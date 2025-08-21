@@ -31,7 +31,7 @@ See [carbon-white.scss](./src/styles/_carbon-white.scss) for instructions on cre
 
 ## Pages & Components
 
-[This repo demo site](https://davidnixon.github.io/hello-carbon11-vue3/)
+[This repo demo site](https://ibm.github.io/hello-carbon-vue3/hello-carbon11-vue3/)
 
 - Header with Side nav
     - Side nav with divider

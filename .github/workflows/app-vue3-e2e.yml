@@ -1,17 +1,30 @@
-name: End-to-end tests
+name: App Vue3 - E2E tests
 permissions:
   contents: read
   pull-requests: write
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - 'apps/hello-carbon-vue3/**'
+      - 'app-vue3-e2e.yml'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/hello-carbon-vue3
     strategy:
       matrix:
         browser: [ chrome, firefox ]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: npm ci || npm install
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:

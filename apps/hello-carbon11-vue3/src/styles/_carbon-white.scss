@@ -1,0 +1,12 @@
+// Do not use this file directly. Create css with:
+// npx sass@latest --load-path=node_modules src/styles/_carbon-white.scss src/styles/carbon-white.css
+@use '@carbon/themes/scss/themes' as themes;
+@use '@carbon/themes/scss/theme';
+@use '@carbon/styles/css/styles.css';
+
+@use './common';
+
+.cv-grid {
+  margin-left: 4rem;
+  margin-top: 4rem;
+}

@@ -1,0 +1,48 @@
+name: End-to-end tests
+permissions:
+  contents: read
+  pull-requests: write
+on: pull_request
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # firefox is not working for auth - https://github.com/cypress-io/cypress/issues/18217
+        browser: [ chrome, edge ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Start containers
+        run: |
+          cd local-dev
+          docker compose -f "compose.yml" up -d
+          docker compose logs --follow ibmid &
+          sleep 45
+
+      - name: Start mock marvel server
+        uses: mockoon/cli-action@v2.0.0
+        with:
+          version: "latest"
+          data-file: "./local-dev/mock/mock-api.json"
+          port: 4513
+
+      - name: Test with sample env
+        run: cp .env.example .env
+
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        env:
+          PORT: 6619
+        with:
+          build: npm run build
+          start: npm run preview
+          browser: ${{ matrix.browser }}

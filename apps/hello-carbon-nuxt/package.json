@@ -1,0 +1,49 @@
+{
+  "name": "hello-carbon-nuxt",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "PORT=4507 nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "eslint . --fix",
+    "dev:e2e": "npx cypress open --e2e",
+    "test:e2e": "npx cypress run --e2e --browser chrome",
+    "test:e2e:ff": "npx cypress run --e2e --browser firefox",
+    "test:e2e:edge": "npx cypress run --e2e --browser edge",
+    "test:e2e:safari": "npx cypress run --e2e --browser safari",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@carbon/icons-vue": "^10.109.0",
+    "@carbon/themes": "^10.55.6",
+    "@carbon/vue": "^3.0.27",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxtjs/i18n": "^9.5.4",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@sidebase/nuxt-auth": "^0.10.1",
+    "luxon": "^3.6.1",
+    "next-auth": "~4.21.1",
+    "nuxt": "^4.0.1",
+    "vue": "latest",
+    "vue-router": "latest",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.3",
+    "eslint": "^9.32.0",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^16.1.2",
+    "sass": "^1.89.2"
+  },
+  "resolutions": {
+    "vue-i18n": "10.0.6"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue}": "eslint --fix"
+  }
+}

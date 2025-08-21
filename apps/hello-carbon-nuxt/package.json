@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev -p 5175",
+    "dev:build": "nuxt build",
     "generate": "nuxt generate",
-    "preview": "PORT=4507 nuxt preview",
+    "preview": "PORT=5175 nuxt preview",
+    "dev:preview": "PORT=5175 nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 .",
     "lint:fix": "eslint . --fix",

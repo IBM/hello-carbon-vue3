@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/hello-carbon11-vue3/",
-    "local:build": "vite build",
-    "preview": "vite preview --port 5173",
+    "dev:build": "vite build",
+    "preview": "vite preview --port 5174",
+    "dev:preview": "vite preview --port 5174",
     "dev:e2e": "cypress open --e2e",
     "test:e2e": "cypress run --e2e",
     "lint": "eslint --fix .",

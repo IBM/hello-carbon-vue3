@@ -1,58 +1,8 @@
 {
-  "name": "hello-carbon-vue3",
-  "version": "1.0.0",
+  "name": "hello-carbon-monorepo",
   "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build --base=/hello-carbon-vue3/",
-    "dev:build": "vite build",
-    "preview": "vite preview --base=/hello-carbon-vue3/ --port 5173",
-    "dev:preview": "vite preview --port 5173",
-    "dev:e2e": "cypress open --e2e",
-    "test:e2e": "cypress run --e2e",
-    "test:unit": "cypress run --component",
-    "lint": "eslint --fix .",
-    "ci:lint": "eslint .",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "@carbon/icons-vue": "^10.99.1",
-    "@carbon/themes": "^10.55.6",
-    "@carbon/vue": "^3.0.26",
-    "@vueuse/components": "^13.3.0",
-    "@vueuse/core": "^13.2.0",
-    "carbon-components": "^10.59.1",
-    "i18next": "^25.2.0",
-    "i18next-http-backend": "^3.0.2",
-    "i18next-vue": "^5.3.0",
-    "lodash": "^4.17.21",
-    "pinia": "^3.0.2",
-    "sass": "^1.89.0",
-    "vue": "^3.5.14",
-    "vue-router": "^4.5.1"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.27.0",
-    "@stylistic/eslint-plugin": "^4.4.1",
-    "@tailwindcss/postcss": "^4.1.10",
-    "@vitejs/plugin-vue": "^5.2.4",
-    "cypress": "^14.4.0",
-    "eslint": "^9.27.0",
-    "eslint-plugin-cypress": "^4.3.0",
-    "eslint-plugin-vue": "^9.33.0",
-    "husky": "^9.1.7",
-    "jsdom": "^26.1.0",
-    "lint-staged": "^16.0.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.10",
-    "vite": "^6.3.5"
-  },
-  "lint-staged": {
-    "!(dist/**/*)*.{js,vue}": [
-      "eslint --fix"
-    ]
-  }
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*"
+  ]
 }

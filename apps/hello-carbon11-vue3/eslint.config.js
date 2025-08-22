@@ -13,11 +13,7 @@ export default [
     name: "app/files-to-ignore",
     ignores: ["**/dist/**", "**/dist-ssr/**", "**/coverage/**"],
   },
-  stylistic.configs["recommended-flat"],
-  stylistic.configs.customize({
-    quotes: "double",
-    semi: true,
-  }),
+
   js.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
 
@@ -29,21 +25,30 @@ export default [
       "cypress/support/**/*.{js,ts,jsx,tsx}",
     ],
   },
+  stylistic.configs.customize({
+    "quotes": "double",
+    "semi": true,
+    "arrow-parens": "as-needed",
+  }),
   {
     rules: {
       "no-console": ["error", { allow: ["warn", "error"] }],
-      "vue/no-deprecated-slot-attribute": "off",
       "vue/multi-word-component-names": "off",
       "vue/component-tags-order": [
         "warn",
         {
-          order: [
-            "script",
-            "template",
-            "style",
-          ],
+          order: ["script", "template", "style"],
         },
       ],
+      "vue/component-name-in-template-casing": [
+        "error",
+        "PascalCase",
+        {
+          registeredComponentsOnly: true,
+          ignores: [],
+        },
+      ],
+      "vue/no-deprecated-slot-attribute": "off", // for web components
     },
   },
 ];

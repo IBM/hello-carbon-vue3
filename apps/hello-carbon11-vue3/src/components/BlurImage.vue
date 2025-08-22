@@ -7,7 +7,7 @@ defineProps({
 });
 </script>
 <template>
-  <v-lazy-image
+  <VLazyImage
     :src="src"
     :src-placeholder="srcPlaceholder"
     :alt="alt"

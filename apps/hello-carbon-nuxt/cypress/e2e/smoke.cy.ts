@@ -1,3 +1,5 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
+
 describe('smoke test', () => {
   it('should have basic content', () => {
     cy.visit('/')

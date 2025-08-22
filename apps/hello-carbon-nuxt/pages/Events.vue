@@ -206,18 +206,18 @@ provide('show-description', showDescription)
               :alt="$t('show')"
               @click="toggleShowAll"
             >
-              <hide-icon
+              <HideIcon
                 v-if="showHidden"
                 class="bx--toolbar-action__icon"
               >
                 <title>{{ $t("hide") }}</title>
-              </hide-icon>
-              <show-all-icon
+              </HideIcon>
+              <ShowAllIcon
                 v-else
                 class="bx--toolbar-action__icon"
               >
                 <title>{{ $t("show") }}</title>
-              </show-all-icon>
+              </ShowAllIcon>
             </cv-data-table-action>
           </template>
           <template #headings>

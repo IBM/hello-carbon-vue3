@@ -15,7 +15,7 @@ const listDescription = computed(() => {
     return `Characters ${offset} .. ${last} of ${total}`
   }
   catch (err) {
-    console.debug(err?.message)
+    console.warn(err?.message)
     return ''
   }
 })

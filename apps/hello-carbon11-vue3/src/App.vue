@@ -9,7 +9,7 @@ useTheme();
 
 <template>
   <div>
-    <the-header />
-    <router-view />
+    <TheHeader />
+    <RouterView />
   </div>
 </template>

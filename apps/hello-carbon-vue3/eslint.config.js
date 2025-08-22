@@ -33,6 +33,7 @@ export default [
   {
     rules: {
       "no-console": ["error", { allow: ["warn", "error"] }],
+      "vue/multi-word-component-names": "off",
       "vue/component-tags-order": [
         "warn",
         {

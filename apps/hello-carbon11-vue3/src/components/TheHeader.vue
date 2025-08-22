@@ -49,7 +49,7 @@ function onLogin() {
         tooltip-position="bottom"
         tooltip-alignment="end"
       >
-        <theme-icon slot="icon" />
+        <ThemeIcon slot="icon" />
       </cds-header-global-action>
       <cds-header-global-action
         :aria-label="t('choose-language')"
@@ -59,7 +59,7 @@ function onLogin() {
         tooltip-position="bottom"
         tooltip-alignment="end"
       >
-        <language-icon
+        <LanguageIcon
           slot="icon"
           data-cy="language-icon"
         />
@@ -76,11 +76,11 @@ function onLogin() {
           name="fade"
           mode="out-in"
         >
-          <avatar-icon
+          <AvatarIcon
             v-if="loggedIn"
             slot="icon"
           />
-          <login-icon
+          <LoginIcon
             v-else
             slot="icon"
           />
@@ -94,7 +94,7 @@ function onLogin() {
         tooltip-position="bottom"
         tooltip-alignment="end"
       >
-        <switcher-icon slot="icon" />
+        <SwitcherIcon slot="icon" />
       </cds-header-global-action>
     </div>
     <HeaderPanelThemeSelector id="choose-theme" />

@@ -86,7 +86,7 @@ function sideNav() {
         tip-alignment="end"
         @click="signIn(defaultProviderId, { callbackUrl: '/', redirect: true })"
       >
-        <login-icon />
+        <LoginIcon />
       </cv-header-global-action>
       <cv-header-global-action
         v-else-if="status==='authenticated'"
@@ -97,7 +97,7 @@ function sideNav() {
         tip-position="bottom"
         tip-alignment="end"
       >
-        <avatar-icon />
+        <AvatarIcon />
       </cv-header-global-action>
       <cv-header-global-action
         v-else
@@ -107,7 +107,7 @@ function sideNav() {
         tip-position="bottom"
         tip-alignment="end"
       >
-        <login-loading-icon />
+        <LoginLoadingIcon />
       </cv-header-global-action>
       <cv-header-global-action
         id="header-menu-button-language"
@@ -117,7 +117,7 @@ function sideNav() {
         tip-position="bottom"
         tip-alignment="end"
       >
-        <language-icon />
+        <LanguageIcon />
       </cv-header-global-action>
       <cv-header-global-action
         id="header-menu-button-apps"
@@ -127,7 +127,7 @@ function sideNav() {
         tip-position="bottom"
         tip-alignment="end"
       >
-        <switcher-icon />
+        <SwitcherIcon />
       </cv-header-global-action>
     </template>
     <template #right-panels>
@@ -189,7 +189,7 @@ function sideNav() {
             to="/"
           >
             <template #nav-icon>
-              <home-icon />
+              <HomeIcon />
             </template>
             {{ $t("home") }}
           </cv-side-nav-link>
@@ -200,7 +200,7 @@ function sideNav() {
             to="/characters"
           >
             <template #nav-icon>
-              <characters-icon />
+              <CharactersIcon />
             </template>
             {{ $t("characters") }}
           </cv-side-nav-link>
@@ -210,7 +210,7 @@ function sideNav() {
             to="/comics"
           >
             <template #nav-icon>
-              <comics-icon />
+              <ComicsIcon />
             </template>
             {{ $t("comics") }}
           </cv-side-nav-link>

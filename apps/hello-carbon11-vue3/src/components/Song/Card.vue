@@ -30,7 +30,7 @@ const sellPrice = computed(() => {
     <h6>{{ songName }}</h6>
     <div style="width: 100%">
       <div class="aspect-square">
-        <blur-image
+        <BlurImage
           :src="song['image_uri']"
           :src-placeholder="placeholderImage"
           :alt="songName"
@@ -41,13 +41,13 @@ const sellPrice = computed(() => {
     <div class="text-sm flex flex-row justify-between mb-4">
       <div>
         <div>{{ buyPrice }}</div>
-        <buy-icon />
+        <BuyIcon />
       </div>
       <div>
         <div class="mr-2">
           {{ sellPrice }}
         </div>
-        <sell-icon />
+        <SellIcon />
       </div>
     </div>
   </div>

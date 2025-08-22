@@ -67,7 +67,7 @@ const { md } = useBreakpoints();
       {{ fishName }}
     </cds-table-cell>
     <cds-table-cell>
-      <blur-image
+      <BlurImage
         class="size-12 object-contain max-w-none"
         :src="fish['icon_uri']"
         :src-placeholder="placeholderImage"
@@ -81,31 +81,31 @@ const { md } = useBreakpoints();
       {{ cjFishPrice }}
     </cds-table-cell>
     <cds-table-cell>
-      <pond-icon
+      <PondIcon
         v-if="location === 'pond'"
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
         class="fill-carbon-blue-40"
       />
-      <river-icon
+      <RiverIcon
         v-else-if="location === 'river'"
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
         class="fill-carbon-blue-60"
       />
-      <sea-icon
+      <SeaIcon
         v-else-if="location === 'sea'"
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
         class="fill-carbon-teal-30"
       />
-      <pier-icon
+      <PierIcon
         v-else-if="location === 'pier'"
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
         class="fill-carbon-green-20"
       />
-      <location-icon
+      <LocationIcon
         v-else
         :alt="fish.availability?.location"
         :title="fish.availability?.location"
@@ -123,10 +123,10 @@ const { md } = useBreakpoints();
           'text-carbon-magenta-30': rarity > 4 || rarity < 1,
         }"
       >
-        <rare-icon v-if="rarity >= 1" />
-        <rare-icon v-if="rarity >= 2" />
-        <rare-icon v-if="rarity >= 3" />
-        <rare-icon v-if="rarity >= 4" />
+        <RareIcon v-if="rarity >= 1" />
+        <RareIcon v-if="rarity >= 2" />
+        <RareIcon v-if="rarity >= 3" />
+        <RareIcon v-if="rarity >= 4" />
       </div>
     </cds-table-cell>
     <!-- Add optional expanding data here -->

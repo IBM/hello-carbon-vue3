@@ -1,5 +1,5 @@
 <script setup>
-import { useLanguageStore } from "../../stores/language.js";
+import { useLanguageStore } from "@/stores/language.js";
 import {
   Money20 as SellIcon,
   ShoppingCartPlus20 as BuyIcon,

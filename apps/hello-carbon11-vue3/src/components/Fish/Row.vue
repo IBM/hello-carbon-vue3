@@ -1,5 +1,5 @@
 <script setup>
-import { useLanguageStore } from "../../stores/language.js";
+import { useLanguageStore } from "@/stores/language.js";
 import { computed, inject, ref } from "vue";
 import {
   StarFilled16 as RareIcon,

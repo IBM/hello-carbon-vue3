@@ -17,7 +17,6 @@ the Carbon Design System A collection of Carbon Components
 - [@sidebase/nuxt-auth](https://auth.sidebase.io/) - User authentication and sessions via authjs. Tested and working with IBM Id & w3 Id.
 - [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/) - Tailwind CSS with custom Carbon colors
 - [winston](https://github.com/IBM/hello-carbon-vue3?tab=readme-ov-file) - A logger for just about everything
-- [commit-lint](https://commitlint.js.org/#/)- Helps your team adhere to a commit convention
 - [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
 
 ## Carbon styles

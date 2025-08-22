@@ -17,7 +17,6 @@ checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnix
   elements are translated and most content is translated.
 - [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — REST calls via fetch
 - [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, and many other useful utilities
-- [commit-lint](https://commitlint.js.org/#/) — Helps your team adhere to a commit convention
 - [cypress](https://www.cypress.io/) — Implement e2e tests with cypress to help screen PRs
 
 ## Carbon styles
@@ -30,7 +29,7 @@ See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creatin
 
 [This repo demo site](https://ibm.github.io/hello-carbon-vue3/hello-carbon-vue3/)
 
-- Header with Side nav ![header](docs/header-bar.jpg)
+- Header with Side nav ![header](../docs/header-bar.jpg)
   - Side nav with divider
   - Language selection in the header bar, login and switcher buttons are also included
 - Home page

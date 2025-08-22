@@ -1,0 +1,19 @@
+// Do not use this file directly. Create css with:
+// npx sass@1.77.6 --load-path=node_modules src/styles/_carbon-g100.scss src/styles/carbon-g100.css
+$feature-flags: (
+  grid-columns-16: true,
+);
+@import "@carbon/themes/scss/themes";
+
+// Use the gray 90 theme
+$carbon--theme: $carbon--theme--g100;
+@include carbon--theme();
+
+@import "carbon-components/scss/globals/scss/styles";
+
+#app > .cv-grid {
+  margin-left: 3rem;
+  margin-top: 4rem;
+}
+
+@import "./common";

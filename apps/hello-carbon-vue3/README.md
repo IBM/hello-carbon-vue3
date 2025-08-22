@@ -17,8 +17,6 @@ checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnix
   elements are translated and most content is translated.
 - [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — REST calls via fetch
 - [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, and many other useful utilities
-- [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
-- [lint-staged](https://www.npmjs.com/package/lint-staged) — Run linters against staged git files
 - [commit-lint](https://commitlint.js.org/#/) — Helps your team adhere to a commit convention
 - [cypress](https://www.cypress.io/) — Implement e2e tests with cypress to help screen PRs
 

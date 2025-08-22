@@ -18,8 +18,6 @@ checkout [Hello carbon Vue 3](https://github.com/IBM/hello-carbon-vue3)
 - [superagent](https://www.npmjs.com/package/superagent) - I like this package better than axios and use it here to demo
   making REST calls
 - [v-lazy-image](https://www.npmjs.com/package/v-lazy-image) - All images are lazy loaded via this package
-- [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
-- [lint-staged](https://www.npmjs.com/package/lint-staged) - Run linters against staged git files
 - [commit-lint](https://commitlint.js.org/#/) - Helps your team adhere to a commit convention
 - [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
 

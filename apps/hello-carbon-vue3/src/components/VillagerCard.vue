@@ -32,7 +32,7 @@ const catchPhrase = computed(() => {
       {{ name }}
     </div>
     <div class="flex justify-end">
-      <chat-bubble
+      <ChatBubble
         :text="catchPhrase"
         :bubble-color="villager['bubble-color']"
         :text-color="villager['text-color']"
@@ -41,7 +41,7 @@ const catchPhrase = computed(() => {
       />
     </div>
     <div class="flex justify-around my-4!">
-      <blur-image
+      <BlurImage
         :src="villager.icon_uri"
         :alt="name"
         :src-placeholder="placeholderImage"
@@ -49,7 +49,7 @@ const catchPhrase = computed(() => {
       />
     </div>
     <div class="villager__saying">
-      <chat-bubble
+      <ChatBubble
         :text="villager.saying"
         :bubble-color="villager['bubble-color']"
         :text-color="villager['text-color']"

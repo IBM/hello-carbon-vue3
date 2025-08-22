@@ -76,7 +76,7 @@ const otherApps = ref([
         tip-position="bottom"
         tip-alignment="end"
       >
-        <theme-icon />
+        <ThemeIcon />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t('choose-language')"
@@ -85,7 +85,7 @@ const otherApps = ref([
         tip-position="bottom"
         tip-alignment="start"
       >
-        <language-icon data-cy="language-icon" />
+        <LanguageIcon data-cy="language-icon" />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t(loggedIn ? 'logout' : 'login')"
@@ -95,8 +95,8 @@ const otherApps = ref([
         tip-alignment="center"
         @click="onLogin"
       >
-        <avatar-icon v-if="loggedIn" />
-        <login-icon v-else />
+        <AvatarIcon v-if="loggedIn" />
+        <LoginIcon v-else />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t('other-apps')"
@@ -105,7 +105,7 @@ const otherApps = ref([
         tip-position="bottom"
         tip-alignment="end"
       >
-        <switcher-icon />
+        <SwitcherIcon />
       </cv-header-global-action>
     </template>
     <template #right-panels>
@@ -145,7 +145,7 @@ const otherApps = ref([
         </cv-switcher>
       </cv-header-panel>
       <cv-header-panel id="choose-theme">
-        <theme-selector />
+        <ThemeSelector />
       </cv-header-panel>
     </template>
     <template #left-panels>
@@ -158,26 +158,26 @@ const otherApps = ref([
         <cv-side-nav-items>
           <cv-side-nav-link :to="{ name: 'home' }">
             <template #nav-icon>
-              <home-icon />
+              <HomeIcon />
             </template>
             {{ t("home") }}
           </cv-side-nav-link>
           <cv-side-nav-menu-divider />
           <cv-side-nav-link :to="{ name: 'fish' }">
             <template #nav-icon>
-              <fish-icon />
+              <FishIcon />
             </template>
             {{ t("fish") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'bugs' }">
             <template #nav-icon>
-              <bugs-icon />
+              <BugsIcon />
             </template>
             {{ t("bugs") }}
           </cv-side-nav-link>
           <cv-side-nav-link :to="{ name: 'villagers' }">
             <template #nav-icon>
-              <villagers-icon />
+              <VillagersIcon />
             </template>
             {{ t("villagers") }}
           </cv-side-nav-link>

@@ -149,29 +149,29 @@ onMounted(() => calcRunWidth());
             :selected="`switcher-${group.hobby}` === selected"
           >
             {{ t(group.hobby) }}
-            <icon-bouncing
+            <IconBouncing
               v-if="showBouncing(group.hobby)"
               class="special-icon special-icon--play"
             />
-            <icon-growing
+            <IconGrowing
               v-if="showGrowing(group.hobby)"
               class="special-icon special-icon--grow"
             />
-            <icon-running
+            <IconRunning
               v-if="showRunning(group.hobby)"
               :run-width="runWidth"
               class="special-icon special-icon--run"
             />
-            <icon-flashing
+            <IconFlashing
               v-if="showFlashing(group.hobby)"
               :run-width="runWidth"
               class="special-icon special-icon--flash"
             />
-            <icon-music
+            <IconMusic
               v-if="showMusic(group.hobby)"
               class="special-icon special-icon--music"
             />
-            <icon-reading
+            <IconReading
               v-if="showReading(group.hobby)"
               class="special-icon special-icon--reading"
             />
@@ -184,7 +184,7 @@ onMounted(() => calcRunWidth());
             :key="`content-${group.hobby}`"
             :owner-id="`switcher-${group.hobby}`"
           >
-            <villager-hobby :hobbyists="group" />
+            <VillagerHobby :hobbyists="group" />
           </cv-content-switcher-content>
         </section>
       </cv-column>

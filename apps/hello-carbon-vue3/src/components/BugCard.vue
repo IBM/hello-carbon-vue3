@@ -45,7 +45,7 @@ const rarity = computed(() => {
     >
       <div class="bug-card-front bg-carbon-gray-50">
         <div>
-          <blur-image
+          <BlurImage
             :src="bug.icon_uri"
             :alt="bug.key"
             :src-placeholder="placeholderImage"

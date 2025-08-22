@@ -89,8 +89,8 @@ function clearAll() {
             @step-clicked="onStepClicked"
           >
             <template #step-icon>
-              <top-complete v-if="topIndex > -1" />
-              <top-incomplete v-else />
+              <TopComplete v-if="topIndex > -1" />
+              <TopIncomplete v-else />
             </template>
           </cv-progress-step>
           <cv-progress-step
@@ -108,8 +108,8 @@ function clearAll() {
             @step-clicked="onStepClicked"
           >
             <template #step-icon>
-              <bottom-complete v-if="bottomIndex > -1" />
-              <bottom-incomplete v-else />
+              <BottomComplete v-if="bottomIndex > -1" />
+              <BottomIncomplete v-else />
             </template>
           </cv-progress-step>
         </cv-progress>

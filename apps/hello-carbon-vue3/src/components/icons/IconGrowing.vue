@@ -9,7 +9,7 @@ defineProps({
   <div class="container">
     <div class="container__grower">
       <div class="container__widener">
-        <slot><nature-icon /></slot>
+        <slot><NatureIcon /></slot>
       </div>
     </div>
   </div>

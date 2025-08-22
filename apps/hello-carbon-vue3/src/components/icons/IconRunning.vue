@@ -29,7 +29,7 @@ onMounted(() => setTimeout(() => toggleRunDirection(true), 250));
         ref="turner"
         class="container__turner"
       >
-        <slot><soccer /></slot>
+        <slot><Soccer /></slot>
       </div>
     </div>
   </div>

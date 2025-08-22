@@ -201,18 +201,18 @@ const { md, carbonMd } = useBreakpoints();
               :alt="t('show')"
               @click="toggleShowAll"
             >
-              <hide-icon
+              <HideIcon
                 v-if="showHidden"
                 class="bx--toolbar-action__icon"
               >
                 <title>{{ t("hide") }}</title>
-              </hide-icon>
-              <show-all-icon
+              </HideIcon>
+              <ShowAllIcon
                 v-else
                 class="bx--toolbar-action__icon"
               >
                 <title>{{ t("show") }}</title>
-              </show-all-icon>
+              </ShowAllIcon>
             </cv-data-table-action>
           </template>
           <template #headings>
@@ -246,15 +246,15 @@ const { md, carbonMd } = useBreakpoints();
             />
           </template>
           <template #data>
-            <fish-row
+            <FishRow
               v-for="row in paginated"
               :key="row.key"
               :fish="row"
             />
-            <fish-row-empty v-if="filteredFish.length === 0" />
+            <FishRowEmpty v-if="filteredFish.length === 0" />
           </template>
         </cv-data-table>
-        <mobile-table-pagination
+        <MobileTablePagination
           v-if="!carbonMd"
           :number-of-items="pagination.numberOfItems"
           :table-pagination="currentPagination"

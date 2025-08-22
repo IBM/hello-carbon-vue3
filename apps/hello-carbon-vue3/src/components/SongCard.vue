@@ -32,7 +32,7 @@ const sellPrice = computed(() => {
     </div>
     <div style="width: 100%">
       <cv-aspect-ratio>
-        <blur-image
+        <BlurImage
           :src="song['image_uri']"
           :src-placeholder="placeholderImage"
           :alt="songName"
@@ -43,11 +43,11 @@ const sellPrice = computed(() => {
     <div class="songs__price body-short-02">
       <div>
         <div>{{ buyPrice }}</div>
-        <buy-icon />
+        <BuyIcon />
       </div>
       <div>
         <div>{{ sellPrice }}</div>
-        <sell-icon />
+        <SellIcon />
       </div>
     </div>
   </div>

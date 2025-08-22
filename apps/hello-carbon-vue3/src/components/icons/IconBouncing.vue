@@ -9,7 +9,7 @@ defineProps({
   <div class="container">
     <div class="container__bouncer">
       <div class="container__spinner">
-        <slot><basketball /></slot>
+        <slot><Basketball /></slot>
       </div>
     </div>
   </div>

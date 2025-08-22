@@ -16,9 +16,9 @@ defineProps({
       <div class="container__staff__line" />
     </div>
     <div class="container__icon">
-      <slot><eighth-note /></slot>
+      <slot><EighthNote /></slot>
     </div>
-    <icon-treble-clef class="container__treble" />
+    <IconTrebleClef class="container__treble" />
   </div>
 </template>
 

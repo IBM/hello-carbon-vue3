@@ -68,7 +68,7 @@ onMounted(() => {
                     :key="bug.key"
                     :lg="4"
                   >
-                    <bug-card :bug="bug" />
+                    <BugCard :bug="bug" />
                   </cv-column>
                 </cv-row>
               </cv-grid>

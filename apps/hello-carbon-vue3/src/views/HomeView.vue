@@ -31,7 +31,7 @@ const filteredSongs = computed(() => {
         :md="4"
         :lg="4"
       >
-        <song-card :song="song" />
+        <SongCard :song="song" />
       </cv-column>
     </cv-row>
   </cv-grid>

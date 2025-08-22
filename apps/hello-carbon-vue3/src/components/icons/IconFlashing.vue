@@ -8,7 +8,7 @@ defineProps({
 <template>
   <div class="container">
     <div class="container__icon">
-      <slot><camera-action class="container__svg" /></slot>
+      <slot><CameraAction class="container__svg" /></slot>
       <div class="container__flasher" />
     </div>
   </div>

@@ -5,7 +5,7 @@ import ThemeSwitcher from "@/components/Theme/Switcher.vue";
 </script>
 
 <template>
-  <theme-switcher />
-  <the-header />
-  <router-view />
+  <ThemeSwitcher />
+  <TheHeader />
+  <RouterView />
 </template>

@@ -1,6 +1,5 @@
-name: Scan deployed images with Trivy
+name: App Nuxt - Trivy vulnerability scanner
 
-# Controls when the action will run.
 on:
   schedule:
     # At 12:03 on Wednesday.

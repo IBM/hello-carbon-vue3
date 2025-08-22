@@ -1,13 +1,16 @@
-# Deploy cloud - IBM Code Engine
-name: IBM Cloud Code Engine Deploy
+# Deploy cloud - IBM Code Engine (Nuxt app)
+name: App Nuxt - Deploy to IBM Cloud Code Engine
 permissions:
   contents: read
 on:
-  # Triggers the workflow on push for the main branch
+  # Trigger on push to main
   push:
     branches: [main]
+    paths:
+      - 'apps/hello-carbon-nuxt/**'
+      - '.github/workflows/app-nuxt-deploy.yml'
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Manual run
   workflow_dispatch:
 
 defaults:
@@ -15,20 +18,20 @@ defaults:
     shell: bash
 
 jobs:
-  # Build & deploy
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          # Use the Nuxt app's .nvmrc to select Node version
+          node-version-file: "apps/hello-carbon-nuxt/.nvmrc"
 
       - name: Install IBM Cloud CLI
         run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
 
-      - name: Install Code Engine plugin
+      - name: Install Code Engine and Container Registry plugins
         run: |
           ibmcloud plugin install code-engine
           ibmcloud plugin install container-registry
@@ -47,7 +50,8 @@ jobs:
           ibmcloud cr region-set ${IBM_CR_REGION}
           ibmcloud cr login
 
-      - name: Build docker image
+      - name: Build and push docker image (Nuxt app)
+        working-directory: apps/hello-carbon-nuxt
         env:
           CE_PROJECT: ${{ vars.CE_PROJECT }}
           CE_APP_NAME: ${{ vars.CE_APP_NAME }}

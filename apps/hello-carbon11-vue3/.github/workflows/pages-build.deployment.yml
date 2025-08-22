@@ -1,8 +1,0 @@
-name: DEPRECATED - use root Pages workflow
-on:
-  workflow_dispatch:
-jobs:
-  noop:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "This workflow is deprecated. Use root .github/workflows/pages-build.deployment.yml"

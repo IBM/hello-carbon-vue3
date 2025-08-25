@@ -10,9 +10,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/hello-carbon-nuxt
     strategy:
       matrix:
         # firefox is not working for auth - https://github.com/cypress-io/cypress/issues/18217
@@ -26,7 +23,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Install dependencies
+        run: npm ci || npm install
+
       - name: Start containers
+        working-directory: apps/hello-carbon11-vue3
         run: |
           cd local-dev
           docker compose -f "compose.yml" up -d
@@ -37,10 +38,11 @@ jobs:
         uses: mockoon/cli-action@v2.0.0
         with:
           version: "latest"
-          data-file: "./local-dev/mock/mock-api.json"
+          data-file: "./apps/hello-carbon-nuxt/local-dev/mock/mock-api.json"
           port: 4513
 
       - name: Test with sample env
+        working-directory: apps/hello-carbon11-vue3
         run: cp .env.example .env
 
       - name: Cypress run
@@ -51,3 +53,4 @@ jobs:
           build: npm run build
           start: npm run preview
           browser: ${{ matrix.browser }}
+          working-directory: apps/hello-carbon11-vue3

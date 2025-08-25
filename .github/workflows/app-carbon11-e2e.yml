@@ -10,9 +10,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/hello-carbon11-vue3
     strategy:
       matrix:
         browser: [ chrome, firefox ]
@@ -28,6 +25,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          working-directory: apps/hello-carbon11-vue3
           build: npm run dev:build
           start: npm run dev:preview
           browser: ${{ matrix.browser }}

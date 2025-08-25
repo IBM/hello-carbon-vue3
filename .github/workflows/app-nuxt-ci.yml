@@ -18,13 +18,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      - name: Use root lock file
-        run: cp package-lock.json apps/hello-carbon-nuxt/
       - name: Build docker image
         working-directory: apps/hello-carbon-nuxt
-        run: docker build -t pr:testing .
+        run: |
+          cp ../../package-lock.json .
+          docker build -t pr:testing .
       - name: Install dependencies
-        working-directory: apps/hello-carbon-nuxt
         run: npm install
       - name: lint
         working-directory: apps/hello-carbon-nuxt

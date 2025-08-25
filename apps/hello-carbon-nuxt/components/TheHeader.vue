@@ -25,8 +25,8 @@ function changeLocale(language) {
 
 const otherAppsExpanded = ref(false)
 const otherApps = ref([
-  { id: 'github', name: 'Hello Carbon Nuxt', link: 'https://github.com/davidnixon/hello-carbon-nuxt' },
-  { id: 'hello-vue', name: 'Hello Carbon Vue', link: 'https://github.com/IBM/hello-carbon-vue3' },
+  { id: 'github', name: 'Hello Carbon Nuxt', link: 'https://github.com/IBM/hello-carbon-vue3/apps/hello-carbon-nuxt' },
+  { id: 'hello-vue', name: 'Hello Carbon Vue', link: 'https://github.com/IBM/hello-carbon-vue3/apps/hello-carbon-vue3/' },
   { id: 'carbon-vue', name: 'Carbon Vue Storybook', link: 'https://vue.carbondesignsystem.com/' },
 ])
 

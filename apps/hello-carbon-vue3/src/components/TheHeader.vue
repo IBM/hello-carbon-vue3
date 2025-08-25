@@ -33,12 +33,12 @@ const otherApps = ref([
   {
     id: "hello-vue",
     name: "Hello Carbon Vue",
-    link: "https://github.com/IBM/hello-carbon-vue3",
+    link: "https://github.com/IBM/hello-carbon-vue3/apps/hello-carbon-vue3",
   },
   {
     id: "hello-nuxt",
     name: "Hello Carbon Nuxt",
-    link: "https://github.com/davidnixon/hello-carbon-nuxt",
+    link: "https://github.com/IBM/hello-carbon-vue3/apps/hello-carbon-nuxt",
   },
   {
     id: "carbon-vue",

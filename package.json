@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "prepare": "husky install",
+    "preview": "vite preview --port 5173",
     "lint": "lint-staged"
   },
   "devDependencies": {

@@ -9,7 +9,7 @@ RUN cd app && \
 # Production image, copy all the files and run nuxt
 FROM base AS runner
 WORKDIR /webapp
-ENV NODE_ENV production
+ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nuxtjs
 COPY --from=builder --chown=nuxtjs:nodejs /mono/app/.output /webapp/.output

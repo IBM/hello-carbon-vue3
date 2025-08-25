@@ -23,9 +23,6 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Install dependencies
-        run: npm ci || npm install
-
       - name: Start containers
         working-directory: apps/hello-carbon11-vue3
         run: |
@@ -53,4 +50,4 @@ jobs:
           build: npm run build
           start: npm run preview
           browser: ${{ matrix.browser }}
-          working-directory: apps/hello-carbon11-vue3
+          project: apps/hello-carbon11-vue3

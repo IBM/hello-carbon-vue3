@@ -20,12 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      - name: Install dependencies
-        run: npm ci || npm install
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
           build: npm run dev:build
           start: npm run dev:preview
           browser: ${{ matrix.browser }}
-          working-directory: apps/hello-carbon-vue3
+          project: apps/hello-carbon-vue3

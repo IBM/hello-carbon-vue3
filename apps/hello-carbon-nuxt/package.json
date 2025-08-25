@@ -8,7 +8,7 @@
     "dev:build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "PORT=5175 nuxt preview",
-    "dev:preview": "PORT=5175 nuxt preview",
+    "dev:preview": "PORT=5173 nuxt preview",
     "postinstall": "nuxt prepare",
     "ci:lint": "eslint --max-warnings 0 .",
     "lint": "eslint . --fix",

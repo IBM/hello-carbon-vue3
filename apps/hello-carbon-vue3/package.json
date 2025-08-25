@@ -14,7 +14,6 @@
     "test:unit": "cypress run --component",
     "lint": "eslint --fix .",
     "ci:lint": "eslint --max-warnings 0 .",
-    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.99.1",

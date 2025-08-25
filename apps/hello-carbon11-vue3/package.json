@@ -12,8 +12,7 @@
     "dev:e2e": "cypress open --e2e",
     "test:e2e": "cypress run --e2e",
     "lint": "eslint --fix .",
-    "ci:lint": "eslint --max-warnings 0",
-    "prepare": "husky"
+    "ci:lint": "eslint --max-warnings 0"
   },
   "dependencies": {
     "@carbon/grid": "^11.38.0",

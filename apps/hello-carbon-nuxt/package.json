@@ -17,7 +17,6 @@
     "test:e2e:ff": "npx cypress run --e2e --browser firefox",
     "test:e2e:edge": "npx cypress run --e2e --browser edge",
     "test:e2e:safari": "npx cypress run --e2e --browser safari",
-    "prepare": "husky"
   },
   "dependencies": {
     "@carbon/icons-vue": "^10.109.0",

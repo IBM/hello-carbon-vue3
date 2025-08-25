@@ -19,7 +19,6 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install dependencies
-        working-directory: apps/hello-carbon11-vue3
         run: npm install
       - name: lint
         working-directory: apps/hello-carbon11-vue3

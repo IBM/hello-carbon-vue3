@@ -24,6 +24,6 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           project: apps/hello-carbon11-vue3
-          build: npm run dev:build
-          start: npm run dev:preview
+          build: npm run dev:build --workspace=apps/hello-carbon11-vue3
+          start: npm run dev:preview --workspace=apps/hello-carbon11-vue3
           browser: ${{ matrix.browser }}

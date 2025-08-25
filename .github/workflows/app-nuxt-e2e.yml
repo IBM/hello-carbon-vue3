@@ -47,7 +47,7 @@ jobs:
         env:
           PORT: 6619
         with:
-          build: npm run build
-          start: npm run preview
+          build: npm run build --workspace=apps/hello-carbon-nuxt
+          start: npm run preview --workspace=apps/hello-carbon-nuxt
           browser: ${{ matrix.browser }}
           project: apps/hello-carbon11-vue3

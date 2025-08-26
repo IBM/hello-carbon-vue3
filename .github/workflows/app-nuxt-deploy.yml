@@ -58,6 +58,7 @@ jobs:
           CE_SCALE_DOWN_DELAY: ${{ vars.CE_SCALE_DOWN_DELAY }}
           CR_IMAGE: ${{ vars.CR_IMAGE }}
         run: |
+          cp ../../package-lock.json .
           IMAGE_TAG=$(date '+%FT%H%M%S')
           docker build -t ${CR_IMAGE}:$IMAGE_TAG .
           docker push ${CR_IMAGE}:$IMAGE_TAG

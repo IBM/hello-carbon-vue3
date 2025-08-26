@@ -24,7 +24,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Start containers
-        working-directory: apps/hello-carbon11-vue3
+        working-directory: apps/hello-carbon-nuxt/local-dev/
         run: |
           cd local-dev
           docker compose -f "compose.yml" up -d
@@ -39,7 +39,7 @@ jobs:
           port: 4513
 
       - name: Test with sample env
-        working-directory: apps/hello-carbon11-vue3
+        working-directory: apps/hello-carbon-nuxt
         run: cp .env.example .env
 
       - name: Cypress run
@@ -50,4 +50,4 @@ jobs:
           build: npm run build --workspace=apps/hello-carbon-nuxt
           start: npm run preview --workspace=apps/hello-carbon-nuxt
           browser: ${{ matrix.browser }}
-          project: apps/hello-carbon11-vue3
+          project: apps/hello-carbon-nuxt

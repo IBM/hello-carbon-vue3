@@ -26,7 +26,6 @@ jobs:
       - name: Start containers
         working-directory: apps/hello-carbon-nuxt/local-dev/
         run: |
-          cd local-dev
           docker compose -f "compose.yml" up -d
           docker compose logs --follow ibmid &
           sleep 45

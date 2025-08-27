@@ -9,6 +9,7 @@ on:
     paths:
       - 'apps/hello-carbon-vue3/**'
       - '.github/workflows/app-vue3-ci.yml'
+      - 'package-lock.json'
 jobs:
   build:
     runs-on: ubuntu-latest

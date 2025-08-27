@@ -7,6 +7,7 @@ on:
     paths:
       - 'apps/hello-carbon11-vue3/**'
       - '.github/workflows/app-carbon11-e2e.yml'
+      - 'package-lock.json'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest

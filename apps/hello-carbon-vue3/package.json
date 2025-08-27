@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/hello-carbon-vue3/",
+    "build": "vite build --base=/hello-carbon-vue3/hello-carbon-vue3/",
     "dev:build": "vite build",
-    "preview": "vite preview --base=/hello-carbon-vue3/ --port 5173",
+    "preview": "vite preview --base=/hello-carbon-vue3/hello-carbon-vue3/ --port 5173",
     "dev:preview": "vite preview --port 5173",
     "dev:e2e": "cypress open --e2e",
     "test:e2e": "cypress run --e2e",

@@ -44,7 +44,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         env:
-          PORT: 6619
+          PORT: 4507
         with:
           build: npm run build --workspace=apps/hello-carbon-nuxt
           start: npm run preview --workspace=apps/hello-carbon-nuxt

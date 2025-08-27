@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'apps/hello-carbon11-vue3/**'
+      - 'apps/hello-carbon-vue3/**'
+      - '.github/workflows/pages-build.deployment.yml'
+
 permissions:
   contents: read
   pages: write

@@ -1,3 +1,5 @@
-src/styles/* linguist-generated
-docs/** linguist-documentation 
-cypress/** -linguist-detectable
+apps/*/src/styles/* linguist-generated
+apps/*/assets/css/carbon*.* linguist-generated
+docs/** linguist-documentation
+apps/*/docs/** linguist-documentation
+apps/*/cypress/** -linguist-detectable

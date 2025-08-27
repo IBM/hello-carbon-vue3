@@ -10,19 +10,37 @@ import W3idProvider from '@/server/utils/w3id'
 import MockIdProvider from '@/server/utils/mockid'
 import { NuxtAuthHandler } from '#auth'
 
+interface ProviderProfile {
+  sub: string
+  email: string
+  name: string
+  // Some providers return a string "true"/"false", others a boolean
+  email_verified: boolean | 'true' | 'false'
+  // Allow additional provider-specific fields
+  [key: string]: unknown
+}
+
 let DefaultProvider
 if (process.env.AUTH_PROVIDER == 'ibmid')
   DefaultProvider = IBMidProvider
 else if (process.env.AUTH_PROVIDER == 'w3id')
   DefaultProvider = W3idProvider
 else if (process.env.AUTH_PROVIDER == 'github')
-  DefaultProvider = GithubProvider.default
+  DefaultProvider = (GithubProvider as unknown as { default?: typeof GithubProvider }).default
+    ?? GithubProvider
+
 else if (process.env.AUTH_PROVIDER == 'mock')
   DefaultProvider = MockIdProvider
 else
   throw new Error('No auth provider specified')
 
 const runtimeConfig = useRuntimeConfig()
+
+function toBooleanStrict(v: unknown): boolean {
+  if (typeof v === 'boolean') return v
+  if (typeof v === 'string') return v.toLowerCase() === 'true'
+  return false
+}
 
 // The callback enabled on IBMid (or other openid) is like:
 // host/api/auth/callback/{id}
@@ -39,7 +57,7 @@ const runtimeConfig = useRuntimeConfig()
 //   clientSecret: process.env.AUTH_CLIENT_SECRET.slice(0, 3) + '...',
 // })
 export default NuxtAuthHandler({
-  // A secret string you define, to ensure correct encryption - NUXT_AUTH_SECRET required in production
+  // A secret string you define to ensure correct encryption - NUXT_AUTH_SECRET required in production
   secret: runtimeConfig.authSecret,
   providers: [
     DefaultProvider({
@@ -49,6 +67,7 @@ export default NuxtAuthHandler({
   ],
   callbacks: {
     jwt({ token, account, profile }) {
+      const providerProfile = profile as ProviderProfile
       // enable these to debug
       // console.log('jwt profile', profile)
       // console.log('jwt account', account)
@@ -56,8 +75,8 @@ export default NuxtAuthHandler({
       if (account) {
         token.provider = account.provider
       }
-      if (profile) {
-        token.emailVerified = profile.email_verified
+      if (providerProfile) {
+        token.emailVerified = toBooleanStrict(providerProfile.email_verified)
       }
       return token
     },

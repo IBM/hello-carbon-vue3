@@ -1,13 +1,14 @@
-<img src="./docs/carbon.svg" alt="IBM carbon" width="64" height="64">
+<p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/carbon.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./docs/carbon-light.svg">
-  <img alt="Carbon logo" src="./docs/carbon.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/carbon-light.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/carbon.svg">
+  <img alt="IBM Carbon logo" src="./docs/carbon.svg" width="64" height="64">
 </picture>
-
 <img src="./docs/vue.svg" alt="Vue" width="64" height="64">
+</p>
 
-# Hello Carbon – Monorepo
+
+# Hello Carbon Vue – Monorepo
 
 
 This repository brings together three example applications that demonstrate how to build modern, internationalized UIs with the Carbon Design System across the Vue ecosystem. The goal is to give you clear, working references for:

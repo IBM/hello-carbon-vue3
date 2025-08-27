@@ -1,4 +1,10 @@
 <img src="./docs/carbon.svg" alt="IBM carbon" width="64" height="64">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/carbon.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/carbon-light.svg">
+  <img alt="Carbon logo" src="./docs/carbon.svg">
+</picture>
+
 <img src="./docs/vue.svg" alt="Vue" width="64" height="64">
 
 # Hello Carbon – Monorepo

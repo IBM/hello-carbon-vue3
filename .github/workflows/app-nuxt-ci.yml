@@ -9,6 +9,7 @@ on:
     paths:
       - 'apps/hello-carbon-nuxt/**'
       - '.github/workflows/app-nuxt-ci.yml'
+      - 'package-lock.json'
 jobs:
   docker:
     runs-on: ubuntu-latest

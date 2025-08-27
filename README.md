@@ -25,6 +25,9 @@ Each app is intentionally simple, focused on best practices, and ready to run so
     - Nuxt + Carbon Vue components
     - Adds server-side rendering, routing conventions, i18n module, authentication patterns, and logging, along with UI examples
 
+## Demo deployments
+- [top level page](https://ibm.github.io/hello-carbon-vue3/)
+
 ## Why three apps?
 
 - Compare approaches: See the trade-offs between Carbon Vue components and Carbon Web Components.

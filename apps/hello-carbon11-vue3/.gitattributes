@@ -1,0 +1,3 @@
+src/styles/* linguist-generated
+docs/** linguist-documentation 
+cypress/** -linguist-detectable

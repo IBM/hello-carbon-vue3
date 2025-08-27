@@ -1,0 +1,23 @@
+name: local-hello-nuxt
+services:
+  ibmid:
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev --import-realm
+    restart: always
+    volumes:
+      # https://github.com/vbhayden/keycloak-federation-examples/blob/master/keycloak/keycloak-config/realms/example-realm.json
+      - ./ibm-id:/opt/keycloak/data/import${z}
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=change_me
+    ports:
+      - "8080:8080"
+
+  marvel:
+    image: docker.io/mockoon/cli
+    command: --data /data/mock-api.json --port 4513
+    restart: always
+    volumes:
+      - ./mock:/data:ro
+    ports:
+      - "4513:4513"

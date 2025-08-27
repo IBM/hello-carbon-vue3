@@ -1,0 +1,28 @@
+name: App Carbon11 Vue3 - CI
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'apps/hello-carbon11-vue3/**'
+      - '.github/workflows/app-carbon11-ci.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: npm install
+      - name: lint
+        working-directory: apps/hello-carbon11-vue3
+        run: npm run ci:lint
+      - name: Build app
+        working-directory: apps/hello-carbon11-vue3
+        run: npm run build

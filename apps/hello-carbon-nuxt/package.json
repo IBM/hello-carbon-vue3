@@ -1,0 +1,47 @@
+{
+  "name": "hello-carbon-nuxt",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev -p 4507",
+    "dev:build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "dev:preview": "PORT=4507 nuxt preview",
+    "postinstall": "nuxt prepare",
+    "ci:lint": "eslint --max-warnings 0 .",
+    "lint": "eslint . --fix",
+    "dev:e2e": "npx cypress open --e2e",
+    "test:e2e": "npx cypress run --e2e --browser chrome",
+    "test:e2e:ff": "npx cypress run --e2e --browser firefox",
+    "test:e2e:edge": "npx cypress run --e2e --browser edge",
+    "test:e2e:safari": "npx cypress run --e2e --browser safari"
+  },
+  "dependencies": {
+    "@carbon/icons-vue": "^10.109.0",
+    "@carbon/themes": "^10.55.6",
+    "@carbon/vue": "^3.0.27",
+    "@nuxt/eslint": "^1.4.1",
+    "@nuxtjs/i18n": "^9.5.4",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@sidebase/nuxt-auth": "^0.10.1",
+    "lodash.merge": "^4.6.2",
+    "luxon": "^3.6.1",
+    "next-auth": "~4.21.1",
+    "nuxt": "^4.0.1",
+    "vue": "latest",
+    "vue-router": "latest",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.9",
+    "cypress": "^14.5.3",
+    "eslint": "^9.32.0",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "sass": "^1.89.2"
+  },
+  "resolutions": {
+    "vue-i18n": "10.0.6"
+  }
+}

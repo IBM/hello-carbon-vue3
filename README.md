@@ -1,114 +1,57 @@
-# Hello carbon vue3
+<img src="./docs/carbon.svg" alt="IBM carbon" width="64" height="64">
+<img src="./docs/vue.svg" alt="Vue" width="64" height="64">
 
-This repository is designed to help you get started with integrating Carbon into a Vue 3 application. It showcases the best
-practices for setting up a new Vue 3 app with Carbon, providing a solid foundation for your project.
+# Hello Carbon – Monorepo
 
-If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://github.com/davidnixon/hello-carbon-nuxt)
 
-If you are looking for Carbon 11 with Vue,
-checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnixon/hello-carbon11-vue3/tree/main?tab=readme-ov-file)
+This repository brings together three example applications that demonstrate how to build modern, internationalized UIs with the Carbon Design System across the Vue ecosystem. The goal is to give you clear, working references for:
+- A Vue 3 app using Carbon 10 Vue components
+- A Vue 3 app using Carbon 11 Web Components
+- A Nuxt app using Carbon 10 Vue components with server-side features
 
-## Packages used
+Each app is intentionally simple, focused on best practices, and ready to run so you can learn by example or use them as a starting point for your own projects.
 
-- Carbon Vue3
-- [Vite](https://vitejs.dev/) — this is the default for new Vue3 projects instead of WebPack
-- [Pinia](https://pinia.vuejs.org/) — this replaces Vuex store
-- [i18next](https://www.i18next.com/) — this repo demonstrates how to include translations using i18next. All UI
-  elements are translated and most content is translated.
-- [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — REST calls via fetch
-- [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, and many other useful utilities
-- [Husky](https://www.npmjs.com/package/husky) - pre-commit hooks
-- [lint-staged](https://www.npmjs.com/package/lint-staged) — Run linters against staged git files
-- [commit-lint](https://commitlint.js.org/#/) — Helps your team adhere to a commit convention
-- [cypress](https://www.cypress.io/) — Implement e2e tests with cypress to help screen PRs
+## What’s Inside
 
-## Carbon styles
+- hello-carbon-vue3
+    - Vue 3 + Carbon Vue components
+    - Demonstrates component composition, i18n, state management, and basic REST integration
 
-The carbon styles are imported as a pre-compiled CSS file. The fie is created by using sass on the command line to
-generate the CSS.
-See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creating the CSS file.
+- hello-carbon11-vue3
+    - Vue 3 + Carbon 11 Web Components
+    - Shows how to use framework-agnostic Carbon Web Components in a Vue setup with theming and i18n
 
-## Pages & Components
+- hello-carbon-nuxt
+    - Nuxt + Carbon Vue components
+    - Adds server-side rendering, routing conventions, i18n module, authentication patterns, and logging, along with UI examples
 
-[This repo demo site](https://ibm.github.io/hello-carbon-vue3/)
+## Why three apps?
 
-- Header with Side nav ![header](docs/header-bar.jpg)
-  - Side nav with divider
-  - Language selection in the header bar, login and switcher buttons are also included
-- Home page
-  - cv-grid,cv-row,cv-column
-  - cv-aspect-ratio
-  - REST API examples integrated with Pinia store
-- Fish page
-  - Fully translatable data table including controls and aria labels
-  - Slotted data and headings
-  - Searchable data
-  - cv-data-table-skeleton
-  - cv-data-table
-  - cv-data-table-action, cv-data-table-heading
-  - cv-data-table-row (expandable rows), cv-data-table-cell
-  - cv-button
-  - cv-toggle
-  - REST API examples integrated with Pinia store
-- Bugs page
-  - cv-accordion-skeleton
-  - cv-accordion, cv-accordion-item
-  - cv-tag
-  - cv-icon-button
-  - slotted title and content for accordion
-  - REST API examples integrated with Pinia store
-  - Fun 3D card flipper css
-- Build-a-bug
-  - cv-progress with custom icons
-- Villagers page
-  - cv-content-switcher, cv-content-switcher-button
-  - cv-content-switcher-content
-  - REST API examples integrated with Pinia store
-  - Fun animated icons and chat bubbles
-- Includes tailwind with a basic Carbon colors theme
+- Compare approaches: See the trade-offs between Carbon Vue components and Carbon Web Components.
+- Learn incrementally: Start with Vue 3 and scale to Nuxt when you need SSR, auth, or server APIs.
+- Reuse patterns: Shared ideas around state management, translations, testing, and theming.
 
-## Coding guide
+## Quick Start
 
-- [Vue style guide](https://vuejs.org/style-guide/) The style guide is enforced
-  with [eslint-plugin-vue - Recommended](https://eslint.vuejs.org/rules/#priority-c-recommended-potentially-dangerous-patterns).
-- Prettier and eslint rules are enforced as pre-commit hooks via husky.
+- Prerequisites
+    - Node.js (LTS or the version specified by each app)
+    - npm
 
-## Recommended IDE Setup
+- Install
+    - From each app directory, install dependencies and start the dev server.
 
-[WebStorm](https://www.jetbrains.com/webstorm/)
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and
-disable
-Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Project Setup
-
-```sh
-nvm use
-npm add -g npm
+```shell script
+# Navigate into an app and run:
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Build and test locally
+Each app contains its own README with setup, scripts, and usage details.
 
-```sh
-npm run local-build
-```
+## Contributing
 
-### Lint with [ESLint](https://eslint.org/)
+Issues and pull requests that improve clarity, fix bugs, or enhance examples are welcome. If proposing UI/UX changes, please keep the focus on showcasing Carbon components and best practices.
 
-```sh
-npm run lint
-```
+## License
 
-## Update dependencies
-
-```shell
-npm update --interactive
-```
+This project is licensed under the MIT License. See the LICENSE file for details.

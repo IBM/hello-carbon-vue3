@@ -1,0 +1,29 @@
+name: App Carbon11 Vue3 - E2E tests
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  pull_request:
+    paths:
+      - 'apps/hello-carbon11-vue3/**'
+      - '.github/workflows/app-carbon11-e2e.yml'
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [ chrome, firefox ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          project: apps/hello-carbon11-vue3
+          build: npm run dev:build --workspace=apps/hello-carbon11-vue3
+          start: npm run dev:preview --workspace=apps/hello-carbon11-vue3
+          browser: ${{ matrix.browser }}

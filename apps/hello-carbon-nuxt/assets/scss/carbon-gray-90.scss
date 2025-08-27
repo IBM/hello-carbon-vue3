@@ -1,0 +1,12 @@
+// Do not use this file directly. Create css with:
+// npx sass@1.77.6 --load-path=node_modules assets/scss/carbon-gray-90.scss assets/css/carbon-gray-90.css
+
+$feature-flags: (
+  grid-columns-16: true,
+);
+@import '@carbon/themes/scss/themes.scss';
+
+$carbon--theme: $carbon--theme--g90;
+@include carbon--theme();
+
+@import 'carbon-components/scss/globals/scss/styles';

@@ -1,0 +1,8 @@
+"apps/hello-carbon11-vue3/**/*.{js,ts,mjs,cjs,jsx,vue}":
+  - npm run --workspace hello-carbon11-vue3 lint
+
+"apps/hello-carbon-nuxt/**/*.{js,ts,mjs,cjs,jsx,vue}":
+  - npm run --workspace hello-carbon-nuxt lint
+
+"apps/hello-carbon-vue3/**/*.{js,ts,mjs,cjs,jsx,vue}":
+  - npm run --workspace hello-carbon-vue3 lint

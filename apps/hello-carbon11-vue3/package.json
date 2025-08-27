@@ -1,0 +1,50 @@
+{
+  "name": "hello-carbon11-vue3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/hello-carbon11-vue3/",
+    "dev:build": "vite build",
+    "preview": "vite preview --port 517",
+    "dev:preview": "vite preview --port 5174",
+    "dev:e2e": "cypress open --e2e",
+    "test:e2e": "cypress run --e2e",
+    "lint": "eslint --fix .",
+    "ci:lint": "eslint --max-warnings 0"
+  },
+  "dependencies": {
+    "@carbon/grid": "^11.38.0",
+    "@carbon/icons-vue": "^10.111.0",
+    "@carbon/themes": "^11.55.0",
+    "@carbon/web-components": "^2.32.1",
+    "@stylistic/eslint-plugin": "^5.1.0",
+    "@vueuse/core": "^13.5.0",
+    "i18next": "^25.3.1",
+    "i18next-http-backend": "^3.0.2",
+    "i18next-vue": "^5.3.0",
+    "lodash": "^4.17.21",
+    "pinia": "^3.0.3",
+    "sass": "^1.89.2",
+    "superagent": "^10.2.1",
+    "v-lazy-image": "^2.1.1",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "cypress": "^14.4.1",
+    "eslint": "^9.29.0",
+    "eslint-plugin-cypress": "^5.1.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "postcss": "^8.5.5",
+    "tailwindcss": "^4.1.5",
+    "vite": "6.3.5"
+  },
+  "web-types": [
+    "./carbon-web-components-web-types.json"
+  ]
+}

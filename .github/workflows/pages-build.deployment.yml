@@ -1,17 +1,15 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (multi-app)
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -25,10 +23,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      - name: Install dependencies
+      - name: Install dependencies (workspace root)
         run: npm install
-      - name: Build app
+      - name: Build hello-carbon-vue3
+        working-directory: apps/hello-carbon-vue3
         run: npm run build
+      - name: Build hello-carbon11-vue3
+        working-directory: apps/hello-carbon11-vue3
+        run: npm run build
+      - name: Prepare dist folder structure
+        run: |
+          rm -rf dist
+          mkdir -p dist/hello-carbon-vue3
+          mkdir -p dist/hello-carbon11-vue3
+          cp -r apps/hello-carbon-vue3/dist/* dist/hello-carbon-vue3/
+          cp -r apps/hello-carbon11-vue3/dist/* dist/hello-carbon11-vue3/
+          # Create top-level navigation index.html
+          cp common/ghpages/index.html dist/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
@@ -36,7 +47,6 @@ jobs:
         with:
           path: 'dist'
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages

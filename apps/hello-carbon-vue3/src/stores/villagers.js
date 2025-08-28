@@ -1,9 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-const BASE_URL
-  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
-const VILLAGERS_URL = BASE_URL + "/villagers";
+const VILLAGERS_URL = "/villagers";
 /**
  * Bug data
  * @typedef {Object} VillagerData
@@ -36,7 +34,8 @@ export const useVillagersStore = defineStore("villagers", () => {
    */
   async function loadVillagers(force = false) {
     if (force || villagers.value.length === 0) {
-      const data = await fetch(VILLAGERS_URL).then(response => response.json());
+      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData");
+      const data = await fetchJsonCached(VILLAGERS_URL);
       const villagersKeys = Object.keys(data);
       for (let i = 0; i < villagersKeys.length; i++) {
         const key = villagersKeys[i];

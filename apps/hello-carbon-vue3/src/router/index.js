@@ -12,9 +12,6 @@ const router = createRouter({
     {
       path: "/fish",
       name: "fish",
-      // route level code-splitting
-      // this generates a separate chunk (Fish.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("../views/FishView.vue"),
     },
     {
@@ -32,7 +29,41 @@ const router = createRouter({
       name: "villagers",
       component: () => import("../views/VillagersView.vue"),
     },
+    {
+      path: "/error",
+      name: "error",
+      component: () => import("../views/ErrorView.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("../views/NotFoundView.vue"),
+    },
   ],
 });
+
+// Router-level error handler (e.g., chunk load, navigation guards)
+router.onError((error) => {
+  const current = router.currentRoute?.value;
+  const alreadyOnError = current && current.name === "error";
+  try {
+    console.error("Router error:", error);
+  }
+  catch {
+    // ignore logging failure
+  }
+  if (!alreadyOnError) {
+    const message = "Router error: " + (error && (error.message || String(error))) || "Navigation error";
+    router.replace({ name: "error", query: { code: "500", message } }).catch(() => {});
+  }
+});
+
+// Uncomment this to show a router error for fish
+// router.beforeEach((to) => {
+//   if (to.name === "fish") {
+//     throw new Error("This is an error");
+//   }
+//   return true;
+// });
 
 export default router;

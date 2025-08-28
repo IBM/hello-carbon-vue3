@@ -8,21 +8,31 @@ import { useTranslation } from "i18next-vue";
 const { t } = useTranslation();
 const bugStore = useBugsStore();
 const loading = ref(false);
+const loadError = ref(null);
 const bugGroups = ref({});
 onMounted(() => {
   loading.value = true;
+  loadError.value = null;
   try {
-    bugStore.loadBugs().finally(() => {
-      const groups = groupBy(bugStore.bugs, "availability.location");
-      const keys = Object.keys(groups);
-      bugGroups.value = keys.map((key) => {
-        return { location: key, bugs: groups[key] };
+    bugStore
+      .loadBugs()
+      .catch((e) => {
+        console.error("error loading bugs from API", e?.message || e);
+        loadError.value = e?.message || "Failed to load bugs";
+      })
+      .finally(() => {
+        const groups = groupBy(bugStore.bugs, "availability.location");
+        const keys = Object.keys(groups);
+        bugGroups.value = keys.map((key) => {
+          return { location: key, bugs: groups[key] };
+        });
+        loading.value = false;
       });
-      loading.value = false;
-    });
   }
   catch (e) {
     console.error("error loading bugs from API", e.message);
+    loadError.value = e?.message || "Failed to load bugs";
+    loading.value = false;
   }
 });
 </script>
@@ -50,6 +60,13 @@ onMounted(() => {
     </cv-row>
     <cv-row>
       <cv-column>
+        <cv-inline-notification
+          v-if="loadError"
+          kind="error"
+          title="Error"
+          :subtitle="loadError"
+          class="mb-4"
+        />
         <cv-accordion-skeleton v-if="loading" />
         <cv-accordion v-else>
           <cv-accordion-item

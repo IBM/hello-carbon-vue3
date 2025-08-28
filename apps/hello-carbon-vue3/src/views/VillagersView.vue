@@ -22,6 +22,7 @@ import IconReading from "@/components/icons/IconReading.vue";
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
 const loading = ref(false);
+const loadError = ref(null);
 const villagerHobbies = ref({});
 const selected = ref("switcher-Education");
 /**
@@ -32,30 +33,40 @@ const selected = ref("switcher-Education");
  */
 onMounted(() => {
   loading.value = true;
+  loadError.value = null;
   try {
-    villagerStore.loadVillagers().finally(() => {
-      const groups = groupBy(villagerStore.villagers, "hobby");
-      const keys = Object.keys(groups);
-      villagerHobbies.value = keys.map((key) => {
-        return { hobby: key, villagers: groups[key] };
-      });
+    villagerStore
+      .loadVillagers()
+      .catch((e) => {
+        console.error("error loading villagers from API", e?.message || e);
+        loadError.value = e?.message || "Failed to load villagers";
+      })
+      .finally(() => {
+        const groups = groupBy(villagerStore.villagers, "hobby");
+        const keys = Object.keys(groups);
+        villagerHobbies.value = keys.map((key) => {
+          return { hobby: key, villagers: groups[key] };
+        });
 
-      // What's happening here? I don't want to default always to the first set of content, "Education".
-      // So instead we set it based on what minute of the hour it is when we load. So for example
-      // if the page is loaded between 15:30 and 15:40 the 4th content, "Nature", is shown.
-      const minute = new Date().getMinutes();
-      let which = 0;
-      if (minute > 9) which = 1;
-      if (minute > 19) which = 2;
-      if (minute > 29) which = 3;
-      if (minute > 39) which = 4;
-      if (minute > 49) which = 5;
-      selected.value = `switcher-${villagerHobbies.value[which].hobby}`;
-      loading.value = false;
-    });
+        // What's happening here? I don't want to default always to the first set of content, "Education".
+        // So instead we set it based on what minute of the hour it is when we load. So for example
+        // if the page is loaded between 15:30 and 15:40 the 4th content, "Nature", is shown.
+        const minute = new Date().getMinutes();
+        let which = 0;
+        if (minute > 9) which = 1;
+        if (minute > 19) which = 2;
+        if (minute > 29) which = 3;
+        if (minute > 39) which = 4;
+        if (minute > 49) which = 5;
+        if (villagerHobbies.value.length > which)
+          selected.value = `switcher-${villagerHobbies.value[which].hobby}`;
+        loading.value = false;
+      });
   }
   catch (e) {
-    console.error("error loading bugs from API", e.message);
+    console.error("error loading villagers from API", e.message);
+    loadError.value = e?.message || "Failed to load villagers";
+    loading.value = false;
   }
 });
 
@@ -137,6 +148,13 @@ onMounted(() => calcRunWidth());
     </cv-row>
     <cv-row>
       <cv-column>
+        <cv-inline-notification
+          v-if="loadError"
+          kind="error"
+          title="Error"
+          :subtitle="loadError"
+          class="mb-4"
+        />
         <cv-content-switcher
           ref="contentSwitcher"
           @selected="onSelected"

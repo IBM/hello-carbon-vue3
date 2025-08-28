@@ -18,6 +18,7 @@ const langStore = useLanguageStore();
 const hideIcon = HideIcon;
 const fishStore = useFishStore();
 const loading = ref(false);
+const loadError = ref(null);
 const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] });
 const i18nPagination = computed(() => {
   return {
@@ -30,14 +31,23 @@ const i18nPagination = computed(() => {
 });
 onMounted(() => {
   loading.value = true;
+  loadError.value = null;
   try {
-    fishStore.loadFish().finally(() => {
-      pagination.value.numberOfItems = fishStore.fish.length;
-      loading.value = false;
-    });
+    fishStore
+      .loadFish()
+      .catch((e) => {
+        console.error("error loading fish from API", e?.message || e);
+        loadError.value = e?.message || "Failed to load fish";
+      })
+      .finally(() => {
+        pagination.value.numberOfItems = fishStore.fish.length;
+        loading.value = false;
+      });
   }
   catch (e) {
     console.error("error loading fish from API", e.message);
+    loadError.value = e?.message || "Failed to load fish";
+    loading.value = false;
   }
 });
 const sortKeys = ref({ index: "0", order: "none", name: null });
@@ -142,6 +152,13 @@ const { md, carbonMd } = useBreakpoints();
             {{ t("no") }}
           </template>
         </cv-toggle>
+        <cv-inline-notification
+          v-if="loadError"
+          kind="error"
+          title="Error"
+          :subtitle="loadError"
+          class="mb-4"
+        />
         <cv-data-table-skeleton
           v-if="loading"
           :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"

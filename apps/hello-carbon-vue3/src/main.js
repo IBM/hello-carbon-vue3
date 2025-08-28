@@ -25,5 +25,23 @@ i18nInitialized.then(() => {
   app.use(router);
   app.use(I18NextVue, { i18next });
 
+  // Global error handler: redirect to ErrorView with details
+  app.config.errorHandler = (err, instance, info) => {
+    // Avoid loops if already on the error route
+    const current = router.currentRoute?.value;
+    const alreadyOnError = current && current.name === "error";
+    try {
+      console.error("Global error captured:", err, info);
+    }
+    catch {
+      // ignore logging failure
+    }
+    if (!alreadyOnError) {
+      const message = (err && (err.message || String(err))) || "Unexpected error";
+      // Use `replace` to avoid piling history entries if many errors occur
+      router.replace({ name: "error", query: { code: "500", message } }).catch(() => {});
+    }
+  };
+
   app.mount("#app");
 });

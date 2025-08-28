@@ -15,8 +15,7 @@ checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnix
 - [Pinia](https://pinia.vuejs.org/) — this replaces Vuex store
 - [i18next](https://www.i18next.com/) — this repo demonstrates how to include translations using i18next. All UI
   elements are translated and most content is translated.
-- [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) — REST calls via fetch
-- [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, and many other useful utilities
+- [@vueuse](https://vueuse.org/) — Lazy image loading, manage local storage, useFetch wrapper for API with caching, and many other useful utilities
 - [cypress](https://www.cypress.io/) — Implement e2e tests with cypress to help screen PRs
 
 ## Carbon styles
@@ -26,6 +25,11 @@ generate the CSS.
 See [\_carbon-90.scss](./src/styles/_carbon-90.scss) for instructions on creating the CSS file.
 
 ## Pages & Components
+
+New in this iteration:
+- API calls use a shared VueUse createFetch instance with in-memory TTL caching and simple retries (see src/shared/api/http.js). Pages now show loading skeletons and Carbon inline error notifications when API calls fail.
+- Added dedicated Error and 404 pages styled in Carbon (routes: /error and catch-all).
+- Suggestions for Feature-Sliced Design structure are documented in docs/feature-sliced.md.
 
 [This repo demo site](https://ibm.github.io/hello-carbon-vue3/hello-carbon-vue3/)
 

@@ -2,9 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { shuffle } from "lodash";
 
-const BASE_URL
-  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
-const BUGS_URL = BASE_URL + "/bugs";
+const BUGS_URL = "/bugs";
 /**
  * Fish Availability
  * @typedef {Object} BugAvailability
@@ -45,7 +43,8 @@ export const useBugsStore = defineStore("bugs", () => {
    */
   async function loadBugs(force = false) {
     if (force || bugs.value.length === 0) {
-      const data = await fetch(BUGS_URL).then(response => response.json());
+      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData");
+      const data = await fetchJsonCached(BUGS_URL);
       const bugsKeys = Object.keys(data);
       const bugsData = [];
       for (let i = 0; i < bugsKeys.length; i++) {

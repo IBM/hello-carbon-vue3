@@ -19,7 +19,7 @@
     "test:e2e:safari": "npx cypress run --e2e --browser safari"
   },
   "dependencies": {
-    "@carbon/icons-vue": "^10.109.0",
+    "@carbon/icons-vue": "^10.115.0",
     "@carbon/themes": "^10.55.6",
     "@carbon/vue": "^3.0.27",
     "@nuxt/eslint": "^1.4.1",
@@ -28,7 +28,7 @@
     "@sidebase/nuxt-auth": "^1.0.0",
     "lodash.merge": "^4.6.2",
     "luxon": "^3.6.1",
-    "next-auth": "~4.21.1",
+    "next-auth": "~4.24.11",
     "nuxt": "^4.0.1",
     "vue": "latest",
     "vue-router": "latest",
@@ -39,7 +39,7 @@
     "cypress": "^14.5.3",
     "eslint": "^9.32.0",
     "eslint-plugin-tailwindcss": "^3.18.0",
-    "sass": "^1.89.2"
+    "sass": "^1.91.0"
   },
   "resolutions": {
     "vue-i18n": "10.0.6"

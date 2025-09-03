@@ -11,26 +11,21 @@ import {
   Basketball32 as PlayIcon,
 } from "@carbon/icons-vue";
 import { useVillagersStore } from "@/stores/villagers";
-import VillagerHobby from "@/components/VillagerHobby.vue";
-import IconBouncing from "@/components/icons/IconBouncing.vue";
-import IconGrowing from "@/components/icons/IconGrowing.vue";
-import IconRunning from "@/components/icons/IconRunning.vue";
-import IconFlashing from "@/components/icons/IconFlashing.vue";
-import IconMusic from "@/components/icons/IconMusic.vue";
-import IconReading from "@/components/icons/IconReading.vue";
+import AsyncVillagerHobby from "@/components/AsyncVillagerHobby";
+import { VillagerItem } from "@/types/villagers.ts";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
 const loading = ref(false);
 const loadError = ref(null);
-const villagerHobbies = ref({});
+
+interface VillagerHobbyGroup {
+  hobby: string;
+  villagers: Array<VillagerItem>;
+}
+const villagerHobbies = ref<Array<VillagerHobbyGroup>>([]);
 const selected = ref("switcher-Education");
-/**
- * Bug data
- * @typedef {Object} HobbyistData
- * @property {string} hobby
- * @property {Array<VillagerData>} villagers
- */
+
 onMounted(() => {
   loading.value = true;
   loadError.value = null;
@@ -49,8 +44,8 @@ onMounted(() => {
         });
 
         // What's happening here? I don't want to default always to the first set of content, "Education".
-        // So instead we set it based on what minute of the hour it is when we load. So for example
-        // if the page is loaded between 15:30 and 15:40 the 4th content, "Nature", is shown.
+        // So instead we set it based on what minute of the hour it is when we load. So, for example,
+        // if the page is loaded between 15:30 and 15:40, the 4th content, "Nature", is shown.
         const minute = new Date().getMinutes();
         let which = 0;
         if (minute > 9) which = 1;
@@ -72,10 +67,8 @@ onMounted(() => {
 
 /**
  * Get an icon for the given hobby
- * @param {string} hobby
- * @returns {Object} icon
  */
-function hobbyIcon(hobby) {
+function hobbyIcon(hobby: string) {
   switch (hobby) {
     case "Education":
       return EducationIcon;
@@ -96,45 +89,10 @@ function hobbyIcon(hobby) {
 
 /**
  * Keep track of what is selected
- * @param {string} val
  */
-function onSelected(val) {
+function onSelected(val: string) {
   selected.value = val;
 }
-
-function showBouncing(hobby) {
-  return hobby === "Play" && selected.value === "switcher-Play";
-}
-function showGrowing(hobby) {
-  return hobby === "Nature" && selected.value === "switcher-Nature";
-}
-function showRunning(hobby) {
-  return hobby === "Fitness" && selected.value === "switcher-Fitness";
-}
-function showFlashing(hobby) {
-  return hobby === "Fashion" && selected.value === "switcher-Fashion";
-}
-function showMusic(hobby) {
-  return hobby === "Music" && selected.value === "switcher-Music";
-}
-function showReading(hobby) {
-  return hobby === "Education" && selected.value === "switcher-Education";
-}
-const contentSwitcher = ref(null);
-const runWidth = ref(200);
-function calcRunWidth() {
-  const btn = contentSwitcher.value?.$el?.querySelector(
-    ".cv-content-switcher-button",
-  );
-  if (btn) {
-    const cssObj = window.getComputedStyle(btn, null);
-    const left = parseInt(cssObj?.getPropertyValue("padding-left"), 10) || 0;
-    const right = parseInt(cssObj?.getPropertyValue("padding-right"), 10) || 0;
-    runWidth.value = btn.clientWidth - left - right - 16;
-  }
-  else setTimeout(calcRunWidth, 250); // try agan later
-}
-onMounted(() => calcRunWidth());
 </script>
 
 <template>
@@ -156,7 +114,6 @@ onMounted(() => calcRunWidth());
           class="mb-4"
         />
         <cv-content-switcher
-          ref="contentSwitcher"
           @selected="onSelected"
         >
           <cv-content-switcher-button
@@ -167,32 +124,6 @@ onMounted(() => calcRunWidth());
             :selected="`switcher-${group.hobby}` === selected"
           >
             {{ t(group.hobby) }}
-            <IconBouncing
-              v-if="showBouncing(group.hobby)"
-              class="special-icon special-icon--play"
-            />
-            <IconGrowing
-              v-if="showGrowing(group.hobby)"
-              class="special-icon special-icon--grow"
-            />
-            <IconRunning
-              v-if="showRunning(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--run"
-            />
-            <IconFlashing
-              v-if="showFlashing(group.hobby)"
-              :run-width="runWidth"
-              class="special-icon special-icon--flash"
-            />
-            <IconMusic
-              v-if="showMusic(group.hobby)"
-              class="special-icon special-icon--music"
-            />
-            <IconReading
-              v-if="showReading(group.hobby)"
-              class="special-icon special-icon--reading"
-            />
           </cv-content-switcher-button>
         </cv-content-switcher>
 
@@ -202,7 +133,9 @@ onMounted(() => calcRunWidth());
             :key="`content-${group.hobby}`"
             :owner-id="`switcher-${group.hobby}`"
           >
-            <VillagerHobby :hobbyists="group" />
+            <template v-if="`switcher-${group.hobby}` === selected">
+              <AsyncVillagerHobby :hobbyists="group" />
+            </template>
           </cv-content-switcher-content>
         </section>
       </cv-column>

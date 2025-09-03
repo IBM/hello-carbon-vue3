@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useSongStore } from "../stores/songs";
 import { computed, onMounted, ref } from "vue";
 import SongCard from "../components/SongCard.vue";

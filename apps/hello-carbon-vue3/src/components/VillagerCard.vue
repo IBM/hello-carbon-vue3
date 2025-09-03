@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useLanguageStore } from "@/stores/language";
 import { computed } from "vue";
 import ChatBubble from "@/components/ChatBubble.vue";
@@ -14,12 +14,12 @@ const props = defineProps({
 const langStore = useLanguageStore();
 const name = computed(() => {
   const key = "name-" + langStore.languageObject.api;
-  let name = props.villager.name[key];
+  const name = props.villager.name[key];
   return name || props.villager.key;
 });
 const catchPhrase = computed(() => {
   const key = "catch-" + langStore.languageObject.api;
-  let phrase = props.villager["catch-translations"][key];
+  const phrase = props.villager["catch-translations"][key];
   return phrase || props.villager["catch-phrase"];
 });
 </script>

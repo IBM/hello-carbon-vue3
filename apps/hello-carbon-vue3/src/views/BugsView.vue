@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useBugsStore } from "@/stores/bugs";
 import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
@@ -82,7 +82,7 @@ onMounted(() => {
                 <cv-row>
                   <cv-column
                     v-for="bug in group.bugs"
-                    :key="bug.key"
+                    :key="bug.id"
                     :lg="4"
                   >
                     <BugCard :bug="bug" />

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 export default {
   name: "ThemeSelector",
 };
 </script>
-<script setup>
+<script setup lang="ts">
 import { useStorage } from "@vueuse/core";
 import { computed } from "vue";
 import { useTranslation } from "i18next-vue";

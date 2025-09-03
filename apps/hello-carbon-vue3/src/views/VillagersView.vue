@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
 import { useTranslation } from "i18next-vue";

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { CameraAction20 as CameraAction } from "@carbon/icons-vue";
 defineProps({
   iconColor: { type: String, default: "#0f62fe" }, // blue 60

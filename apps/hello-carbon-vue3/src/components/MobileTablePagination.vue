@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {
   ArrowLeft20 as PrevPageIcon,
   ArrowRight20 as NextPageIcon,

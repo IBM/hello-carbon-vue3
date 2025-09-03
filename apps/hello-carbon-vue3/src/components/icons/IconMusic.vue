@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Music20 as EighthNote } from "@carbon/icons-vue";
 import IconTrebleClef from "@/components/icons/IconTrebleClef.vue";
 defineProps({

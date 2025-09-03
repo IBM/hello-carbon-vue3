@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // https://codepen.io/Founts/pen/AJyVOr
 defineProps({
   kind: { type: String, default: "bottom-left" },

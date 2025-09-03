@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import VLazyImage from "v-lazy-image";
 defineProps({
   src: { type: String, required: true },

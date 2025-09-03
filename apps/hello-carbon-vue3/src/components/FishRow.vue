@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useLanguageStore } from "../stores/language";
 import { computed, inject, ref } from "vue";
 import {
@@ -12,7 +12,7 @@ import {
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
+import { useBreakpoints } from "@/composables/useBreakpoints";
 const { t } = useTranslation();
 
 const props = defineProps({
@@ -25,7 +25,7 @@ const props = defineProps({
 const langStore = useLanguageStore();
 const fishName = computed(() => {
   const key = "name-" + langStore.languageObject.api;
-  let name = props.fish.name[key];
+  const name = props.fish.name[key];
   return name || props.fish.key;
 });
 const fishPrice = computed(() => {

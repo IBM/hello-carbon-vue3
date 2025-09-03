@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import VillagerCard from "@/components/VillagerCard.vue";
 import { useTranslation } from "i18next-vue";
 

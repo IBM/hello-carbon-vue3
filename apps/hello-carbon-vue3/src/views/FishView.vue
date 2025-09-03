@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useFishStore } from "../stores/fish";
 import FishRow from "../components/FishRow.vue";
 import { computed, onMounted, ref, provide, watch } from "vue";
@@ -8,8 +8,8 @@ import {
 } from "@carbon/icons-vue";
 import { useTranslation } from "i18next-vue";
 import FishRowEmpty from "@/components/FishRowEmpty.vue";
-import { useLanguageStore } from "@/stores/language.js";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
+import { useLanguageStore } from "@/stores/language";
+import { useBreakpoints } from "@/composables/useBreakpoints";
 import MobileTablePagination from "@/components/MobileTablePagination.vue";
 
 const { t, i18next } = useTranslation();
@@ -72,7 +72,7 @@ const filteredFish = computed(() => {
   // if we are not showing hidden fish, remove them
   if (!showHidden.value) show = show.filter(fish => !fish.hidden);
 
-  // if we have search term, filter based on that term
+  // if we have a search term, filter based on that term
   if (searchFilter.value)
     show = show.filter(fish => fish.key.includes(searchFilter.value));
 

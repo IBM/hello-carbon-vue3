@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Redo16 as FlipIcon } from "@carbon/icons-vue";
 import "@carbon/web-components/es/components/tag/index.js";
 import { computed, ref } from "vue";

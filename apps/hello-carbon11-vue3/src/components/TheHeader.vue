@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {
   Home16 as HomeIcon,
   Fish16 as FishIcon,

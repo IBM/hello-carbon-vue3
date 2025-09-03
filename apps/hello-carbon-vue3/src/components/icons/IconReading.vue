@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {
   Book20 as Book,
   Education20 as EducationIcon,

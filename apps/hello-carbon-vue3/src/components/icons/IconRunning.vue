@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Soccer20 as Soccer } from "@carbon/icons-vue";
 import { computed, onMounted, ref } from "vue";
 const props = defineProps({

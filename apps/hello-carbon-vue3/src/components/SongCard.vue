@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useLanguageStore } from "../stores/language";
 import {
   Money20 as SellIcon,
@@ -14,7 +14,7 @@ const props = defineProps({
 const langStore = useLanguageStore();
 const songName = computed(() => {
   const key = "name-" + langStore.languageObject.api;
-  let name = props.song?.name[key];
+  const name = props.song?.name[key];
   return name || "unknown";
 });
 const buyPrice = computed(() => {

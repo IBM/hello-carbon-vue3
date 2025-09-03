@@ -1,8 +1,8 @@
 import { createFetch } from "@vueuse/core";
 
 // Centralized base URL for Animal Crossing data
-export const BASE_URL =
-  "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
+export const BASE_URL
+  = "https://s3.us-east.cloud-object-storage.appdomain.cloud/archaeopteryx-eusthenopteron/v2";
 
 function _buildUrl(path: string) {
   if (!path.startsWith("/")) path = `/${path}`;
@@ -10,9 +10,12 @@ function _buildUrl(path: string) {
 }
 
 // Simple in-memory cache with TTL
-const _cache = new Map<string, { data?: any; promise?: Promise<any>; expiresAt: number }>();
+const _cache = new Map<string,
+  { data?: never; promise?:
+  Promise<never>;
+  expiresAt: number; }>();
 
-function _cacheKey(url: string, options: { method?: string; params?: any } = {}) {
+function _cacheKey(url: string, options: { method?: string; params?: never } = {}) {
   const { method = "GET", params } = options;
   const p = params ? JSON.stringify(params) : "";
   return `${method}:${url}:${p}`;
@@ -38,14 +41,15 @@ export const useAnimalCrossingData = createFetch({
  */
 async function _withRetry<T>(fn: () => Promise<T>, { retries = 2, baseDelay = 300 } = {}): Promise<T> {
   let attempt = 0;
-  // eslint-disable-next-line no-constant-condition
+
   while (true) {
     try {
       return await fn();
-    } catch (e) {
+    }
+    catch (e) {
       if (attempt >= retries) throw e;
       const delay = baseDelay * Math.pow(2, attempt);
-      await new Promise((r) => setTimeout(r, delay));
+      await new Promise(r => setTimeout(r, delay));
       attempt++;
     }
   }
@@ -56,7 +60,7 @@ async function _withRetry<T>(fn: () => Promise<T>, { retries = 2, baseDelay = 30
  */
 export async function fetchJsonCached(
   path: string,
-  opts: { ttlMs?: number; params?: any; cacheKey?: string; retries?: number } = {},
+  opts: { ttlMs?: number; params?: never; cacheKey?: string; retries?: number } = {},
 ) {
   const { ttlMs = 5 * 60 * 1000, params, cacheKey, retries = 2 } = opts;
   const url = _buildUrl(path);
@@ -84,7 +88,8 @@ export async function fetchJsonCached(
     const data = await promise;
     _cache.set(key, { data, expiresAt: now + ttlMs });
     return data;
-  } catch (e) {
+  }
+  catch (e) {
     _cache.delete(key);
     throw e;
   }

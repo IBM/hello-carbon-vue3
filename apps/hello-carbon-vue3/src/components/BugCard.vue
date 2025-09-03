@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Redo32 as FlipIcon } from "@carbon/icons-vue";
 import { computed, ref } from "vue";
 import { useLanguageStore } from "@/stores/language";
@@ -22,8 +22,8 @@ function toggleFlip() {
 const langStore = useLanguageStore();
 const bugName = computed(() => {
   const key = "name-" + langStore.languageObject.api;
-  let name = props.bug.name[key];
-  return name || props.bug.key;
+  const name = props.bug.name[key];
+  return name || props.bug.id;
 });
 
 const rarityMap = {
@@ -47,7 +47,7 @@ const rarity = computed(() => {
         <div>
           <BlurImage
             :src="bug.icon_uri"
-            :alt="bug.key"
+            :alt="bug.id"
             :src-placeholder="placeholderImage"
             class="bug-card__image"
           />

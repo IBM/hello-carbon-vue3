@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Sprout20 as NatureIcon } from "@carbon/icons-vue";
 defineProps({
   iconColor: { type: String, default: "#198038" }, // green 60

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { useLanguageStore } from "@/stores/language.js";
 import {
   Money20 as SellIcon,

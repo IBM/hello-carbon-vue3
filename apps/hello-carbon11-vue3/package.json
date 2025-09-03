@@ -15,9 +15,9 @@
     "ci:lint": "eslint --max-warnings 0"
   },
   "dependencies": {
-    "@carbon/grid": "^11",
+    "@carbon/grid": "^11.38.0",
     "@carbon/icons-vue": "^10.111.0",
-    "@carbon/themes": "^11",
+    "@carbon/themes": "^11.55.0",
     "@carbon/web-components": "^2.32.1",
     "@stylistic/eslint-plugin": "^5.1.0",
     "@vueuse/core": "^13.5.0",

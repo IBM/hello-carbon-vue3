@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { RouterView } from "vue-router";
 import TheHeader from "./components/TheHeader.vue";
 import { useTheme } from "@/composables/useTheme.js";

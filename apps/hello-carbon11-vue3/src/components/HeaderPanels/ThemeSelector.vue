@@ -1,6 +1,6 @@
 <script>
 </script>
-<script setup lang="ts">
+<script setup>
 import { useStorage } from "@vueuse/core";
 import { computed, ref, nextTick } from "vue";
 import { useTranslation } from "i18next-vue";

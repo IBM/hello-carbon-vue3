@@ -49,6 +49,21 @@ declare module "@carbon/icons-vue" {
 
   // Icon exports
 
+  // Header nav icons
+  export const Home16: CarbonIconComponent;
+  export const Fish16: CarbonIconComponent;
+  export const Debug16: CarbonIconComponent;
+  export const Events16: CarbonIconComponent;
+  export const Translate20: CarbonIconComponent;
+  export const Login20: CarbonIconComponent;
+  export const UserAvatar20: CarbonIconComponent;
+  export const Switcher20: CarbonIconComponent;
+  export const ColorPalette20: CarbonIconComponent;
+
+  // Table actions
+  export const View20: CarbonIconComponent;
+  export const ViewOff20: CarbonIconComponent;
+
   // Education icons
   export const Education16: CarbonIconComponent;
   export const Education20: CarbonIconComponent;
@@ -85,6 +100,14 @@ declare module "@carbon/icons-vue" {
   export const Basketball24: CarbonIconComponent;
   export const Basketball32: CarbonIconComponent;
 
+  // Location and fish-related
+  export const StarFilled16: CarbonIconComponent;
+  export const CircleFilled16: CarbonIconComponent;
+  export const EarthFilled16: CarbonIconComponent;
+  export const EarthAmericasFilled16: CarbonIconComponent;
+  export const EarthEuropeAfricaFilled16: CarbonIconComponent;
+  export const EarthSoutheastAsiaFilled16: CarbonIconComponent;
+
   // Navigation icons
   export const ArrowLeft16: CarbonIconComponent;
   export const ArrowLeft20: CarbonIconComponent;
@@ -96,6 +119,19 @@ declare module "@carbon/icons-vue" {
   export const ArrowRight24: CarbonIconComponent;
   export const ArrowRight32: CarbonIconComponent;
 
-  // Add other icon exports that might be used in your project
+  // Panel and progress icons
+  export const OpenPanelBottom32: CarbonIconComponent;
+  export const OpenPanelFilledBottom32: CarbonIconComponent;
+  export const OpenPanelTop32: CarbonIconComponent;
+  export const OpenPanelFilledTop32: CarbonIconComponent;
+  export const Reset32: CarbonIconComponent;
+
+  // Action/redo
+  export const Redo32: CarbonIconComponent;
+
+  // Commerce
+  export const Money20: CarbonIconComponent;
+  export const ShoppingCartPlus20: CarbonIconComponent;
+
   // The pattern is [IconName][Size]: CarbonIconComponent
 }

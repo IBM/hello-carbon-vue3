@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
 import { shuffle } from "lodash";
-import { SongItem, SongsMap } from "@/types/songs.ts";
+import { SongItem, SongsMap } from "@/types/songs";
 
 const SONGS_URL = "/songs";
 
@@ -29,7 +29,7 @@ export const useSongStore = defineStore("songs", () => {
    */
   async function loadSongs(force = false): Promise<void> {
     if (force || songs.value.length === 0) {
-      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData.ts");
+      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData");
       const data = await fetchJsonCached(SONGS_URL) as SongsMap;
       songs.value = shuffle(Object.values(data));
     }

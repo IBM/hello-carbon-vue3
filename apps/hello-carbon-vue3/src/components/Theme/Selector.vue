@@ -16,9 +16,13 @@ const themes = computed(() => [
   { id: "g90", name: t("theme-g90") },
   { id: "g100", name: t("theme-g100") },
 ]);
-function changeTheme(id) {
+function changeTheme(id: string) {
   theme.value = id;
-  document.activeElement.blur();
+
+  const activeElement = document?.activeElement as HTMLElement | null;
+  if (activeElement && typeof activeElement.blur === "function") {
+    activeElement.blur();
+  }
 }
 </script>
 

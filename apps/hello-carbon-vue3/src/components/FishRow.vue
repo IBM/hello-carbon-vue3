@@ -15,19 +15,12 @@ import { useTranslation } from "i18next-vue";
 import { useBreakpoints } from "@/composables/useBreakpoints";
 const { t } = useTranslation();
 
-const props = defineProps({
-  fish: {
-    type: /** @type {FishData} **/ Object,
-    required: true,
-  },
-  expandable: { type: Boolean, default: false },
-});
+import type { FishItem } from "@/types/fish";
+
+const props = defineProps<{ fish: FishItem; expandable?: boolean }>();
 const langStore = useLanguageStore();
-const fishName = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  const name = props.fish.name[key];
-  return name || props.fish.key;
-});
+import { useI18nName } from "@/composables/useI18nName";
+const fishName = useI18nName(() => props.fish.name, props.fish["file-name"]);
 const fishPrice = computed(() => {
   return langStore.currencyFormat.format(props.fish.price);
 });
@@ -59,7 +52,7 @@ const { md } = useBreakpoints();
 
 <template>
   <cv-data-table-row
-    :value="fish.key"
+    :value="fish['file-name']"
     :aria-label-for-batch-checkbox="t('select-row', { name: fishName })"
   >
     <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>

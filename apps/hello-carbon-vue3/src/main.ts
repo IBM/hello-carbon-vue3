@@ -5,7 +5,7 @@ import i18next, { type i18n } from "i18next";
 import httpBackend from "i18next-http-backend";
 import I18NextVue from "i18next-vue";
 import App from "./App.vue";
-import router from "./router/index.ts";
+import router from "./router/index";
 
 import "./styles/tailwind.css";
 
@@ -21,7 +21,6 @@ const i18nInitialized = i18next.use(httpBackend).init({
 i18nInitialized.then(() => {
   const app = createApp(App);
 
-  // @ts-expect-error - CarbonVue3 types are not up to date
   app.use(CarbonVue3);
   app.use(createPinia());
   app.use(router);

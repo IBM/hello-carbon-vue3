@@ -11,11 +11,11 @@ function _buildUrl(path: string) {
 
 // Simple in-memory cache with TTL
 const _cache = new Map<string,
-  { data?: never; promise?:
-  Promise<never>;
+  { data?: unknown; promise?:
+  Promise<unknown>;
   expiresAt: number; }>();
 
-function _cacheKey(url: string, options: { method?: string; params?: never } = {}) {
+function _cacheKey(url: string, options: { method?: string; params?: unknown } = {}) {
   const { method = "GET", params } = options;
   const p = params ? JSON.stringify(params) : "";
   return `${method}:${url}:${p}`;
@@ -58,10 +58,10 @@ async function _withRetry<T>(fn: () => Promise<T>, { retries = 2, baseDelay = 30
 /**
  * Fetch JSON with simple in-memory TTL caching.
  */
-export async function fetchJsonCached(
+export async function fetchJsonCached<T = unknown>(
   path: string,
-  opts: { ttlMs?: number; params?: never; cacheKey?: string; retries?: number } = {},
-) {
+  opts: { ttlMs?: number; params?: unknown; cacheKey?: string; retries?: number } = {},
+): Promise<T> {
   const { ttlMs = 5 * 60 * 1000, params, cacheKey, retries = 2 } = opts;
   const url = _buildUrl(path);
   const key = cacheKey || _cacheKey(url, { method: "GET", params });
@@ -69,16 +69,16 @@ export async function fetchJsonCached(
 
   const entry = _cache.get(key);
   if (entry && entry.expiresAt > now && "data" in entry) {
-    return entry.data;
+    return entry.data as T;
   }
   if (entry && entry.promise) {
-    return entry.promise;
+    return entry.promise as Promise<T>;
   }
 
-  const run = async () => {
-    const { data, error } = await useAnimalCrossingData(url).get().json();
+  const run = async (): Promise<T> => {
+    const { data, error } = await useAnimalCrossingData(url).get().json<T>();
     if (error.value) throw error.value;
-    return data.value;
+    return data.value as T;
   };
 
   const promise = _withRetry(run, { retries });

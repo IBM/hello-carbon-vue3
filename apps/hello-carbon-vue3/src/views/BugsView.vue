@@ -7,9 +7,11 @@ import { useTranslation } from "i18next-vue";
 
 const { t } = useTranslation();
 const bugStore = useBugsStore();
+import type { BugItem } from "@/types/bugs";
+
 const loading = ref(false);
-const loadError = ref(null);
-const bugGroups = ref({});
+const loadError = ref<string | null>(null);
+const bugGroups = ref<Array<{ location: string; bugs: BugItem[] }>>([]);
 onMounted(() => {
   loading.value = true;
   loadError.value = null;
@@ -21,17 +23,17 @@ onMounted(() => {
         loadError.value = e?.message || "Failed to load bugs";
       })
       .finally(() => {
-        const groups = groupBy(bugStore.bugs, "availability.location");
+        const groups = groupBy(bugStore.bugs as BugItem[], "availability.location");
         const keys = Object.keys(groups);
         bugGroups.value = keys.map((key) => {
-          return { location: key, bugs: groups[key] };
+          return { location: key, bugs: groups[key] as BugItem[] };
         });
         loading.value = false;
       });
   }
-  catch (e) {
-    console.error("error loading bugs from API", e.message);
-    loadError.value = e?.message || "Failed to load bugs";
+  catch (e: unknown) {
+    console.error("error loading bugs from API", (e as Error)?.message || e);
+    loadError.value = (e as Error)?.message || "Failed to load bugs";
     loading.value = false;
   }
 });

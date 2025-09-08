@@ -3,7 +3,7 @@
  * Designed based on apps/hello-carbon-vue3/sample-data/villagers.json
  */
 
-import { LocalizedNameMap } from "./language.ts";
+import { LocalizedNameMap } from "./language";
 
 export type CatchTranslationKey =
   | "catch-USen"

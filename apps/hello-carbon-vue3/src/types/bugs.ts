@@ -3,7 +3,7 @@
  * Designed based on apps/hello-carbon-vue3/sample-data/bugs.json
  */
 
-import { LocalizedNameMap } from "./language.ts";
+import { LocalizedNameMap } from "./language";
 
 export interface BugAvailability {
   /** e.g., "3-9", "3-6 & 9-10", or "" for all year */

@@ -20,10 +20,14 @@ const loggedIn = ref(false);
 
 const langStore = useLanguageStore();
 const languageExpanded = ref(false);
-function changeLocale(language) {
+function changeLocale(language: string) {
   langStore.setLanguage(language);
   languageExpanded.value = false;
-  document?.activeElement?.blur();
+
+  const activeElement = document?.activeElement as HTMLElement | null;
+  if (activeElement && typeof activeElement.blur === "function") {
+    activeElement.blur();
+  }
 }
 function onLogin() {
   loggedIn.value = !loggedIn.value;

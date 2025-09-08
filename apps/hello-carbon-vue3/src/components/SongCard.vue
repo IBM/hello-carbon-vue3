@@ -8,9 +8,9 @@ import placeholderImage from "@/assets/song-placeholder.jpg";
 import { computed } from "vue";
 import BlurImage from "@/components/BlurImage.vue";
 
-const props = defineProps({
-  song: { type: Object, required: true },
-});
+import type { SongItem } from "@/types/songs";
+
+const props = defineProps<{ song: SongItem }>();
 const langStore = useLanguageStore();
 const songName = computed(() => {
   const key = "name-" + langStore.languageObject.api;

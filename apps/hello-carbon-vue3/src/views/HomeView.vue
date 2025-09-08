@@ -5,7 +5,7 @@ import SongCard from "../components/SongCard.vue";
 
 const songStore = useSongStore();
 const loading = ref(false);
-const loadError = ref(null);
+const loadError = ref<string | null>(null);
 onMounted(() => {
   loading.value = true;
   loadError.value = null;
@@ -19,9 +19,10 @@ onMounted(() => {
         loading.value = false;
       });
   }
-  catch (e) {
-    console.error("error loading songs from API", e.message);
-    loadError.value = e?.message || "Failed to load songs";
+  catch (e: unknown) {
+    const msg = (e as { message?: string })?.message ?? String(e);
+    console.error("error loading songs from API", msg);
+    loadError.value = msg || "Failed to load songs";
     loading.value = false;
   }
 });

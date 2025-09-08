@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
 import { shuffle } from "lodash";
-import { FishItem, FishMap } from "@/types/fish.ts";
+import { FishItem, FishMap } from "@/types/fish";
 
 const FISH_URL = "/fish";
 
@@ -21,7 +21,7 @@ export const useFishStore = defineStore("fish", () => {
    */
   async function loadFish(force = false): Promise<void> {
     if (force || fish.value.length === 0) {
-      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData.ts");
+      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData");
       const data = await fetchJsonCached(FISH_URL) as FishMap;
       const fishData = Object.values(data).map(item =>
         ({ key: item["file-name"], hidden: false, ...item }));

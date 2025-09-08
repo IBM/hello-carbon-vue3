@@ -3,7 +3,7 @@
  * Designed based on apps/hello-carbon-vue3/sample-data/songs.json
  */
 
-import { LocalizedNameMap } from "./language.ts";
+import { LocalizedNameMap } from "./language";
 
 export interface SongItem {
   /** numeric id (1..95 in ACNH) */

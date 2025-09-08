@@ -3,7 +3,7 @@
  * Designed based on apps/hello-carbon-vue3/sample-data/fish.json
  */
 
-import { LocalizedNameMap } from "./language.ts";
+import { LocalizedNameMap } from "./language";
 
 export interface FishAvailability {
   /** e.g., "11-3", "3-6 & 9-10", or "" for all year */

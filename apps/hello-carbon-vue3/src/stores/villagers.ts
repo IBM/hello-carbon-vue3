@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
-import { VillagerItem, VillagersMap } from "@/types/villagers.js";
+import { VillagerItem, VillagersMap } from "@/types/villagers";
 
 interface VillagerData extends VillagerItem {
   key: string;
@@ -16,7 +16,7 @@ export const useVillagersStore = defineStore("villagers", () => {
    */
   async function loadVillagers(force = false): Promise<void> {
     if (force || villagers.value.length === 0) {
-      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData.ts");
+      const { fetchJsonCached } = await import("@/composables/useAnimalCrossingData");
       const data = await fetchJsonCached(VILLAGERS_URL) as VillagersMap;
       villagers.value = Object.values(data).map(item =>
         ({ key: item["file-name"], ...item }));

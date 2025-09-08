@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useFishStore } from "../stores/fish";
+import { useFishStore } from "@/stores/fish";
 import FishRow from "../components/FishRow.vue";
 import { computed, onMounted, ref, provide, watch } from "vue";
 import {
@@ -17,8 +17,10 @@ const langStore = useLanguageStore();
 
 const hideIcon = HideIcon;
 const fishStore = useFishStore();
+import type { SortKeys, TablePagination } from "@/types/ui";
+
 const loading = ref(false);
-const loadError = ref(null);
+const loadError = ref<string | null>(null);
 const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] });
 const i18nPagination = computed(() => {
   return {
@@ -44,13 +46,14 @@ onMounted(() => {
         loading.value = false;
       });
   }
-  catch (e) {
-    console.error("error loading fish from API", e.message);
-    loadError.value = e?.message || "Failed to load fish";
+  catch (e: unknown) {
+    const msg = (e as { message?: string })?.message ?? String(e);
+    console.error("error loading fish from API", msg);
+    loadError.value = msg || "Failed to load fish";
     loading.value = false;
   }
 });
-const sortKeys = ref({ index: "0", order: "none", name: null });
+const sortKeys = ref<SortKeys>({ index: "0", order: "none", name: null });
 function onSort(keys) {
   sortKeys.value = keys;
 }
@@ -108,7 +111,7 @@ function toggleShowAll() {
   showHidden.value = !showHidden.value;
 }
 
-const currentPagination = ref({ start: 1, length: 7 });
+const currentPagination = ref<TablePagination>({ start: 1, length: 7, page: 1 });
 const paginated = computed(() => {
   const change = currentPagination.value;
   return filteredFish.value.slice(
@@ -119,7 +122,7 @@ const paginated = computed(() => {
 function onPagination(change) {
   currentPagination.value = change;
 }
-const selectedFish = ref([]);
+const selectedFish = ref<string[]>([]);
 function onHideSelected() {
   for (let i = 0; i < selectedFish.value.length; i++) {
     const key = selectedFish.value[i];

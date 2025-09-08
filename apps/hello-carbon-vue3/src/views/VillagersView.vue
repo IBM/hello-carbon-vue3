@@ -12,18 +12,14 @@ import {
 } from "@carbon/icons-vue";
 import { useVillagersStore } from "@/stores/villagers";
 import AsyncVillagerHobby from "@/components/AsyncVillagerHobby";
-import { VillagerItem } from "@/types/villagers.ts";
+import type { VillagerItem } from "@/types/villagers";
 
 const { t } = useTranslation();
 const villagerStore = useVillagersStore();
 const loading = ref(false);
-const loadError = ref(null);
+const loadError = ref<string | null>(null);
 
-interface VillagerHobbyGroup {
-  hobby: string;
-  villagers: Array<VillagerItem>;
-}
-const villagerHobbies = ref<Array<VillagerHobbyGroup>>([]);
+const villagerHobbies = ref<Array<{ hobby: string; villagers: Array<VillagerItem> }>>([]);
 const selected = ref("switcher-Education");
 
 onMounted(() => {
@@ -58,9 +54,10 @@ onMounted(() => {
         loading.value = false;
       });
   }
-  catch (e) {
-    console.error("error loading villagers from API", e.message);
-    loadError.value = e?.message || "Failed to load villagers";
+  catch (e: unknown) {
+    const msg = (e as { message?: string })?.message ?? String(e);
+    console.error("error loading villagers from API", msg);
+    loadError.value = msg || "Failed to load villagers";
     loading.value = false;
   }
 });

@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "allowImportingTsExtensions": true,
+    "module": "ESNext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true
   },
+  "exclude": ["./node_modules", "../../node_modules/"],
   "include": [
     "src/**/*.d.ts",
     "src/**/*.ts",

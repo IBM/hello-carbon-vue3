@@ -49,7 +49,7 @@ jobs:
         run: echo "IMAGE=$(ibmcloud ce app get --output json --name ${CE_APP_NAME} | jq -r '.spec.template.spec.containers[0].image[8:]')" >> "$GITHUB_OUTPUT"
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.33.0
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           image-ref: '${{ steps.image.outputs.IMAGE }}'
           format: 'sarif'

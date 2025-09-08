@@ -18,16 +18,9 @@ function toggleFlip() {
 
 import { useI18nName } from "@/composables/useI18nName";
 const bugName = useI18nName(() => props.bug.name, String(props.bug.id));
-
-const rarityMap = {
-  "Common": "gray",
-  "Uncommon": "green",
-  "Rare": "purple",
-  "Ultra-rare": "magenta",
-};
-const rarity = computed(() => {
-  return rarityMap[props.bug.availability?.rarity] || "gray";
-});
+import { useRarity } from "@/composables/useRarity";
+const { bugTagKind } = useRarity();
+const rarity = computed(() => bugTagKind(props.bug.availability?.rarity));
 </script>
 
 <template>

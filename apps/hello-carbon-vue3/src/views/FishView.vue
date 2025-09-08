@@ -2,15 +2,15 @@
 import { useFishStore } from "@/stores/fish";
 import FishRow from "../components/FishRow.vue";
 import { computed, onMounted, ref, provide, watch } from "vue";
-import {
-  View20 as ShowAllIcon,
-  ViewOff20 as HideIcon,
-} from "@carbon/icons-vue";
+import ToggleVisibilityIcon from "@/components/ToggleVisibilityIcon.vue";
 import { useTranslation } from "i18next-vue";
 import FishRowEmpty from "@/components/FishRowEmpty.vue";
 import { useLanguageStore } from "@/stores/language";
 import { useBreakpoints } from "@/composables/useBreakpoints";
 import MobileTablePagination from "@/components/MobileTablePagination.vue";
+import { useDebouncedSearch } from "@/composables/useDebouncedSearch";
+import { useArrayPagination } from "@/composables/useArrayPagination";
+import { ViewOff20 as HideIcon } from "@carbon/icons-vue";
 
 const { t, i18next } = useTranslation();
 const langStore = useLanguageStore();
@@ -59,6 +59,7 @@ function onSort(keys) {
 }
 
 const searchFilter = ref("");
+const debouncedSearch = useDebouncedSearch(searchFilter, 250);
 /**
  * Set a search filter
  * @param {string} val
@@ -76,8 +77,8 @@ const filteredFish = computed(() => {
   if (!showHidden.value) show = show.filter(fish => !fish.hidden);
 
   // if we have a search term, filter based on that term
-  if (searchFilter.value)
-    show = show.filter(fish => fish.key.includes(searchFilter.value));
+  if (debouncedSearch.value)
+    show = show.filter(fish => fish.key.includes(debouncedSearch.value));
 
   // If we are sorting the data, do that here
   if (sortKeys.value.order !== "none") {
@@ -111,16 +112,10 @@ function toggleShowAll() {
   showHidden.value = !showHidden.value;
 }
 
-const currentPagination = ref<TablePagination>({ start: 1, length: 7, page: 1 });
-const paginated = computed(() => {
-  const change = currentPagination.value;
-  return filteredFish.value.slice(
-    change.start - 1,
-    change.start + change.length - 1,
-  );
-});
-function onPagination(change) {
-  currentPagination.value = change;
+const { state: currentPagination, pageSlice, set: setPagination } = useArrayPagination({ length: 7 });
+const paginated = computed(() => pageSlice(filteredFish.value));
+function onPagination(change: TablePagination) {
+  setPagination(change);
 }
 const selectedFish = ref<string[]>([]);
 function onHideSelected() {
@@ -221,18 +216,9 @@ const { md, carbonMd } = useBreakpoints();
               :alt="t('show')"
               @click="toggleShowAll"
             >
-              <HideIcon
-                v-if="showHidden"
-                class="bx--toolbar-action__icon"
-              >
-                <title>{{ t("hide") }}</title>
-              </HideIcon>
-              <ShowAllIcon
-                v-else
-                class="bx--toolbar-action__icon"
-              >
-                <title>{{ t("show") }}</title>
-              </ShowAllIcon>
+              <ToggleVisibilityIcon :visible="showHidden" class="bx--toolbar-action__icon">
+                <title>{{ showHidden ? t('hide') : t('show') }}</title>
+              </ToggleVisibilityIcon>
             </cv-data-table-action>
           </template>
           <template #headings>

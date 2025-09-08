@@ -5,11 +5,10 @@ import {
   Debug16 as BugsIcon,
   Events16 as VillagersIcon,
   Translate20 as LanguageIcon,
-  Login20 as LoginIcon,
-  UserAvatar20 as AvatarIcon,
   Switcher20 as SwitcherIcon,
   ColorPalette20 as ThemeIcon,
 } from "@carbon/icons-vue";
+import AuthStatusIcon from "@/components/AuthStatusIcon.vue";
 import ThemeSelector from "@/components/Theme/Selector.vue";
 import { ref } from "vue";
 import { useLanguageStore } from "../stores/language";
@@ -99,8 +98,7 @@ const otherApps = ref([
         tip-alignment="center"
         @click="onLogin"
       >
-        <AvatarIcon v-if="loggedIn" />
-        <LoginIcon v-else />
+        <AuthStatusIcon :logged-in="loggedIn" />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t('other-apps')"

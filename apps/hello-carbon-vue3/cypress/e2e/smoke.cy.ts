@@ -20,7 +20,8 @@ describe("smoke test", () => {
     // villagers
     cy.get("#side-nav").find("li").eq(4).click();
     cy.location("pathname").should("eq", "/villagers");
-    cy.get("[data-cy=\"hobby\"]").should("have.length", 6);
+    // only 1 hobby section is loaded at a time
+    cy.get("[data-cy=\"hobby\"]").should("have.length", 1);
 
     // home
     cy.get("#side-nav").find("li").first().click();

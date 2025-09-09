@@ -1,4 +1,3 @@
-import { computed } from "vue";
 import type { Rarity } from "@/types/ui";
 
 /**
@@ -17,22 +16,13 @@ export function useRarity() {
 
   const fishStars = (rarity?: Rarity | null) => {
     const r = (rarity || "Common").toString();
-    let count = 1;
+    let count: number;
     if (r === "Uncommon") count = 2;
     else if (r === "Rare") count = 3;
     else if (r === "Ultra-rare") count = 4;
     else if (r === "Common") count = 1;
-    else count = 0; // unknown
-
-    const cls = computed(() => {
-      if (count === 1) return "text-carbon-purple-30";
-      if (count === 2) return "text-carbon-purple-40";
-      if (count === 3) return "text-carbon-purple-50";
-      if (count === 4) return "text-carbon-purple-60";
-      return "text-carbon-magenta-30"; // fallback/unknown
-    });
-
-    return { count, class: cls };
+    else count = 1; // default to 1 star
+    return count;
   };
 
   return { bugTagKind, fishStars };

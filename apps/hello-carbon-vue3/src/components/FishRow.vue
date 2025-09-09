@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useLanguageStore } from "../stores/language";
+import { useLanguageStore } from "@/stores/language";
 import { computed, inject, ref } from "vue";
-import { StarFilled16 as RareIcon } from "@carbon/icons-vue";
+// star icons handled by RarityStars component
+import RarityStars from "@/components/RarityStars.vue";
 import LocationIconByWater from "@/components/LocationIconByWater.vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "../assets/fish.svg";
@@ -23,7 +24,7 @@ const cjFishPrice = computed(() => {
 });
 import { useRarity } from "@/composables/useRarity";
 const { fishStars } = useRarity();
-const fishRarity = fishStars(props.fish.availability?.rarity);
+const fishRarity: number = fishStars(props.fish.availability?.rarity);
 
 const showCatchPhrases = inject("show-catch-phrases", ref(false));
 
@@ -58,12 +59,7 @@ const { md } = useBreakpoints();
       />
     </cv-data-table-cell>
     <cv-data-table-cell v-if="md">
-      <div class="flex" :class="fishRarity.class">
-        <RareIcon v-if="fishRarity.count >= 1" />
-        <RareIcon v-if="fishRarity.count >= 2" />
-        <RareIcon v-if="fishRarity.count >= 3" />
-        <RareIcon v-if="fishRarity.count >= 4" />
-      </div>
+      <RarityStars :count="fishRarity"/>
     </cv-data-table-cell>
     <!-- Add optional expanding data here -->
     <template

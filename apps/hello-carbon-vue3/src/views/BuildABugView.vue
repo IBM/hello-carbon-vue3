@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import StepIcon from "@/components/StepIcon.vue";
 import { useTranslation } from "i18next-vue";
 import {
   OpenPanelBottom32 as BottomIncomplete,
@@ -67,19 +68,21 @@ function clearAll() {
   <cv-grid>
     <cv-row>
       <cv-column>
-        <div class="text-3xl py-8">
+        <div class="text-3xl">
           {{ t("build-a-bug") }}
         </div>
         <cv-icon-button
           label="reset"
           :icon="Reset"
-          class="mb-5"
+          size="small"
+          class="my-4!"
           @click="clearAll"
         />
         <cv-progress
           :vertical="false"
           :space-equally="true"
           :initial-step="step"
+          class="mb-8!"
         >
           <cv-progress-step
             id="bug-head"
@@ -89,8 +92,7 @@ function clearAll() {
             @step-clicked="onStepClicked"
           >
             <template #step-icon>
-              <TopComplete v-if="topIndex > -1" />
-              <TopIncomplete v-else />
+              <StepIcon :complete="topIndex > -1" :complete-icon="TopComplete" :incomplete-icon="TopIncomplete" />
             </template>
           </cv-progress-step>
           <cv-progress-step
@@ -108,8 +110,7 @@ function clearAll() {
             @step-clicked="onStepClicked"
           >
             <template #step-icon>
-              <BottomComplete v-if="bottomIndex > -1" />
-              <BottomIncomplete v-else />
+              <StepIcon :complete="bottomIndex > -1" :complete-icon="BottomComplete" :incomplete-icon="BottomIncomplete" />
             </template>
           </cv-progress-step>
         </cv-progress>
@@ -117,10 +118,10 @@ function clearAll() {
     </cv-row>
     <cv-row>
       <cv-column>
-        <div class="mt-9">
+        <div class="mt-9!">
           <section
             v-if="step === 0"
-            class="flex justify-between"
+            class="flex justify-between space-y-1!"
           >
             <div
               v-for="(url, index) in bugParts"
@@ -132,7 +133,7 @@ function clearAll() {
           </section>
           <section
             v-if="step === 1"
-            class="flex justify-between"
+            class="flex justify-between space-y-1!"
           >
             <div
               v-for="(url, index) in bugParts"
@@ -144,7 +145,7 @@ function clearAll() {
           </section>
           <section
             v-if="step === 2"
-            class="flex justify-between"
+            class="flex justify-between space-y-1!"
           >
             <div
               v-for="(url, index) in bugParts"
@@ -159,7 +160,7 @@ function clearAll() {
     </cv-row>
     <cv-row>
       <cv-column>
-        <div class="mt-9">
+        <div class="mt-9!">
           <div
             class="w-[422px] h-[125px] bg-carbon-blue-20 bg-top"
             :style="topUrl"

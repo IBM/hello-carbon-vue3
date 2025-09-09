@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 export default {
   name: "ThemeSwitcher",
 };
 </script>
-<script setup>
+<script setup lang="ts">
 import { useStorage } from "@vueuse/core";
 import white from "../../styles/carbon-white.css?url";
 import g10 from "../../styles/carbon-g10.css?url";

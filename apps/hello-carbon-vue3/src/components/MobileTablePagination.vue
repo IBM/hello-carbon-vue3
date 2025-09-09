@@ -1,14 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import {
   ArrowLeft20 as PrevPageIcon,
   ArrowRight20 as NextPageIcon,
 } from "@carbon/icons-vue";
 
-defineProps({
-  /** @type {{ start:number, length:number, page:number }} */
-  tablePagination: { type: Object, required: true },
-  numberOfItems: { type: Number, required: true },
-});
+import type { TablePagination } from "@/types/ui";
+
+defineProps<{ tablePagination: TablePagination; numberOfItems: number }>();
 const emit = defineEmits(["pagination"]);
 </script>
 

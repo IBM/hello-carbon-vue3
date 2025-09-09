@@ -1,17 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { Redo32 as FlipIcon } from "@carbon/icons-vue";
 import { computed, ref } from "vue";
-import { useLanguageStore } from "@/stores/language";
+// import { useLanguageStore } from "@/stores/language";
 import { useTranslation } from "i18next-vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "@/assets/bug-placeholder.jpg";
 
-const props = defineProps({
-  bug: {
-    type: /** @type {BugData} **/ Object,
-    required: true,
-  },
-});
+import type { BugItem } from "@/types/bugs";
+
+const props = defineProps<{ bug: BugItem }>();
 const { t } = useTranslation();
 
 const flip = ref(false);
@@ -19,22 +16,11 @@ function toggleFlip() {
   flip.value = !flip.value;
 }
 
-const langStore = useLanguageStore();
-const bugName = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.bug.name[key];
-  return name || props.bug.key;
-});
-
-const rarityMap = {
-  "Common": "gray",
-  "Uncommon": "green",
-  "Rare": "purple",
-  "Ultra-rare": "magenta",
-};
-const rarity = computed(() => {
-  return rarityMap[props.bug.availability?.rarity] || "gray";
-});
+import { useI18nName } from "@/composables/useI18nName";
+const bugName = useI18nName(() => props.bug.name, String(props.bug.id));
+import { useRarity } from "@/composables/useRarity";
+const { bugTagKind } = useRarity();
+const rarity = computed(() => bugTagKind(props.bug.availability?.rarity));
 </script>
 
 <template>
@@ -47,7 +33,7 @@ const rarity = computed(() => {
         <div>
           <BlurImage
             :src="bug.icon_uri"
-            :alt="bug.key"
+            :aria-label="bug.name"
             :src-placeholder="placeholderImage"
             class="bug-card__image"
           />

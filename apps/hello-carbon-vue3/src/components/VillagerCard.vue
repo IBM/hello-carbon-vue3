@@ -1,25 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { useLanguageStore } from "@/stores/language";
 import { computed } from "vue";
 import ChatBubble from "@/components/ChatBubble.vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "@/assets/bug-placeholder.jpg";
 
-const props = defineProps({
-  villager: {
-    type: /** @type {VillagerData} **/ Object,
-    required: true,
-  },
-});
+import type { VillagerItem } from "@/types/villagers";
+
+const props = defineProps<{ villager: VillagerItem }>();
 const langStore = useLanguageStore();
-const name = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.villager.name[key];
-  return name || props.villager.key;
-});
+import { useI18nName } from "@/composables/useI18nName";
+const name = useI18nName(() => props.villager.name, props.villager["file-name"]);
 const catchPhrase = computed(() => {
   const key = "catch-" + langStore.languageObject.api;
-  let phrase = props.villager["catch-translations"][key];
+  const phrase = props.villager["catch-translations"][key];
   return phrase || props.villager["catch-phrase"];
 });
 </script>

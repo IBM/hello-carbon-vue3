@@ -1,15 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import {
   Home16 as HomeIcon,
   Fish16 as FishIcon,
   Debug16 as BugsIcon,
   Events16 as VillagersIcon,
   Translate20 as LanguageIcon,
-  Login20 as LoginIcon,
-  UserAvatar20 as AvatarIcon,
   Switcher20 as SwitcherIcon,
   ColorPalette20 as ThemeIcon,
 } from "@carbon/icons-vue";
+import AuthStatusIcon from "@/components/AuthStatusIcon.vue";
 import ThemeSelector from "@/components/Theme/Selector.vue";
 import { ref } from "vue";
 import { useLanguageStore } from "../stores/language";
@@ -20,10 +19,14 @@ const loggedIn = ref(false);
 
 const langStore = useLanguageStore();
 const languageExpanded = ref(false);
-function changeLocale(language) {
+function changeLocale(language: string) {
   langStore.setLanguage(language);
   languageExpanded.value = false;
-  document?.activeElement?.blur();
+
+  const activeElement = document?.activeElement as HTMLElement | null;
+  if (activeElement && typeof activeElement.blur === "function") {
+    activeElement.blur();
+  }
 }
 function onLogin() {
   loggedIn.value = !loggedIn.value;
@@ -95,8 +98,7 @@ const otherApps = ref([
         tip-alignment="center"
         @click="onLogin"
       >
-        <AvatarIcon v-if="loggedIn" />
-        <LoginIcon v-else />
+        <AuthStatusIcon :logged-in="loggedIn" />
       </cv-header-global-action>
       <cv-header-global-action
         :aria-label="t('other-apps')"

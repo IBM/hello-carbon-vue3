@@ -1,23 +1,26 @@
-<script setup>
-import { useFishStore } from "../stores/fish";
+<script setup lang="ts">
+import { useFishStore } from "@/stores/fish";
 import FishRow from "../components/FishRow.vue";
 import { computed, onMounted, ref, provide, watch } from "vue";
-import {
-  View20 as ShowAllIcon,
-  ViewOff20 as HideIcon,
-} from "@carbon/icons-vue";
+import ToggleVisibilityIcon from "@/components/ToggleVisibilityIcon.vue";
 import { useTranslation } from "i18next-vue";
 import FishRowEmpty from "@/components/FishRowEmpty.vue";
-import { useLanguageStore } from "@/stores/language.js";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
+import { useLanguageStore } from "@/stores/language";
+import { useBreakpoints } from "@/composables/useBreakpoints";
 import MobileTablePagination from "@/components/MobileTablePagination.vue";
+import { useDebouncedSearch } from "@/composables/useDebouncedSearch";
+import { useArrayPagination } from "@/composables/useArrayPagination";
+import { ViewOff20 as HideIcon } from "@carbon/icons-vue";
 
 const { t, i18next } = useTranslation();
 const langStore = useLanguageStore();
 
 const hideIcon = HideIcon;
 const fishStore = useFishStore();
+import type { SortKeys, TablePagination } from "@/types/ui";
+
 const loading = ref(false);
+const loadError = ref<string | null>(null);
 const pagination = ref({ numberOfItems: 0, pageSizes: [7, 11, 23, 31] });
 const i18nPagination = computed(() => {
   return {
@@ -30,22 +33,33 @@ const i18nPagination = computed(() => {
 });
 onMounted(() => {
   loading.value = true;
+  loadError.value = null;
   try {
-    fishStore.loadFish().finally(() => {
-      pagination.value.numberOfItems = fishStore.fish.length;
-      loading.value = false;
-    });
+    fishStore
+      .loadFish()
+      .catch((e) => {
+        console.error("error loading fish from API", e?.message || e);
+        loadError.value = e?.message || "Failed to load fish";
+      })
+      .finally(() => {
+        pagination.value.numberOfItems = fishStore.fish.length;
+        loading.value = false;
+      });
   }
-  catch (e) {
-    console.error("error loading fish from API", e.message);
+  catch (e: unknown) {
+    const msg = (e as { message?: string })?.message ?? String(e);
+    console.error("error loading fish from API", msg);
+    loadError.value = msg || "Failed to load fish";
+    loading.value = false;
   }
 });
-const sortKeys = ref({ index: "0", order: "none", name: null });
+const sortKeys = ref<SortKeys>({ index: "0", order: "none", name: null });
 function onSort(keys) {
   sortKeys.value = keys;
 }
 
 const searchFilter = ref("");
+const debouncedSearch = useDebouncedSearch(searchFilter, 250);
 /**
  * Set a search filter
  * @param {string} val
@@ -62,9 +76,9 @@ const filteredFish = computed(() => {
   // if we are not showing hidden fish, remove them
   if (!showHidden.value) show = show.filter(fish => !fish.hidden);
 
-  // if we have search term, filter based on that term
-  if (searchFilter.value)
-    show = show.filter(fish => fish.key.includes(searchFilter.value));
+  // if we have a search term, filter based on that term
+  if (debouncedSearch.value)
+    show = show.filter(fish => fish.key.includes(debouncedSearch.value));
 
   // If we are sorting the data, do that here
   if (sortKeys.value.order !== "none") {
@@ -98,18 +112,12 @@ function toggleShowAll() {
   showHidden.value = !showHidden.value;
 }
 
-const currentPagination = ref({ start: 1, length: 7 });
-const paginated = computed(() => {
-  const change = currentPagination.value;
-  return filteredFish.value.slice(
-    change.start - 1,
-    change.start + change.length - 1,
-  );
-});
-function onPagination(change) {
-  currentPagination.value = change;
+const { state: currentPagination, pageSlice, set: setPagination } = useArrayPagination({ length: 7 });
+const paginated = computed(() => pageSlice(filteredFish.value));
+function onPagination(change: TablePagination) {
+  setPagination(change);
 }
-const selectedFish = ref([]);
+const selectedFish = ref<string[]>([]);
 function onHideSelected() {
   for (let i = 0; i < selectedFish.value.length; i++) {
     const key = selectedFish.value[i];
@@ -142,6 +150,13 @@ const { md, carbonMd } = useBreakpoints();
             {{ t("no") }}
           </template>
         </cv-toggle>
+        <cv-inline-notification
+          v-if="loadError"
+          kind="error"
+          title="Error"
+          :subtitle="loadError"
+          class="mb-4"
+        />
         <cv-data-table-skeleton
           v-if="loading"
           :columns="[t('name'), t('price'), 'CJ', t('location'), t('rarity')]"
@@ -201,18 +216,9 @@ const { md, carbonMd } = useBreakpoints();
               :alt="t('show')"
               @click="toggleShowAll"
             >
-              <HideIcon
-                v-if="showHidden"
-                class="bx--toolbar-action__icon"
-              >
-                <title>{{ t("hide") }}</title>
-              </HideIcon>
-              <ShowAllIcon
-                v-else
-                class="bx--toolbar-action__icon"
-              >
-                <title>{{ t("show") }}</title>
-              </ShowAllIcon>
+              <ToggleVisibilityIcon :visible="showHidden" class="bx--toolbar-action__icon">
+                <title>{{ showHidden ? t('hide') : t('show') }}</title>
+              </ToggleVisibilityIcon>
             </cv-data-table-action>
           </template>
           <template #headings>

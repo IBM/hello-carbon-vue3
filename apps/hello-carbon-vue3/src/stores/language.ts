@@ -1,13 +1,20 @@
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, type Ref } from "vue";
 import { defineStore } from "pinia";
 import { useTranslation } from "i18next-vue";
+
+export interface LanguageOption {
+  language: string;
+  title: string;
+  api: string;
+  currency: string;
+}
 
 export const useLanguageStore = defineStore("language", () => {
   const { i18next } = useTranslation();
 
-  const localLang = localStorage.getItem("language") || "en";
-  const language = ref(localLang);
-  const languages = ref([
+  const localLang = (typeof localStorage !== "undefined" && localStorage.getItem("language")) || "en";
+  const language = ref<string>(localLang);
+  const languages = ref<LanguageOption[]>([
     { language: "zh", title: "漢語", api: "CNzh", currency: "CNY" },
     { language: "de", title: "Deutsch", api: "EUde", currency: "EUR" },
     { language: "en", title: "English", api: "EUen", currency: "GBP" },
@@ -23,11 +30,12 @@ export const useLanguageStore = defineStore("language", () => {
 
   /**
    * Set a new user language
-   * @param {string} lang
    */
-  async function setLanguage(lang) {
+  async function setLanguage(lang: string): Promise<void> {
     language.value = lang;
-    localStorage.setItem("language", language.value);
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("language", language.value);
+    }
     await i18next.changeLanguage(lang);
   }
 
@@ -35,10 +43,10 @@ export const useLanguageStore = defineStore("language", () => {
     return languages.value.find(o => o.language === language.value);
   });
 
-  const currencyFormat = ref(
+  const currencyFormat: Ref<Intl.NumberFormat> = ref(
     new Intl.NumberFormat(language.value, {
       style: "currency",
-      currency: languageObject?.value.currency || "JPY",
+      currency: languageObject?.value?.currency || "JPY",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }),
@@ -46,7 +54,7 @@ export const useLanguageStore = defineStore("language", () => {
   watch(languageObject, () => {
     currencyFormat.value = new Intl.NumberFormat(language.value, {
       style: "currency",
-      currency: languageObject?.value.currency || "JPY",
+      currency: languageObject?.value?.currency || "JPY",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     });

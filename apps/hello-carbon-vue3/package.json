@@ -9,6 +9,7 @@
     "dev:build": "vite build",
     "preview": "vite preview --base=/hello-carbon-vue3/hello-carbon-vue3/ --port 5173",
     "dev:preview": "vite preview --port 5173",
+    "type-check": "vue-tsc --build --noEmit",
     "dev:e2e": "cypress open --e2e",
     "test:e2e": "cypress run --e2e",
     "test:unit": "cypress run --component",
@@ -35,14 +36,19 @@
     "@eslint/js": "^9.27.0",
     "@stylistic/eslint-plugin": "^4.4.1",
     "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/vite": "^4.1.13",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.18.0",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/tsconfig": "^0.8.1",
     "cypress": "^15.1.0",
     "eslint": "^9.35.0",
     "eslint-plugin-cypress": "^5.1.1",
     "eslint-plugin-vue": "^9.33.0",
     "jsdom": "^26.1.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.10",
-    "vite": "^7.1.4"
+    "tailwindcss": "^4.1.12",
+    "vite": "^7.1.4",
+    "vue-tsc": "^3.0.6"
   }
 }

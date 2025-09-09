@@ -1,13 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import VillagerCard from "@/components/VillagerCard.vue";
 import { useTranslation } from "i18next-vue";
 
-defineProps({
-  hobbyists: {
-    type: /** @type {HobbyistData} **/ Object,
-    required: true,
-  },
-});
+import type { HobbyGroup } from "@/types/groups";
+
+defineProps<{ hobbyists: HobbyGroup }>();
 const { t } = useTranslation();
 </script>
 
@@ -19,7 +16,7 @@ const { t } = useTranslation();
     <div class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
       <VillagerCard
         v-for="villager in hobbyists.villagers"
-        :key="villager.key"
+        :key="villager['file-name']"
         :villager="villager"
       />
     </div>

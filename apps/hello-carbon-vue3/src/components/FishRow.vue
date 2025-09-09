@@ -1,56 +1,30 @@
-<script setup>
-import { useLanguageStore } from "../stores/language";
+<script setup lang="ts">
+import { useLanguageStore } from "@/stores/language";
 import { computed, inject, ref } from "vue";
-import {
-  StarFilled16 as RareIcon,
-  CircleFilled16 as LocationIcon,
-  EarthFilled16 as RiverIcon,
-  EarthAmericasFilled16 as SeaIcon,
-  EarthEuropeAfricaFilled16 as PondIcon,
-  EarthSoutheastAsiaFilled16 as PierIcon,
-} from "@carbon/icons-vue";
+// star icons handled by RarityStars component
+import RarityStars from "@/components/RarityStars.vue";
+import LocationIconByWater from "@/components/LocationIconByWater.vue";
 import BlurImage from "@/components/BlurImage.vue";
 import placeholderImage from "../assets/fish.svg";
 import { useTranslation } from "i18next-vue";
-import { useBreakpoints } from "@/composables/useBreakpoints.js";
+import { useBreakpoints } from "@/composables/useBreakpoints";
 const { t } = useTranslation();
 
-const props = defineProps({
-  fish: {
-    type: /** @type {FishData} **/ Object,
-    required: true,
-  },
-  expandable: { type: Boolean, default: false },
-});
+import type { FishItem } from "@/types/fish";
+
+const props = defineProps<{ fish: FishItem; expandable?: boolean }>();
 const langStore = useLanguageStore();
-const fishName = computed(() => {
-  const key = "name-" + langStore.languageObject.api;
-  let name = props.fish.name[key];
-  return name || props.fish.key;
-});
+import { useI18nName } from "@/composables/useI18nName";
+const fishName = useI18nName(() => props.fish.name, props.fish["file-name"]);
 const fishPrice = computed(() => {
   return langStore.currencyFormat.format(props.fish.price);
 });
 const cjFishPrice = computed(() => {
   return langStore.currencyFormat.format(props.fish["price-cj"]);
 });
-const rarityMap = {
-  "Common": 1,
-  "Uncommon": 2,
-  "Rare": 3,
-  "Ultra-rare": 4,
-};
-const rarity = computed(() => {
-  return rarityMap[props.fish.availability?.rarity] || -1;
-});
-const location = computed(() => {
-  const location = props.fish.availability?.location || "Pond";
-  if (location.startsWith("Pond")) return "pond";
-  else if (location.startsWith("River")) return "river";
-  else if (location.startsWith("Sea")) return "sea";
-  else if (location.startsWith("Pier")) return "pier";
-  else return "";
-});
+import { useRarity } from "@/composables/useRarity";
+const { fishStars } = useRarity();
+const fishRarity: number = fishStars(props.fish.availability?.rarity);
 
 const showCatchPhrases = inject("show-catch-phrases", ref(false));
 
@@ -59,7 +33,7 @@ const { md } = useBreakpoints();
 
 <template>
   <cv-data-table-row
-    :value="fish.key"
+    :value="fish['file-name']"
     :aria-label-for-batch-checkbox="t('select-row', { name: fishName })"
   >
     <cv-data-table-cell>{{ fishName }}</cv-data-table-cell>
@@ -78,53 +52,14 @@ const { md } = useBreakpoints();
       {{ cjFishPrice }}
     </cv-data-table-cell>
     <cv-data-table-cell>
-      <PondIcon
-        v-if="location === 'pond'"
-        :alt="fish.availability?.location"
+      <LocationIconByWater
+        :location-text="fish.availability?.location"
         :title="fish.availability?.location"
-        class="fill-carbon-blue-40"
-      />
-      <RiverIcon
-        v-else-if="location === 'river'"
         :alt="fish.availability?.location"
-        :title="fish.availability?.location"
-        class="fill-carbon-blue-60"
-      />
-      <SeaIcon
-        v-else-if="location === 'sea'"
-        :alt="fish.availability?.location"
-        :title="fish.availability?.location"
-        class="fill-carbon-teal-30"
-      />
-      <PierIcon
-        v-else-if="location === 'pier'"
-        :alt="fish.availability?.location"
-        :title="fish.availability?.location"
-        class="fill-carbon-green-20"
-      />
-      <LocationIcon
-        v-else
-        :alt="fish.availability?.location"
-        :title="fish.availability?.location"
-        class="fill-carbon-yellow-40"
       />
     </cv-data-table-cell>
     <cv-data-table-cell v-if="md">
-      <div
-        class="flex"
-        :class="{
-          'text-carbon-purple-30': rarity === 1,
-          'text-carbon-purple-40': rarity === 2,
-          'text-carbon-purple-50': rarity === 3,
-          'text-carbon-purple-60': rarity === 4,
-          'text-carbon-magenta-30': rarity > 4 || rarity < 1,
-        }"
-      >
-        <RareIcon v-if="rarity >= 1" />
-        <RareIcon v-if="rarity >= 2" />
-        <RareIcon v-if="rarity >= 3" />
-        <RareIcon v-if="rarity >= 4" />
-      </div>
+      <RarityStars :count="fishRarity"/>
     </cv-data-table-cell>
     <!-- Add optional expanding data here -->
     <template

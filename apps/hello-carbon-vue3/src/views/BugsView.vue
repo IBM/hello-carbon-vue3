@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useBugsStore } from "@/stores/bugs";
 import { onMounted, ref } from "vue";
 import { groupBy } from "lodash";
@@ -7,22 +7,34 @@ import { useTranslation } from "i18next-vue";
 
 const { t } = useTranslation();
 const bugStore = useBugsStore();
+import type { BugItem } from "@/types/bugs";
+
 const loading = ref(false);
-const bugGroups = ref({});
+const loadError = ref<string | null>(null);
+const bugGroups = ref<Array<{ location: string; bugs: BugItem[] }>>([]);
 onMounted(() => {
   loading.value = true;
+  loadError.value = null;
   try {
-    bugStore.loadBugs().finally(() => {
-      const groups = groupBy(bugStore.bugs, "availability.location");
-      const keys = Object.keys(groups);
-      bugGroups.value = keys.map((key) => {
-        return { location: key, bugs: groups[key] };
+    bugStore
+      .loadBugs()
+      .catch((e) => {
+        console.error("error loading bugs from API", e?.message || e);
+        loadError.value = e?.message || "Failed to load bugs";
+      })
+      .finally(() => {
+        const groups = groupBy(bugStore.bugs as BugItem[], "availability.location");
+        const keys = Object.keys(groups);
+        bugGroups.value = keys.map((key) => {
+          return { location: key, bugs: groups[key] as BugItem[] };
+        });
+        loading.value = false;
       });
-      loading.value = false;
-    });
   }
-  catch (e) {
-    console.error("error loading bugs from API", e.message);
+  catch (e: unknown) {
+    console.error("error loading bugs from API", (e as Error)?.message || e);
+    loadError.value = (e as Error)?.message || "Failed to load bugs";
+    loading.value = false;
   }
 });
 </script>
@@ -50,6 +62,13 @@ onMounted(() => {
     </cv-row>
     <cv-row>
       <cv-column>
+        <cv-inline-notification
+          v-if="loadError"
+          kind="error"
+          title="Error"
+          :subtitle="loadError"
+          class="mb-4"
+        />
         <cv-accordion-skeleton v-if="loading" />
         <cv-accordion v-else>
           <cv-accordion-item
@@ -65,7 +84,7 @@ onMounted(() => {
                 <cv-row>
                   <cv-column
                     v-for="bug in group.bugs"
-                    :key="bug.key"
+                    :key="bug.id"
                     :lg="4"
                   >
                     <BugCard :bug="bug" />

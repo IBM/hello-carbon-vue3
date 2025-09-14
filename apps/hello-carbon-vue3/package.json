@@ -46,7 +46,7 @@
     "eslint": "^9.35.0",
     "eslint-plugin-cypress": "^5.1.1",
     "eslint-plugin-vue": "^9.33.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.0.0",
     "tailwindcss": "^4.1.12",
     "vite": "^7.1.4",
     "vue-tsc": "^3.0.6"

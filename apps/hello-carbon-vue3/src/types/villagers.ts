@@ -5,21 +5,21 @@
 
 import { LocalizedNameMap } from "./language";
 
-export type CatchTranslationKey =
-  | "catch-USen"
-  | "catch-EUen"
-  | "catch-EUde"
-  | "catch-EUes"
-  | "catch-USes"
-  | "catch-EUfr"
-  | "catch-USfr"
-  | "catch-EUit"
-  | "catch-EUnl"
-  | "catch-CNzh"
-  | "catch-TWzh"
-  | "catch-JPja"
-  | "catch-KRko"
-  | "catch-EUru";
+export type CatchTranslationKey
+  = | "catch-USen"
+    | "catch-EUen"
+    | "catch-EUde"
+    | "catch-EUes"
+    | "catch-USes"
+    | "catch-EUfr"
+    | "catch-USfr"
+    | "catch-EUit"
+    | "catch-EUnl"
+    | "catch-CNzh"
+    | "catch-TWzh"
+    | "catch-JPja"
+    | "catch-KRko"
+    | "catch-EUru";
 
 export type CatchTranslationsMap = Record<CatchTranslationKey, string>;
 

@@ -19,7 +19,7 @@
     "test:e2e:safari": "npx cypress run --e2e --browser safari"
   },
   "dependencies": {
-    "@carbon/icons-vue": "^10.116.0",
+    "@carbon/icons-vue": "^10.99.1",
     "@carbon/themes": "^10.55.6",
     "@carbon/vue": "^3.0.27",
     "@nuxt/eslint": "^1.4.1",

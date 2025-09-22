@@ -6,7 +6,7 @@
     "apps/*"
   ],
   "scripts": {
-    "prepare": "husky install || true",
+    "prepare": "husky || true",
     "preview": "vite preview --port 5173",
     "lint": "lint-staged"
   },

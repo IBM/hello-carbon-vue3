@@ -36,8 +36,8 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
-    "cypress": "^15.1.0",
-    "eslint": "^9.35.0",
+    "cypress": "^15.2.0",
+    "eslint": "^9.36.0",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "sass": "^1.89.2"
   },

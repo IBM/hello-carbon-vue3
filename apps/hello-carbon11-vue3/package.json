@@ -15,10 +15,10 @@
     "ci:lint": "eslint --max-warnings 0"
   },
   "dependencies": {
-    "@carbon/grid": "^11.43.0",
+    "@carbon/grid": "^11.44.0",
     "@carbon/icons-vue": "^10.99.1",
     "@carbon/themes": "^11.55.0",
-    "@carbon/web-components": "^2.36.0",
+    "@carbon/web-components": "^2.39.1",
     "@stylistic/eslint-plugin": "^5.4.0",
     "@vueuse/core": "^13.5.0",
     "i18next": "^25.5.2",
@@ -26,10 +26,10 @@
     "i18next-vue": "^5.3.0",
     "lodash": "^4.17.21",
     "pinia": "^3.0.3",
-    "sass": "^1.93.0",
+    "sass": "^1.93.2",
     "superagent": "^10.2.1",
     "v-lazy-image": "^2.1.1",
-    "vue": "^3.5.17",
+    "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {

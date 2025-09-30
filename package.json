@@ -11,8 +11,8 @@
     "lint": "lint-staged"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.5.2",
     "@vue/eslint-config-typescript": "^14.6.0",

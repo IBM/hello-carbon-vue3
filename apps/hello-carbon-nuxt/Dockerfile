@@ -1,4 +1,4 @@
-FROM docker.io/node:22-alpine AS base
+FROM docker.io/node:24-alpine AS base
 FROM base AS builder
 WORKDIR /mono
 COPY . app

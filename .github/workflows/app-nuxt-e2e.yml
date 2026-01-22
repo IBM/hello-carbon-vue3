@@ -32,7 +32,7 @@ jobs:
           sleep 45
 
       - name: Start mock marvel server
-        uses: mockoon/cli-action@v2.0.0
+        uses: mockoon/cli-action@v3.0.0
         with:
           version: "latest"
           data-file: "./apps/hello-carbon-nuxt/local-dev/mock/mock-api.json"

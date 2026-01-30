@@ -1,12 +1,12 @@
 # Hello carbon 11 web components with Vue 3
 
-This repository is designed to help you get started with integrating Carbon Web Components into a Vue 3 application. It
+This application is part of a monorepo and is designed to help you get started with integrating Carbon Web Components into a Vue 3 application. It
 showcases best practices for setting up a new Vue 3, providing a solid foundation for your project.
 
-If you are looking for a Nuxt example, checkout [Hello carbon nuxt](https://github.com/davidnixon/hello-carbon-nuxt)
+If you are looking for a Nuxt example, checkout [Hello carbon nuxt](../hello-carbon-nuxt)
 
 If you are looking for a Vue 3 example with Carbon Vue components,
-checkout [Hello carbon Vue 3](https://github.com/IBM/hello-carbon-vue3)
+checkout [Hello carbon Vue 3](../hello-carbon-vue3)
 
 ## Packages used
 
@@ -75,21 +75,24 @@ Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/it
 
 ## Project Setup
 
+The best way to get started is to install dependencies from the root of the monorepo:
+
 ```sh
-nvm use 22
+cd ../..
+nvm use
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Then return to this directory to start the development server:
 
 ```sh
 npm run dev
 ```
 
-### Build and test locally
+### Build for production
 
 ```sh
-npm run local-build
+npm run build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)

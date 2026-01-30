@@ -1,11 +1,11 @@
 # Hello carbon nuxt
-This repository is designed to help you get started with integrating Carbon into a Nuxt application.
-It showcases best practices for setting up a new Nuxt app with Carbon, providing a solid foundation
+This application is part of a monorepo and is designed to help you get started with integrating Carbon into a Nuxt application.
+It showcases the best practices for setting up a new Nuxt app with Carbon, providing a solid foundation
 for your project.
 
-If you are looking for a plain Vue 3 example, checkout [Hello carbon Vue3](https://github.com/IBM/hello-carbon-vue3)
+If you are looking for a plain Vue 3 example, checkout [Hello carbon Vue3](../hello-carbon-vue3)
 
-If you are looking for a Carbon 11 with Vue, checkout [Hello carbon 11 web components with Vue 3](https://github.com/davidnixon/hello-carbon11-vue3/tree/main?tab=readme-ov-file)
+If you are looking for Carbon 11 with Vue, checkout [Hello carbon 11 web components with Vue 3](../hello-carbon11-vue3)
 
 
 ## Packages used
@@ -20,12 +20,12 @@ the Carbon Design System A collection of Carbon Components
 - [cypress](https://www.cypress.io/) - Implement e2e tests with cypress to help screen PRs
 
 ## Carbon styles
-The carbon styles are imported as a pre-compiled css file. The fie is created by using sass on the command line to
-generate the css. See [carbon-gray-90.scss](assets/scss/carbon-gray-90.scss) for instructions on creating the css file.
+The carbon styles are imported as a pre-compiled CSS file. The fie is created by using SASS on the command line to
+generate the CSS. See [carbon-gray-90.scss](assets/scss/carbon-gray-90.scss) for instructions on creating the CSS file.
 
 ## Pages & Components
 [demo site for this repository](https://hello-carbon-nuxt.1qxat1gxkarf.us-east.codeengine.appdomain.cloud/)
-- Header with mobile navigation under "hamburger" menu
+- Header with mobile navigation under the "hamburger" menu
 
   ![header](./docs/header.gif)
   - Language selection in the header bar, login and switcher buttons are also included
@@ -77,13 +77,20 @@ pixel-perfect designs (or not-so-perfect ones—we’re cool with that too).
 - [Mockoon](https://mockoon.com/download/) - run mocks for comics endpoints
 - Docker or [podman](https://podman.io/) or [Rancher Desktop](https://rancherdesktop.io/)
 
-## Setup
+## Project Setup
 
-Make sure to install the dependencies:
+The best way to get started is to install dependencies from the root of the monorepo:
 
 ```bash
-# npm
+cd ../..
+nvm use
 npm install
+```
+
+Then return to this directory:
+
+```bash
+cd apps/hello-carbon-nuxt
 ```
 
 ## Getting Started

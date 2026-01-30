@@ -21,15 +21,15 @@ Each app is intentionally simple, focused on best practices, and ready to run so
 ## What’s Inside
 
 - hello-carbon-vue3
-    - Vue 3 + Carbon Vue components
+    - [Vue 3 + Carbon Vue components](./apps/hello-carbon-vue3)
     - Demonstrates component composition, i18n, state management, and basic REST integration
 
 - hello-carbon11-vue3
-    - Vue 3 + Carbon 11 Web Components
+    - [Vue 3 + Carbon 11 Web Components](./apps/hello-carbon11-vue3)
     - Shows how to use framework-agnostic Carbon Web Components in a Vue setup with theming and i18n
 
 - hello-carbon-nuxt
-    - Nuxt + Carbon Vue components
+    - [Nuxt + Carbon Vue components](./apps/hello-carbon-nuxt)
     - Adds server-side rendering, routing conventions, i18n module, authentication patterns, and logging, along with UI examples
 
 ## Demo deployments
@@ -44,19 +44,27 @@ Each app is intentionally simple, focused on best practices, and ready to run so
 ## Quick Start
 
 - Prerequisites
-    - Node.js (LTS or the version specified by each app)
+    - [nvm](https://github.com/nvm-sh/nvm) (recommended)
+    - Node.js v22 (LTS)
     - npm
 
 - Install
-    - From each app directory, install dependencies and start the dev server.
+    - From the root directory, install all dependencies:
 
 ```shell script
-# Navigate into an app and run:
+nvm use
 npm install
+```
+
+- Run an application
+    - Navigate into an app directory and start the dev server:
+
+```shell script
+cd apps/hello-carbon-vue3
 npm run dev
 ```
 
-Each app contains its own README with setup, scripts, and usage details.
+Each app contains its own README with specific setup details (like mock APIs or authentication for the Nuxt app), scripts, and usage instructions.
 
 ## Contributing
 
